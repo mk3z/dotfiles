@@ -16,7 +16,6 @@
       show_milliseconds = true;
       format = "[$duration]($style) ";
       style = "bright-black";
-      show_notifications = true;
     };
 
     directory = {
