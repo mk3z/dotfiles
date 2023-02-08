@@ -91,7 +91,7 @@
     systemd.enable = true;
     settings = {
       mainBar = {
-        position = "top";
+        position = "bottom";
         height = 16;
         modules-left = [ "sway/workspaces" "sway/mode" "sway/window" ];
       };
@@ -99,6 +99,12 @@
     style = ''
       * {
         font-family: "Monospace";
+        opacity: 0.85;
+        min-height: 0;
+      }
+      window#waybar {
+        padding: 0;
+        margin: 0;
       }'';
   };
 }
