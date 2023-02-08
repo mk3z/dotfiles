@@ -86,6 +86,11 @@ in
           repeat_rate = "50";
         };
       };
+      seat = {
+        "*" = {
+          hide_cursor = "5000";
+        };
+      };
     };
   };
 
