@@ -305,6 +305,22 @@
         "type": "github"
       }
     },
+    "fish-ssh-agent": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1605087262,
+        "narHash": "sha256-e94Sd1GSUAxwLVVo5yR6msq0jZLOn2m+JZJ6mvwQdLs=",
+        "owner": "danhper",
+        "repo": "fish-ssh-agent",
+        "rev": "fd70a2afdd03caf9bf609746bf6b993b9e83be57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danhper",
+        "repo": "fish-ssh-agent",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -625,6 +641,7 @@
         "copilot": "copilot",
         "doom-emacs": "doom-emacs",
         "emacs-overlay": "emacs-overlay_2",
+        "fish-ssh-agent": "fish-ssh-agent",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nixos-hardware": "nixos-hardware",

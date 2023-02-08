@@ -5,8 +5,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit (inputs) impermanence doom-emacs;
-      inherit homePersistDir;
+      inherit inputs homePersistDir;
     };
     users.matias = import ./user.nix "matias";
   };

@@ -1,5 +1,13 @@
+{ inputs }:
+
 {
   enable = true;
+  plugins = [
+    {
+      name = "fish-ssh-agent";
+      src = inputs.fish-ssh-agent;
+    }
+  ];
   shellInit = "
     # Disable greeting
     set -U fish_greeting

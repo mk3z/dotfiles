@@ -36,6 +36,11 @@
       flake = false;
     };
 
+    fish-ssh-agent = {
+      url = github:danhper/fish-ssh-agent;
+      flake = false;
+    };
+
     stylix.url = github:danth/stylix;
 
     base16 = {
@@ -54,6 +59,7 @@
       impermanence,
       emacs-overlay,
       copilot,
+      fish-ssh-agent,
       stylix,
       ...
     }:

@@ -1,4 +1,4 @@
-{ pkgs, copilot }:
+{ pkgs, inputs }:
 
 {
   home-manager.enable = true;
@@ -38,7 +38,7 @@
 
       copilot = self.trivialBuild {
         pname  = "copilot";
-        src = copilot;
+        src = inputs.copilot;
       };
     };
   };
@@ -52,7 +52,7 @@
     userEmail = "matias.zwinger@protonmail.com";
   };
 
-  fish = import ./fish.nix;
+  fish = import ./fish.nix { inherit inputs; };
 
   foot = {
     enable = true;

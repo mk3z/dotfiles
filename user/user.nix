@@ -1,12 +1,12 @@
-username: { pkgs, impermanence, homePersistDir, doom-emacs, copilot, ... }:
+username: { pkgs, lib, inputs, homePersistDir, ... }:
 
 let
   homeDirectory = "/home/${username}";
 in
 {
   imports = [
-    impermanence.nixosModules.home-manager.impermanence
-    doom-emacs.hmModule
+    inputs.impermanence.nixosModules.home-manager.impermanence
+    inputs.doom-emacs.hmModule
   ];
 
   home = { inherit username homeDirectory; };
@@ -103,7 +103,7 @@ in
     };
   };
 
-  programs = import ./programs { inherit pkgs copilot; };
+  programs = import ./programs { inherit pkgs inputs; };
 
   services = import ./services { inherit pkgs; };
 
