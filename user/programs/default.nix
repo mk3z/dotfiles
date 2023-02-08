@@ -43,22 +43,6 @@
     };
   };
 
-  alacritty = {
-    enable = true;
-    settings = {
-      window.padding = {
-        x = 2;
-        y = 0;
-      };
-      dynamic_padding = true;
-      decorations = "none";
-      opacity = 0.85;
-      startup_mode = "Maximized";
-      font.size = 12;
-      cursor.style.shape = "Beam";
-    };
-  };
-
   bat.enable = true;
 
   git = {
@@ -68,22 +52,25 @@
     userEmail = "matias.zwinger@protonmail.com";
   };
 
-  fish = {
+  fish = import ./fish.nix;
+
+  foot = {
     enable = true;
-    shellInit = "
-      # Disable greeting
-      set -U fish_greeting
-
-      # Enable vi mode
-      fish_vi_key_bindings
-      set fish_cursor_default block
-      set fish_cursor_insert line
-      set fish_cursor_replace_one underscore
-      set fish_cursor_visual block
-
-      # Modify fzf.fish bindings
-      fzf_configure_bindings --directory=\\cf --git_log=\\cg --git_status=\\cs --processes=\\cp
-    ";
+    server.enable = true;
+    settings = {
+      main = {
+        font = "monospace:size=10";
+      };
+      scrollback = {
+        lines = 10000;
+      };
+      mouse = {
+        hide-when-typing = "yes";
+      };
+      colors = {
+        alpha = 0.85;
+      };
+    };
   };
 
   fzf.enable = true;
