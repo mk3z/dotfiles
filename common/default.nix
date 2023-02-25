@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, sysPersistDir, ... }:
+{ pkgs, inputs, config, username, sysPersistDir, ... }:
 
 {
   imports = [

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, username, ... }:
 
 {
   services = {
@@ -8,11 +8,11 @@
       settings = rec {
         initial_session = {
           command = "${pkgs.sway}/bin/sway";
-          user = "matias";
+          user = username;
         };
         default_session = {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd sway --time --time-format %Y-%m-%d %H:%M:%S% --remember";
-          user = "matias";
+          user = username;
         };
       };
     };

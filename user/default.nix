@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, homePersistDir, ... }:
+{ config, lib, pkgs, inputs, username, homePersistDir, ... }:
 
 {
   home-manager = {

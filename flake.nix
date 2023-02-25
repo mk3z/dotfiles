@@ -63,7 +63,10 @@
       stylix,
       ...
     }:
-    utils.lib.mkFlake {
+    let
+      username = "matias";
+      sysPersistDir = "/nix/persist";
+    in utils.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
@@ -86,8 +89,9 @@
           modules = [
             ./hosts/nixvm
           ];
-          extraArgs = rec {
-            sysPersistDir = "/nix/persist";
+          extraArgs = {
+            username = username;
+            sysPersistDir = sysPersistDir;
             homePersistDir = sysPersistDir;
           };
           specialArgs = {
