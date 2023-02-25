@@ -7,6 +7,6 @@
     extraSpecialArgs = {
       inherit inputs homePersistDir;
     };
-    users.matias = import ./user.nix username;
+    users.${username} = import ./user.nix username;
   };
 }

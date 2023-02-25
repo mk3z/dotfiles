@@ -76,7 +76,7 @@
     passwordFile = config.age.secrets.password.path;
   };
 
-  users.users.matias = {
+  users.extraUsers.${username} = {
     isNormalUser = true;
     createHome = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
@@ -112,7 +112,7 @@
 
   security.sudo = {
     extraRules= [{
-      users = [ "matias" ];
+      users = [ username ];
         commands = [{
           command = "ALL" ;
           options= [ "NOPASSWD" ];
