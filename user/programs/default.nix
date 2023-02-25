@@ -84,18 +84,34 @@
 
   mako.enable = true;
 
+  mpv.enable = true;
+
   starship = import ./starship.nix;
 
   waybar = {
     enable = true;
     systemd.enable = true;
+
     settings = {
       mainBar = {
         position = "bottom";
         height = 16;
-        modules-left = [ "sway/workspaces" "sway/mode" "sway/window" ];
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+          "sway/window"
+        ];
+        modules-right = [
+          "clock"
+        ];
+      };
+
+      clock = {
+        interval = 1;
+        format = "{:%H:%M:%S}";
       };
     };
+
     style = ''
       * {
         font-family: "Monospace";

@@ -5,6 +5,7 @@
     enable = true;
     systemdIntegration = true;
     wrapperFeatures.gtk = true;
+
     config = rec {
 
       modifier = "Mod4";
@@ -57,6 +58,8 @@
         };
       };
 
+      window.border = 1;
+
       terminal = "foot";
       menu = "wofi --show run";
       bars = [];
@@ -77,6 +80,7 @@
       };
 
     };
+
   };
 
   home.pointerCursor = {

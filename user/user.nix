@@ -54,6 +54,7 @@ in
     duf
     du-dust
     fd
+    gimp
     neofetch
     ripgrep
     tldr
