@@ -7,13 +7,13 @@ in
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.doom-emacs.hmModule
+    ./sway.nix
   ];
 
   home = { inherit username homeDirectory; };
 
   home.persistence."${homePersistDir}${homeDirectory}" = {
     directories = [
-      ".local/share/z"
       ".ssh"
       ".xkb"
       "Code"
@@ -68,40 +68,6 @@ in
     fishPlugins.fzf-fish
     fishPlugins.pisces
   ];
-
-  wayland.windowManager.sway = {
-    enable = true;
-    systemdIntegration = true;
-    wrapperFeatures.gtk = true;
-    config = rec {
-      modifier = "Mod4";
-      terminal = "foot";
-      menu = "wofi --show run";
-      bars = [];
-      input = {
-        "type:keyboard" = {
-          xkb_model = "pc105";
-          xkb_layout = "matias";
-          repeat_delay = "300";
-          repeat_rate = "50";
-        };
-      };
-      seat = {
-        "*" = {
-          hide_cursor = "5000";
-        };
-      };
-    };
-  };
-
-  home.pointerCursor = {
-    package = pkgs.phinger-cursors;
-    name = "phinger-cursors";
-    x11 = {
-      enable = true;
-      defaultCursor = "phinger-cursors";
-    };
-  };
 
   programs = import ./programs { inherit pkgs inputs; };
 
