@@ -15,7 +15,6 @@ in
   home.persistence."${homePersistDir}${homeDirectory}" = {
     directories = [
       ".ssh"
-      ".xkb"
       "Code"
       "Documents"
       "Downloads"

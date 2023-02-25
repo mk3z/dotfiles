@@ -67,7 +67,7 @@
       input = {
         "type:keyboard" = {
           xkb_model = "pc105";
-          xkb_layout = "matias";
+          xkb_layout = "colemat";
           repeat_delay = "300";
           repeat_rate = "50";
         };
@@ -90,6 +90,18 @@
       enable = true;
       defaultCursor = "phinger-cursors";
     };
+  };
+
+  home.file.".xkb/symbols/colemat" = {
+    recursive = true;
+    text =
+      ''
+        default partial alphanumeric_keys modifier_keys keypad_keys
+        xkb_symbols {
+          include "us(colemak_dh_iso)"
+          replace key <AB05> { [ BackSpace ] };
+        };
+      '';
   };
 
 }
