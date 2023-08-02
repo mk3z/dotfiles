@@ -29,7 +29,7 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       terminus_font
       libertinus
       lmodern
