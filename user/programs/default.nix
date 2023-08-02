@@ -1,16 +1,14 @@
-{ pkgs, inputs }:
+{ pkgs, lib, inputs }:
 
 {
   home-manager.enable = true;
 
-  ssh = {
-    enable = true;
-  };
+  ssh = { enable = true; };
 
   doom-emacs = {
-    enable = true;
+    enable = false;
     doomPrivateDir = ./doom.d;
-    emacsPackage = pkgs.emacsPgtk;
+    emacsPackage = pkgs.emacs-pgtk;
     # Only init/packages so we only rebuild when those change.
     doomPackageDir = pkgs.linkFarm "doom-packages-dir" [
       {
@@ -28,16 +26,15 @@
     ];
     emacsPackagesOverlay = self: super: {
 
-      magit-delta = super.magit-delta.overrideAttrs (esuper: {
-        buildInputs = esuper.buildInputs ++ [ pkgs.git ];
-      });
+      magit-delta = super.magit-delta.overrideAttrs
+        (esuper: { buildInputs = esuper.buildInputs ++ [ pkgs.git ]; });
 
       ob-mermaid = super.ob-mermaid.overrideAttrs (esuper: {
         buildInputs = esuper.buildInputs ++ [ pkgs.nodePackages.mermaid-cli ];
       });
 
       copilot = self.trivialBuild {
-        pname  = "copilot";
+        pname = "copilot";
         src = inputs.copilot;
       };
     };
@@ -58,18 +55,9 @@
     enable = true;
     server.enable = true;
     settings = {
-      main = {
-        font = "monospace:size=10";
-      };
-      scrollback = {
-        lines = 10000;
-      };
-      mouse = {
-        hide-when-typing = "yes";
-      };
-      colors = {
-        alpha = 0.85;
-      };
+      main.font = lib.mkForce "monospace:size=10";
+      scrollback.lines = 10000;
+      mouse.hide-when-typing = "yes";
     };
   };
 
@@ -82,33 +70,34 @@
     enableAliases = true;
   };
 
-  mako.enable = true;
-
   mpv.enable = true;
 
   starship = import ./starship.nix;
 
   waybar = {
     enable = true;
-    systemd.enable = true;
 
     settings = {
       mainBar = {
         position = "bottom";
         height = 16;
-        modules-left = [
-          "sway/workspaces"
-          "sway/mode"
-          "sway/window"
-        ];
-        modules-right = [
-          "clock"
-        ];
-      };
+        modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+        modules-right = [ "network" "clock" ];
 
-      clock = {
-        interval = 1;
-        format = "{:%H:%M:%S}";
+        "network" = {
+          interval = 1;
+          format-ethernet =
+            "{ipaddr}/{cidr} {bandwidthDownBits} {bandwidthUpBits}";
+          format-wifi =
+            "{essid} {signalStrength}@{frequency} {ipaddr}/{cidr} {bandwidthDownBits} {bandwidthUpBits}";
+          format-disconnected = "disconnected";
+        };
+
+        "clock" = {
+          interval = 1;
+          format = "{:%a %F %T}";
+        };
+
       };
     };
 

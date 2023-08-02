@@ -1,17 +1,10 @@
 { pkgs, inputs, config, username, sysPersistDir, ... }:
 
 {
-  imports = [
-    ./services
-    ./theming
-  ];
+  imports = [ ./services ./theming ];
 
   environment.persistence."${sysPersistDir}" = {
-    directories = [
-      "/etc/NetworkManager"
-      "/var/log"
-      "/var/lib"
-    ];
+    directories = [ "/etc/NetworkManager" "/var/log" "/var/lib" ];
     files = [
       # Required for systemd journal
       "/etc/machine-id"
@@ -54,9 +47,7 @@
   programs.vim.defaultEditor = true;
 
   # Console packages
-  console.packages = with pkgs; [
-    colemak-dh
-  ];
+  console.packages = with pkgs; [ colemak-dh ];
 
   # Configure console keymap
   console.keyMap = "colemak_dh_iso_us";
@@ -85,9 +76,7 @@
   };
 
   nix.settings = {
-    substituters = [
-      "https://nix-community.cachix.org"
-    ];
+    substituters = [ "https://nix-community.cachix.org" ];
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
@@ -99,28 +88,21 @@
   nix.settings.auto-optimise-store = true;
 
   # System packages
-  environment.systemPackages = with pkgs; [
-    htop
-    ncdu
-    killall
-    parted
-    vim
-    wget
-  ] ++
-  [ inputs.agenix.defaultPackage.x86_64-linux ];
-
+  environment.systemPackages = with pkgs;
+    [ htop ncdu killall parted vim wget ]
+    ++ [ inputs.agenix.packages.x86_64-linux.default ];
 
   security.sudo = {
-    extraRules= [{
+    extraRules = [{
       users = [ username ];
-        commands = [{
-          command = "ALL" ;
-          options= [ "NOPASSWD" ];
-        }];
+      commands = [{
+        command = "ALL";
+        options = [ "NOPASSWD" ];
       }];
+    }];
     extraConfig = ''
-    # rollback results in sudo lectures after each reboot
-    Defaults lecture = never
+      # rollback results in sudo lectures after each reboot
+      Defaults lecture = never
     '';
   };
 
@@ -147,9 +129,7 @@
   };
 
   # Allow swaylock to unlock the computer for us
-  security.pam.services.swaylock = {
-    text = "auth include login";
-  };
+  security.pam.services.swaylock = { text = "auth include login"; };
 
   security.rtkit.enable = true;
   services.pipewire = {

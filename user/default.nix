@@ -4,9 +4,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = {
-      inherit inputs homePersistDir;
-    };
+    extraSpecialArgs = { inherit inputs homePersistDir; };
     users.${username} = import ./user.nix username;
   };
 }

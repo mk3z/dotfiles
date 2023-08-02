@@ -3,7 +3,7 @@
 {
   wayland.windowManager.sway = {
     enable = true;
-    systemdIntegration = true;
+    systemd.enable = true;
     wrapperFeatures.gtk = true;
 
     config = rec {
@@ -61,8 +61,8 @@
       window.border = 1;
 
       terminal = "foot";
-      menu = "wofi --show run";
-      bars = [];
+      menu = "${pkgs.wofi}/bin/wofi --show run";
+      bars = [ ];
 
       input = {
         "type:keyboard" = {
@@ -73,11 +73,7 @@
         };
       };
 
-      seat = {
-        "*" = {
-          hide_cursor = "5000";
-        };
-      };
+      seat = { "*" = { hide_cursor = "5000"; }; };
 
     };
 
@@ -94,14 +90,13 @@
 
   home.file.".xkb/symbols/colemat" = {
     recursive = true;
-    text =
-      ''
-        default partial alphanumeric_keys modifier_keys keypad_keys
-        xkb_symbols {
-          include "us(colemak_dh_iso)"
-          replace key <AB05> { [ BackSpace ] };
-        };
-      '';
+    text = ''
+      default partial alphanumeric_keys modifier_keys keypad_keys
+      xkb_symbols {
+        include "us(colemak_dh_iso)"
+        replace key <AB05> { [ BackSpace ] };
+      };
+    '';
   };
 
 }

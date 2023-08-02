@@ -1,16 +1,16 @@
 { pkgs }:
 
 {
-  emacs = {
-    enable = true;
-  };
+  emacs = { enable = true; };
+
+  mako = { enable = true; };
 
   swayidle = {
     enable = true;
     timeouts = [
       {
         timeout = 300;
-        command = "swaylock -f";
+        command = "${pkgs.swaylock}/bin/swaylock -f";
       }
       {
         timeout = 600;
@@ -18,11 +18,9 @@
         resumeCommand = ''swaymsg "output * dpms on"'';
       }
     ];
-    events = [
-      {
-        event = "before-sleep";
-        command = "${pkgs.swaylock}/bin/swaylock -f";
-      }
-    ];
+    events = [{
+      event = "before-sleep";
+      command = "${pkgs.swaylock}/bin/swaylock -f";
+    }];
   };
 }

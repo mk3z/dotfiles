@@ -1,17 +1,19 @@
 { config, lib, pkgs, username, ... }:
 
-{
+let wm = "${pkgs.hyprland}/bin/Hyprland";
+in {
   services = {
     # greetd login manager
     greetd = {
       enable = true;
       settings = rec {
         initial_session = {
-          command = "${pkgs.sway}/bin/sway";
+          command = wm;
           user = username;
         };
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd sway --time --time-format %Y-%m-%d %H:%M:%S% --remember";
+          command =
+            "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${wm} --time --time-format %Y-%m-%d %H:%M:%S% --remember";
           user = username;
         };
       };
@@ -21,7 +23,7 @@
     # TODO remove
     openssh = {
       enable = true;
-      permitRootLogin = "yes";
+      settings = { PermitRootLogin = "yes"; };
     };
   };
 }
