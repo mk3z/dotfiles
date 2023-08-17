@@ -15,8 +15,6 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,9 +50,7 @@
 
   outputs = inputs@{ self, nixpkgs, utils, agenix, home-manager, impermanence
     , emacs-overlay, copilot, fish-ssh-agent, stylix, ... }:
-    let
-      username = "matias";
-      sysPersistDir = "/nix/persist";
+    let username = "matias";
     in utils.lib.mkFlake {
       inherit self inputs;
 
@@ -72,15 +68,27 @@
       ];
 
       hosts = {
+
+        slimbook = {
+          modules = [ ./hosts/slimbook ];
+          extraArgs = {
+            username = username;
+            sysPersistDir = "/persist";
+            homePersistDir = "/persist";
+          };
+          specialArgs = { inherit inputs; };
+        };
+
         nixvm = {
           modules = [ ./hosts/nixvm ];
           extraArgs = {
             username = username;
-            sysPersistDir = sysPersistDir;
-            homePersistDir = sysPersistDir;
+            sysPersistDir = "/nix/persist";
+            homePersistDir = "/nix/persist";
           };
           specialArgs = { inherit inputs; };
         };
+
       };
     };
 }
