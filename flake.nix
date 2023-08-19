@@ -70,7 +70,8 @@
       hosts = {
 
         slimbook = {
-          modules = [ ./hosts/slimbook ./modules/laptop.nix ];
+          modules =
+            [ ./hosts/slimbook ./modules/laptop.nix ./modules/bluetooth.nix ];
           extraArgs = {
             username = username;
             sysPersistDir = "/persist";
