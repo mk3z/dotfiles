@@ -43,6 +43,7 @@ in {
     fd
     gimp
     neofetch
+    pciutils
     ripgrep
     tldr
 

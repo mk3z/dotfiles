@@ -7,7 +7,9 @@
     settings = {
       # set wallpaper
       exec-once = [
-        "${pkgs.swaybg}/bin/swaybg -i ${builtins.toString ../common/theming/wallpaper.jpg}"
+        "${pkgs.swaybg}/bin/swaybg -i ${
+          builtins.toString ../common/theming/wallpaper.jpg
+        }"
         "${pkgs.waybar}/bin/waybar"
       ];
 
@@ -21,6 +23,7 @@
       input = {
         kb_model = "pc105";
         kb_layout = "colemat";
+        kb_options = "caps:backspace";
         repeat_rate = "50";
         repeat_delay = "300";
       };

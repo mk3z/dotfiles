@@ -56,6 +56,7 @@
     server.enable = true;
     settings = {
       main.font = lib.mkForce "monospace:size=10";
+      main.pad = "2x2";
       scrollback.lines = 10000;
       mouse.hide-when-typing = "yes";
     };
