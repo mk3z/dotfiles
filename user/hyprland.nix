@@ -21,7 +21,7 @@
       input = {
         kb_model = "pc105";
         kb_layout = "colemat";
-        kb_options = "caps:backspace";
+        kb_options = "caps:escape";
         repeat_rate = "50";
         repeat_delay = "300";
       };
@@ -102,10 +102,10 @@
   home.file.".xkb/symbols/colemat" = {
     recursive = true;
     text = ''
-      default partial alphanumeric_keys modifier_keys keypad_keys
       xkb_symbols {
         include "us(colemak_dh_iso)"
         replace key <AB05> { [ BackSpace ] };
+        replace key <AC12> { [ backslash, bar ] };
       };
     '';
   };
