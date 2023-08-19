@@ -38,11 +38,13 @@ in {
 
   home.packages = with pkgs; [
     colemak-dh
+    gimp
+    pavucontrol
+
+    # cli utilities
     duf
     du-dust
     fd
-    gimp
-    neofetch
     pciutils
     ripgrep
     tldr
@@ -54,6 +56,15 @@ in {
     # fish
     fishPlugins.fzf-fish
     fishPlugins.pisces
+
+    # useless stuff
+    cmatrix
+    cowsay
+    fortune
+    lolcat
+    neofetch
+    sl
+    toilet
   ];
 
   programs = import ./programs { inherit pkgs lib inputs; };
