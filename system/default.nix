@@ -131,8 +131,8 @@
 
   # Allow swaylock to unlock the computer for us
   security.pam.services.swaylock = { text = "auth include login"; };
-
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -140,6 +140,8 @@
     pulse.enable = true;
     jack.enable = true;
   };
+
+  sound.mediaKeys.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
