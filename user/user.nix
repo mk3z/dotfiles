@@ -34,6 +34,8 @@ in {
     templates = null;
   };
 
+  stylix.targets.waybar.enable = false;
+
   home.packages = with pkgs; [
     colemak-dh
     duf

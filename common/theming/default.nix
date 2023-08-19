@@ -1,7 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-
   stylix = {
     base16Scheme = "${inputs.base16}/nord.yaml";
     image = ./wallpaper.jpg;
@@ -17,8 +16,8 @@
       };
 
       monospace = {
-        package = pkgs.terminus_font;
-        name = "Terminus";
+        package = (pkgs.nerdfonts.override { fonts = [ "VictorMono"]; });
+        name = "VictorMono Nerd Font Mono";
       };
 
       emoji = {
@@ -27,22 +26,4 @@
       };
     };
   };
-
-  fonts = {
-    packages = with pkgs; [
-      terminus_font
-      libertinus
-      lmodern
-      roboto
-      (nerdfonts.override { fonts = [ "FiraCode" "RobotoMono" ]; })
-    ];
-    fontconfig = {
-      defaultFonts = {
-        monospace = [ "Terminus" "FiraCode Nerd Font" ];
-        sansSerif = [ "Roboto" ];
-        serif = [ "Libertinus Serif" ];
-      };
-    };
-  };
-
 }
