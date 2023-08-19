@@ -3,7 +3,7 @@
 {
   stylix = {
     base16Scheme = "${inputs.base16}/nord.yaml";
-    image = ./wallpaper.jpg;
+    image = ../../wallpaper.jpg;
     fonts = {
       serif = {
         package = pkgs.libertinus;
@@ -16,7 +16,7 @@
       };
 
       monospace = {
-        package = (pkgs.nerdfonts.override { fonts = [ "VictorMono"]; });
+        package = (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; });
         name = "VictorMono Nerd Font Mono";
       };
 

@@ -63,7 +63,7 @@
         impermanence.nixosModule
         agenix.nixosModules.default
         stylix.nixosModules.stylix
-        ./common
+        ./system
         ./user
       ];
 

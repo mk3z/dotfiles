@@ -7,9 +7,7 @@
     settings = {
       # set wallpaper
       exec-once = [
-        "${pkgs.swaybg}/bin/swaybg -i ${
-          builtins.toString ../common/theming/wallpaper.jpg
-        }"
+        "${pkgs.swaybg}/bin/swaybg -i ${builtins.toString ../wallpaper.jpg}"
         "${pkgs.waybar}/bin/waybar"
       ];
 
