@@ -7,6 +7,7 @@
 
   swayidle = {
     enable = true;
+    systemdTarget = "graphical-session.target";
     timeouts = [
       {
         timeout = 300;
