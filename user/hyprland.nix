@@ -69,10 +69,21 @@
 
       ];
 
-      windowrule = "opacity 0.85 override 0.85 override, foot";
+      #windowrule = "opacity 0.85 override 0.85 override,.*";
+      decoration = {
+        drop_shadow = false;
+        active_opacity = 0.85;
+        inactive_opacity = 0.85;
+        fullscreen_opacity = 0.85;
+      };
 
       # Animations
       animations.enabled = false;
+
+      # Disable Xwayland scaling
+      xwayland.force_zero_scaling = true;
+
+      monitor = [ "eDP-1, 2560x1440@165, 0x0, 1.5" ];
     };
   };
 

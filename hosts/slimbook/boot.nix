@@ -2,16 +2,25 @@
 
 {
   boot = {
-    loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    loader.grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      mirroredBoots = [{
+        devices = [ "/dev/disk/by-uuid/BB94-AEE7" ];
+        path = "/boot-fallback";
+      }];
+    };
+
     supportedFilesystems = [ "zfs" ];
     zfs.forceImportRoot = false;
+
     initrd.availableKernelModules =
       [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
     initrd.kernelModules = [ ];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
-    loader.systemd-boot.editor = false;
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     kernelParams = [ "nohibernate" ];
   };
