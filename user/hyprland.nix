@@ -29,6 +29,7 @@
       # keybinds
       "$mod" = "SUPER";
       "$terminal" = "${pkgs.foot}/bin/foot";
+      "$editor" = "emacsclient -c -a 'emacs'";
       "$menu" = "${pkgs.wofi}/bin/wofi --show run";
       "$lock" = "${pkgs.swaylock}/bin/swaylock";
       bind = [
@@ -38,6 +39,7 @@
 
         # programs
         "$mod, RETURN, exec, $terminal"
+        "$mod, e, exec, $editor"
         "$mod, d, exec, $menu"
 
         # window management

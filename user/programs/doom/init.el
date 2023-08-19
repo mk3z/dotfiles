@@ -167,8 +167,7 @@
         +noter
         +pandoc
         +present
-        +pretty
-        +roam2)
+        +pretty)
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -207,8 +206,3 @@
        :config
        ;;literate
        (default +bindings +smartparens))
-
-(use-package-hook! evil
-  :pre-init
-  (setq evil-respect-visual-line-mode t) ;; sane j and k behavior
-  t)

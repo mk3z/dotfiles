@@ -49,13 +49,29 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+(package! arduino-mode)
 (package! caddyfile-mode)
+(package! centered-cursor-mode)
+(package! copilot
+        :recipe (:host github
+                 :repo "zerolfx/copilot.el"
+                 :files ("*.el" "dist")))
+(package! csv-mode)
 (package! evil-colemak-basics)
 (package! focus)
 (package! magit-delta)
+(package! mermaid-mode)
 (package! mixed-pitch)
 (package! ob-mermaid)
 (package! org-appear)
 (package! org-fragtog)
 (package! rainbow-mode)
 (package! writeroom-mode)
+
+;; Temporary fix for magit
+(package! transient
+      :pin "c2bdf7e12c530eb85476d3aef317eb2941ab9440"
+      :recipe (:host github :repo "magit/transient"))
+(package! with-editor
+          :pin "bbc60f68ac190f02da8a100b6fb67cf1c27c53ab"
+          :recipe (:host github :repo "magit/with-editor"))

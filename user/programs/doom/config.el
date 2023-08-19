@@ -24,9 +24,9 @@
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 
-(setq doom-font (font-spec :family "Terminus" :size 14 :weight 'Regular)
-      doom-variable-pitch-font (font-spec :family "Latin Modern Roman" :size 16 :weight 'Regular)
-      doom-big-font (font-spec :family "Terminus" :size 24 :weight 'Regular))
+(setq doom-font (font-spec :family "Monospace" :size 20 :weight 'Regular)
+      doom-variable-pitch-font (font-spec :family "Libertinus Serif" :size 20 :weight 'Regular)
+      doom-big-font (font-spec :family "Monospace" :size 24 :weight 'Regular))
 
 (setq all-the-icons-scale-factor 1)
 
@@ -41,10 +41,10 @@
 (setq doom-theme 'doom-nord)
 
 ;; Set dashboard logo
-(setq fancy-splash-image "~/.config/doom/logo.svg")
+(setq fancy-splash-image (concat doom-private-dir "logo.svg"))
 
 ;; Emacs window opacity
-(add-to-list 'default-frame-alist '(alpha . 90))
+(add-to-list 'default-frame-alist '(alpha . 80))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -68,11 +68,19 @@
     '((mermaid . t)
       (scheme . t)))
 
+(setq org-latex-pdf-process
+      '("xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "xelatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+(setq org-latex-listings 'minted)
+
 ;; Default LaTeX packages
 (setq org-latex-packages-alist
       '(("" "amsthm"    t)
         ("" "forest"    t)
         ("" "mathtools" t)
+        ("" "minted"    t)
         ("" "siunitx"   t)
         ("" "tikz"      t)))
 
@@ -159,6 +167,11 @@
   (global-evil-colemak-basics-mode)
   (global-visual-line-mode 1))
 
+(use-package-hook! evil
+  :pre-init
+  (setq evil-respect-visual-line-mode t) ;; sane j and k behavior
+  t)
+
 (use-package! focus
   :config
   (map! :leader
@@ -190,13 +203,6 @@
 (use-package! org-fragtog
   :after org
   :hook (org-mode . org-fragtog-mode))
-
-(use-package! org-roam
-  :config
-  (setq
-   org-directory "~/Documents/org/"
-   org-roam-directory "~/Documents/org")
-  (org-roam-db-autosync-mode))
 
 (use-package! org-superstar
   :config

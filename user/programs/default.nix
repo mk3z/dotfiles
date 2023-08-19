@@ -6,18 +6,21 @@
   ssh = { enable = true; };
 
   doom-emacs = {
-    enable = false;
-    doomPrivateDir = ./doom.d;
-    emacsPackage = pkgs.emacs-pgtk;
+    enable = true;
+    doomPrivateDir = ./doom;
+    emacsPackage = pkgs.emacs28.override {
+      withPgtk = true;
+      withNativeCompilation = true;
+    };
     # Only init/packages so we only rebuild when those change.
     doomPackageDir = pkgs.linkFarm "doom-packages-dir" [
       {
         name = "init.el";
-        path = ./doom.d/init.el;
+        path = ./doom/init.el;
       }
       {
         name = "packages.el";
-        path = ./doom.d/packages.el;
+        path = ./doom/packages.el;
       }
       {
         name = "config.el";
