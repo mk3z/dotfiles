@@ -4,7 +4,8 @@
   imports = [ ./services ./theming ];
 
   environment.persistence."${sysPersistDir}" = {
-    directories = [ "/etc/NetworkManager" "/var/log" "/var/lib" ];
+    directories =
+      [ "/etc/mullvad-vpn" "/etc/NetworkManager" "/var/log" "/var/lib" ];
     files = [
       # Required for systemd journal
       "/etc/machine-id"

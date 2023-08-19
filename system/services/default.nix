@@ -17,7 +17,10 @@ in {
           user = username;
         };
       };
+
     };
+
+    mullvad-vpn.enable = true;
 
     # OpenSSH for VM access
     # TODO remove
