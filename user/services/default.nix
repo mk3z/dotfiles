@@ -1,9 +1,11 @@
 { pkgs }:
 
 {
-  emacs = { enable = true; };
+  emacs.enable = true;
 
-  mako = { enable = true; };
+  mako.enable = true;
+
+  ssh-agent.enable = true;
 
   swayidle = {
     enable = true;

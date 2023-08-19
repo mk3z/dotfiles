@@ -18,7 +18,8 @@
     ];
   };
 
-  programs.ssh.startAgent = true;
+  # Required for impermanence/home-manager
+  programs.fuse.userAllowOther = true;
 
   age = {
     identityPaths = [ "${sysPersistDir}/etc/ssh/ssh_host_ed25519_key" ];
@@ -107,9 +108,6 @@
     '';
   };
 
-  # Required for impermanence/home-manager
-  programs.fuse.userAllowOther = true;
-
   # Hardware Support for Wayland Sway
   hardware = {
     opengl = {
@@ -132,8 +130,8 @@
 
   # Allow swaylock to unlock the computer for us
   security.pam.services.swaylock = { text = "auth include login"; };
-  security.rtkit.enable = true;
 
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
