@@ -70,7 +70,7 @@
       hosts = {
 
         slimbook = {
-          modules = [ ./hosts/slimbook ];
+          modules = [ ./hosts/slimbook ./modules/laptop.nix ];
           extraArgs = {
             username = username;
             sysPersistDir = "/persist";
