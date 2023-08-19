@@ -39,7 +39,7 @@
 
         # programs
         "$mod, RETURN, exec, $terminal"
-        "$mod, e, exec, $editor"
+        "$mod, h, exec, $editor"
         "$mod, d, exec, $menu"
 
         # window management
