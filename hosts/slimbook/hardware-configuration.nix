@@ -47,6 +47,12 @@
   services.zfs.autoScrub.enable = true;
   zramSwap.enable = true;
 
+  # AMD specific OpenGL options
+  hardware.opengl = {
+    extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime amdvlk ];
+    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  };
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;

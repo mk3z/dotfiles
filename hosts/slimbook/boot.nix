@@ -18,7 +18,7 @@
 
     initrd.availableKernelModules =
       [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
-    initrd.kernelModules = [ ];
+    initrd.kernelModules = [ "amdgpu" ];
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
