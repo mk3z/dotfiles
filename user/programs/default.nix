@@ -37,8 +37,11 @@
       });
 
       copilot = self.trivialBuild {
-        pname = "copilot";
         src = inputs.copilot;
+        pname = "copilot";
+        ename = "copilot";
+        buildInputs = with pkgs; [ nodejs ];
+        packageRequires = with self; [ s dash editorconfig ];
       };
     };
   };

@@ -145,6 +145,7 @@
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
+  :config (setq copilot--base-dir (getenv "EMACS_PATH_COPILOT"))
   :hook (prog-mode . copilot-mode)
   :bind
   (("C-TAB" . 'copilot-accept-completion-by-word)

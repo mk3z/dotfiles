@@ -52,10 +52,7 @@
 (package! arduino-mode)
 (package! caddyfile-mode)
 (package! centered-cursor-mode)
-(package! copilot
-        :recipe (:host github
-                 :repo "zerolfx/copilot.el"
-                 :files ("*.el" "dist")))
+(package! copilot)
 (package! csv-mode)
 (package! evil-colemak-basics)
 (package! focus)

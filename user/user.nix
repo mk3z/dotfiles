@@ -23,7 +23,8 @@ in {
       "Projects"
       "Videos"
     ];
-    files = [ ".bash_history" ".local/share/fish/fish_history" ];
+    files =
+      [ ".bash_history" ".local/share/doom" ".local/share/fish/fish_history" ];
     allowOther = true;
   };
 
@@ -52,6 +53,10 @@ in {
     signal-desktop
     telegram-desktop
 
+    # programming
+    nodejs
+    nixfmt
+
     # cli utilities
     duf
     du-dust
@@ -77,6 +82,8 @@ in {
     sl
     toilet
   ];
+
+  home.sessionVariables.EMACS_PATH_COPILOT = "${inputs.copilot}";
 
   programs = import ./programs { inherit pkgs lib inputs; };
 
