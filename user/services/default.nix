@@ -17,8 +17,8 @@
       }
       {
         timeout = 600;
-        command = ''swaymsg "output * dpms off"'';
-        resumeCommand = ''swaymsg "output * dpms on"'';
+        command = "hyprctl dispatch dpms off";
+        resumeCommand = "hyprctl dispatch dpms on";
       }
     ];
     events = [{

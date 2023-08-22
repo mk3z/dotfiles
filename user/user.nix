@@ -14,6 +14,7 @@ in {
   home.persistence."${homePersistDir}${homeDirectory}" = {
     directories = [
       ".config/Signal"
+      ".config/GIMP"
       ".cache"
       ".ssh"
       "Code"
