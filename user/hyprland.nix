@@ -1,5 +1,7 @@
 { pkgs, lib, ... }:
 
+let
+  terminal = "kitty"; in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -15,7 +17,12 @@
       general = {
         gaps_in = 0;
         gaps_out = 0;
+        "col.inactive_border" = "0xff3b4252";
+        "col.active_border" = "0xff5e81ac";
       };
+
+      dwindle.no_gaps_when_only = 1;
+      master.no_gaps_when_only = 1;
 
       # set keyboard layout
       input = {
@@ -28,7 +35,8 @@
 
       # keybinds
       "$mod" = "SUPER";
-      "$terminal" = "${pkgs.foot}/bin/foot";
+      "$mod_shift" = "SUPER_SHIFT";
+      "$terminal" = ''${pkgs."${terminal}"}/bin/${terminal}'';
       "$editor" = "emacsclient -c -a 'emacs'";
       "$menu" = "${pkgs.wofi}/bin/wofi --show run";
       "$lock" = "${pkgs.swaylock}/bin/swaylock";
@@ -47,8 +55,16 @@
         "$mod, n, movefocus, d"
         "$mod, e, movefocus, u"
         "$mod, i, movefocus, r"
+        "$mod_shift, m, movewindow, l"
+        "$mod_shift, n, movewindow, d"
+        "$mod_shift, e, movewindow, u"
+        "$mod_shift, i, movewindow, r"
+        "$mod_shift, SPACE, togglefloating"
+        "$mod, f, fullscreen"
 
         # workspace management
+        "$mod, t, workspace, e+1"
+        "$mod, s, workspace, e-1"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
@@ -59,26 +75,21 @@
         "$mod, 8, workspace, 8"
         "$mod, 9, workspace, 9"
         "$mod, 0, workspace, 10"
-        "$mod, Shift+1, movetoworkspacesilent, 1"
-        "$mod, Shift+2, movetoworkspacesilent, 2"
-        "$mod, Shift+3, movetoworkspacesilent, 3"
-        "$mod, Shift+4, movetoworkspacesilent, 4"
-        "$mod, Shift+5, movetoworkspacesilent, 5"
-        "$mod, Shift+6, movetoworkspacesilent, 6"
-        "$mod, Shift+7, movetoworkspacesilent, 7"
-        "$mod, Shift+8, movetoworkspacesilent, 8"
-        "$mod, Shift+9, movetoworkspacesilent, 9"
-        "$mod, Shift+0, movetoworkspacesilent, 10"
-
+        "$mod_shift, t, movetoworkspacesilent, e+1"
+        "$mod_shift, s, movetoworkspacesilent, e-1"
+        "$mod_shift, 1, movetoworkspacesilent, 1"
+        "$mod_shift, 2, movetoworkspacesilent, 2"
+        "$mod_shift, 3, movetoworkspacesilent, 3"
+        "$mod_shift, 4, movetoworkspacesilent, 4"
+        "$mod_shift, 5, movetoworkspacesilent, 5"
+        "$mod_shift, 6, movetoworkspacesilent, 6"
+        "$mod_shift, 7, movetoworkspacesilent, 7"
+        "$mod_shift, 8, movetoworkspacesilent, 8"
+        "$mod_shift, 9, movetoworkspacesilent, 9"
       ];
 
-      #windowrule = "opacity 0.85 override 0.85 override,.*";
-      decoration = {
-        drop_shadow = false;
-        active_opacity = 0.85;
-        inactive_opacity = 0.85;
-        fullscreen_opacity = 0.85;
-      };
+      windowrule = "opacity 0.85 override 0.85 override,(${terminal}|Emacs)";
+      decoration.drop_shadow = false;
 
       # Animations
       animations.enabled = false;
@@ -99,6 +110,9 @@
     };
   };
 
+  # Custom keyboard layout based on Colemak-DH ISO
+  # replaces the backslash key with backspace
+  # and number sign with backslash and pipe
   home.file.".xkb/symbols/colemat" = {
     recursive = true;
     text = ''
@@ -109,5 +123,4 @@
       };
     '';
   };
-
 }

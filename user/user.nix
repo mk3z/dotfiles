@@ -12,8 +12,17 @@ in {
   home = { inherit username homeDirectory; };
 
   home.persistence."${homePersistDir}${homeDirectory}" = {
-    directories =
-      [ ".ssh" "Code" "Documents" "Music" "Pictures" "Projects" "Videos" ];
+    directories = [
+      ".config/Signal"
+      ".cache"
+      ".ssh"
+      "Code"
+      "Documents"
+      "Music"
+      "Pictures"
+      "Projects"
+      "Videos"
+    ];
     files = [ ".bash_history" ".local/share/fish/fish_history" ];
     allowOther = true;
   };
@@ -40,6 +49,8 @@ in {
     colemak-dh
     gimp
     pavucontrol
+    signal-desktop
+    telegram-desktop
 
     # cli utilities
     duf

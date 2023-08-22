@@ -16,14 +16,16 @@
       };
 
       monospace = {
-        package = (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; });
-        name = "VictorMono Nerd Font Mono";
+        package = (pkgs.nerdfonts.override { fonts = [ "Monoid" ]; });
+        name = "Monoid Nerd Font Mono";
       };
 
       emoji = {
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
+
+      sizes.terminal = 10;
     };
   };
 }

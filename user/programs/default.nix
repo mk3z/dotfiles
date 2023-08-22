@@ -54,20 +54,17 @@
 
   fish = import ./fish.nix { inherit inputs; };
 
-  foot = {
-    enable = true;
-    server.enable = true;
-    settings = {
-      main.font = lib.mkForce "monospace:size=10";
-      main.pad = "2x2";
-      scrollback.lines = 10000;
-      mouse.hide-when-typing = "yes";
-    };
-  };
-
   fzf.enable = true;
 
   jq.enable = true;
+
+  kitty = {
+    enable = true;
+    shellIntegration.enableFishIntegration = true;
+    settings = {
+      window_padding_width = 2;
+    };
+  };
 
   lsd = {
     enable = true;

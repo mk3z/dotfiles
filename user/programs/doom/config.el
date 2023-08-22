@@ -44,7 +44,7 @@
 (setq fancy-splash-image (concat doom-private-dir "logo.svg"))
 
 ;; Emacs window opacity
-(add-to-list 'default-frame-alist '(alpha . 80))
+;;(add-to-list 'default-frame-alist '(alpha . 80))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
