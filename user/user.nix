@@ -2,7 +2,8 @@ username:
 { pkgs, lib, inputs, homePersistDir, ... }:
 
 let homeDirectory = "/home/${username}";
-in {
+in
+{
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.doom-emacs.hmModule
@@ -45,7 +46,10 @@ in {
     templates = null;
   };
 
-  stylix.targets.waybar.enable = false;
+  stylix.targets = {
+    waybar.enable = false;
+    swaylock.useImage = false;
+  };
 
   home.packages = with pkgs; [
     colemak-dh

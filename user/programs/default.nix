@@ -85,5 +85,10 @@
 
   starship = import ./starship.nix;
 
+  # swaylock = {
+  #   enable = true;
+  #   settings.color = lib.mkForce "000000";
+  # };
+
   waybar = import ./waybar.nix;
 }

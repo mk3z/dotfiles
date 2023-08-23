@@ -87,6 +87,7 @@ let
         "$mod_shift, 7, movetoworkspacesilent, 7"
         "$mod_shift, 8, movetoworkspacesilent, 8"
         "$mod_shift, 9, movetoworkspacesilent, 9"
+        "$mod_shift, 0, movetoworkspacesilent, 10"
       ];
 
       windowrule = "opacity 0.85 override 0.85 override,(${terminal}|Emacs)";
