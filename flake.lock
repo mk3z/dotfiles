@@ -595,6 +595,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1692723596,
+        "narHash": "sha256-84gyqKFZ0h9s8nib7kzA0sTwhZJAAt/m6fjNAf3PKvU=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "60e8cf766f0421c6ee46cb821ac05c426dc2b18f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "ob-racket": {
       "flake": false,
       "locked": {
@@ -702,6 +717,7 @@
         "home-manager": "home-manager_2",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs",
+        "nur": "nur",
         "stylix": "stylix",
         "utils": "utils"
       }

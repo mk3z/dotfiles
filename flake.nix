@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nur.url = "github:nix-community/NUR";
+
     utils.url =
       "github:ravensiris/flake-utils-plus/7a8d789d4d13e45d20e6826d7b2a1757d52f2e13";
 
@@ -48,15 +50,28 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, utils, agenix, home-manager, impermanence
-    , emacs-overlay, copilot, fish-ssh-agent, stylix, ... }:
+  outputs =
+    inputs@{ self
+    , nixpkgs
+    , nur
+    , utils
+    , agenix
+    , home-manager
+    , impermanence
+    , emacs-overlay
+    , copilot
+    , fish-ssh-agent
+    , stylix
+    , ...
+    }:
     let username = "matias";
-    in utils.lib.mkFlake {
+    in
+    utils.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
 
-      sharedOverlays = [ emacs-overlay.overlay ];
+      sharedOverlays = [ nur.overlay emacs-overlay.overlay ];
 
       hostDefaults.modules = [
         home-manager.nixosModule

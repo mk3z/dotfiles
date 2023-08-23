@@ -49,6 +49,7 @@ let
         "$mod, RETURN, exec, $terminal"
         "$mod, h, exec, $editor"
         "$mod, d, exec, $menu"
+        "$mod, w, exec, ${pkgs.firefox}/bin/firefox"
 
         # window management
         "$mod, m, movefocus, l"

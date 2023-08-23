@@ -55,6 +55,8 @@
     userEmail = "matias.zwinger@protonmail.com";
   };
 
+  firefox = import ./firefox.nix { inherit pkgs; };
+
   fish = import ./fish.nix { inherit inputs; };
 
   fzf.enable = true;
