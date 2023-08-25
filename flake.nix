@@ -12,7 +12,6 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "utils";
     };
 
     impermanence.url = "github:nix-community/impermanence";
@@ -20,6 +19,7 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     doom-emacs = {
