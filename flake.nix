@@ -88,7 +88,7 @@
           modules =
             [ ./hosts/slimbook ./modules/laptop.nix ./modules/bluetooth.nix ];
           extraArgs = {
-            username = username;
+            inherit username;
             sysPersistDir = "/persist";
             homePersistDir = "/persist";
           };
@@ -98,7 +98,7 @@
         nixvm = {
           modules = [ ./hosts/nixvm ];
           extraArgs = {
-            username = username;
+            inherit username;
             sysPersistDir = "/nix/persist";
             homePersistDir = "/nix/persist";
           };
