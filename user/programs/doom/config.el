@@ -24,9 +24,25 @@
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 
-(setq doom-font (font-spec :family "Monospace" :size 20 :weight 'Regular)
-      doom-variable-pitch-font (font-spec :family "Libertinus Serif" :size 20 :weight 'Regular)
+(setq doom-font (font-spec :family "Monospace" :size 14 :weight 'Regular)
       doom-big-font (font-spec :family "Monospace" :size 24 :weight 'Regular))
+
+;; Enable the www ligature in every possible major mode
+(ligature-set-ligatures 't '("www"))
+
+;; Enable ligatures in programming modes
+(ligature-set-ligatures 'prog-mode '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\" "{-" "::"
+                                     ":::" ":=" "!!" "!=" "!==" "-}" "----" "-->" "->" "->>"
+                                     "-<" "-<<" "-~" "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
+                                     "#_(" ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*" "/**"
+                                     "/=" "/==" "/>" "//" "///" "&&" "||" "||=" "|=" "|>" "^=" "$>"
+                                     "++" "+++" "+>" "=:=" "==" "===" "==>" "=>" "=>>" "<="
+                                     "=<<" "=/=" ">-" ">=" ">=>" ">>" ">>-" ">>=" ">>>" "<*"
+                                     "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
+                                     "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
+                                     "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
+
+(global-ligature-mode 't)
 
 (setq all-the-icons-scale-factor 1)
 
@@ -59,6 +75,9 @@
 
 ;; Disable exit confirmation
 (setq confirm-kill-emacs nil)
+
+;; Load environment variables
+(exec-path-from-shell-initialize)
 
 ;; Enable markdown-mode in mdx files
 (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
