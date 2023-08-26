@@ -50,23 +50,10 @@
     };
   };
 
-  outputs =
-    inputs@{ self
-    , nixpkgs
-    , nur
-    , utils
-    , agenix
-    , home-manager
-    , impermanence
-    , emacs-overlay
-    , copilot
-    , fish-ssh-agent
-    , stylix
-    , ...
-    }:
+  outputs = inputs@{ self, nixpkgs, nur, utils, agenix, home-manager
+    , impermanence, emacs-overlay, copilot, fish-ssh-agent, stylix, ... }:
     let username = "matias";
-    in
-    utils.lib.mkFlake {
+    in utils.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
@@ -83,7 +70,6 @@
       ];
 
       hosts = {
-
         slimbook = {
           modules =
             [ ./hosts/slimbook ./modules/laptop.nix ./modules/bluetooth.nix ];
@@ -104,7 +90,6 @@
           };
           specialArgs = { inherit inputs; };
         };
-
       };
     };
 }
