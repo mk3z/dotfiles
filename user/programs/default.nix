@@ -53,6 +53,8 @@
     package = pkgs.gitAndTools.gitFull;
     userName = "Matias Zwinger";
     userEmail = "matias.zwinger@protonmail.com";
+    extraConfig.commit.verbose = true;
+    delta.enable = true;
   };
 
   firefox = import ./firefox.nix { inherit pkgs; };
