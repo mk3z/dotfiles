@@ -31,7 +31,17 @@
     secrets.password.file = ../secrets/password.age;
   };
 
-  networking.networkmanager.enable = true;
+  networking = {
+    firewall.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.macAddress = "random";
+      ethernet.macAddress = "random";
+    };
+  };
+
+  # Disable systemd emergency mode because root user is disabled
+  systemd.enableEmergencyMode = false;
 
   # Set the time zone.
   time.timeZone = "Europe/Helsinki";
