@@ -107,7 +107,7 @@
       noremap M H
       noremap N J
       noremap U I
-  '';
+    '';
   };
 
   vscode = {

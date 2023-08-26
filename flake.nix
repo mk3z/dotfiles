@@ -50,10 +50,23 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nur, utils, agenix, home-manager
-    , impermanence, emacs-overlay, copilot, fish-ssh-agent, stylix, ... }:
+  outputs =
+    inputs@{ self
+    , nixpkgs
+    , nur
+    , utils
+    , agenix
+    , home-manager
+    , impermanence
+    , emacs-overlay
+    , copilot
+    , fish-ssh-agent
+    , stylix
+    , ...
+    }:
     let username = "matias";
-    in utils.lib.mkFlake {
+    in
+    utils.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
@@ -91,5 +104,9 @@
           specialArgs = { inherit inputs; };
         };
       };
+
+      # TODO: Make it work with other platforms
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+
     };
 }
