@@ -94,7 +94,6 @@
     enable = true;
     extraConfig = ''
       noremap e k
-      noremap g t
       noremap i l
       noremap k n
       noremap l u
@@ -102,7 +101,6 @@
       noremap n j
       noremap u i
       noremap E K
-      noremap G T
       noremap I L
       noremap K N
       noremap L U
