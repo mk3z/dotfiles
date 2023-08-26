@@ -1,12 +1,13 @@
 {
   enable = true;
+  systemd.enable = true;
 
   settings = {
     mainBar = {
       position = "bottom";
-      height = 16;
+      height = 20;
       modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-      modules-right = [ "bluetooth" "network" "wireplumber" "battery" "clock" ];
+      modules-right = [ "bluetooth" "network" "custom/vpn" "wireplumber" "battery" "clock" ];
 
       "clock" = {
         interval = 1;
@@ -16,7 +17,7 @@
       "battery" = {
         interval = 10;
         format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
-        format = "{icon} {capacity}% {time}";
+        format = "{icon} {capacity}% {time} {power}W";
       };
 
       "wireplumber" = {
@@ -24,6 +25,14 @@
         format = "{icon} {volume}%";
         format-muted = "󰝟";
         format-icons = [ "󰕿" "󰖀" "󰕾" ];
+      };
+
+      "custom/vpn" = {
+        format = "VPN 󰌾";
+        exec = "echo '{\"class\": \"connected\"}'";
+        exec-if = "test -d /proc/sys/net/ipv4/conf/wg-mullvad";
+        return-type = "json";
+        interval = 5;
       };
 
       "network" = {
@@ -59,7 +68,7 @@
       margin: 0;
     }
 
-    #clock, #battery, #wireplumber, #network, #bluetooth {
+    #clock, #battery, #wireplumber, #network, #custom-vpn, #bluetooth {
       margin: 0 4px;
       padding: 0 4px;
       border-bottom: 1px solid;
@@ -70,11 +79,12 @@
     }
 
     #workspaces button {
-      padding: 0;
+      padding: 0 0 1px;
       border-radius: 0;
     }
 
     #workspaces button.active {
+      padding: 0;
       border-bottom: 1px solid;
     }
   '';

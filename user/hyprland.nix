@@ -10,7 +10,7 @@ let
       # set wallpaper
       exec-once = [
         "${pkgs.swaybg}/bin/swaybg -i ${builtins.toString ../wallpaper.jpg}"
-        "${pkgs.waybar}/bin/waybar"
+        "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
       ];
 
       # general settings
