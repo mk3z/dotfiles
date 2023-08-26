@@ -74,11 +74,27 @@ in {
     duf
     du-dust
     fd
+    ffmpeg
+    graphviz
+    inxi
+    lm_sensors
     pciutils
     ripgrep
+    sxiv
     tldr
+    usbutils
+
+    # nix utilities
+    nix-diff
+    nix-du
+    nix-melt
+    nix-output-monitor
+    nix-tree
+    nvd
+    statix
 
     # wayland
+    hyprpicker
     wev
     wl-clipboard
 
