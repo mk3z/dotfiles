@@ -12,7 +12,7 @@
   };
 
   stylix = {
-    base16Scheme = "${inputs.base16}/nord.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     image = ../../wallpaper.jpg;
     fonts = {
       serif = {

@@ -42,11 +42,10 @@
       flake = false;
     };
 
-    stylix.url = "github:danth/stylix";
-
-    base16 = {
-      url = "github:base16-project/base16-schemes";
-      flake = false;
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
