@@ -3,7 +3,7 @@
 {
   home-manager.enable = true;
 
-  ssh = { enable = true; };
+  ssh.enable = true;
 
   doom-emacs = {
     enable = true;
