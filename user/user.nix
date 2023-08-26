@@ -52,9 +52,10 @@ in {
   };
 
   stylix.targets = {
-    waybar.enable = false;
+    emacs.enable = false;
     swaylock.useImage = false;
     vscode.enable = false;
+    waybar.enable = false;
   };
 
   home.packages = with pkgs; [
