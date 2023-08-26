@@ -15,7 +15,11 @@ in {
     directories = [
       ".config/Signal"
       ".config/GIMP"
+      ".config/VSCodium/Preferences"
       ".cache"
+      ".local/share/keyrings"
+      ".local/share/TelegramDesktop"
+      ".mozilla/firefox"
       ".ssh"
       "Code"
       "Documents"
