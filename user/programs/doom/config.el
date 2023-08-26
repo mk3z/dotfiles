@@ -232,7 +232,7 @@
 (use-package! projectile
   :config
   (setq
-   projectile-project-search-path '("~/Code/" "~/Documents/")))
+   projectile-project-search-path '("~/Code/" "~/Documents/" "~/Projects/")))
 
 (use-package! rainbow-mode)
 
