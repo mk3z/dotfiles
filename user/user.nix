@@ -49,14 +49,17 @@ in
   stylix.targets = {
     waybar.enable = false;
     swaylock.useImage = false;
+    vscode.enable = false;
   };
 
   home.packages = with pkgs; [
     colemak-dh
     gimp
+    obs-studio
     pavucontrol
     signal-desktop
     telegram-desktop
+    webcord
 
     # programming
     nodejs
@@ -88,11 +91,28 @@ in
     toilet
   ];
 
-  home.sessionVariables.EMACS_PATH_COPILOT = "${inputs.copilot}";
+  home = {
+    sessionVariables = {
+      EMACS_PATH_COPILOT = "${inputs.copilot}";
+      NIXOS_OZONE_WL = "1";
+    };
+    file = {
+      ".vscode-oss/argv.json" = {
+        recursive = true;
+        text = ''
+          {
+            "enable-features": "UseOzonePlatform",
+            "ozone-platform" : "wayland",
+            "password-store":"gnome"
+          }
+        '';
+      };
+    };
+  };
 
   programs = import ./programs { inherit pkgs lib inputs; };
 
   services = import ./services { inherit pkgs; };
 
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.11";
 }

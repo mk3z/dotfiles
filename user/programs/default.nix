@@ -85,10 +85,64 @@
 
   starship = import ./starship.nix;
 
-  # swaylock = {
-  #   enable = true;
-  #   settings.color = lib.mkForce "000000";
-  # };
+  swaylock = {
+    enable = true;
+    settings.font = "monospace";
+  };
+
+  vim = {
+    enable = true;
+    extraConfig = ''
+      noremap e k
+      noremap g t
+      noremap i l
+      noremap k n
+      noremap l u
+      noremap m h
+      noremap n j
+      noremap u i
+      noremap E K
+      noremap G T
+      noremap I L
+      noremap K N
+      noremap L U
+      noremap M H
+      noremap N J
+      noremap U I
+  '';
+  };
+
+  vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      arcticicestudio.nord-visual-studio-code
+      bbenoist.nix
+      github.copilot
+      kamadorueda.alejandra
+      vscodevim.vim
+    ];
+    userSettings = {
+      "editor.inlineSuggest.enabled" = true;
+      "security.workspace.trust.untrustedFiles" = "open";
+      "window.menuBarVisibility" = "hidden";
+      "workbench.startupEditor" = "none";
+      "workbench.colorTheme" = "Nord";
+    };
+  };
 
   waybar = import ./waybar.nix;
+
+  wofi = {
+    enable = true;
+    style = ''
+      * {
+        font-family: monospace;
+      }
+
+      #input {
+        border-radius: 0;
+      }
+    '';
+  };
 }
