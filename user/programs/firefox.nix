@@ -5,6 +5,21 @@
     name = "default";
     id = 0;
 
+    extensions =
+      with pkgs.nur.repos.rycee.firefox-addons;
+      [
+        bitwarden
+        darkreader
+        kristofferhagen-nord-theme
+        privacy-badger
+        privacy-redirect
+        skip-redirect
+        tree-style-tab
+        ublock-origin
+        user-agent-string-switcher
+        vimium
+      ];
+
     settings = {
       # Mostly from https://github.com/arkenfox/user.js/blob/master/user.js
 
@@ -78,7 +93,6 @@
       "network.gio.supported-protocols" = "";
 
       # Search
-      "keyword.enabled" = false;
       "browser.fixup.alternate.enabled" = false;
       "browser.search.suggest.enabled" = false;
       "browser.urlbar.suggest.searches" = false;
@@ -160,17 +174,6 @@
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
 
-    extensions =
-      with pkgs.nur.repos.rycee.firefox-addons;
-      [
-        bitwarden
-        privacy-badger
-        tree-style-tab
-        ublock-origin
-        user-agent-string-switcher
-      ];
-
-
     search = {
       force = true;
       default = "DuckDuckGo";
@@ -191,7 +194,7 @@
         };
 
         "Home Manager" = {
-          urls = [{ template = "https://mipmip.github.io/home-manager-option-search/?query=%s"; }];
+          urls = [{ template = "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}"; }];
           definedAliases = [ ":hm" ];
         };
 
@@ -222,14 +225,14 @@
           definedAliases = [ ":nw" ];
         };
 
+        "Wikipedia" = {
+          urls = [{ template = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}"; }];
+          definedAliases = [ ":w" ];
+        };
+
         "Wikipedia (de)" = {
           urls = [{ template = "https://de.wikipedia.org/wiki/Special:Search?search={searchTerms}"; }];
           definedAliases = [ ":wd" ];
-        };
-
-        "Wikipedia (en)" = {
-          urls = [{ template = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}"; }];
-          definedAliases = [ ":w" ];
         };
 
         "Wikipedia (fi)" = {
@@ -246,8 +249,11 @@
 
     userChrome = ''
       @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-      #TabsToolbar {
-          visibility: collapse !important;
+      #TabsToolbar { visibility: collapse !important; }
+      #sidebar-header { display: none; }
+      #navigator-toolbox {
+        font-family: monospace !important;
+        font-size: 12px !important;
       }
     '';
   };
