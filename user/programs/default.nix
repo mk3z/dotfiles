@@ -9,7 +9,9 @@
     enable = true;
     doomPrivateDir = ./doom;
     emacsPackage = pkgs.emacs28.override {
-      withPgtk = true;
+      # Remove GTK to use Lucid, behaves better under Wayland
+      withGTK2 = false;
+      withGTK3 = false;
       withNativeCompilation = true;
     };
     # Only init/packages so we only rebuild when those change.
