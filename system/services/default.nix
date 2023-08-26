@@ -25,11 +25,5 @@ in {
 
     mullvad-vpn.enable = true;
 
-    # OpenSSH for VM access
-    # TODO remove
-    openssh = {
-      enable = true;
-      settings = { PermitRootLogin = "yes"; };
-    };
   };
 }
