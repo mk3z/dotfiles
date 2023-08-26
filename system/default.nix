@@ -149,14 +149,18 @@
       wlr.enable = true;
       enable = true;
       extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
       ];
     };
   };
 
-  # Allow swaylock to unlock the computer for us
-  security.pam.services.swaylock = { text = "auth include login"; };
+  programs.seahorse.enable = true;
+  security.pam.services = {
+    # Allow swaylock to unlock the computer for us
+    swaylock.text = "auth include login";
+    greetd.enableGnomeKeyring = true;
+  };
 
   security.rtkit.enable = true;
   services.pipewire = {

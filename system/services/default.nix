@@ -3,6 +3,9 @@
 let wm = "${pkgs.hyprland}/bin/Hyprland";
 in {
   services = {
+
+    gnome.gnome-keyring.enable = true;
+
     # greetd login manager
     greetd = {
       enable = true;
