@@ -16,9 +16,9 @@
         command = "${pkgs.swaylock}/bin/swaylock -f";
       }
       {
-        timeout = 600;
-        command = "hyprctl dispatch dpms off";
-        resumeCommand = "hyprctl dispatch dpms on";
+        timeout = 305;
+        command = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
+        resumeCommand = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
       }
     ];
     events = [{
