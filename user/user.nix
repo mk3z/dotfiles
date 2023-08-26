@@ -40,6 +40,8 @@ in {
     ];
   };
 
+  xdg.mimeApps.enable = true;
+
   # Disable useless user dirs
   xdg.userDirs = {
     enable = true;
