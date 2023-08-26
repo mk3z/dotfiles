@@ -79,11 +79,6 @@
 
   security.polkit.enable = true;
 
-  users.users.root = {
-    initialPassword = "changeme";
-    passwordFile = config.age.secrets.password.path;
-  };
-
   users.extraUsers.${username} = {
     isNormalUser = true;
     createHome = true;
