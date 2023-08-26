@@ -90,8 +90,21 @@ let
         "$mod_shift, 0, movetoworkspacesilent, 10"
       ];
 
+      bindl = [
+        # trigger when the switch is turning off
+        '', switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, 2560x1440, 0x0, 1"''
+        # trigger when the switch is turning on
+        '', switch:on:Lid Switch, exec, hyprctl keyword monitor "eDP-1, disable"''
+      ];
+
       windowrule = "opacity 0.85 override 0.85 override,(${terminal}|Emacs)";
       decoration.drop_shadow = false;
+
+      # Disable splash
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
 
       # Animations
       animations.enabled = false;
