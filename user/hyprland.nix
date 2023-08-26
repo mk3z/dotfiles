@@ -101,10 +101,13 @@ in
       windowrule = "opacity 0.85 override 0.85 override,(${terminal}|Emacs)";
       decoration.drop_shadow = false;
 
-      # Disable splash
       misc = {
+        # Disable splash
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
+        # Enable window swallowing
+        enable_swallow = true;
+        swallow_regex = "^(${terminal})$";
       };
 
       # Animations
