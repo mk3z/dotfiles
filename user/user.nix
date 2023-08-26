@@ -67,8 +67,16 @@ in {
     telegram-desktop
     webcord
 
-    # programming
+    # programming (needed by Emacs)
+    aspell
+    aspellDicts.en
+    aspellDicts.en-science
+    aspellDicts.en-computers
+    python3
+    ## Github Copilot
     nodejs
+    ## Nix
+    rnix-lsp
     nixfmt
 
     # cli utilities
@@ -91,6 +99,7 @@ in {
     nix-melt
     nix-output-monitor
     nix-tree
+    nixfmt
     nvd
     statix
 
