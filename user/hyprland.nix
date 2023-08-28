@@ -40,7 +40,7 @@ in
       "$terminal" = ''${pkgs."${terminal}"}/bin/${terminal}'';
       "$editor" = "emacsclient -c -a 'emacs'";
       "$menu" = "${pkgs.wofi}/bin/wofi --show run";
-      "$lock" = "${pkgs.swaylock}/bin/swaylock";
+      "$lock" = "${pkgs.swaylock}/bin/swaylock -f";
       bind = [
         # utility
         "$mod, q, killactive"
@@ -49,7 +49,7 @@ in
         # programs
         "$mod, RETURN, exec, $terminal"
         "$mod, h, exec, $editor"
-        "$mod, d, exec, $menu"
+        "$mod, g, exec, $menu"
         "$mod, w, exec, ${pkgs.firefox}/bin/firefox"
 
         # window management
@@ -91,14 +91,7 @@ in
         "$mod_shift, 0, movetoworkspacesilent, 10"
       ];
 
-      bindl = [
-        # trigger when the switch is turning off
-        '', switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, 2560x1440, 0x0, 1"''
-        # trigger when the switch is turning on
-        '', switch:on:Lid Switch, exec, hyprctl keyword monitor "eDP-1, disable"''
-      ];
-
-      windowrule = "opacity 0.85 override 0.85 override,(${terminal}|Emacs)";
+      windowrule = "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
       decoration.drop_shadow = false;
 
       misc = {

@@ -85,7 +85,10 @@
 
   swaylock = {
     enable = true;
-    settings.font = "monospace";
+    settings = {
+      font = "monospace";
+      font-size = 24;
+    };
   };
 
   vim = {

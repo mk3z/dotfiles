@@ -107,6 +107,7 @@ in
 
     # wayland
     hyprpicker
+    wdisplays
     wev
     wl-clipboard
 
