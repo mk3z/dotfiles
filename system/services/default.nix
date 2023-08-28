@@ -1,7 +1,8 @@
 { config, lib, pkgs, username, ... }:
 
 let wm = "${pkgs.hyprland}/bin/Hyprland";
-in {
+in
+{
   services = {
 
     gnome.gnome-keyring.enable = true;
