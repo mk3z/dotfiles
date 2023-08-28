@@ -3,7 +3,12 @@
 {
   home-manager.enable = true;
 
-  ssh.enable = true;
+  ssh = {
+    enable = true;
+    extraConfig = ''
+      AddKeysToAgent yes
+    '';
+  };
 
   doom-emacs =
     {
