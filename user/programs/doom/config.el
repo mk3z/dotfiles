@@ -76,9 +76,6 @@
 ;; Disable exit confirmation
 (setq confirm-kill-emacs nil)
 
-;; Load environment variables
-(exec-path-from-shell-initialize)
-
 ;; Enable markdown-mode in mdx files
 (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
 
@@ -249,3 +246,6 @@
           writeroom-set-tool-bar-lines
           writeroom-set-vertical-scroll-bars))
   (global-writeroom-mode))
+
+(when (daemonp)
+  (exec-path-from-shell-copy-env "EMACS_PATH_COPILOT"))

@@ -23,7 +23,7 @@
     };
 
     doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
+      url = "github:librephoenix/nix-doom-emacs/pgtk-patch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

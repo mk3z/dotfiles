@@ -17,6 +17,7 @@ in {
       ".config/GIMP"
       ".config/VSCodium/Preferences"
       ".cache"
+      ".local/share/doom"
       ".local/share/keyrings"
       ".local/share/TelegramDesktop"
       ".mozilla/firefox"
@@ -29,7 +30,7 @@ in {
       "Videos"
     ];
     files =
-      [ ".bash_history" ".local/share/doom" ".local/share/fish/fish_history" ];
+      [ ".bash_history" ".local/share/fish/fish_history" ];
     allowOther = true;
   };
 

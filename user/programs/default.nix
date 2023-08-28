@@ -5,48 +5,44 @@
 
   ssh.enable = true;
 
-  doom-emacs = {
-    enable = true;
-    doomPrivateDir = ./doom;
-    emacsPackage = pkgs.emacs28.override {
-      # Remove GTK to use Lucid, behaves better under Wayland
-      withGTK2 = false;
-      withGTK3 = false;
-      withNativeCompilation = true;
-    };
-    # Only init/packages so we only rebuild when those change.
-    doomPackageDir = pkgs.linkFarm "doom-packages-dir" [
-      {
-        name = "init.el";
-        path = ./doom/init.el;
-      }
-      {
-        name = "packages.el";
-        path = ./doom/packages.el;
-      }
-      {
-        name = "config.el";
-        path = pkgs.emptyFile;
-      }
-    ];
-    emacsPackagesOverlay = self: super: {
+  doom-emacs =
+    {
+      enable = true;
+      doomPrivateDir = ./doom;
+      emacsPackage = pkgs.emacs-pgtk;
+      # Only init/packages so we only rebuild when those change.
+      doomPackageDir = pkgs.linkFarm "doom-packages-dir" [
+        {
+          name = "init.el";
+          path = ./doom/init.el;
+        }
+        {
+          name = "packages.el";
+          path = ./doom/packages.el;
+        }
+        {
+          name = "config.el";
+          path = pkgs.emptyFile;
+        }
+      ];
+      emacsPackagesOverlay = self: super: {
 
-      magit-delta = super.magit-delta.overrideAttrs
-        (esuper: { buildInputs = esuper.buildInputs ++ [ pkgs.git ]; });
+        magit-delta = super.magit-delta.overrideAttrs
+          (esuper: { buildInputs = esuper.buildInputs ++ [ pkgs.git ]; });
 
-      ob-mermaid = super.ob-mermaid.overrideAttrs (esuper: {
-        buildInputs = esuper.buildInputs ++ [ pkgs.nodePackages.mermaid-cli ];
-      });
+        ob-mermaid = super.ob-mermaid.overrideAttrs (esuper: {
+          buildInputs = esuper.buildInputs ++ [ pkgs.nodePackages.mermaid-cli ];
+        });
 
-      copilot = self.trivialBuild {
-        src = inputs.copilot;
-        pname = "copilot";
-        ename = "copilot";
-        buildInputs = with pkgs; [ nodejs ];
-        packageRequires = with self; [ s dash editorconfig ];
+        copilot = self.trivialBuild {
+          src = inputs.copilot;
+          pname = "copilot";
+          ename = "copilot";
+          buildInputs = with pkgs; [ nodejs ];
+          packageRequires = with self; [ s dash editorconfig ];
+        };
       };
     };
-  };
 
   bat.enable = true;
 
