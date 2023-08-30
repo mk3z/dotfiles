@@ -89,6 +89,10 @@ in
         "$mod_shift, 8, movetoworkspacesilent, 8"
         "$mod_shift, 9, movetoworkspacesilent, 9"
         "$mod_shift, 0, movetoworkspacesilent, 10"
+
+        # other
+        ''$mod, c, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
+        ''$mod_shift, c, exec, hyprctl keyword monitor "eDP-1, disable"''
       ];
 
       windowrule = "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
