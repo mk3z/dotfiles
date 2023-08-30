@@ -92,7 +92,7 @@
     enable = true;
     settings = {
       font = "monospace";
-      font-size = 24;
+      font-size = 18;
     };
   };
 
