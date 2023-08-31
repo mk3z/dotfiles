@@ -49,23 +49,11 @@
     };
   };
 
-  outputs =
-    inputs@{ self
-    , nixpkgs
-    , nur
-    , utils
-    , agenix
-    , home-manager
-    , impermanence
-    , emacs-overlay
-    , copilot
-    , fish-ssh-agent
-    , stylix
-    , ...
-    }:
+  outputs = inputs@{ self, nixpkgs, nur, utils, agenix, home-manager
+    , impermanence, emacs-overlay, copilot, fish-ssh-agent, stylix, ... }:
+    # username needs to be defined here because it is used in user and system config
     let username = "matias";
-    in
-    utils.lib.mkFlake {
+    in utils.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
@@ -78,27 +66,47 @@
         agenix.nixosModules.default
         stylix.nixosModules.stylix
         ./system
-        ./user
       ];
 
       hosts = {
         slimbook = {
-          modules =
-            [ ./hosts/slimbook ./modules/laptop.nix ./modules/bluetooth.nix ];
+          modules = [
+            ./hosts/slimbook
+            ./modules/laptop.nix
+            ./modules/bluetooth.nix
+            {
+              home-manager = let homePersistDir = "/persist";
+              in {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs username homePersistDir; };
+                users.${username} = import ./user;
+              };
+            }
+          ];
           extraArgs = {
             inherit username;
             sysPersistDir = "/persist";
-            homePersistDir = "/persist";
           };
           specialArgs = { inherit inputs; };
         };
 
         nixvm = {
-          modules = [ ./hosts/nixvm ];
+          modules = [
+            ./hosts/nixvm
+            {
+              home-manager = let homePersistDir = "/nix/persist";
+              in {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs homePersistDir; };
+                users.${username} = import ./user username;
+              };
+            }
+          ];
           extraArgs = {
             inherit username;
             sysPersistDir = "/nix/persist";
-            homePersistDir = "/nix/persist";
           };
           specialArgs = { inherit inputs; };
         };

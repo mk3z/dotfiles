@@ -1,33 +1,38 @@
 { pkgs, lib, ... }:
 
-let
-  terminal = "kitty";
+let terminal = "kitty";
 in
 {
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
+
     settings = {
-      # set wallpaper
       exec-once = [
-        "${pkgs.swaybg}/bin/swaybg -i ${builtins.toString ../wallpaper.jpg}"
+        # set wallpaper
+        "${pkgs.swaybg}/bin/swaybg -i ${builtins.toString ../../wallpaper.jpg}"
+        # Start polkit agent
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
       ];
 
-      # general settings
       general = {
+        # Don't waste space
         gaps_in = 0;
         gaps_out = 0;
+        # The only color that can be seen
+        # Sadly stylix does not support Hyprland (yet)
         "col.inactive_border" = "0xff3b4252";
         "col.active_border" = "0xff5e81ac";
       };
 
+      # Don't waste more space
       dwindle.no_gaps_when_only = 1;
       master.no_gaps_when_only = 1;
 
       # set keyboard layout
       input = {
         kb_model = "pc105";
+        # Custom layout set in ./keyboard.nix
         kb_layout = "colemat";
         kb_options = "caps:escape";
         repeat_rate = "50";
@@ -37,7 +42,7 @@ in
       # keybinds
       "$mod" = "SUPER";
       "$mod_shift" = "SUPER_SHIFT";
-      "$terminal" = ''${pkgs."${terminal}"}/bin/${terminal}'';
+      "$terminal" = "${pkgs."${terminal}"}/bin/${terminal}";
       "$editor" = "emacsclient -c -a 'emacs'";
       "$menu" = "${pkgs.wofi}/bin/wofi --show run";
       "$lock" = "${pkgs.swaylock}/bin/swaylock -f";
@@ -45,11 +50,13 @@ in
         # utility
         "$mod, q, killactive"
         "$mod, l, exec, $lock"
+        ## screenshot
+        ", PRINT, exec, ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.swappy}/bin/swappy -f -"
 
         # programs
         "$mod, RETURN, exec, $terminal"
         "$mod, h, exec, $editor"
-        "$mod, g, exec, $menu"
+        "$mod, d, exec, $menu"
         "$mod, w, exec, ${pkgs.firefox}/bin/firefox"
 
         # window management
@@ -90,12 +97,16 @@ in
         "$mod_shift, 9, movetoworkspacesilent, 9"
         "$mod_shift, 0, movetoworkspacesilent, 10"
 
-        # other
-        ''$mod, c, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
+        # Enable and disable laptop screen
+        ''
+          $mod, c, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
         ''$mod_shift, c, exec, hyprctl keyword monitor "eDP-1, disable"''
       ];
 
-      windowrule = "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
+      # Enable transparency for terminal and emacs
+      windowrule =
+        "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
+      # Spares the battery
       decoration.drop_shadow = false;
 
       misc = {
@@ -113,30 +124,9 @@ in
       # Disable Xwayland scaling
       xwayland.force_zero_scaling = true;
 
+      # Set laptop screen to maximum refresh rate and appropriate scaling
+      # TODO: Maybe make this work with variables so it works on other machines
       monitor = [ "eDP-1, 2560x1440@165, 0x0, 1.5" ];
     };
-  };
-
-  home.pointerCursor = {
-    package = pkgs.phinger-cursors;
-    name = "phinger-cursors";
-    x11 = {
-      enable = true;
-      defaultCursor = "phinger-cursors";
-    };
-  };
-
-  # Custom keyboard layout based on Colemak-DH ISO
-  # replaces the backslash key with backspace
-  # and number sign with backslash and pipe
-  home.file.".xkb/symbols/colemat" = {
-    recursive = true;
-    text = ''
-      xkb_symbols {
-        include "us(colemak_dh_iso)"
-        replace key <AB05> { [ BackSpace ] };
-        replace key <AC12> { [ backslash, bar ] };
-      };
-    '';
   };
 }
