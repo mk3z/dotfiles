@@ -1,7 +1,11 @@
 { inputs, pkgs, homePersistDir, homeDirectory, ... }:
 
 {
-  imports = [ ./tools.nix ./ssh.nix ./starship.nix ];
+  imports = [
+    ./tools.nix
+    (import ./ssh.nix { inherit homePersistDir homeDirectory; })
+    ./starship.nix
+  ];
 
   home.persistence."${homePersistDir}${homeDirectory}" = {
     files = [ ".bash_history" ".local/share/fish/fish_history" ];

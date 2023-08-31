@@ -39,7 +39,6 @@ in {
 
         ".cache"
         ".local/share/keyrings"
-        ".ssh"
 
         ".config/Signal"
         ".config/GIMP"
