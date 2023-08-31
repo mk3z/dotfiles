@@ -31,6 +31,7 @@
     fortune
     lolcat
     neofetch
+    onefetch
     sl
     toilet
   ];
