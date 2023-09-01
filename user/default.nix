@@ -20,9 +20,15 @@ in {
     inherit username homeDirectory;
 
     packages = with pkgs; [
-      gimp
-      obs-studio
+      # utilities
       pavucontrol
+
+      # media
+      gimp
+      inkscape
+      obs-studio
+
+      # communication
       signal-desktop
       telegram-desktop
       webcord
@@ -55,6 +61,11 @@ in {
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
+  };
+
+  programs = {
+    imv.enable = true;
+    mpv.enable = true;
   };
 
   xdg.mimeApps.enable = true;
