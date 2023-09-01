@@ -32,6 +32,9 @@ in {
       signal-desktop
       telegram-desktop
       webcord
+
+      # other
+      ungoogled-chromium
     ];
 
     persistence."${homePersistDir}${homeDirectory}" = {

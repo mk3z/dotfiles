@@ -1,4 +1,6 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }:
+
+{
   fonts = {
     packages = with pkgs; [
       libertinus
@@ -12,8 +14,8 @@
   };
 
   stylix = {
+    image = ../wallpaper.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-    image = ../../wallpaper.jpg;
     fonts = {
       serif = {
         package = pkgs.libertinus;

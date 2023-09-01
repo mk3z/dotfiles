@@ -17,7 +17,7 @@
         impermanence.nixosModule
         agenix.nixosModules.default
         stylix.nixosModules.stylix
-        ./system
+        ./modules/system
       ];
 
       hosts = {
@@ -25,8 +25,20 @@
           modules = [
             ./hosts/slimbook
 
+            # hardware
             ./modules/laptop.nix
+            ./modules/amdgpu.nix
+            ./modules/zfs.nix
             ./modules/bluetooth.nix
+
+            # features
+            ./modules/sound.nix
+            ./modules/fonts.nix
+            ./modules/keyring.nix
+
+            # programs
+            ./modules/greetd.nix
+            ./modules/mullvad.nix
 
             {
               home-manager = let homePersistDir = "/persist";
@@ -49,6 +61,13 @@
         nixvm = {
           modules = [
             ./hosts/nixvm
+
+            # features
+            ./modules/sound.nix
+            ./modules/fonts.nix
+
+            # programs
+            ./modules/greetd.nix
 
             {
               home-manager = let homePersistDir = "/nix/persist";

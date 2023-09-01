@@ -6,50 +6,42 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "defaults" "size=2G" "mode=755" ];
+  fileSystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=2G" "mode=755" ];
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/BB3C-0CD8";
+      fsType = "vfat";
+    };
+
+    "/boot-fallback" = {
+      device = "/dev/disk/by-uuid/BB94-AEE7";
+      fsType = "vfat";
+    };
+
+    "/nix" = {
+      device = "rpool/nixos/nix";
+      fsType = "zfs";
+    };
+
+    "/persist" = {
+      device = "rpool/nixos/persist";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/BB3C-0CD8";
-    fsType = "vfat";
-  };
-
-  fileSystems."/boot-fallback" = {
-    device = "/dev/disk/by-uuid/BB94-AEE7";
-    fsType = "vfat";
-  };
-
-  fileSystems."/nix" = {
-    device = "rpool/nixos/nix";
-    fsType = "zfs";
-  };
-
-  fileSystems."/persist" = {
-    device = "rpool/nixos/persist";
-    fsType = "zfs";
-    neededForBoot = true;
-  };
-
+  # zram
   swapDevices = [ ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
-  networking.hostId = "f51d068a";
-
-  services.zfs.autoScrub.enable = true;
   zramSwap.enable = true;
 
-  # AMD specific OpenGL options
-  hardware.opengl = {
-    extraPackages = with pkgs; [ rocm-opencl-icd rocm-opencl-runtime ];
+  networking = {
+    useDHCP = lib.mkDefault true;
+    hostId = "f51d068a";
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
