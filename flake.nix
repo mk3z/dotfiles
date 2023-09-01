@@ -1,18 +1,7 @@
 {
   description = "mkez NixOS configuration";
 
-  outputs =
-    inputs@{ self
-    , nixpkgs
-    , nur
-    , utils
-    , agenix
-    , home-manager
-    , impermanence
-    , emacs-overlay
-    , stylix
-    , ...
-    }:
+  outputs = { self, nixpkgs, utils, ... } @ inputs:
     # username needs to be defined here because it is used in user and system config
     let username = "matias";
     in
@@ -21,13 +10,13 @@
 
       channelsConfig.allowUnfree = true;
 
-      sharedOverlays = [ nur.overlay emacs-overlay.overlay ];
+      sharedOverlays = [ inputs.nur.overlay inputs.emacs-overlay.overlay ];
 
       hostDefaults.modules = [
-        home-manager.nixosModule
-        impermanence.nixosModule
-        agenix.nixosModules.default
-        stylix.nixosModules.stylix
+        inputs.home-manager.nixosModule
+        inputs.impermanence.nixosModule
+        inputs.agenix.nixosModules.default
+        inputs.stylix.nixosModules.stylix
         ./modules/system
       ];
 
