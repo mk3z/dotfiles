@@ -1,8 +1,7 @@
 { pkgs, lib, ... }:
 
 let terminal = "kitty";
-in
-{
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
@@ -44,7 +43,7 @@ in
       "$mod_shift" = "SUPER_SHIFT";
       "$terminal" = "${pkgs."${terminal}"}/bin/${terminal}";
       "$editor" = "emacsclient -c -a 'emacs'";
-      "$menu" = "${pkgs.wofi}/bin/wofi --show run";
+      "$menu" = "${pkgs.wofi}/bin/wofi --show drun -I -G";
       "$lock" = "${pkgs.swaylock}/bin/swaylock -f";
       bind = [
         # utility
