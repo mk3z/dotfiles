@@ -12,7 +12,7 @@ in
     (import ./shell { inherit inputs pkgs homePersistDir homeDirectory; })
     (import ./doom { inherit inputs pkgs homePersistDir homeDirectory; })
     (import ./firefox { inherit pkgs homePersistDir homeDirectory; })
-    (import ./vscode { inherit pkgs homePersistDir homeDirectory; })
+    (import ./vscode.nix { inherit pkgs homePersistDir homeDirectory; })
   ];
 
   programs.home-manager.enable = true;
