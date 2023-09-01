@@ -1,6 +1,79 @@
 {
   description = "mkez NixOS configuration";
 
+  outputs = inputs@{ self, nixpkgs, nur, utils, agenix, home-manager
+    , impermanence, emacs-overlay, copilot, fish-ssh-agent, stylix, ... }:
+    # username needs to be defined here because it is used in user and system config
+    let username = "matias";
+    in utils.lib.mkFlake {
+      inherit self inputs;
+
+      channelsConfig.allowUnfree = true;
+
+      sharedOverlays = [ nur.overlay emacs-overlay.overlay ];
+
+      hostDefaults.modules = [
+        home-manager.nixosModule
+        impermanence.nixosModule
+        agenix.nixosModules.default
+        stylix.nixosModules.stylix
+        ./system
+      ];
+
+      hosts = {
+        slimbook = {
+          modules = [
+            ./hosts/slimbook
+
+            ./modules/laptop.nix
+            ./modules/bluetooth.nix
+
+            {
+              home-manager = let homePersistDir = "/persist";
+              in {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs username homePersistDir; };
+                users.${username} = import ./user;
+              };
+            }
+          ];
+
+          extraArgs = {
+            inherit username;
+            sysPersistDir = "/persist";
+          };
+          specialArgs = { inherit inputs; };
+        };
+
+        nixvm = {
+          modules = [
+            ./hosts/nixvm
+
+            {
+              home-manager = let homePersistDir = "/nix/persist";
+              in {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs homePersistDir; };
+                users.${username} = import ./user username;
+              };
+            }
+          ];
+
+          extraArgs = {
+            inherit username;
+            sysPersistDir = "/nix/persist";
+          };
+          specialArgs = { inherit inputs; };
+        };
+      };
+
+      # TODO: Make it work with other platforms
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+
+    };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -49,71 +122,4 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nur, utils, agenix, home-manager
-    , impermanence, emacs-overlay, copilot, fish-ssh-agent, stylix, ... }:
-    # username needs to be defined here because it is used in user and system config
-    let username = "matias";
-    in utils.lib.mkFlake {
-      inherit self inputs;
-
-      channelsConfig.allowUnfree = true;
-
-      sharedOverlays = [ nur.overlay emacs-overlay.overlay ];
-
-      hostDefaults.modules = [
-        home-manager.nixosModule
-        impermanence.nixosModule
-        agenix.nixosModules.default
-        stylix.nixosModules.stylix
-        ./system
-      ];
-
-      hosts = {
-        slimbook = {
-          modules = [
-            ./hosts/slimbook
-            ./modules/laptop.nix
-            ./modules/bluetooth.nix
-            {
-              home-manager = let homePersistDir = "/persist";
-              in {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit inputs username homePersistDir; };
-                users.${username} = import ./user;
-              };
-            }
-          ];
-          extraArgs = {
-            inherit username;
-            sysPersistDir = "/persist";
-          };
-          specialArgs = { inherit inputs; };
-        };
-
-        nixvm = {
-          modules = [
-            ./hosts/nixvm
-            {
-              home-manager = let homePersistDir = "/nix/persist";
-              in {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit inputs homePersistDir; };
-                users.${username} = import ./user username;
-              };
-            }
-          ];
-          extraArgs = {
-            inherit username;
-            sysPersistDir = "/nix/persist";
-          };
-          specialArgs = { inherit inputs; };
-        };
-      };
-
-      # TODO: Make it work with other platforms
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-
-    };
 }
