@@ -1,5 +1,4 @@
-{ config, lib, pkgs, ... }:
-
+{ pkgs, ... }:
 {
   # Some basic system maintenance packages
   environment.systemPackages = with pkgs; [ htop ncdu killall parted wget ];

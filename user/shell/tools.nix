@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -16,6 +16,7 @@
     usbutils
 
     # nix utilities
+    deadnix
     nix-diff
     nix-du
     nix-melt

@@ -1,7 +1,8 @@
-{ pkgs, lib, inputs, username, homePersistDir, ... }:
+{ pkgs, inputs, username, homePersistDir, ... }:
 
 let homeDirectory = "/home/${username}";
-in {
+in
+{
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.doom-emacs.hmModule
