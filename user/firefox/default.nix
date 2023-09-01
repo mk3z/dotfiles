@@ -3,6 +3,14 @@
   home.persistence."${homePersistDir}${homeDirectory}".directories =
     [ ".mozilla/firefox" ];
 
+  xdg.mimeApps = {
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+    };
+  };
+
   programs.firefox = {
     enable = true;
     profiles.default = {
