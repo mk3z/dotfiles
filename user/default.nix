@@ -52,6 +52,7 @@ in
 
         ".config/Signal"
         ".config/GIMP"
+        ".config/WebCord"
         ".local/share/TelegramDesktop"
       ];
       allowOther = true;
