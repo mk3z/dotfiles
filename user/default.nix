@@ -13,6 +13,7 @@ in
     (import ./doom { inherit inputs pkgs homePersistDir homeDirectory; })
     (import ./firefox { inherit pkgs homePersistDir homeDirectory; })
     (import ./vscode.nix { inherit pkgs homePersistDir homeDirectory; })
+    (import ./spotify.nix { inherit inputs pkgs homePersistDir homeDirectory; })
   ];
 
   programs.home-manager.enable = true;
@@ -73,7 +74,14 @@ in
     mpv.enable = true;
   };
 
-  xdg.mimeApps.enable = true;
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+    };
+  };
 
   # Disable useless user dirs
   xdg.userDirs = {
