@@ -97,9 +97,9 @@ in {
         "$mod_shift, 0, movetoworkspacesilent, 10"
 
         # Enable and disable laptop screen
+        ''$mod, p, exec, hyprctl keyword monitor "eDP-1, disable"''
         ''
-          $mod, c, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
-        ''$mod_shift, c, exec, hyprctl keyword monitor "eDP-1, disable"''
+          $mod_shift, p, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
       ];
 
       # Enable transparency for terminal and emacs
