@@ -3,8 +3,12 @@
 {
   imports = [
     ./hyprland.nix
+
     ./keyboard.nix
     ./cursor.nix
+
+    ./gtk.nix
+
     ./terminal.nix
     ./swaylock.nix
     ./swayidle.nix
