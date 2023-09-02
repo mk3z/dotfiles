@@ -12,7 +12,7 @@
     ripgrep
 
     # network
-    drill
+    ldns
     mtr
 
     # hardware
