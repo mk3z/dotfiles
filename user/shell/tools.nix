@@ -13,6 +13,7 @@
     pciutils
     ripgrep
     tldr
+    unzip
     usbutils
 
     # nix utilities
