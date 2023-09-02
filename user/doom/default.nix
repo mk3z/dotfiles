@@ -87,8 +87,12 @@
       nixfmt
     ];
 
-    # Needed for copilot to work
-    sessionVariables = { EMACS_PATH_COPILOT = "${inputs.copilot}"; };
+    sessionVariables = {
+      # Needed for copilot to work
+      EMACS_PATH_COPILOT = "${inputs.copilot}";
+      # Make lsp-mode faster
+      LSP_USE_PLISTS = "true";
+    };
   };
 
   # Disable automatic styling
