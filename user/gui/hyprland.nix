@@ -105,6 +105,9 @@ in {
       # Enable transparency for terminal and emacs
       windowrule =
         "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
+      # Enable blur for waybar
+      layerrule = "blur ,waybar";
+
       # Spares the battery
       decoration.drop_shadow = false;
 
