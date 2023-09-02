@@ -133,6 +133,16 @@
       flake = false;
     };
 
+    ob-ammonite = {
+      url = "github:zwild/ob-ammonite";
+      flake = false;
+    };
+
+    ammonite-term-repl = {
+      url = "github:zwild/ammonite-term-repl";
+      flake = false;
+    };
+
     fish-ssh-agent = {
       url = "github:danhper/fish-ssh-agent";
       flake = false;

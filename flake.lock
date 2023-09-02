@@ -24,6 +24,22 @@
         "type": "github"
       }
     },
+    "ammonite-term-repl": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1587016773,
+        "narHash": "sha256-5trLzx9NkyVcjKx/ud6NcxxZkQk+/NihqVmZyv5u1Dw=",
+        "owner": "zwild",
+        "repo": "ammonite-term-repl",
+        "rev": "b552fe21977e005c1c460bf6607557e67241a6b6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zwild",
+        "repo": "ammonite-term-repl",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -558,6 +574,22 @@
         "type": "github"
       }
     },
+    "ob-ammonite": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1565657991,
+        "narHash": "sha256-DUf2waPQhnhWdEDvWhKId7HoxSIdGtpj2lwLyWHeKyo=",
+        "owner": "zwild",
+        "repo": "ob-ammonite",
+        "rev": "39937dff395e70aff76a4224fa49cf2ec6c57cca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zwild",
+        "repo": "ob-ammonite",
+        "type": "github"
+      }
+    },
     "ob-racket": {
       "flake": false,
       "locked": {
@@ -657,6 +689,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "ammonite-term-repl": "ammonite-term-repl",
         "copilot": "copilot",
         "doom-emacs": "doom-emacs",
         "emacs-overlay": "emacs-overlay_2",
@@ -665,6 +698,7 @@
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "ob-ammonite": "ob-ammonite",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
         "utils": "utils"

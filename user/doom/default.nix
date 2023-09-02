@@ -23,12 +23,12 @@
     ];
     emacsPackagesOverlay = self: super: {
 
-      magit-delta = super.magit-delta.overrideAttrs
-        (esuper: { buildInputs = esuper.buildInputs ++ [ pkgs.git ]; });
-
-      ob-mermaid = super.ob-mermaid.overrideAttrs (esuper: {
-        buildInputs = esuper.buildInputs ++ [ pkgs.nodePackages.mermaid-cli ];
-      });
+      ammonite-term-repl = self.trivialBuild {
+        src = inputs.ammonite-term-repl;
+        pname = "ammonite-term-repl";
+        ename = "ammonite-term-repl";
+        packageRequires = with self; [ s scala-mode ];
+      };
 
       copilot = self.trivialBuild {
         src = inputs.copilot;
@@ -37,6 +37,21 @@
         buildInputs = with pkgs; [ nodejs ];
         packageRequires = with self; [ s dash editorconfig ];
       };
+
+      magit-delta = super.magit-delta.overrideAttrs
+        (esuper: { buildInputs = esuper.buildInputs ++ [ pkgs.git ]; });
+
+      ob-ammonite = self.trivialBuild {
+        src = inputs.ob-ammonite;
+        pname = "ob-ammonite";
+        ename = "ob-ammonite";
+        packageRequires = with self; [ s ammonite-term-repl xterm-color ];
+      };
+
+      ob-mermaid = super.ob-mermaid.overrideAttrs (esuper: {
+        buildInputs = esuper.buildInputs ++ [ pkgs.nodePackages.mermaid-cli ];
+      });
+
     };
   };
 
