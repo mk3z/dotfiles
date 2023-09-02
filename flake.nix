@@ -1,11 +1,10 @@
 {
   description = "mkez NixOS configuration";
 
-  outputs = { self, nixpkgs, utils, ... } @ inputs:
+  outputs = { self, nixpkgs, utils, ... }@inputs:
     # username needs to be defined here because it is used in user and system config
     let username = "matias";
-    in
-    utils.lib.mkFlake {
+    in utils.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
@@ -41,15 +40,13 @@
             ./modules/mullvad.nix
 
             {
-              home-manager =
-                let homePersistDir = "/persist";
-                in
-                {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  extraSpecialArgs = { inherit inputs username homePersistDir; };
-                  users.${username} = import ./user;
-                };
+              home-manager = let homePersistDir = "/persist";
+              in {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs username homePersistDir; };
+                users.${username} = import ./user;
+              };
             }
           ];
 
@@ -72,15 +69,13 @@
             ./modules/greetd.nix
 
             {
-              home-manager =
-                let homePersistDir = "/nix/persist";
-                in
-                {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  extraSpecialArgs = { inherit inputs homePersistDir; };
-                  users.${username} = import ./user username;
-                };
+              home-manager = let homePersistDir = "/nix/persist";
+              in {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs homePersistDir; };
+                users.${username} = import ./user username;
+              };
             }
           ];
 

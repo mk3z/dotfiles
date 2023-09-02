@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
 let terminal = "kitty";
-in
-{
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
