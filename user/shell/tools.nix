@@ -2,21 +2,30 @@
 
 {
   home.packages = with pkgs; [
-    # cli utilities
+    tldr
+    unzip
+
+    # disk
     duf
     du-dust
     fd
-    ffmpeg
-    graphviz
+    ripgrep
+
+    # network
+    drill
+    mtr
+
+    # hardware
     inxi
     lm_sensors
     pciutils
-    ripgrep
-    tldr
-    unzip
     usbutils
 
-    # nix utilities
+    # media
+    ffmpeg
+    graphviz
+
+    # nix
     deadnix
     nix-diff
     nix-du
