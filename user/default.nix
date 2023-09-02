@@ -46,6 +46,7 @@ in
         "Music"
         "Pictures"
         "Projects"
+        "School"
         "Videos"
 
         ".cache"

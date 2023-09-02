@@ -229,7 +229,7 @@
 (use-package! projectile
   :config
   (setq
-   projectile-project-search-path '("~/Code/" "~/Documents/" "~/Projects/")))
+   projectile-project-search-path '("~/Code/" "~/Documents/" "~/Projects/" "~/School/")))
 
 (use-package! rainbow-mode)
 
