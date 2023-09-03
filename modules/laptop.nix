@@ -17,4 +17,6 @@
       };
     };
   };
+
+  hardware.brillo.enable = true;
 }
