@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       battery = {
-        governor = "powersave";
+        governor = "ondemand";
         turbo = "never";
       };
       charger = {
