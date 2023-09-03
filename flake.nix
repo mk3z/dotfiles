@@ -40,13 +40,14 @@
             ./modules/mullvad.nix
 
             {
-              home-manager = let homePersistDir = "/persist";
-              in {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit inputs username homePersistDir; };
-                users.${username} = import ./user;
-              };
+              home-manager =
+                let homePersistDir = "/persist";
+                in {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  extraSpecialArgs = { inherit inputs username homePersistDir; };
+                  users.${username} = import ./user;
+                };
             }
           ];
 
@@ -69,13 +70,14 @@
             ./modules/greetd.nix
 
             {
-              home-manager = let homePersistDir = "/nix/persist";
-              in {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit inputs homePersistDir; };
-                users.${username} = import ./user username;
-              };
+              home-manager =
+                let homePersistDir = "/nix/persist";
+                in {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  extraSpecialArgs = { inherit inputs homePersistDir; };
+                  users.${username} = import ./user username;
+                };
             }
           ];
 
