@@ -112,9 +112,9 @@ in {
 
       bindl = [
         # Enable and disable laptop screen
-        ''$mod, p, exec, hyprctl keyword monitor "eDP-1, disable"''
         ''
-          $mod_shift, p, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
+          $mod, p, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
+        ''$mod_shift, p, exec, hyprctl keyword monitor "eDP-1, disable"''
       ];
 
       # Enable transparency for terminal and emacs
