@@ -102,8 +102,8 @@ in {
 
       binde = [
         # Screen brightness
-        ", XF86MonBrightnessUp, exec, brillo -A 5"
-        ", XF86MonBrightnessDown, exec, brillo -U 5"
+        ", XF86MonBrightnessUp, exec, brillo -q -A 1 -u 100000"
+        ", XF86MonBrightnessDown, exec, brillo -q -U 1 -u 100000"
 
         # Audio
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 1%+"
