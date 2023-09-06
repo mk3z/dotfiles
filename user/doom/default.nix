@@ -85,6 +85,12 @@
       # Nix
       rnix-lsp
       nixfmt
+
+      # Scala
+      bloop
+      metals
+      (pkgs.writeShellScriptBin "metals-emacs" "metals")
+      sbt
     ];
 
     sessionVariables = {
