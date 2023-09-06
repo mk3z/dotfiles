@@ -24,6 +24,7 @@ in
     packages = with pkgs; [
       # utilities
       pavucontrol
+      speedcrunch
 
       # media
       gimp
