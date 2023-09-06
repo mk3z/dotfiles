@@ -74,6 +74,11 @@ in
   programs = {
     imv.enable = true;
     mpv.enable = true;
+    #TODO: maybe move somewhere else
+    java = {
+      enable = true;
+      package = pkgs.jdk11;
+    };
   };
 
   xdg.mimeApps.enable = true;
