@@ -204,12 +204,7 @@
 (use-package! magit-delta
  :hook (magit-mode . magit-delta-mode))
 
-;; (use-package! mixed-pitch
-;;   :hook (org-mode . mixed-pitch-mode)
-;;   :config
-;;   (setq mixed-pitch-face 'variable-pitch))
-
-(use-package ob-mermaid
+(use-package! ob-mermaid
   :config
   (setq ob-mermaid-cli-path "/usr/bin/mmdc"))
 
