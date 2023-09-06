@@ -161,7 +161,12 @@
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
-  :config (setq copilot--base-dir (getenv "EMACS_PATH_COPILOT"))
+  :config
+  (setq copilot--base-dir (getenv "EMACS_PATH_COPILOT"))
+  (map! :leader
+        :prefix "t"
+        :desc "Fill column indicator" "C" #'global-display-fill-column-indicator-mode
+        :desc "GitHub Copilot" "c" #'copilot-mode)
   :hook (prog-mode . copilot-mode)
   :bind
   (("C-TAB" . 'copilot-accept-completion-by-word)
