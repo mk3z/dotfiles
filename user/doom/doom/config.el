@@ -248,4 +248,5 @@
   (global-writeroom-mode))
 
 (when (daemonp)
-  (exec-path-from-shell-copy-env "EMACS_PATH_COPILOT"))
+  (setq exec-path-from-shell-variables '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH" "EMACS_PATH_COPILOT" "JAVA_HOME"))
+  (exec-path-from-shell-initialize))
