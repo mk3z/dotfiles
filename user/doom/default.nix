@@ -4,8 +4,7 @@
   programs.doom-emacs = {
     enable = true;
     doomPrivateDir = ./doom;
-    # Emacs 29 pure GTK build for Wayland support
-    emacsPackage = pkgs.emacs-pgtk;
+    emacsPackage = pkgs.emacs29.override { withNativeCompilation = true; };
     # Only rebuild if init or packages change
     doomPackageDir = pkgs.linkFarm "doom-packages-dir" [
       {
