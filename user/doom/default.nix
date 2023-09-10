@@ -81,6 +81,11 @@
       # Github Copilot
       nodejs
 
+      # LaTeX and Org-mode
+      texlive.combined.scheme-full
+      ## minted
+      python311Packages.pygments
+
       # Nix
       rnix-lsp
       nixfmt
