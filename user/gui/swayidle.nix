@@ -4,11 +4,11 @@
     systemdTarget = "graphical-session.target";
     timeouts = [
       {
-        timeout = 150;
+        timeout = 600;
         command = "${pkgs.swaylock}/bin/swaylock -f";
       }
       {
-        timeout = 300;
+        timeout = 660;
         command = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
         resumeCommand = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
       }
