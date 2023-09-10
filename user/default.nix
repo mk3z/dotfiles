@@ -37,6 +37,7 @@ in
       webcord
 
       # other
+      qbittorrent
       ungoogled-chromium
     ];
 
