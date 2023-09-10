@@ -24,8 +24,8 @@
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 
-(setq doom-font (font-spec :family "Monospace" :size 14 :weight 'Regular)
-      doom-big-font (font-spec :family "Monospace" :size 24 :weight 'Regular))
+(setq doom-font (font-spec :family "Monospace" :size 20 :weight 'Regular)
+      doom-big-font (font-spec :family "Monospace" :size 32 :weight 'Regular))
 
 ;; Enable the www ligature in every possible major mode
 (ligature-set-ligatures 't '("www"))
