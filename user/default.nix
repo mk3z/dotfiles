@@ -14,6 +14,7 @@ in
     (import ./firefox { inherit pkgs homePersistDir homeDirectory; })
     (import ./vscode.nix { inherit pkgs homePersistDir homeDirectory; })
     (import ./spotify.nix { inherit inputs pkgs homePersistDir homeDirectory; })
+    ./speedcrunch.nix
   ];
 
   programs.home-manager.enable = true;
@@ -24,7 +25,6 @@ in
     packages = with pkgs; [
       # utilities
       pavucontrol
-      speedcrunch
 
       # media
       gimp
