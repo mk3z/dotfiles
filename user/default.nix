@@ -52,6 +52,7 @@ in
         "Videos"
 
         ".cache"
+        ".local/share/containers"
         ".local/share/keyrings"
 
         ".config/Signal"
