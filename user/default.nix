@@ -30,6 +30,7 @@ in
       gimp
       inkscape
       obs-studio
+      ytfzf
 
       # communication
       signal-desktop
