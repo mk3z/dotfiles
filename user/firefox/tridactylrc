@@ -1,0 +1,16 @@
+keymap e k
+keymap i l
+keymap k n
+keymap l u
+keymap m h
+keymap n j
+keymap u i
+keymap E K
+keymap I L
+keymap K N
+keymap L U
+keymap M H
+keymap N J
+keymap U I
+
+set theme dark

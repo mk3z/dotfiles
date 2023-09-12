@@ -1,4 +1,8 @@
 { pkgs, homePersistDir, homeDirectory, ... }: {
+  imports = [
+    # Cool plugin but scroll is bad
+    #./tridactyl.nix
+  ];
 
   home.persistence."${homePersistDir}${homeDirectory}".directories =
     [ ".mozilla/firefox" ];
