@@ -39,6 +39,7 @@ in
 
       # other
       qbittorrent
+      quickemu
       ungoogled-chromium
     ];
 
