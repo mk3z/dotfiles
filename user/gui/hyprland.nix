@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
 let terminal = "kitty";
-in {
+in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
@@ -36,6 +37,7 @@ in {
         kb_options = "caps:escape";
         repeat_rate = "50";
         repeat_delay = "300";
+        touchpad.natural_scroll = true;
       };
 
       # keybinds
