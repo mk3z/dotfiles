@@ -77,6 +77,7 @@
       aspellDicts.en
       aspellDicts.en-science
       aspellDicts.en-computers
+      aspellDicts.fi
 
       # Github Copilot
       nodejs
