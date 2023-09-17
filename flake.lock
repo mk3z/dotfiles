@@ -309,6 +309,27 @@
         "type": "github"
       }
     },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1694845188,
+        "narHash": "sha256-M3Q1PDYcTOcqPRKkvRW+0sOm7dFGW95zK+wFmJYyw2M=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "95d6c30ecac01307772ec4273c649dab40211a9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
     "fish-ssh-agent": {
       "flake": false,
       "locked": {
@@ -693,6 +714,7 @@
         "copilot": "copilot",
         "doom-emacs": "doom-emacs",
         "emacs-overlay": "emacs-overlay_2",
+        "fenix": "fenix",
         "fish-ssh-agent": "fish-ssh-agent",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
@@ -717,6 +739,23 @@
       "original": {
         "owner": "debug-ito",
         "repo": "rotate-text.el",
+        "type": "github"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694682672,
+        "narHash": "sha256-AReT7Eis+iRs7ve6L1CeW/obR/QHi2xZpf7m8NX00hU=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "12e28c35758051dd6bc9cdf419a50dff80fab64d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
         "type": "github"
       }
     },

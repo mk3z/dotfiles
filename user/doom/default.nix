@@ -90,6 +90,18 @@
       rnix-lsp
       nixfmt
 
+      # Python
+      python311Packages.python-lsp-server
+
+      # Rust
+      rust-analyzer
+      (fenix.complete.withComponents [
+        "clippy"
+        "rust-src"
+        "rustc"
+        "rustfmt"
+      ])
+
       # Scala
       bloop
       metals

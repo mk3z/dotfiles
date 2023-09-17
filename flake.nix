@@ -10,7 +10,11 @@
 
       channelsConfig.allowUnfree = true;
 
-      sharedOverlays = [ inputs.nur.overlay inputs.emacs-overlay.overlay ];
+      sharedOverlays = [
+        inputs.nur.overlay
+        inputs.emacs-overlay.overlay
+        inputs.fenix.overlays.default
+      ];
 
       hostDefaults.modules = [
         inputs.home-manager.nixosModule
@@ -143,6 +147,11 @@
     ammonite-term-repl = {
       url = "github:zwild/ammonite-term-repl";
       flake = false;
+    };
+
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     fish-ssh-agent = {
