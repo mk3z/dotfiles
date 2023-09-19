@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let terminal = "kitty";
 in
@@ -21,8 +21,8 @@ in
         gaps_out = 0;
         # The only color that can be seen
         # Sadly stylix does not support Hyprland (yet)
-        "col.inactive_border" = "0xff3b4252";
-        "col.active_border" = "0xff5e81ac";
+        "col.inactive_border" = lib.mkForce "0xff3b4252";
+        "col.active_border" = lib.mkForce "0xff5e81ac";
       };
 
       # Don't waste more space
@@ -123,7 +123,7 @@ in
       windowrule =
         "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
       # Enable blur for waybar
-      layerrule = "blur ,waybar";
+      layerrule = "blur, waybar";
 
       # Spares the battery
       decoration.drop_shadow = false;
