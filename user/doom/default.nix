@@ -24,6 +24,7 @@
 
       ammonite-term-repl = self.trivialBuild {
         src = inputs.ammonite-term-repl;
+        version = "1.0";
         pname = "ammonite-term-repl";
         ename = "ammonite-term-repl";
         packageRequires = with self; [ s scala-mode ];
@@ -31,6 +32,7 @@
 
       copilot = self.trivialBuild {
         src = inputs.copilot;
+        version = "1.0";
         pname = "copilot";
         ename = "copilot";
         buildInputs = with pkgs; [ nodejs ];
@@ -42,6 +44,7 @@
 
       ob-ammonite = self.trivialBuild {
         src = inputs.ob-ammonite;
+        version = "1.0";
         pname = "ob-ammonite";
         ename = "ob-ammonite";
         packageRequires = with self; [ s ammonite-term-repl xterm-color ];

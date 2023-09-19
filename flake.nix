@@ -126,7 +126,10 @@
 
     doom-emacs = {
       url = "github:librephoenix/nix-doom-emacs/pgtk-patch";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nix-straight.url = "github:mk3z/nix-straight.el";
+      };
     };
 
     emacs-overlay = {
