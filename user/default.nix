@@ -1,20 +1,13 @@
-{ pkgs, inputs, username, homePersistDir, ... }:
+{ pkgs, inputs, username, homeDirectory, homePersistDir, ... }:
 
-let homeDirectory = "/home/${username}";
-in
 {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.doom-emacs.hmModule
 
     ./gui
-    # Come on Nix, is this really the only way to do this?
-    (import ./shell { inherit inputs pkgs homePersistDir homeDirectory; })
-    (import ./doom { inherit inputs pkgs homePersistDir homeDirectory; })
-    (import ./firefox { inherit pkgs homePersistDir homeDirectory; })
-    (import ./vscode.nix { inherit pkgs homePersistDir homeDirectory; })
-    (import ./spotify.nix { inherit inputs pkgs homePersistDir homeDirectory; })
-    ./speedcrunch.nix
+    ./shell
+    ./programs
   ];
 
   programs.home-manager.enable = true;

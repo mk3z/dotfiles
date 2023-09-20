@@ -3,7 +3,9 @@
 
   outputs = { self, nixpkgs, utils, ... }@inputs:
     # username needs to be defined here because it is used in user and system config
-    let username = "matias";
+    let
+      username = "matias";
+      homeDirectory = "/home/${username}";
     in
     utils.lib.mkFlake {
       inherit self inputs;
@@ -53,7 +55,7 @@
                 {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  extraSpecialArgs = { inherit inputs username homePersistDir; };
+                  extraSpecialArgs = { inherit inputs username homeDirectory homePersistDir; };
                   users.${username} = import ./user;
                 };
             }
