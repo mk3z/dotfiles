@@ -75,12 +75,8 @@
       ripgrep
 
       # Spell checking
-      aspell
+      (aspellWithDicts (dicts: with dicts; [ en en-computers en-science fi ]))
       python3
-      aspellDicts.en
-      aspellDicts.en-science
-      aspellDicts.en-computers
-      aspellDicts.fi
 
       # Github Copilot
       nodejs
