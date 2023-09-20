@@ -8,6 +8,7 @@
     ./signal.nix
     ./spotify.nix
     ./speedcrunch.nix
+    ./syncthing.nix
     ./telegram.nix
     ./vscode.nix
     ./webcord.nix

@@ -43,10 +43,11 @@
             ./modules/keyring.nix
 
             # programs
+            ./modules/docker.nix
             ./modules/greetd.nix
             ./modules/mullvad.nix
             ./modules/podman.nix
-            ./modules/docker.nix
+            ./modules/syncthing.nix
 
             {
               home-manager =
