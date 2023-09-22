@@ -86,6 +86,9 @@
       ## minted
       python311Packages.pygments
 
+      # C/C++
+      clang-tools
+
       # Nix
       rnix-lsp
       nixfmt
