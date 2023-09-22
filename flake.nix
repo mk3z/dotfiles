@@ -33,6 +33,7 @@
 
             # hardware
             ./modules/laptop.nix
+            ./modules/amd.nix
             ./modules/amdgpu.nix
             ./modules/zfs.nix
             ./modules/bluetooth.nix
