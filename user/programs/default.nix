@@ -4,6 +4,7 @@
     ./firefox
     ./gimp.nix
     ./inkscape.nix
+    ./mpv.nix
     ./qbittorrent.nix
     ./signal.nix
     ./spotify.nix
@@ -29,7 +30,6 @@
 
   programs = {
     imv.enable = true;
-    mpv.enable = true;
     java = {
       enable = true;
       package = pkgs.jdk11;
