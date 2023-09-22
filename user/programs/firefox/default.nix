@@ -28,11 +28,14 @@
         kristofferhagen-nord-theme
         privacy-badger
         privacy-redirect
+        rust-search-extension
         skip-redirect
+        sponsorblock
         tree-style-tab
         ublock-origin
         user-agent-string-switcher
         vimium
+        web-archives
       ];
 
       search = {
