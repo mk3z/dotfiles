@@ -58,12 +58,12 @@
   "browser.safebrowsing.downloads.remote.enabled" = false;
 
   # Block implicit outbound
-  "network.prefetch-next" = false;
-  "network.dns.disablePrefetch" = true;
-  "network.predictor.enabled" = false;
-  "network.predictor.enable-prefetch" = false;
-  "network.http.speculative-parallel-limit" = 0;
-  "network.places.speculativeConnect.enabled" = false;
+  #"network.prefetch-next" = false;
+  #"network.dns.disablePrefetch" = true;
+  #"network.predictor.enabled" = false;
+  #"network.predictor.enable-prefetch" = false;
+  #"network.http.speculative-parallel-limit" = 0;
+  #"network.places.speculativeConnect.enabled" = false;
 
   # Networking
   "network.proxy.socks_remote_dns" = true;
@@ -72,11 +72,11 @@
 
   # Search
   "browser.fixup.alternate.enabled" = false;
-  "browser.search.suggest.enabled" = false;
-  "browser.urlbar.suggest.searches" = false;
-  "browser.urlbar.speculativeConnect.enabled" = false;
+  #"browser.search.suggest.enabled" = false;
+  #"browser.urlbar.suggest.searches" = false;
+  #"browser.urlbar.speculativeConnect.enabled" = false;
   "browser.urlbar.dnsResolveSingleWordsAfterSearch" = 0;
-  "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
+  #"browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
   "browser.urlbar.suggest.quicksuggest.sponsored" = false;
   "browser.formfill.enable" = false;
 
