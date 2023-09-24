@@ -27,48 +27,51 @@
       ];
 
       hosts = {
-        slimbook = {
-          modules = [
-            ./hosts/slimbook
+        slimbook =
+          let homePersistDir = "/persist";
+          in
+          {
+            modules = [
+              ./hosts/slimbook
 
-            # hardware
-            ./modules/laptop.nix
-            ./modules/amd.nix
-            ./modules/amdgpu.nix
-            ./modules/zfs.nix
-            ./modules/bluetooth.nix
+              # hardware
+              ./modules/laptop.nix
+              ./modules/amd.nix
+              ./modules/amdgpu.nix
+              ./modules/zfs.nix
+              ./modules/bluetooth.nix
 
-            # features
-            ./modules/sound.nix
-            ./modules/fonts.nix
-            ./modules/keyring.nix
+              # features
+              ./modules/borg.nix
+              ./modules/sound.nix
+              ./modules/fonts.nix
+              ./modules/keyring.nix
 
-            # programs
-            ./modules/docker.nix
-            ./modules/greetd.nix
-            ./modules/mullvad.nix
-            ./modules/podman.nix
-            ./modules/syncthing.nix
+              # programs
+              ./modules/docker.nix
+              ./modules/greetd.nix
+              ./modules/mullvad.nix
+              ./modules/podman.nix
+              ./modules/steam.nix
+              ./modules/syncthing.nix
 
-            {
-              home-manager =
-                let homePersistDir = "/persist";
-                in
-                {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  extraSpecialArgs = { inherit inputs username homeDirectory homePersistDir; };
-                  users.${username} = import ./user;
-                };
-            }
-          ];
+              {
+                home-manager =
+                  {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    extraSpecialArgs = { inherit inputs username homeDirectory homePersistDir; };
+                    users.${username} = import ./user;
+                  };
+              }
+            ];
 
-          extraArgs = {
-            inherit username;
-            sysPersistDir = "/persist";
+            extraArgs = {
+              inherit username homeDirectory homePersistDir;
+              sysPersistDir = "/persist";
+            };
+            specialArgs = { inherit inputs; };
           };
-          specialArgs = { inherit inputs; };
-        };
 
         nixvm = {
           modules = [
