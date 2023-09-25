@@ -9,7 +9,7 @@
         mode = "repokey-blake2";
         passCommand = "cat ${config.age.secrets.borg.path}";
       };
-      environment.BORG_RSH = "ssh -i /etc/ssh/ssh_host_ed25519_key";
+      environment.BORG_RSH = "ssh -o 'StrictHostKeyChecking=no' -i /etc/ssh/ssh_host_ed25519_key";
       extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
       paths = "/persist/home/${username}";
       exclude = [
