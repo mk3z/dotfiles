@@ -35,6 +35,14 @@
   # Tell age where the keys are
   age.identityPaths = [ "${sysPersistDir}/etc/ssh/ssh_host_ed25519_key" ];
 
+  programs.git = {
+    enable = true;
+    config.user = {
+      name = "Matias Zwinger";
+      email = "matias.zwinger@protonmail.com";
+    };
+  };
+
   security.polkit.enable = true;
 
   security.pam = {
