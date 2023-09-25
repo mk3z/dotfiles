@@ -145,7 +145,7 @@ in
 
       # Set laptop screen to maximum refresh rate and appropriate scaling
       # TODO: Maybe make this work with variables so it works on other machines
-      monitor = [ "eDP-1, 2560x1440@165, 0x0, 1.5" ];
+      monitor = [ ",highrr,auto,auto" ];
     };
   };
 }
