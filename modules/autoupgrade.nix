@@ -6,6 +6,8 @@
     flags = [
       "--update-input"
       "nixpkgs"
+      "--update-input"
+      "nur"
       "--commit-lock-file"
       "-L"
     ];
