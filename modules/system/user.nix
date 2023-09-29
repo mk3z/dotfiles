@@ -13,7 +13,7 @@
     createHome = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     initialPassword = "changeme";
-    passwordFile = config.age.secrets.password.path;
+    hashedPasswordFile = config.age.secrets.password.path;
   };
 
   # Disable systemd emergency mode because root user is disabled
