@@ -63,6 +63,7 @@
   home = {
 
     persistence."${homePersistDir}${homeDirectory}".directories = [
+      ".cargo"
       # Github copilot credentials
       ".config/github-copilot"
       # Emacs cache among other things
