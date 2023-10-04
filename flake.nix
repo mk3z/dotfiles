@@ -42,7 +42,6 @@
               ./modules/bluetooth.nix
 
               # features
-              ./modules/autoupgrade.nix
               ./modules/borg.nix
               ./modules/sound.nix
               ./modules/fonts.nix
