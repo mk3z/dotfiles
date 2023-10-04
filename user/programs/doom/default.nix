@@ -87,6 +87,9 @@
       ## minted
       python311Packages.pygments
 
+      # Bash
+      nodePackages_latest.bash-language-server
+
       # C/C++
       clang-tools
 
