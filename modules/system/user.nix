@@ -25,13 +25,6 @@
   users.defaultUserShell = pkgs.fish;
 
   security.sudo = {
-    extraRules = [{
-      users = [ username ];
-      commands = [{
-        command = "ALL";
-        options = [ "NOPASSWD" ];
-      }];
-    }];
     extraConfig = ''
       # rollback results in sudo lectures after each reboot
       Defaults lecture = never
