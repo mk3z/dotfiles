@@ -116,7 +116,7 @@
     nur.url = "github:nix-community/NUR";
 
     utils.url =
-      "github:ravensiris/flake-utils-plus/7a8d789d4d13e45d20e6826d7b2a1757d52f2e13";
+      "github:gytis-ivaskevicius/flake-utils-plus";
 
     home-manager = {
       url = "github:nix-community/home-manager";
