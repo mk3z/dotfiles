@@ -68,9 +68,10 @@
       * {
         font-family: "Monospace";
         font-size: 12px;
-        opacity: 0.85;
         min-height: 0;
         border-bottom: none;
+        background-color: rgba(46, 52, 64, 0.57);
+        color: #e5e9f0;
       }
 
       window#waybar {
