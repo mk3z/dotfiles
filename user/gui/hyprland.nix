@@ -143,9 +143,7 @@ in
       # Disable Xwayland scaling
       xwayland.force_zero_scaling = true;
 
-      # Set laptop screen to maximum refresh rate and appropriate scaling
-      # TODO: Maybe make this work with variables so it works on other machines
-      monitor = [ ",highrr,auto,auto" ];
+      monitor = [ ",highres,auto,auto" ];
     };
   };
 }
