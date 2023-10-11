@@ -7,7 +7,12 @@
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "defaults" "size=8G" "mode=755" ];
+      # NOTE: nr_inodes=0 is not encouraged in kernel docs:
+      # "It is generally unwise to mount with such options, since it allows any
+      # user with write access to use up all the memory on the machine; but
+      # enhances the scalability of that instance in a system with many cpus
+      # making intensive use of it."
+      options = [ "defaults" "size=8G" "nr_inodes=0" "mode=755" ];
     };
 
     "/boot" = {
