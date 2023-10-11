@@ -28,6 +28,9 @@
         ".cache"
         ".local/share/containers"
         ".local/share/keyrings"
+
+        # Bitwig Studio
+        ".BitwigStudio"
       ];
       allowOther = true;
     };
