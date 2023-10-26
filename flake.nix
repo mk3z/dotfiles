@@ -47,6 +47,7 @@
               ./modules/sound.nix
               ./modules/fonts.nix
               ./modules/keyring.nix
+              ./modules/man.nix
 
               # programs
               ./modules/docker.nix
