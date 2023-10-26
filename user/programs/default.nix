@@ -17,6 +17,7 @@
 
   home.packages = with pkgs; [
     # utilities
+    man-pages
     pavucontrol
 
     # media
