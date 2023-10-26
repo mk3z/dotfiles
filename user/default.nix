@@ -30,11 +30,12 @@
         ".local/share/containers"
         ".local/share/keyrings"
 
-        # Bitwig Studio
         ".BitwigStudio"
       ];
       allowOther = true;
     };
+
+    sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
 
     stateVersion = "23.11";
   };
