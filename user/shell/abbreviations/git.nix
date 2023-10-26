@@ -181,5 +181,4 @@
   gams = "git am --skip";
   gama = "git am --abort";
   gamscp = "git am --show-current-patch";
-  tree = "ls --tree";
 }

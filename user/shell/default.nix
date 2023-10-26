@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./abbreviations
     ./tools.nix
     (import ./ssh.nix { inherit homePersistDir homeDirectory; })
     ./starship.nix
@@ -15,7 +16,6 @@
 
   programs.fish = {
     enable = true;
-    shellAbbrs = import ./abbreviations.nix;
 
     plugins = [{
       name = "fish-ssh-agent";
