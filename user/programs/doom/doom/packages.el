@@ -61,6 +61,7 @@
 (package! magit-delta)
 (package! mermaid-mode)
 (package! mixed-pitch)
+(package! nasm-mode)
 (package! ob-mermaid)
 (package! org-appear)
 (package! org-fragtog)

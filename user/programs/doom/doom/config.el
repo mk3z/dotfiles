@@ -201,8 +201,19 @@
       :desc "Focus mode" "k" #'focus-mode
       :desc "Focus read only" "K" #'focus-read-only-mode))
 
+(use-package! lsp-mode
+  :config
+  (setq
+   lsp-enable-file-watchers nil
+   lsp-inlay-hint-enable t))
+
 (use-package! magit-delta
  :hook (magit-mode . magit-delta-mode))
+
+(use-package! nasm-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.asm\\'" . nasm-mode)))
+
 
 (use-package! ob-mermaid
   :config
