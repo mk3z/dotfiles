@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    file
+    gh
     tldr
     unzip
 

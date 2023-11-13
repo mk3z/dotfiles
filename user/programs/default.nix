@@ -26,6 +26,7 @@
     # other
     quickemu
     ungoogled-chromium
+    (octave.withPackages (opkgs: with opkgs; [ symbolic statistics ]))
   ];
 
   programs = {
