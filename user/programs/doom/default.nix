@@ -103,6 +103,7 @@
       # Rust
       rust-analyzer
       (fenix.complete.withComponents [
+        "cargo"
         "clippy"
         "rust-src"
         "rustc"

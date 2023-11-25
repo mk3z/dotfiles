@@ -208,3 +208,6 @@
        ;;literate
        (default +bindings +smartparens))
 
+(add-hook 'lsp-after-open-hook (lambda ()
+                                 (when (lsp-find-workspace 'rust-analyzer nil)
+                                   (lsp-rust-analyzer-inlay-hints-mode))))
