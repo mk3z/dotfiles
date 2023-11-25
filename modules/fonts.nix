@@ -5,7 +5,7 @@
     packages = with pkgs; [
       libertinus
       roboto
-      (nerdfonts.override { fonts = [ "FiraCode" "NerdFontsSymbolsOnly" ]; })
+      (nerdfonts.override { fonts = [ "Iosevka" "NerdFontsSymbolsOnly" ]; })
       symbola
       noto-fonts
       noto-fonts-cjk
@@ -26,8 +26,8 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
-        name = "FiraCode Nerd Font Mono";
+        package = pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; };
+        name = "Iosevka Nerd Font Mono";
       };
 
       emoji = {
