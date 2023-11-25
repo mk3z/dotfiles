@@ -51,7 +51,15 @@
 
   programs = {
 
-    bat.enable = true;
+    bat = {
+      enable = true;
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        batgrep
+        batwatch
+      ];
+    };
 
     git = {
       enable = true;
@@ -65,6 +73,14 @@
     fzf.enable = true;
 
     jq.enable = true;
+
+    less = {
+      enable = true;
+      keys = ''
+        n forw-line
+        e back-line
+      '';
+    };
 
     lsd = {
       enable = true;
