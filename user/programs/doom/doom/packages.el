@@ -53,6 +53,7 @@
 (package! caddyfile-mode)
 (package! centered-cursor-mode)
 (package! copilot)
+(package! crdt)
 (package! csv-mode)
 (package! exec-path-from-shell)
 (package! evil-colemak-basics)
