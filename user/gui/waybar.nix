@@ -47,9 +47,9 @@
 
         "network" = {
           interval = 10;
-          format-ethernet = "󰈁 {ipaddr}/{cidr}";
+          format-ethernet = "󰈁 {ipaddr}/{cidr}  {bandwidthUpBits}  {bandwidthDownBits}";
           format-wifi =
-            "󰖩 {essid} {frequency}GHz {signalStrength}% {ipaddr}/{cidr}";
+            "󰖩 {essid} {frequency}GHz {signalStrength}%  {bandwidthUpBits}  {bandwidthDownBits}";
           format-disconnected = "disconnected";
         };
 
