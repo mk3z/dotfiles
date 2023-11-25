@@ -34,7 +34,8 @@ in
       input = {
         kb_model = "pc105";
         # Custom layout set in ./keyboard.nix
-        kb_layout = "colemat";
+        kb_layout = "colemat,us";
+        kb_variant = ",colemak";
         kb_options = "caps:escape";
         repeat_rate = "50";
         repeat_delay = "300";
