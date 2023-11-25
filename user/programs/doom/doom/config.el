@@ -3,7 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Matias Zwinger"
@@ -209,7 +208,6 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.asm\\'" . nasm-mode)))
 
-
 (use-package! ob-mermaid
   :config
   (setq ob-mermaid-cli-path "/usr/bin/mmdc"))
@@ -237,8 +235,6 @@
   (setq
    projectile-project-search-path '("~/Code/" "~/Documents/" "~/Projects/" "~/School/")))
 
-(use-package! rainbow-mode)
-
 (use-package! writeroom-mode
   :config
   (map! :leader
@@ -253,6 +249,8 @@
           writeroom-set-vertical-scroll-bars))
   (global-writeroom-mode))
 
+;; Import some environment variables from the shell if running as a daemon, because
+;; NixOS runs systemd user services in a different environment than the shell.
 (when (daemonp)
   (setq exec-path-from-shell-variables '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH" "EMACS_PATH_COPILOT" "JAVA_HOME"))
   (exec-path-from-shell-initialize))
