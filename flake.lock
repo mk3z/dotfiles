@@ -239,15 +239,16 @@
         "ws-butler": "ws-butler"
       },
       "locked": {
-        "lastModified": 1697814738,
-        "narHash": "sha256-mwQmykamvRuHmO6I2VTm8+TOIhhmgy2g5YrMjoCHawY=",
-        "owner": "nix-community",
+        "lastModified": 1697852448,
+        "narHash": "sha256-twuwecfUVlOspgD070+z4djiNo6MrAf/GSfZTYuQ26k=",
+        "owner": "ckiee",
         "repo": "nix-doom-emacs",
-        "rev": "c1c99cf41694440d76e31126dc394f52faeb691e",
+        "rev": "f47bf7530f706974a1e3760ba5e4989080aa4f14",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "ckiee",
+        "ref": "move-nix-straight-in",
         "repo": "nix-doom-emacs",
         "type": "github"
       }

@@ -14,7 +14,6 @@
 
       sharedOverlays = [
         inputs.nur.overlay
-        inputs.emacs-overlay.overlay
         inputs.fenix.overlays.default
       ];
 
@@ -135,16 +134,12 @@
     };
 
     doom-emacs = {
-      url = "github:librephoenix/nix-doom-emacs/pgtk-patch";
+      url = "github:ckiee/nix-doom-emacs/move-nix-straight-in";
       inputs = {
         nixpkgs.follows = "nixpkgs";
+        # NOTE: Remove this when upstream nix-straight.el implements pgtk support.
         nix-straight.url = "github:mk3z/nix-straight.el";
       };
-    };
-
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     copilot = {

@@ -4,7 +4,7 @@
   programs.doom-emacs = {
     enable = true;
     doomPrivateDir = ./doom;
-    emacsPackage = pkgs.emacs29.override { withNativeCompilation = true; };
+    emacsPackage = pkgs.emacs.override { withNativeCompilation = true; };
     # Only rebuild if init or packages change
     doomPackageDir = pkgs.linkFarm "doom-packages-dir" [
       {
