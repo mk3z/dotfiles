@@ -48,12 +48,11 @@
   security.pam = {
     # Allow swaylock to unlock the computer for us
     services.swaylock.text = "auth include login";
-    # Increase the number of open files allowed
     loginLimits = [{
       domain = "*";
       type = "soft";
       item = "nofile";
-      value = "131072";
+      value = "8192";
     }];
   };
 }
