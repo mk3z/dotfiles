@@ -29,14 +29,40 @@
         privacy-badger
         privacy-redirect
         rust-search-extension
+        sidebery
         skip-redirect
         sponsorblock
-        tree-style-tab
         ublock-origin
         user-agent-string-switcher
         vimium
         web-archives
       ];
+
+      containers = {
+        personal = {
+          id = 0;
+          color = "blue";
+          icon = "fingerprint";
+        };
+
+        school = {
+          id = 1;
+          color = "yellow";
+          icon = "fruit"; # Because teachers eat apples
+        };
+
+        shopping = {
+          id = 2;
+          color = "pink";
+          icon = "cart";
+        };
+
+        banking = {
+          id = 3;
+          color = "green";
+          icon = "dollar";
+        };
+      };
 
       search = {
         force = true;
