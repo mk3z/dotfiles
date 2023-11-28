@@ -222,7 +222,9 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "format-all": "format-all",
-        "nix-straight": "nix-straight",
+        "nix-straight": [
+          "nix-straight"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -239,16 +241,15 @@
         "ws-butler": "ws-butler"
       },
       "locked": {
-        "lastModified": 1697852448,
-        "narHash": "sha256-twuwecfUVlOspgD070+z4djiNo6MrAf/GSfZTYuQ26k=",
-        "owner": "ckiee",
+        "lastModified": 1697814738,
+        "narHash": "sha256-mwQmykamvRuHmO6I2VTm8+TOIhhmgy2g5YrMjoCHawY=",
+        "owner": "nix-community",
         "repo": "nix-doom-emacs",
-        "rev": "f47bf7530f706974a1e3760ba5e4989080aa4f14",
+        "rev": "c1c99cf41694440d76e31126dc394f52faeb691e",
         "type": "github"
       },
       "original": {
-        "owner": "ckiee",
-        "ref": "move-nix-straight-in",
+        "owner": "nix-community",
         "repo": "nix-doom-emacs",
         "type": "github"
       }
@@ -593,15 +594,16 @@
     "nix-straight": {
       "flake": false,
       "locked": {
-        "lastModified": 1695059842,
-        "narHash": "sha256-nTinUeONNqDt0QqfXoExAALgdu66jzb6+ahIlC7p8Vc=",
-        "owner": "mk3z",
+        "lastModified": 1696948727,
+        "narHash": "sha256-6fQamWVIyeLoFSJl1WKcIl+LUdZluzFla4H+4Z5Cv2E=",
+        "owner": "codingkoi",
         "repo": "nix-straight.el",
-        "rev": "4dd79a7d46f87e7c3cf71950317d601c383dfbf4",
+        "rev": "c64edbf49598453bd85dae1acef9a0f9d294185d",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "codingkoi",
+        "ref": "codingkoi/apply-librephoenixs-fix",
         "repo": "nix-straight.el",
         "type": "github"
       }
@@ -640,11 +642,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1701118487,
-        "narHash": "sha256-CW3H8DVLJ/QEsoRGi1tRj75T2LsZZKRjvcIczh5g61M=",
+        "lastModified": 1701203997,
+        "narHash": "sha256-p7u4S+JyqeSY69RoMxYH4G2z8VWBTw2AHt0M/DMa8o8=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "2aac3f35b161d93b786369d97f1eb956a0f6be11",
+        "rev": "c713d19b37b4ee88925a6fcf653a9f2af73e82e0",
         "type": "github"
       },
       "original": {
@@ -775,6 +777,7 @@
         "fish-ssh-agent": "fish-ssh-agent",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
+        "nix-straight": "nix-straight",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
         "ob-ammonite": "ob-ammonite",
