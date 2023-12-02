@@ -23,7 +23,7 @@
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 
-(setq doom-font (font-spec :family "Monospace" :size 20 :weight 'Regular)
+(setq doom-font (font-spec :family "Monospace" :size 19 :weight 'Regular)
       doom-big-font (font-spec :family "Monospace" :size 32 :weight 'Regular))
 
 ;; Enable ligatures in programming modes
@@ -252,5 +252,17 @@
 ;; Import some environment variables from the shell if running as a daemon, because
 ;; NixOS runs systemd user services in a different environment than the shell.
 (when (daemonp)
-  (setq exec-path-from-shell-variables '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH" "EMACS_PATH_COPILOT" "JAVA_HOME"))
+  (setq exec-path-from-shell-variables
+        '("SSH_AUTH_SOCK"
+          "SSH_AGENT_PID"
+          "GPG_AGENT_INFO"
+          "LANG"
+          "TERMINFO"
+          "TERMINFO_DIRS"
+          "LC_CTYPE"
+          "NIX_SSL_CERT_FILE"
+          "NIX_PATH"
+          "EMACS_PATH_COPILOT"
+          "JAVA_HOME"))
+  (setenv "COLORTERM" "truecolor")
   (exec-path-from-shell-initialize))

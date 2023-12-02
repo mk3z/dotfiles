@@ -115,6 +115,7 @@
       metals
       (pkgs.writeShellScriptBin "metals-emacs" "metals")
       sbt
+      scalafmt
     ];
 
     sessionVariables = {
