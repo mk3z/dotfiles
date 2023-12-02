@@ -3,7 +3,9 @@
     ./doom
     ./firefox
     ./gimp.nix
+    ./helix.nix
     ./inkscape.nix
+    ./kubernetes.nix
     ./mpv.nix
     ./qbittorrent.nix
     ./signal.nix
