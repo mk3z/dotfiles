@@ -1,6 +1,10 @@
-{ pkgs, inputs, username, homeDirectory, homePersistDir, ... }:
-
 {
+  inputs,
+  username,
+  homeDirectory,
+  homePersistDir,
+  ...
+}: {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.doom-emacs.hmModule

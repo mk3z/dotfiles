@@ -1,7 +1,10 @@
-{ pkgs, homePersistDir, homeDirectory, ... }:
 {
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
   services.syncthing.enable = true;
   home = {
-    persistence."${homePersistDir}${homeDirectory}".directories = [ ".config/syncthing" ];
+    persistence."${homePersistDir}${homeDirectory}".directories = [".config/syncthing"];
   };
 }

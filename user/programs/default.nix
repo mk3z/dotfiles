@@ -1,4 +1,4 @@
-{ inputs, pkgs, homeDirectory, homePersistDir, ... }: {
+{pkgs, ...}: {
   imports = [
     ./doom
     ./firefox
@@ -28,7 +28,7 @@
     # other
     quickemu
     ungoogled-chromium
-    (octave.withPackages (opkgs: with opkgs; [ symbolic statistics ]))
+    (octave.withPackages (opkgs: with opkgs; [symbolic statistics]))
   ];
 
   programs = {
