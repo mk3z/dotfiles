@@ -1,5 +1,9 @@
-{ pkgs, homePersistDir, homeDirectory, ... }:
 {
+  pkgs,
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
   programs.k9s = {
     enable = true;
   };
@@ -12,8 +16,7 @@
       kube-bench
       kube-hunter
     ];
-    file.".minikube/bin/docker-machine-driver-kvm2".source =
-      "${pkgs.docker-machine-kvm2}/bin/docker-machine-driver-kvm2";
+    file.".minikube/bin/docker-machine-driver-kvm2".source = "${pkgs.docker-machine-kvm2}/bin/docker-machine-driver-kvm2";
     persistence."${homePersistDir}${homeDirectory}".directories = [
       ".kube"
     ];

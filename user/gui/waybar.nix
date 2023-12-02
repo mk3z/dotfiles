@@ -9,7 +9,7 @@
       mainBar = {
         position = "bottom";
         height = 20;
-        modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+        modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-right = [
           "cpu"
           "memory"
@@ -29,7 +29,7 @@
         "battery" = {
           interval = 10;
           format-time = "{H}:{M}";
-          format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           format = "{icon} {capacity}% {time} {power:0.2f}W";
         };
 
@@ -37,15 +37,14 @@
           interval = 1;
           format = "{icon} {volume}%";
           format-muted = "󰝟";
-          format-icons = [ "󰕿" "󰖀" "󰕾" ];
+          format-icons = ["󰕿" "󰖀" "󰕾"];
         };
 
         "bluetooth" = {
           interval = 10;
           format = "󰂯 {status}";
           format-connecte = "󰂯 {device_alias}";
-          format-connected-battery =
-            "󰥈 {device_alias} {device_battery_percentage}%";
+          format-connected-battery = "󰥈 {device_alias} {device_battery_percentage}%";
         };
 
         "custom/vpn" = {
@@ -58,10 +57,8 @@
 
         "network" = {
           interval = 10;
-          format-ethernet =
-            "󰈁 {ipaddr}/{cidr}  {bandwidthUpBits}  {bandwidthDownBits}";
-          format-wifi =
-            "󰖩 {essid} {frequency}GHz {signalStrength}%  {bandwidthUpBits}  {bandwidthDownBits}";
+          format-ethernet = "󰈁 {ipaddr}/{cidr}  {bandwidthUpBits}  {bandwidthDownBits}";
+          format-wifi = "󰖩 {essid} {frequency}GHz {signalStrength}%  {bandwidthUpBits}  {bandwidthDownBits}";
           format-disconnected = "disconnected";
         };
 
@@ -74,7 +71,6 @@
           interval = 5;
           format = " {usage}%";
         };
-
       };
     };
 

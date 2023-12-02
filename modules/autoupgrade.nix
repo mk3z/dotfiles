@@ -1,5 +1,4 @@
-{ homeDirectory, ... }:
-{
+{homeDirectory, ...}: {
   system.autoUpgrade = {
     enable = true;
     flake = "${homeDirectory}/Projects/dotfiles";

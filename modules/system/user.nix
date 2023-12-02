@@ -18,7 +18,7 @@
     };
 
     # Don't allow mutation of users outside of the config.
-    users.mutableUsers = false;
+    mutableUsers = false;
 
     # Set fish as the default shell for all users
     defaultUserShell = pkgs.fish;

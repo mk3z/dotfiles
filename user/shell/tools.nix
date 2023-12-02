@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     file
     gh
@@ -50,7 +48,6 @@
   ];
 
   programs = {
-
     bat = {
       enable = true;
       extraPackages = with pkgs.bat-extras; [
@@ -111,6 +108,5 @@
         noremap U I
       '';
     };
-
   };
 }

@@ -1,18 +1,22 @@
-{ inputs, pkgs, homePersistDir, homeDirectory, ... }:
-
 {
+  inputs,
+  pkgs,
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
   imports = [
     ./abbreviations
     ./tools.nix
-    (import ./ssh.nix { inherit homePersistDir homeDirectory; })
+    (import ./ssh.nix {inherit homePersistDir homeDirectory;})
     ./starship.nix
   ];
 
   home.persistence."${homePersistDir}${homeDirectory}" = {
-    files = [ ".bash_history" ".local/share/fish/fish_history" ];
+    files = [".bash_history" ".local/share/fish/fish_history"];
   };
 
-  home.packages = with pkgs; [ fishPlugins.fzf-fish fishPlugins.pisces ];
+  home.packages = with pkgs; [fishPlugins.fzf-fish fishPlugins.pisces];
 
   programs.fish = {
     enable = true;

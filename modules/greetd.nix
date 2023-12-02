@@ -1,6 +1,9 @@
-{ pkgs, username, ... }:
-
-let wm = "${pkgs.hyprland}/bin/Hyprland";
+{
+  pkgs,
+  username,
+  ...
+}: let
+  wm = "${pkgs.hyprland}/bin/Hyprland";
 in {
   services.greetd = {
     enable = true;
@@ -10,8 +13,7 @@ in {
         user = username;
       };
       default_session = {
-        command =
-          "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${wm} --time --time-format %Y-%m-%d %H:%M:%S% --remember";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${wm} --time --time-format %Y-%m-%d %H:%M:%S% --remember";
         user = username;
       };
     };

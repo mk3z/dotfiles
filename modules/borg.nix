@@ -1,5 +1,8 @@
-{ config, username, ... }:
 {
+  config,
+  username,
+  ...
+}: {
   age.secrets.borg.file = ../secrets/borg.age;
 
   services.borgbackup.jobs = {

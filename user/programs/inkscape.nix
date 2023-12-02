@@ -1,7 +1,11 @@
-{ pkgs, homePersistDir, homeDirectory, ... }:
 {
+  pkgs,
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
   home = {
-    packages = with pkgs; [ inkscape ];
-    persistence."${homePersistDir}${homeDirectory}".directories = [ ".config/inkscape" ];
+    packages = with pkgs; [inkscape];
+    persistence."${homePersistDir}${homeDirectory}".directories = [".config/inkscape"];
   };
 }

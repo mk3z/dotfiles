@@ -1,11 +1,15 @@
-{ pkgs, homePersistDir, homeDirectory, ... }: {
+{
+  pkgs,
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
   imports = [
     # Cool plugin but scroll is bad
     #./tridactyl.nix
   ];
 
-  home.persistence."${homePersistDir}${homeDirectory}".directories =
-    [ ".mozilla/firefox" ];
+  home.persistence."${homePersistDir}${homeDirectory}".directories = [".mozilla/firefox"];
 
   xdg.mimeApps = {
     defaultApplications = {
@@ -69,102 +73,114 @@
         default = "DuckDuckGo";
         engines = {
           "Amazon.de" = {
-            urls = [{ template = "https://www.amazon.de/s?k={searchTerms}"; }];
-            definedAliases = [ ":az" ];
+            urls = [{template = "https://www.amazon.de/s?k={searchTerms}";}];
+            definedAliases = [":az"];
           };
 
           "Arch Wiki" = {
-            urls = [{
-              template =
-                "https://wiki.archlinux.org/index.php?search={searchTerms}";
-            }];
-            definedAliases = [ ":aw" ];
+            urls = [
+              {
+                template = "https://wiki.archlinux.org/index.php?search={searchTerms}";
+              }
+            ];
+            definedAliases = [":aw"];
           };
 
           "DuckDuckGo" = {
-            urls = [{ template = "https://duckduckgo.com/?q={searchTerms}"; }];
-            definedAliases = [ ":d" ];
+            urls = [{template = "https://duckduckgo.com/?q={searchTerms}";}];
+            definedAliases = [":d"];
           };
 
           "Home Manager" = {
-            urls = [{
-              template =
-                "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}";
-            }];
-            definedAliases = [ ":hm" ];
+            urls = [
+              {
+                template = "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}";
+              }
+            ];
+            definedAliases = [":hm"];
           };
 
           "Nix Options" = {
-            urls = [{
-              template = "https://search.nixos.org/options";
-              params = [
-                {
-                  name = "channel";
-                  value = "unstable";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }];
-            definedAliases = [ ":no" ];
+            urls = [
+              {
+                template = "https://search.nixos.org/options";
+                params = [
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [":no"];
           };
 
           "Nix Packages" = {
-            urls = [{
-              template = "https://search.nixos.org/packages";
-              params = [
-                {
-                  name = "channel";
-                  value = "unstable";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }];
-            definedAliases = [ ":np" ];
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "channel";
+                    value = "unstable";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [":np"];
           };
 
           "NixOS Wiki" = {
-            urls = [{
-              template = "https://nixos.wiki/index.php?search={searchTerms}";
-            }];
-            definedAliases = [ ":nw" ];
+            urls = [
+              {
+                template = "https://nixos.wiki/index.php?search={searchTerms}";
+              }
+            ];
+            definedAliases = [":nw"];
           };
 
           "Wikipedia" = {
-            urls = [{
-              template =
-                "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";
-            }];
-            definedAliases = [ ":w" ];
+            urls = [
+              {
+                template = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";
+              }
+            ];
+            definedAliases = [":w"];
           };
 
           "Wikipedia (de)" = {
-            urls = [{
-              template =
-                "https://de.wikipedia.org/wiki/Special:Search?search={searchTerms}";
-            }];
-            definedAliases = [ ":wd" ];
+            urls = [
+              {
+                template = "https://de.wikipedia.org/wiki/Special:Search?search={searchTerms}";
+              }
+            ];
+            definedAliases = [":wd"];
           };
 
           "Wikipedia (fi)" = {
-            urls = [{
-              template =
-                "https://fi.wikipedia.org/wiki/Special:Search?search={searchTerms}";
-            }];
-            definedAliases = [ ":wf" ];
+            urls = [
+              {
+                template = "https://fi.wikipedia.org/wiki/Special:Search?search={searchTerms}";
+              }
+            ];
+            definedAliases = [":wf"];
           };
 
           "YouTube" = {
-            urls = [{
-              template =
-                "https://www.youtube.com/results?search_query={searchTerms}";
-            }];
-            definedAliases = [ ":yt" ];
+            urls = [
+              {
+                template = "https://www.youtube.com/results?search_query={searchTerms}";
+              }
+            ];
+            definedAliases = [":yt"];
           };
         };
       };

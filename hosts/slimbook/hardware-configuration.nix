@@ -1,7 +1,10 @@
-{ config, lib, modulesPath, ... }:
-
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  config,
+  lib,
+  modulesPath,
+  ...
+}: {
+  imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   fileSystems = {
     "/" = {
@@ -12,7 +15,7 @@
       # user with write access to use up all the memory on the machine; but
       # enhances the scalability of that instance in a system with many cpus
       # making intensive use of it."
-      options = [ "defaults" "size=8G" "nr_inodes=0" "mode=755" ];
+      options = ["defaults" "size=8G" "nr_inodes=0" "mode=755"];
     };
 
     "/boot" = {
@@ -38,7 +41,7 @@
   };
 
   # zram
-  swapDevices = [ ];
+  swapDevices = [];
   zramSwap.enable = true;
 
   networking = {

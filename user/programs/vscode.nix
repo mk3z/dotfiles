@@ -1,8 +1,10 @@
-{ pkgs, homePersistDir, homeDirectory, ... }:
-
 {
-  home.persistence."${homePersistDir}${homeDirectory}".directories =
-    [ ".config/VSCodium/Preferences" ];
+  pkgs,
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
+  home.persistence."${homePersistDir}${homeDirectory}".directories = [".config/VSCodium/Preferences"];
 
   programs.vscode = {
     enable = true;

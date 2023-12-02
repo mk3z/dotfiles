@@ -1,5 +1,5 @@
 {
-  imports = [ ./icons.nix ];
+  imports = [./icons.nix];
 
   programs.starship = {
     enable = true;
@@ -26,7 +26,7 @@
         truncation_symbol = ".../";
       };
 
-      hostname = { disabled = true; };
+      hostname = {disabled = true;};
 
       time = {
         format = "[$time]($style) ";
@@ -35,7 +35,6 @@
       };
 
       username.disabled = true;
-
     };
   };
 }

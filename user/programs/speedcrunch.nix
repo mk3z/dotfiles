@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home = {
-    packages = [ pkgs.speedcrunch ];
+    packages = [pkgs.speedcrunch];
     file.".config/SpeedCrunch/SpeedCrunch.ini" = {
       recursive = true;
       text = ''

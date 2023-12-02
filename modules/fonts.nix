@@ -1,11 +1,9 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
       libertinus
       roboto
-      (nerdfonts.override { fonts = [ "Iosevka" "NerdFontsSymbolsOnly" ]; })
+      (nerdfonts.override {fonts = ["Iosevka" "NerdFontsSymbolsOnly"];})
       symbola
       noto-fonts
       noto-fonts-cjk
@@ -26,7 +24,7 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
         name = "Iosevka Nerd Font Mono";
       };
 

@@ -1,6 +1,9 @@
-{ lib, pkgs, ... }:
-
-let terminal = "kitty";
+{
+  lib,
+  pkgs,
+  ...
+}: let
+  terminal = "kitty";
 in {
   stylix.targets.hyprland.enable = false;
   wayland.windowManager.hyprland = {
@@ -133,8 +136,7 @@ in {
       dwindle.force_split = 2;
 
       # Enable transparency for terminal and emacs
-      windowrule =
-        "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
+      windowrule = "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
       # Enable blur for waybar
       layerrule = "blur, waybar";
 
@@ -156,7 +158,7 @@ in {
       # Disable Xwayland scaling
       xwayland.force_zero_scaling = true;
 
-      monitor = [ "DP-1, 3440x1440@59.97300, 0x0, 1.2" ",preferred,auto,auto" ];
+      monitor = ["DP-1, 3440x1440@59.97300, 0x0, 1.2" ",preferred,auto,auto"];
     };
   };
 }

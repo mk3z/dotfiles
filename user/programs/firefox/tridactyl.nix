@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  programs.firefox.profiles.default.extensions = [ pkgs.nur.repos.rycee.firefox-addons.tridactyl ];
+{pkgs, ...}: {
+  programs.firefox.profiles.default.extensions = [pkgs.nur.repos.rycee.firefox-addons.tridactyl];
 
   home.file = {
     ".mozilla/native-messaging-hosts/tridactyl.json" = {

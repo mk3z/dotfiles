@@ -1,6 +1,9 @@
-{ homePersistDir, homeDirectory, ... }: {
-
-  home.persistence."${homePersistDir}${homeDirectory}".directories = [ ".ssh" ];
+{
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
+  home.persistence."${homePersistDir}${homeDirectory}".directories = [".ssh"];
 
   programs.ssh = {
     enable = true;

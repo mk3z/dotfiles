@@ -1,10 +1,14 @@
-{ inputs, pkgs, homePersistDir, homeDirectory, ... }:
-
 {
+  inputs,
+  pkgs,
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
   programs.doom-emacs = {
     enable = true;
     doomPrivateDir = ./doom;
-    emacsPackage = pkgs.emacs.override { withNativeCompilation = true; };
+    emacsPackage = pkgs.emacs.override {withNativeCompilation = true;};
     # Only rebuild if init or packages change
     doomPackageDir = pkgs.linkFarm "doom-packages-dir" [
       {
@@ -21,13 +25,12 @@
       }
     ];
     emacsPackagesOverlay = self: super: {
-
       ammonite-term-repl = self.trivialBuild {
         src = inputs.ammonite-term-repl;
         version = "1.0";
         pname = "ammonite-term-repl";
         ename = "ammonite-term-repl";
-        packageRequires = with self; [ s scala-mode ];
+        packageRequires = with self; [s scala-mode];
       };
 
       copilot = self.trivialBuild {
@@ -35,25 +38,25 @@
         version = "1.0";
         pname = "copilot";
         ename = "copilot";
-        buildInputs = with pkgs; [ nodejs ];
-        packageRequires = with self; [ s dash editorconfig ];
+        buildInputs = with pkgs; [nodejs];
+        packageRequires = with self; [s dash editorconfig];
       };
 
-      magit-delta = super.magit-delta.overrideAttrs
-        (esuper: { buildInputs = esuper.buildInputs ++ [ pkgs.git ]; });
+      magit-delta =
+        super.magit-delta.overrideAttrs
+        (esuper: {buildInputs = esuper.buildInputs ++ [pkgs.git];});
 
       ob-ammonite = self.trivialBuild {
         src = inputs.ob-ammonite;
         version = "1.0";
         pname = "ob-ammonite";
         ename = "ob-ammonite";
-        packageRequires = with self; [ s ammonite-term-repl xterm-color ];
+        packageRequires = with self; [s ammonite-term-repl xterm-color];
       };
 
       ob-mermaid = super.ob-mermaid.overrideAttrs (esuper: {
-        buildInputs = esuper.buildInputs ++ [ pkgs.nodePackages.mermaid-cli ];
+        buildInputs = esuper.buildInputs ++ [pkgs.nodePackages.mermaid-cli];
       });
-
     };
   };
 
@@ -61,7 +64,6 @@
   services.emacs.enable = true;
 
   home = {
-
     persistence."${homePersistDir}${homeDirectory}".directories = [
       ".cargo"
       # Github copilot credentials
@@ -76,7 +78,7 @@
       ripgrep
 
       # Spell checking
-      (aspellWithDicts (dicts: with dicts; [ en en-computers en-science fi ]))
+      (aspellWithDicts (dicts: with dicts; [en en-computers en-science fi]))
       python3
 
       # Github Copilot
@@ -128,5 +130,4 @@
 
   # Disable automatic styling
   stylix.targets.emacs.enable = false;
-
 }

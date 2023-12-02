@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./hyprland.nix
 
@@ -18,7 +16,7 @@
   ];
 
   home = {
-    packages = with pkgs; [ hyprpicker wdisplays wev wl-clipboard ];
+    packages = with pkgs; [hyprpicker wdisplays wev wl-clipboard];
 
     sessionVariables = {
       # Tell electron programs to use the Ozone backend

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services.swayidle = {
     enable = true;
     systemdTarget = "graphical-session.target";
@@ -13,9 +13,11 @@
         resumeCommand = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
       }
     ];
-    events = [{
-      event = "before-sleep";
-      command = "${pkgs.swaylock}/bin/swaylock -f";
-    }];
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -f";
+      }
+    ];
   };
 }

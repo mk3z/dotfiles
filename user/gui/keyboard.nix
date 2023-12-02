@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   home = {
-    packages = with pkgs; [ colemak-dh ];
+    packages = with pkgs; [colemak-dh];
 
     # Custom keyboard layout based on Colemak-DH ISO
     # replaces the backslash key with backspace
