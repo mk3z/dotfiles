@@ -46,24 +46,25 @@ in {
       # keybinds
       "$mod" = "SUPER";
       "$mod_shift" = "SUPER_SHIFT";
+      "$alt" = "ALT";
       "$terminal" = "${pkgs."${terminal}"}/bin/${terminal}";
       "$editor" = "emacsclient -c -a 'emacs'";
-      "$menu" = "${pkgs.wofi}/bin/wofi --show drun -I -G";
+      "$menu" = "${pkgs.wofi}/bin/wofi --show drun -I -G --normal-window";
       "$lock" = "${pkgs.swaylock}/bin/swaylock -f";
       bind = [
-        # utility
+        # Utility
         "$mod, q, killactive"
         "$mod, l, exec, $lock"
-        ## screenshot
+        ## Screenshot
         ", PRINT, exec, ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.swappy}/bin/swappy -f -"
 
-        # programs
+        # Programs
         "$mod, RETURN, exec, $terminal"
         "$mod, h, exec, $editor"
         "$mod, d, exec, $menu"
         "$mod, w, exec, ${pkgs.firefox}/bin/firefox"
 
-        # window management
+        # Window management
         "$mod, m, movefocus, l"
         "$mod, n, movefocus, d"
         "$mod, e, movefocus, u"
@@ -75,7 +76,7 @@ in {
         "$mod_shift, SPACE, togglefloating"
         "$mod, f, fullscreen"
 
-        # workspace management
+        # Workspace management
         "$mod, t, workspace, e+1"
         "$mod, s, workspace, e-1"
         "$mod, 1, workspace, 1"
@@ -106,6 +107,12 @@ in {
       ];
 
       binde = [
+        # Window resizing
+        "$alt, m, resizeactive, -10 0"
+        "$alt, n, resizeactive, 0 10"
+        "$alt, e, resizeactive, 0 -10"
+        "$alt, i, resizeactive, 10 0"
+
         # Screen brightness
         ", XF86MonBrightnessUp, exec, brillo -q -A 1 -u 100000"
         ", XF86MonBrightnessDown, exec, brillo -q -U 1 -u 100000"
@@ -121,6 +128,9 @@ in {
           $mod, p, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
         ''$mod_shift, p, exec, hyprctl keyword monitor "eDP-1, disable"''
       ];
+
+      # New window will be on the right
+      dwindle.force_split = 2;
 
       # Enable transparency for terminal and emacs
       windowrule =
@@ -146,7 +156,7 @@ in {
       # Disable Xwayland scaling
       xwayland.force_zero_scaling = true;
 
-      monitor = [ ",highres,auto,auto" ];
+      monitor = [ "DP-1, 3440x1440@59.97300, 0x0, 1.2" ",preferred,auto,auto" ];
     };
   };
 }
