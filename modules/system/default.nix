@@ -1,6 +1,9 @@
-{ inputs, sysPersistDir, username, ... }:
-
 {
+  inputs,
+  sysPersistDir,
+  username,
+  ...
+}: {
   imports = [
     ./user.nix
     ./nix.nix
@@ -41,9 +44,9 @@
   programs.fuse.userAllowOther = true;
 
   # Install age cli tool
-  environment.systemPackages = [ inputs.agenix.packages.x86_64-linux.default ];
+  environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default];
   # Tell age where the keys are
-  age.identityPaths = [ "${sysPersistDir}/etc/ssh/ssh_host_ed25519_key" ];
+  age.identityPaths = ["${sysPersistDir}/etc/ssh/ssh_host_ed25519_key"];
 
   programs.git = {
     enable = true;
