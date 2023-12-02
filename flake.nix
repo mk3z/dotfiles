@@ -5,15 +5,18 @@
     self,
     nixpkgs,
     utils,
+    devenv,
     ...
-  } @ inputs:
-  # username needs to be defined here because it is used in user and system config
-  let
+  } @ inputs: let
+    # username needs to be defined here because it is used in user and system config
     username = "matias";
     homeDirectory = "/home/${username}";
+    pkgs = nixpkgs.legacyPackages."x86_64-linux";
   in
     utils.lib.mkFlake {
       inherit self inputs;
+
+      supportedSystems = ["x86_64-linux"];
 
       channelsConfig.allowUnfree = true;
 
@@ -77,36 +80,13 @@
           };
           specialArgs = {inherit inputs;};
         };
+      };
 
-        nixvm = {
-          modules = [
-            ./hosts/nixvm
-
-            # features
-            ./modules/sound.nix
-            ./modules/fonts.nix
-
-            # programs
-            ./modules/greetd.nix
-
-            {
-              home-manager = let
-                homePersistDir = "/nix/persist";
-              in {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = {inherit inputs homePersistDir;};
-                users.${username} = import ./user username;
-              };
-            }
-          ];
-
-          extraArgs = {
-            inherit username;
-            sysPersistDir = "/nix/persist";
-          };
-          specialArgs = {inherit inputs;};
-        };
+      devShell.x86_64-linux = devenv.lib.mkShell {
+        inherit inputs pkgs;
+        modules = [
+          {pre-commit.hooks.alejandra.enable = true;}
+        ];
       };
     };
 
@@ -116,6 +96,8 @@
     nur.url = "github:nix-community/NUR";
 
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
+
+    devenv.url = "github:cachix/devenv";
 
     home-manager = {
       url = "github:nix-community/home-manager";
