@@ -85,7 +85,20 @@
       devShell.x86_64-linux = devenv.lib.mkShell {
         inherit inputs pkgs;
         modules = [
-          {pre-commit.hooks.alejandra.enable = true;}
+          {
+            pre-commit = {
+              hooks = {
+                alejandra.enable = true;
+                deadnix.enable = true;
+              };
+              settings = {
+                deadnix = {
+                  edit = true;
+                  hidden = true;
+                };
+              };
+            };
+          }
         ];
       };
     };
