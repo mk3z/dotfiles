@@ -1,8 +1,7 @@
 { lib, pkgs, ... }:
 
 let terminal = "kitty";
-in
-{
+in {
   stylix.targets.hyprland.enable = false;
   wayland.windowManager.hyprland = {
     enable = true;
@@ -11,7 +10,9 @@ in
     settings = {
       exec-once = [
         # set wallpaper
-        "${pkgs.swaybg}/bin/swaybg -i ${builtins.toString ../../wallpaper.jpg}"
+        "${pkgs.swaybg}/bin/swaybg -m fill -i ${
+          builtins.toString ../../wallpaper.jpg
+        }"
         # Start polkit agent
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
       ];
