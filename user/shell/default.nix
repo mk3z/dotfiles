@@ -17,10 +17,20 @@
   programs.fish = {
     enable = true;
 
-    plugins = [{
-      name = "fish-ssh-agent";
-      src = inputs.fish-ssh-agent;
-    }];
+    plugins = [
+      {
+        name = "fish-ssh-agent";
+        src = inputs.fish-ssh-agent;
+      }
+      {
+        name = "fish-git-abbr";
+        src = inputs.fish-git;
+      }
+      {
+        name = "kubectl-fish-abbr";
+        src = inputs.fish-kubectl;
+      }
+    ];
 
     shellInit = ''
       # Disable greeting

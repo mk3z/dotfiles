@@ -1,7 +1,8 @@
 {
-  programs.fish.shellAbbrs = import ./git.nix // import ./nix.nix // {
-
-    tree = "ls --tree";
-    z = "zathura";
-  };
+  programs.fish.shellAbbrs =
+    import ./nix.nix
+    // {
+      tree = "ls --tree";
+      z = "zathura";
+    };
 }

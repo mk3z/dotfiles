@@ -167,6 +167,16 @@
       flake = false;
     };
 
+    fish-git = {
+      url = "github:lewisacidic/fish-git-abbr";
+      flake = false;
+    };
+
+    fish-kubectl = {
+      url = "github:DrPhil/kubectl-fish-abbr";
+      flake = false;
+    };
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
