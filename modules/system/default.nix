@@ -1,4 +1,4 @@
-{ inputs, sysPersistDir, ... }:
+{ inputs, sysPersistDir, username, ... }:
 
 {
   imports = [
@@ -13,7 +13,12 @@
   ];
 
   environment.persistence."${sysPersistDir}" = {
-    directories = [ "/etc/NetworkManager" "/var/cache" "/var/lib" "/var/log" ];
+    directories = [
+      "/etc/NetworkManager"
+      "/var/cache"
+      "/var/lib"
+      "/var/log"
+    ];
     files = [
       # Required for systemd journal
       "/etc/machine-id"

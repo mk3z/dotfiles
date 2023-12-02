@@ -27,7 +27,6 @@
         "Videos"
 
         ".cache"
-        ".local/share/containers"
         ".local/share/keyrings"
 
         ".BitwigStudio"
