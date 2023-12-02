@@ -6,6 +6,7 @@
   ...
 }: {
   imports = [
+    inputs.nur.hmModules.nur
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.doom-emacs.hmModule
 

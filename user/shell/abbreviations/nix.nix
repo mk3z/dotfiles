@@ -35,5 +35,5 @@
 
   nt = "nix-tree";
 
-  nors = "sudo nixos-rebuild switch -v --flake /home/matias/Projects/dotfiles#slimbook --log-format internal-json --show-trace &| nom --json";
+  nors = "sudo nixos-rebuild switch --flake /home/matias/Projects/dotfiles#slimbook -v --show-trace --log-format internal-json &| nom --json";
 }

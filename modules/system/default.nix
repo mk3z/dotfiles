@@ -40,6 +40,11 @@
     };
   };
 
+  nixpkgs = {
+    overlays = [inputs.nur.overlay inputs.fenix.overlays.default];
+    config.allowUnfree = true;
+  };
+
   # Required for impermanence/home-manager
   programs.fuse.userAllowOther = true;
 

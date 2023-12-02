@@ -14,6 +14,7 @@
 
   home.persistence."${homePersistDir}${homeDirectory}" = {
     files = [".bash_history" ".local/share/fish/fish_history"];
+    directories = [".local/share/direnv"];
   };
 
   home.packages = with pkgs; [fishPlugins.fzf-fish fishPlugins.pisces];

@@ -2,106 +2,109 @@
   description = "mkez NixOS configuration";
 
   outputs = {
-    self,
     nixpkgs,
-    utils,
+    flake-parts,
     devenv,
     ...
   } @ inputs: let
     # username needs to be defined here because it is used in user and system config
     username = "matias";
     homeDirectory = "/home/${username}";
-    pkgs = nixpkgs.legacyPackages."x86_64-linux";
   in
-    utils.lib.mkFlake {
-      inherit self inputs;
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-      supportedSystems = ["x86_64-linux"];
-
-      channelsConfig.allowUnfree = true;
-
-      sharedOverlays = [inputs.nur.overlay inputs.fenix.overlays.default];
-
-      hostDefaults.modules = [
-        inputs.home-manager.nixosModule
-        inputs.impermanence.nixosModule
-        inputs.agenix.nixosModules.default
-        inputs.stylix.nixosModules.stylix
-        ./modules/system
+      imports = [
+        inputs.devenv.flakeModule
       ];
 
-      hosts = {
+      flake.nixosConfigurations = {
         slimbook = let
+          inherit (inputs.nixpkgs.lib) nixosSystem;
           homePersistDir = "/persist";
-        in {
-          modules = [
-            ./hosts/slimbook
+        in
+          nixosSystem {
+            modules = [
+              ./hosts/slimbook
+              ./modules/system
 
-            # hardware
-            ./modules/laptop.nix
-            ./modules/amd.nix
-            ./modules/amdgpu.nix
-            ./modules/zfs.nix
-            ./modules/bluetooth.nix
+              # external
+              inputs.home-manager.nixosModule
+              inputs.impermanence.nixosModule
+              inputs.agenix.nixosModules.default
+              inputs.stylix.nixosModules.stylix
 
-            # features
-            ./modules/borg.nix
-            ./modules/sound.nix
-            ./modules/fonts.nix
-            ./modules/keyring.nix
-            ./modules/libvirt.nix
-            ./modules/man.nix
-            ./modules/ratbag.nix
-            ./modules/theme.nix
+              # hardware
+              ./modules/laptop.nix
+              ./modules/amd.nix
+              ./modules/amdgpu.nix
+              ./modules/zfs.nix
+              ./modules/bluetooth.nix
 
-            # programs
-            ./modules/docker.nix
-            ./modules/greetd.nix
-            ./modules/mullvad.nix
-            ./modules/podman.nix
-            ./modules/steam.nix
-            ./modules/syncthing.nix
+              # features
+              ./modules/borg.nix
+              ./modules/sound.nix
+              ./modules/fonts.nix
+              ./modules/keyring.nix
+              ./modules/libvirt.nix
+              ./modules/man.nix
+              ./modules/ratbag.nix
+              ./modules/theme.nix
 
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = {
-                  inherit inputs username homeDirectory homePersistDir;
+              # programs
+              ./modules/docker.nix
+              ./modules/greetd.nix
+              ./modules/mullvad.nix
+              ./modules/podman.nix
+              ./modules/steam.nix
+              ./modules/syncthing.nix
+
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  extraSpecialArgs = {
+                    inherit inputs username homeDirectory homePersistDir;
+                  };
+                  users.${username} = import ./user;
                 };
-                users.${username} = import ./user;
-              };
-            }
-          ];
+              }
+            ];
 
-          extraArgs = {
-            inherit username homeDirectory homePersistDir;
-            sysPersistDir = "/persist";
+            extraArgs = {
+              inherit username homeDirectory homePersistDir;
+              sysPersistDir = "/persist";
+            };
+            specialArgs = {inherit inputs;};
           };
-          specialArgs = {inherit inputs;};
-        };
       };
 
-      devShell.x86_64-linux = devenv.lib.mkShell {
-        inherit inputs pkgs;
-        modules = [
-          {
-            pre-commit = {
-              hooks = {
-                alejandra.enable = true;
-                deadnix.enable = true;
-                nil.enable = true;
-                statix.enable = true;
-              };
-              settings = {
-                deadnix = {
-                  edit = true;
-                  hidden = true;
-                };
+      perSystem = {
+        system,
+        config,
+        pkgs,
+        ...
+      }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        devenv.shells.default = {
+          pre-commit = {
+            hooks = {
+              alejandra.enable = true;
+              deadnix.enable = true;
+              nil.enable = true;
+              statix.enable = true;
+            };
+            settings = {
+              deadnix = {
+                edit = true;
+                hidden = true;
               };
             };
-          }
-        ];
+          };
+        };
       };
     };
 
@@ -109,8 +112,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nur.url = "github:nix-community/NUR";
-
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     devenv.url = "github:cachix/devenv";
 
@@ -123,6 +124,12 @@
 
     agenix = {
       url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
+    stylix = {
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
@@ -174,12 +181,6 @@
     fish-kubectl = {
       url = "github:DrPhil/kubectl-fish-abbr";
       flake = false;
-    };
-
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
 
     spicetify-nix = {
