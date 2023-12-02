@@ -90,6 +90,8 @@
               hooks = {
                 alejandra.enable = true;
                 deadnix.enable = true;
+                nil.enable = true;
+                statix.enable = true;
               };
               settings = {
                 deadnix = {
