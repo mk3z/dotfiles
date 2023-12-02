@@ -1,21 +1,23 @@
 {
   description = "mkez NixOS configuration";
 
-  outputs = { self, nixpkgs, utils, ... }@inputs:
-    # username needs to be defined here because it is used in user and system config
-    let
-      username = "matias";
-      homeDirectory = "/home/${username}";
-    in
+  outputs = {
+    self,
+    nixpkgs,
+    utils,
+    ...
+  } @ inputs:
+  # username needs to be defined here because it is used in user and system config
+  let
+    username = "matias";
+    homeDirectory = "/home/${username}";
+  in
     utils.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
 
-      sharedOverlays = [
-        inputs.nur.overlay
-        inputs.fenix.overlays.default
-      ];
+      sharedOverlays = [inputs.nur.overlay inputs.fenix.overlays.default];
 
       hostDefaults.modules = [
         inputs.home-manager.nixosModule
@@ -26,54 +28,55 @@
       ];
 
       hosts = {
-        slimbook =
-          let homePersistDir = "/persist";
-          in
-          {
-            modules = [
-              ./hosts/slimbook
+        slimbook = let
+          homePersistDir = "/persist";
+        in {
+          modules = [
+            ./hosts/slimbook
 
-              # hardware
-              ./modules/laptop.nix
-              ./modules/amd.nix
-              ./modules/amdgpu.nix
-              ./modules/zfs.nix
-              ./modules/bluetooth.nix
+            # hardware
+            ./modules/laptop.nix
+            ./modules/amd.nix
+            ./modules/amdgpu.nix
+            ./modules/zfs.nix
+            ./modules/bluetooth.nix
 
-              # features
-              ./modules/autoupgrade.nix
-              ./modules/borg.nix
-              ./modules/sound.nix
-              ./modules/fonts.nix
-              ./modules/keyring.nix
-              ./modules/man.nix
-              ./modules/theme.nix
+            # features
+            ./modules/borg.nix
+            ./modules/sound.nix
+            ./modules/fonts.nix
+            ./modules/keyring.nix
+            ./modules/libvirt.nix
+            ./modules/man.nix
+            ./modules/ratbag.nix
+            ./modules/theme.nix
 
-              # programs
-              ./modules/docker.nix
-              ./modules/greetd.nix
-              ./modules/mullvad.nix
-              ./modules/podman.nix
-              ./modules/steam.nix
-              ./modules/syncthing.nix
+            # programs
+            ./modules/docker.nix
+            ./modules/greetd.nix
+            ./modules/mullvad.nix
+            ./modules/podman.nix
+            ./modules/steam.nix
+            ./modules/syncthing.nix
 
-              {
-                home-manager =
-                  {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    extraSpecialArgs = { inherit inputs username homeDirectory homePersistDir; };
-                    users.${username} = import ./user;
-                  };
-              }
-            ];
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs username homeDirectory homePersistDir;
+                };
+                users.${username} = import ./user;
+              };
+            }
+          ];
 
-            extraArgs = {
-              inherit username homeDirectory homePersistDir;
-              sysPersistDir = "/persist";
-            };
-            specialArgs = { inherit inputs; };
+          extraArgs = {
+            inherit username homeDirectory homePersistDir;
+            sysPersistDir = "/persist";
           };
+          specialArgs = {inherit inputs;};
+        };
 
         nixvm = {
           modules = [
@@ -87,15 +90,14 @@
             ./modules/greetd.nix
 
             {
-              home-manager =
-                let homePersistDir = "/nix/persist";
-                in
-                {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  extraSpecialArgs = { inherit inputs homePersistDir; };
-                  users.${username} = import ./user username;
-                };
+              home-manager = let
+                homePersistDir = "/nix/persist";
+              in {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {inherit inputs homePersistDir;};
+                users.${username} = import ./user username;
+              };
             }
           ];
 
@@ -103,13 +105,9 @@
             inherit username;
             sysPersistDir = "/nix/persist";
           };
-          specialArgs = { inherit inputs; };
+          specialArgs = {inherit inputs;};
         };
       };
-
-      # TODO: Make it work with other platforms
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-
     };
 
   inputs = {
@@ -117,8 +115,7 @@
 
     nur.url = "github:nix-community/NUR";
 
-    utils.url =
-      "github:gytis-ivaskevicius/flake-utils-plus";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -133,12 +130,17 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    nix-straight = {
+      url = "github:mk3z/nix-straight.el";
+      flake = false;
+    };
+
     doom-emacs = {
       url = "github:ckiee/nix-doom-emacs/move-nix-straight-in";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         # NOTE: Remove this when upstream nix-straight.el implements pgtk support.
-        nix-straight.url = "github:mk3z/nix-straight.el";
+        nix-straight.follows = "nix-straight";
       };
     };
 
@@ -188,5 +190,4 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, homePersistDir, ... }:
 
 {
   virtualisation.podman = {
@@ -8,5 +8,8 @@
     extraPackages = with pkgs; [ zfs ];
   };
 
-  environment.systemPackages = with pkgs; [ podman-compose ];
+  environment = {
+    systemPackages = with pkgs; [ podman-compose ];
+    persistence.${homePersistDir}.users.${username}.directories = [ ".local/share/containers" ];
+  };
 }
