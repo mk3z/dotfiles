@@ -20,8 +20,12 @@
   home = {
     packages = with pkgs; [ hyprpicker wdisplays wev wl-clipboard ];
 
-    # Tell programs to use the Ozone backend
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      # Tell electron programs to use the Ozone backend
+      NIXOS_OZONE_WL = "1";
+      # Tell GTK to use the Wayland backend
+      GDK_BACKEND = "wayland";
+    };
   };
 
   # Notification daemon
