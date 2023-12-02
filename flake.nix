@@ -71,24 +71,15 @@
               }
             ];
 
-            extraArgs = {
+            specialArgs = {
+              inherit inputs;
               inherit username homeDirectory homePersistDir;
               sysPersistDir = "/persist";
             };
-            specialArgs = {inherit inputs;};
           };
       };
 
-      perSystem = {
-        system,
-        config,
-        pkgs,
-        ...
-      }: {
-        _module.args.pkgs = import inputs.nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
+      perSystem = {pkgs, ...}: {
         devenv.shells.default = {
           pre-commit = {
             hooks = {
@@ -104,6 +95,8 @@
               };
             };
           };
+          # TODO: Remove when https://github.com/cachix/devenv/issues/760 is fixed
+          containers = pkgs.lib.mkForce {};
         };
       };
     };
