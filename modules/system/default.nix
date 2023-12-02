@@ -55,14 +55,6 @@
 
   security.polkit.enable = true;
 
-  security.pam = {
-    # Allow swaylock to unlock the computer for us
-    services.swaylock.text = "auth include login";
-    loginLimits = [{
-      domain = "*";
-      type = "soft";
-      item = "nofile";
-      value = "8192";
-    }];
-  };
+  # Allow swaylock to unlock the computer for us
+  security.pam.services.swaylock.text = "auth include login";
 }
