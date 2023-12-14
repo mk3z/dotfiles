@@ -7,6 +7,7 @@
     ./inkscape.nix
     ./kubernetes.nix
     ./mpv.nix
+    ./neovim
     ./qbittorrent.nix
     ./signal.nix
     ./spotify.nix

@@ -132,6 +132,11 @@
       flake = false;
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     doom-emacs = {
       url = "github:ckiee/nix-doom-emacs/move-nix-straight-in";
       inputs = {
