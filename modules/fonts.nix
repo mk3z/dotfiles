@@ -19,8 +19,8 @@
       };
 
       sansSerif = {
-        package = pkgs.roboto;
-        name = "Roboto";
+        package = pkgs.nerdfonts.override {fonts = ["CodeNewRoman"];};
+        name = "Code New Roman Nerd Font";
       };
 
       monospace = {
