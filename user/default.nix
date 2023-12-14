@@ -8,6 +8,7 @@
   imports = [
     inputs.nur.hmModules.nur
     inputs.impermanence.nixosModules.home-manager.impermanence
+    inputs.nixvim.homeManagerModules.nixvim
     inputs.doom-emacs.hmModule
 
     ./gui
@@ -33,6 +34,7 @@
 
         ".cache"
         ".local/share/keyrings"
+        ".local/state"
 
         ".BitwigStudio"
       ];

@@ -28,7 +28,7 @@
 
         "battery" = {
           interval = 10;
-          format-time = "{H}:{M}";
+          format-time = "{H}:{m}";
           format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           format = "{icon} {capacity}% {time} {power:0.2f}W";
         };

@@ -158,7 +158,7 @@ in {
       # Disable Xwayland scaling
       xwayland.force_zero_scaling = true;
 
-      monitor = ["DP-1, 3440x1440@59.97300, 0x0, 1.2" ",preferred,auto,auto"];
+      monitor = ["DP-1, 3440x1440@59.97300, 0x0, 1.3" ",preferred,auto,auto"];
     };
   };
 }

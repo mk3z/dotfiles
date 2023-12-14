@@ -104,9 +104,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     nur.url = "github:nix-community/NUR";
 
-    devenv.url = "github:cachix/devenv";
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";

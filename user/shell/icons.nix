@@ -25,6 +25,7 @@
     nim.symbol = "󰆥 ";
     nix_shell.symbol = " ";
     nodejs.symbol = " ";
+    ocaml.symbol = "";
     os.symbols = {
       Alpine = " ";
       Amazon = " ";

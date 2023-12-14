@@ -14,6 +14,7 @@
     # network
     ldns
     mtr
+    nethogs
 
     # hardware
     inxi
