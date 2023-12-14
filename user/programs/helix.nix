@@ -144,6 +144,14 @@
     languages = {
       language = [
         {
+          name = "elixir";
+          auto-format = true;
+        }
+        {
+          name = "lean";
+          auto-format = true;
+        }
+        {
           name = "nix";
           auto-format = true;
           formatter = {
@@ -156,7 +164,11 @@
           auto-format = true;
           formatter = {
             command = "${pkgs.ocamlformat}/bin/ocamlformat";
-            args = ["-i" "--enable-outside-detected-project"];
+            args = [
+              "-q"
+              "--name=foo.ml" # ocamlformat requires a filename when formatting from stdin
+              "-"
+            ];
           };
         }
         {
@@ -164,6 +176,13 @@
           auto-format = true;
         }
       ];
+      language-server = {
+        elixir-ls = {
+          command = "elixir-ls";
+          environment = {"SHELL" = "${pkgs.bash}/bin/bash";};
+          config.elixirLS.dialyzerEnabled = false;
+        };
+      };
     };
 
     extraPackages = with pkgs; [
@@ -172,9 +191,17 @@
 
       # C/C++
       clang-tools
+      lldb
+
+      # Elixir
+      elixir-ls
+      rtx
 
       # LaTeX
       texlab
+
+      # Lean
+      lean
 
       # Nix
       nil
