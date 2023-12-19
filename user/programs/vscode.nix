@@ -14,6 +14,7 @@
       bbenoist.nix
       github.copilot
       kamadorueda.alejandra
+      ms-vscode-remote.remote-ssh
       scalameta.metals
       vscodevim.vim
     ];
