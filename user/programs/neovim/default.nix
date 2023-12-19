@@ -3,6 +3,7 @@
   programs.nixvim = {
     enable = true;
     enableMan = false;
+    luaLoader.enable = true;
 
     colorschemes.nord.enable = true;
 
@@ -23,6 +24,7 @@
       signcolumn = "yes";
       cursorline = true;
       guicursor = "a:blinkon0,n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20";
+      scrolloff = 8;
 
       timeoutlen = 200;
     };
