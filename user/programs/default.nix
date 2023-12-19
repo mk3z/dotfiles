@@ -1,8 +1,9 @@
 {pkgs, ...}: {
   imports = [
-    ./doom
+    #./doom
     ./firefox
     ./gimp.nix
+    ./haskell.nix
     ./helix.nix
     ./inkscape.nix
     ./kubernetes.nix
