@@ -132,6 +132,16 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     nix-straight = {
       url = "github:mk3z/nix-straight.el";
       flake = false;

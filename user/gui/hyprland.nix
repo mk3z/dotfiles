@@ -1,14 +1,20 @@
 {
   lib,
   pkgs,
+  inputs,
   ...
 }: let
   terminal = "kitty";
 in {
+  imports = [inputs.hyprland.homeManagerModules.default];
+
   stylix.targets.hyprland.enable = false;
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+
+    plugins = [inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces];
 
     settings = {
       exec-once = [
@@ -80,30 +86,30 @@ in {
         "$mod, f, fullscreen"
 
         # Workspace management
-        "$mod, t, workspace, e+1"
-        "$mod, s, workspace, e-1"
-        "$mod, 1, workspace, 1"
-        "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3"
-        "$mod, 4, workspace, 4"
-        "$mod, 5, workspace, 5"
-        "$mod, 6, workspace, 6"
-        "$mod, 7, workspace, 7"
-        "$mod, 8, workspace, 8"
-        "$mod, 9, workspace, 9"
-        "$mod, 0, workspace, 10"
-        "$mod_shift, t, movetoworkspacesilent, e+1"
-        "$mod_shift, s, movetoworkspacesilent, e-1"
-        "$mod_shift, 1, movetoworkspacesilent, 1"
-        "$mod_shift, 2, movetoworkspacesilent, 2"
-        "$mod_shift, 3, movetoworkspacesilent, 3"
-        "$mod_shift, 4, movetoworkspacesilent, 4"
-        "$mod_shift, 5, movetoworkspacesilent, 5"
-        "$mod_shift, 6, movetoworkspacesilent, 6"
-        "$mod_shift, 7, movetoworkspacesilent, 7"
-        "$mod_shift, 8, movetoworkspacesilent, 8"
-        "$mod_shift, 9, movetoworkspacesilent, 9"
-        "$mod_shift, 0, movetoworkspacesilent, 10"
+        "$mod, t, split-workspace, m+1"
+        "$mod, s, split-workspace, m-1"
+        "$mod, 1, split-workspace, 1"
+        "$mod, 2, split-workspace, 2"
+        "$mod, 3, split-workspace, 3"
+        "$mod, 4, split-workspace, 4"
+        "$mod, 5, split-workspace, 5"
+        "$mod, 6, split-workspace, 6"
+        "$mod, 7, split-workspace, 7"
+        "$mod, 8, split-workspace, 8"
+        "$mod, 9, split-workspace, 9"
+        "$mod, 0, split-workspace, 10"
+        "$mod_shift, t, split-movetoworkspacesilent, m+1"
+        "$mod_shift, s, split-movetoworkspacesilent, m-1"
+        "$mod_shift, 1, split-movetoworkspacesilent, 1"
+        "$mod_shift, 2, split-movetoworkspacesilent, 2"
+        "$mod_shift, 3, split-movetoworkspacesilent, 3"
+        "$mod_shift, 4, split-movetoworkspacesilent, 4"
+        "$mod_shift, 5, split-movetoworkspacesilent, 5"
+        "$mod_shift, 6, split-movetoworkspacesilent, 6"
+        "$mod_shift, 7, split-movetoworkspacesilent, 7"
+        "$mod_shift, 8, split-movetoworkspacesilent, 8"
+        "$mod_shift, 9, split-movetoworkspacesilent, 9"
+        "$mod_shift, 0, split-movetoworkspacesilent, 10"
 
         # Audio
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
