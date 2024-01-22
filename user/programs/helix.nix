@@ -13,6 +13,8 @@
         bufferline = "multiple";
         color-modes = true;
 
+        file-picker.hidden = false;
+
         statusline = {
           mode = {
             normal = "N";
@@ -144,12 +146,23 @@
     languages = {
       language = [
         {
+          name = "c";
+          auto-format = true;
+        }
+        {
           name = "elixir";
           auto-format = true;
         }
         {
           name = "lean";
           auto-format = true;
+        }
+        {
+          name = "markdown";
+          file-types = ["md" "txt"];
+          language-servers = ["ltex-ls"];
+          scope = "text.markdown";
+          roots = [];
         }
         {
           name = "nix";
@@ -182,6 +195,9 @@
           environment = {"SHELL" = "${pkgs.bash}/bin/bash";};
           config.elixirLS.dialyzerEnabled = false;
         };
+        ltex-ls = {
+          command = "${pkgs.ltex-ls}/bin/ltex-ls";
+        };
       };
     };
 
@@ -197,6 +213,12 @@
       elixir-ls
       rtx
 
+      # HTML, CSS, JSON
+      vscode-langservers-extracted
+
+      # JavaScript
+      nodePackages.typescript-language-server
+
       # LaTeX
       texlab
 
@@ -208,6 +230,9 @@
 
       # OCaml
       ocamlPackages.ocaml-lsp
+
+      # Svelte
+      nodePackages.svelte-language-server
     ];
   };
 
