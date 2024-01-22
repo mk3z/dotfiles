@@ -26,6 +26,7 @@
         "Audio"
         "Code"
         "Documents"
+        "Downloads/persistent"
         "Music"
         "Pictures"
         "Projects"
