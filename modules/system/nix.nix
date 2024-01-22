@@ -10,6 +10,7 @@
     registry.nixpkgs.flake = inputs.nixpkgs;
 
     settings = {
+      allowed-users = ["@wheel"];
       experimental-features = ["nix-command" "flakes" "auto-allocate-uids"];
       auto-optimise-store = true;
       substituters = ["https://nix-community.cachix.org"];
