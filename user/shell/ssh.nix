@@ -7,9 +7,7 @@
 
   programs.ssh = {
     enable = true;
-    extraConfig = ''
-      AddKeysToAgent yes
-    '';
+    addKeysToAgent = "yes";
 
     # Fablab
     matchBlocks = {
