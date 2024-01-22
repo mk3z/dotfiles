@@ -17,7 +17,7 @@
     directories = [".local/share/direnv"];
   };
 
-  home.packages = with pkgs; [fishPlugins.fzf-fish fishPlugins.pisces];
+  home.packages = with pkgs; [fishPlugins.fzf-fish fishPlugins.grc fishPlugins.pisces grc];
 
   programs.fish = {
     enable = true;
