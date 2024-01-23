@@ -8,7 +8,7 @@
     ./inkscape.nix
     ./kubernetes.nix
     ./mpv.nix
-    ./neovim
+    # ./neovim
     ./qbittorrent.nix
     ./signal.nix
     ./spotify.nix
