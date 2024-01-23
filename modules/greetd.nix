@@ -1,13 +1,14 @@
 {
   pkgs,
   username,
+  inputs,
   ...
 }: let
-  wm = "${pkgs.hyprland}/bin/Hyprland";
+  wm = "${inputs.hyprland.packages.${pkgs.system}.default}/bin/Hyprland";
 in {
   services.greetd = {
     enable = true;
-    settings = rec {
+    settings = {
       initial_session = {
         command = wm;
         user = username;
