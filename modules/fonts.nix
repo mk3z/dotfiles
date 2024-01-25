@@ -19,8 +19,8 @@
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override {fonts = ["ComicShannsMono"];};
-        name = "ComicShannsMono Nerd Font";
+        package = pkgs.maple-mono-NF;
+        name = "Maple Mono NF";
       };
 
       monospace = {
