@@ -8,6 +8,21 @@
 in {
   imports = [inputs.hyprland.homeManagerModules.default];
 
+  home = {
+    packages = with pkgs; [hyprpicker wdisplays wev wl-clipboard];
+    sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+      WLR_NO_HARDWARE_CURSORS = 1;
+      CLUTTER_BACKEND = "wayland";
+      XDG_SESSION_TYPE = "wayland";
+      WLR_BACKEND = "vulkan";
+      QT_QPA_PLATFORM = "wayland";
+      GDK_BACKEND = "wayland";
+      NIXOS_OZONE_WL = 1;
+    };
+  };
+
   stylix.targets.hyprland.enable = false;
 
   wayland.windowManager.hyprland = {
