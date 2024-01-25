@@ -16,6 +16,7 @@
     ldns
     mtr
     nethogs
+    whois
 
     # hardware
     inxi
