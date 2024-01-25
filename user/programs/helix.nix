@@ -77,8 +77,8 @@
           common
           // {
             m = "move_char_left";
-            n = "move_line_down";
-            e = "move_line_up";
+            n = "move_visual_line_down";
+            e = "move_visual_line_up";
             i = "move_char_right";
 
             N = "join_selections";
