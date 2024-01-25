@@ -117,7 +117,7 @@
         font-size: 12px;
         min-height: 0;
         border-bottom: none;
-        background-color: rgba(46, 52, 64, 0.57);
+        background-color: rgb(46, 52, 64);
         color: #e5e9f0;
       }
 
