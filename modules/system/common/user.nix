@@ -5,7 +5,7 @@
   ...
 }: {
   # Get agenix password secret
-  age.secrets.password.file = ../../secrets/password.age;
+  age.secrets.password.file = ../../../secrets/password.age;
 
   # Make the default user
   users = {

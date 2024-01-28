@@ -1,9 +1,11 @@
 {
+  osConfig,
   lib,
   pkgs,
   inputs,
   ...
 }: let
+  inherit (lib) mkIf;
   terminal = "kitty";
 in {
   imports = [inputs.hyprland.homeManagerModules.default];
@@ -35,7 +37,7 @@ in {
       exec-once = [
         # set wallpaper
         "${pkgs.swaybg}/bin/swaybg -m fill -i ${
-          builtins.toString ../../wallpaper.jpg
+          builtins.toString ../../../images/wallpaper.jpg
         }"
         # Start polkit agent
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
@@ -146,7 +148,7 @@ in {
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
       ];
 
-      bindl = [
+      bindl = mkIf osConfig.hw.laptop.enable [
         # Enable and disable laptop screen
         ''$mod, p, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.5"''
         ''$mod_shift, p, exec, hyprctl keyword monitor "eDP-1, disable"''
@@ -176,7 +178,7 @@ in {
       # Disable Xwayland scaling
       xwayland.force_zero_scaling = true;
 
-      monitor = ["DP-1, 3440x1440@59.97300, 0x0, 1.3" ",preferred,auto,auto"];
+      monitor = mkIf osConfig.hw.laptop.enable ["DP-1, 3440x1440@59.97300, 0x0, 1.3" ",preferred,auto,auto"];
     };
   };
 }

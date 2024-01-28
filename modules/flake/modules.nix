@@ -1,0 +1,5 @@
+{
+  flake = {
+    # hmModules = [../user];
+  };
+}

@@ -10,7 +10,8 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        ./configurations.nix
+        ./modules/flake/configurations.nix
+        ./modules/flake/modules.nix
         inputs.devenv.flakeModule
       ];
 

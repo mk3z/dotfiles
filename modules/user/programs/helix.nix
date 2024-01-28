@@ -1,6 +1,16 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  homePersistDir,
+  homeDirectory,
+  ...
+}: {
+  home.persistence."${homePersistDir}${homeDirectory}".directories = [
+    ".cargo"
+  ];
+
   programs.helix = {
     enable = true;
+    defaultEditor = true;
 
     settings = {
       theme = "nord";
@@ -223,13 +233,24 @@
       texlab
 
       # Lean
-      lean
+      # FIXME
+      # lean
 
       # Nix
       nil
 
       # OCaml
       ocamlPackages.ocaml-lsp
+
+      # Rust
+      rust-analyzer
+      (fenix.complete.withComponents [
+        "cargo"
+        "clippy"
+        "rust-src"
+        "rustc"
+        "rustfmt"
+      ])
 
       # Svelte
       nodePackages.svelte-language-server

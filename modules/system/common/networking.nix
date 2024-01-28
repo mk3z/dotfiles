@@ -14,7 +14,7 @@
     enable = true;
     settings = {
       listen_addresses = ["127.0.0.1:53"];
-      bootstrap_resolvers = ["1.1.1.1:53"];
+      bootstrap_resolvers = ["9.9.9.11:53" "8.8.8.8:53"];
 
       require_dnssec = true;
       require_nolog = true;
