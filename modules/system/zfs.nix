@@ -5,9 +5,9 @@
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.hw.zfs;
+  cfg = config.mkez.hardware.zfs;
 in {
-  options.hw.zfs.enable = mkEnableOption "Enable ZFS support";
+  options.mkez.hardware.zfs.enable = mkEnableOption "Enable ZFS support";
   config = mkIf cfg.enable {
     services.zfs.autoScrub.enable = true;
 

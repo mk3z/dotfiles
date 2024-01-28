@@ -4,9 +4,9 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.hw.bluetooth;
+  cfg = config.mkez.hardware.bluetooth;
 in {
-  options.hw.bluetooth.enable = mkEnableOption "Enable Bluetooth";
+  options.mkez.hardware.bluetooth.enable = mkEnableOption "Enable Bluetooth";
   config = mkIf cfg.enable {
     hardware.bluetooth = {
       enable = true;

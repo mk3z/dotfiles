@@ -4,10 +4,10 @@
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.hw.amd;
+  cfg = config.mkez.hardware.amd;
   kver = config.boot.kernelPackages.kernel.version;
 in {
-  options.hw.amd.enable = mkEnableOption "Enable AMD-specific kernel parameters and modules";
+  options.mkez.hardware.amd.enable = mkEnableOption "Enable AMD-specific kernel parameters and modules";
   config = mkIf cfg.enable {
     # Enables the amd cpu scaling https://www.kernel.org/doc/html/latest/admin-guide/pm/amd-pstate.html
     # On recent AMD CPUs this can be more energy efficient.

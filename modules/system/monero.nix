@@ -7,9 +7,9 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.features.monero;
+  cfg = config.mkez.services.monero;
 in {
-  options.features.monero = {
+  options.mkez.services.monero = {
     enable = mkEnableOption "Enable Monero daemon";
     persist = mkEnableOption "Persist the ~/.xmr directory";
   };

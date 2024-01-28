@@ -5,9 +5,9 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.hw.amdgpu;
+  cfg = config.mkez.hardware.amdgpu;
 in {
-  options.hw.amdgpu.enable = mkEnableOption "Enable AMDGPU drivers and kernel module";
+  options.mkez.hardware.amdgpu.enable = mkEnableOption "Enable AMDGPU drivers and kernel module";
 
   config = mkIf cfg.enable {
     boot.initrd.kernelModules = ["amdgpu"];

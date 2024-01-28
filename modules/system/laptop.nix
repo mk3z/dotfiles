@@ -4,9 +4,9 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.hw.laptop;
+  cfg = config.mkez.hardware.laptop;
 in {
-  options.hw.laptop.enable = mkEnableOption "This device is a laptop";
+  options.mkez.hardware.laptop.enable = mkEnableOption "This device is a laptop";
 
   config = mkIf cfg.enable {
     powerManagement = {

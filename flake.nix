@@ -11,7 +11,6 @@
 
       imports = [
         ./modules/flake/configurations.nix
-        ./modules/flake/modules.nix
         inputs.devenv.flakeModule
       ];
 

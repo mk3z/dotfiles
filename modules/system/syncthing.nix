@@ -4,9 +4,9 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.features.syncthing;
+  cfg = config.mkez.services.syncthing;
 in {
-  options.features.syncthing.enable = mkEnableOption "Enable Syncthing";
+  options.mkez.services.syncthing.enable = mkEnableOption "Enable Syncthing";
   config = mkIf cfg.enable {
     networking.firewall = {
       allowedTCPPorts = [22000];

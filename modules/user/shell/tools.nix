@@ -79,6 +79,8 @@
       keys = ''
         n forw-line
         e back-line
+        k repeat-search
+        K reverse-search
       '';
     };
 

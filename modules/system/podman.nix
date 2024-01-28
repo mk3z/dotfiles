@@ -7,9 +7,9 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.features.podman;
+  cfg = config.mkez.services.podman;
 in {
-  options.features.podman.enable = mkEnableOption "Enables Podman";
+  options.mkez.services.podman.enable = mkEnableOption "Enables Podman";
   config = mkIf cfg.enable {
     virtualisation.podman = {
       enable = true;

@@ -7,9 +7,9 @@
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.features.steam;
+  cfg = config.mkez.programs.steam;
 in {
-  options.features.steam.enable = mkEnableOption "Enable Steam";
+  options.mkez.programs.steam.enable = mkEnableOption "Enable Steam";
   config = mkIf cfg.enable {
     programs.steam.enable = true;
     environment.persistence."${homePersistDir}".directories = [

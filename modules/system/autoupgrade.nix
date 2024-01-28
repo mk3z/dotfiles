@@ -5,9 +5,9 @@
   ...
 }: let
   inherit (lib) mkEnableOption;
-  cfg = config.features.autoupgrade;
+  cfg = config.mkez.features.autoupgrade;
 in {
-  options.features.autoupgrade.enable = mkEnableOption "Enable nixpkgs auto updating";
+  options.mkez.features.autoupgrade.enable = mkEnableOption "Enable nixpkgs auto updating";
   config = {
     system.autoUpgrade = {
       inherit (cfg) enable;

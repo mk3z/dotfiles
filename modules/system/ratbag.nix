@@ -5,8 +5,8 @@
   ...
 }: let
   inherit (lib) mkEnableOption;
-  cfg = config.features.ratbag;
+  cfg = config.mkez.services.ratbag;
 in {
-  options.features.ratbag.enable = mkEnableOption "Enable Ratbag";
+  options.mkez.services.ratbag.enable = mkEnableOption "Enable Ratbag";
   config.services.ratbagd.enable = cfg.enable;
 }

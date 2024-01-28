@@ -5,9 +5,9 @@
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.features.borg;
+  cfg = config.mkez.services.borg;
 in {
-  options.features.borg.enable = mkEnableOption "Enable Borg backup";
+  options.mkez.services.borg.enable = mkEnableOption "Enable Borg backup";
   config = mkIf cfg.enable {
     age.secrets.borg.file = ../../secrets/borg.age;
 

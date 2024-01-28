@@ -36,8 +36,6 @@
         ".cache"
         ".local/share/keyrings"
         ".local/state"
-
-        ".BitwigStudio"
       ];
       allowOther = true;
     };
