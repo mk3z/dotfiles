@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  username = "matias";
+  username = "mkez";
   homeDirectory = "/home/${username}";
   homePersistDir = "/persist";
   inherit (inputs.nixpkgs) lib;
