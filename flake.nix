@@ -43,6 +43,8 @@
 
     nur.url = "github:nix-community/NUR";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     devenv = {
       url = "github:cachix/devenv";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,11 +79,6 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    nix-straight = {
-      url = "github:mk3z/nix-straight.el";
-      flake = false;
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -94,6 +91,11 @@
         # NOTE: Remove this when upstream nix-straight.el implements pgtk support.
         nix-straight.follows = "nix-straight";
       };
+    };
+
+    nix-straight = {
+      url = "github:mk3z/nix-straight.el";
+      flake = false;
     };
 
     copilot = {

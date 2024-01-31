@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  modulesPath,
-  ...
-}: {
+{modulesPath, ...}: {
   imports = [(modulesPath + "/installer/scan/not-detected.nix")];
 
   fileSystems = {
@@ -43,13 +38,4 @@
   # zram
   swapDevices = [];
   zramSwap.enable = true;
-
-  networking = {
-    useDHCP = lib.mkDefault true;
-    hostId = "f51d068a";
-  };
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
