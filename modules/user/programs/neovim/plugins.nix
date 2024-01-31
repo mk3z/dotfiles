@@ -1,5 +1,12 @@
-{pkgs, ...}: {
-  programs.nixvim = {
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  inherit (lib) mkIf;
+in {
+  programs.nixvim = mkIf config.mkez.editors.nvim.enable {
     extraPlugins = [
       pkgs.vimPlugins.vim-numbertoggle
       {

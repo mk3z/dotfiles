@@ -1,7 +1,6 @@
 {
   inputs,
   sysPersistDir,
-  username,
   ...
 }: {
   imports = [
@@ -33,11 +32,6 @@
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
-    users.${username} = {
-      directories = [
-        ".minikube"
-      ];
-    };
   };
 
   nixpkgs = {

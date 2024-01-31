@@ -3,13 +3,7 @@
     # TODO organize this mess better
     ./common
     ./core.nix
-
-    # hardware
-    ./amd.nix
-    ./amdgpu.nix
-    ./bluetooth.nix
-    ./laptop.nix
-    ./zfs.nix
+    ./hardware
 
     # common features
     ./sound.nix
@@ -23,6 +17,7 @@
     ./borg.nix
     ./docker.nix
     ./greetd.nix
+    ./kubernetes.nix
     ./libvirt.nix
     ./monero.nix
     ./mullvad.nix

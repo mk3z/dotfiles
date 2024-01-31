@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./bitwig.nix
-    #./doom
+    ./doom
     ./firefox
     ./gimp.nix
     ./haskell.nix
@@ -9,7 +9,7 @@
     ./inkscape.nix
     ./kubernetes.nix
     ./mpv.nix
-    # ./neovim
+    ./neovim
     ./qbittorrent.nix
     ./signal.nix
     ./spotify.nix

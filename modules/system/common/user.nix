@@ -9,7 +9,8 @@
 
   # Make the default user
   users = {
-    extraUsers.${username} = {
+    users.${username} = {
+      uid = 1000;
       isNormalUser = true;
       createHome = true;
       extraGroups = ["wheel" "networkmanager" "audio" "video"];

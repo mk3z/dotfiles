@@ -15,6 +15,7 @@ in {
         features = {
           autoupgrade.enable = false;
           docker.enable = false;
+          kubernetes.enable = true;
           libvirt.enable = true;
         };
         services = {
@@ -29,9 +30,16 @@ in {
           steam.enable = true;
         };
       };
+
       userConfig = {
-        features.kubernetes.enable = true;
-        programs.bitwig.enable = true;
+        programs = {
+          bitwig.enable = true;
+        };
+        editors = {
+          doom.enable = false;
+          helix.enable = true;
+          nvim.enable = false;
+        };
       };
     };
   };

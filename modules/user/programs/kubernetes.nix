@@ -1,16 +1,14 @@
 {
   lib,
-  config,
+  osConfig,
   pkgs,
   homePersistDir,
   homeDirectory,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf;
-  cfg = config.mkez.features.kubernetes;
+  inherit (lib) mkIf;
 in {
-  options.mkez.features.kubernetes.enable = mkEnableOption "Enable Kubernetes";
-  config = mkIf cfg.enable {
+  config = mkIf osConfig.mkez.features.kubernetes.enable {
     programs.k9s = {
       enable = true;
     };
