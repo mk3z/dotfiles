@@ -1,6 +1,6 @@
 let
-  slimbook = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDBntTB+Xhui/IciIGZW78dwlKxljidVH+q8FRDQQYA";
+  mkez = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVXV+51+7Evucq9Qi9QCs2LugQii6AjvDfIg3u7oiOe";
 in {
-  "password.age".publicKeys = [slimbook];
-  "borg.age".publicKeys = [slimbook];
+  "password.age".publicKeys = [mkez];
+  "borg.age".publicKeys = [mkez];
 }
