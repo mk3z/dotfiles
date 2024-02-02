@@ -147,6 +147,24 @@
             definedAliases = [":nw"];
           };
 
+          "Noogle" = {
+            urls = [
+              {
+                template = "https://noogle.dev/q?term={searchTerms}";
+              }
+            ];
+            definedAliases = [":ng"];
+          };
+
+          "Hoogle" = {
+            urls = [
+              {
+                template = "https://hoogle.haskell.org/?hoogle={searchTerms}&scope=set%3Astackage";
+              }
+            ];
+            definedAliases = [":hg"];
+          };
+
           "Wikipedia" = {
             urls = [
               {
