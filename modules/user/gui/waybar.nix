@@ -138,6 +138,7 @@
       }
 
       #workspaces button.active {
+        border-radius: 0;
         border-bottom: 1px solid;
       }
     '';
