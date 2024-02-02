@@ -10,6 +10,7 @@
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.nixvim.homeManagerModules.nixvim
     inputs.doom-emacs.hmModule
+    inputs.nix-index-database.hmModules.nix-index
 
     ./gui
     ./shell

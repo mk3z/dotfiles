@@ -94,6 +94,8 @@
       enableFishIntegration = true;
     };
 
+    nix-index-database.comma.enable = true;
+
     vim = {
       enable = true;
       extraConfig = ''
