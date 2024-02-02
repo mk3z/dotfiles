@@ -25,6 +25,7 @@ in {
         };
         services = {
           borg.enable = true;
+          dnscrypt.enable = true;
           monero.persist = true;
           mullvad.enable = true;
           podman.enable = true;

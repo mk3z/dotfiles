@@ -15,6 +15,7 @@
     # features
     ./autoupgrade.nix
     ./borg.nix
+    ./dns.nix
     ./docker.nix
     ./greetd.nix
     ./kubernetes.nix
