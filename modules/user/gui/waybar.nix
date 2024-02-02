@@ -43,8 +43,12 @@
         "bluetooth" = {
           interval = 10;
           format = "󰂯 {status}";
-          format-connecte = "󰂯 {device_alias}";
+          format-connected = "󰂯 {device_alias}";
           format-connected-battery = "󰥈 {device_alias} {device_battery_percentage}%";
+          tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
+          tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
+          tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+          tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
         };
 
         "custom/vpn" = {
@@ -117,6 +121,8 @@
         font-size: 12px;
         min-height: 0;
         border-bottom: none;
+        padding: 0;
+        margin: 0;
         background-color: rgb(46, 52, 64);
         color: #e5e9f0;
       }
@@ -127,9 +133,9 @@
       }
 
       #clock, #battery, #wireplumber, #network, #custom-vpn, #bluetooth, #cpu, #memory {
-        margin: 0 4px;
-        padding: 0 4px;
-        border-bottom: 1px solid;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-left: 1px solid;
       }
 
       #window {
