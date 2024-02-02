@@ -118,37 +118,26 @@
     style = ''
       * {
         font-family: "Monospace";
-        font-size: 12px;
+        font-size: 10px;
         min-height: 0;
-        border-bottom: none;
         padding: 0;
         margin: 0;
-        background-color: rgb(46, 52, 64);
-        color: #e5e9f0;
-      }
-
-      window#waybar {
-        padding: 0;
-        margin: 0;
+        border: 0;
+        background-color: @theme_base_color;
+        color: @theme_text_color;
       }
 
       #clock, #battery, #wireplumber, #network, #custom-vpn, #bluetooth, #cpu, #memory {
-        padding-left: 5px;
-        padding-right: 5px;
-        border-left: 1px solid;
+        margin: 0 4px;
+        padding: 0 4px;
+        border-bottom: 1px solid;
       }
 
       #window {
         padding: 0 4px;
       }
 
-      #workspaces button {
-        padding: 0 0 1px;
-        border-radius: 0;
-      }
-
       #workspaces button.active {
-        padding: 0;
         border-bottom: 1px solid;
       }
     '';
