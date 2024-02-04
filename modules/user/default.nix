@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   username,
   homeDirectory,
@@ -46,6 +47,7 @@
     stateVersion = "23.11";
   };
 
+  home.packages = [pkgs.xdg-utils];
   xdg = {
     mimeApps.enable = true;
     # Disable useless user dirs

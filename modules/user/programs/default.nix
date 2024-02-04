@@ -12,6 +12,7 @@
     ./neovim
     ./qbittorrent.nix
     ./signal.nix
+    ./sioyek.nix
     ./spotify.nix
     ./speedcrunch.nix
     ./syncthing.nix

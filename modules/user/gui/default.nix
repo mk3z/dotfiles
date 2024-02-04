@@ -13,7 +13,6 @@
     ./swayidle.nix
     ./waybar.nix
     ./wofi.nix
-    ./zathura.nix
   ];
 
   # Notification daemon
