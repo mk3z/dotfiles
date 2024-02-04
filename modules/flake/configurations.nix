@@ -65,7 +65,8 @@ in {
           libvirt.enable = true;
         };
         services = {
-          borg.enable = true;
+          borg.enable = false;
+          dnscrypt.enable = true;
           monero.persist = true;
           mullvad.enable = true;
           podman.enable = true;
