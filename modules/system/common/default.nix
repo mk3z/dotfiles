@@ -14,18 +14,21 @@
     ./xdg.nix
   ];
 
-  environment.persistence."${sysPersistDir}" = {
-    directories = [
-      "/etc/NetworkManager"
-      "/var/cache"
-      "/var/lib"
-      "/var/log"
-    ];
-    files = [
-      # Required for systemd journal
-      "/etc/machine-id"
-      "/etc/nix/id_rsa"
-    ];
+  environment = {
+    persistence."${sysPersistDir}" = {
+      directories = [
+        "/etc/NetworkManager"
+        "/var/cache"
+        "/var/lib"
+        "/var/log"
+      ];
+      files = [
+        "/etc/nix/id_rsa"
+      ];
+    };
+
+    # Required for systemd journal
+    etc."machine-id".source = "${sysPersistDir}/etc/machine-id";
   };
 
   nixpkgs = {
