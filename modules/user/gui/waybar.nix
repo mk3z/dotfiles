@@ -1,4 +1,4 @@
-{
+{osConfig, ...}: {
   stylix.targets.waybar.enable = false;
 
   programs.waybar = {
@@ -10,16 +10,27 @@
         position = "bottom";
         height = 20;
         modules-left = ["hyprland/workspaces" "hyprland/window"];
-        modules-right = [
-          "cpu"
-          "memory"
-          "bluetooth"
-          "network"
-          "custom/vpn"
-          "wireplumber"
-          "battery"
-          "clock"
-        ];
+        modules-right =
+          if osConfig.mkez.hardware.bluetooth.enable
+          then [
+            "cpu"
+            "memory"
+            "bluetooth"
+            "network"
+            "custom/vpn"
+            "wireplumber"
+            "battery"
+            "clock"
+          ]
+          else [
+            "cpu"
+            "memory"
+            "network"
+            "custom/vpn"
+            "wireplumber"
+            "battery"
+            "clock"
+          ];
 
         "clock" = {
           interval = 1;
