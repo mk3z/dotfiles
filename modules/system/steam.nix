@@ -17,9 +17,12 @@ in {
       gamemode = {
         enable = true;
         enableRenice = true;
-        settings.custom = {
-          start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
-          end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+        settings = {
+          general.renice = 10;
+          custom = {
+            start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+            end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+          };
         };
       };
     };
