@@ -26,7 +26,6 @@
     persistence."${homePersistDir}${homeDirectory}" = {
       directories = [
         "Audio"
-        "Code"
         "Documents"
         "Downloads/persistent"
         "Music"
