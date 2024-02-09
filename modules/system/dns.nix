@@ -29,7 +29,10 @@ in {
       };
     };
 
-    networking.nameservers = ["127.0.0.1"];
+    networking = {
+      networkmanager.dns = "none";
+      nameservers = ["127.0.0.1"];
+    };
 
     systemd.services.dnscrypt-proxy2.serviceConfig = {
       StateDirectory = "dnscrypt-proxy";
