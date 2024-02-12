@@ -20,7 +20,7 @@ in {
         isNormalUser = true;
         createHome = true;
         extraGroups = ["wheel" "networkmanager" "audio" "video"];
-        initialPassword = "changeme";
+        initialPassword = "";
         hashedPasswordFile =
           if !cfg.noPassword
           then config.age.secrets.password.path
