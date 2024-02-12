@@ -1,30 +1,20 @@
 {...}: {
   imports = [
     # TODO organize this mess better
-    ./common
     ./core.nix
+    ./common
     ./hardware
-
-    # common features
-    ./sound.nix
-    ./fonts.nix
-    ./keyring.nix
-    ./man.nix
-    ./theme.nix
+    ./programs
+    ./services
 
     # features
-    ./autoupgrade.nix
-    ./borg.nix
-    ./dns.nix
+    ./adb.nix
     ./docker.nix
     ./greetd.nix
     ./kubernetes.nix
     ./libvirt.nix
-    ./monero.nix
     ./mullvad.nix
     ./podman.nix
     ./ratbag.nix
-    ./steam.nix
-    ./syncthing.nix
   ];
 }

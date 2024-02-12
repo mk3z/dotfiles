@@ -9,7 +9,7 @@
 in {
   options.mkez.services.borg.enable = mkEnableOption "Enable Borg backup";
   config = mkIf cfg.enable {
-    age.secrets.borg.file = ../../secrets/borg.age;
+    age.secrets.borg.file = ../../../secrets/borg.age;
 
     services.borgbackup.jobs = {
       home = {
@@ -27,6 +27,7 @@ in {
           "*/cache"
           "*/Cache"
           "*/Code Cache"
+          "Downloads/persistent"
         ];
         compression = "auto,zstd";
       };

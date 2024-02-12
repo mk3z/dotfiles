@@ -4,13 +4,15 @@
   ...
 }: {
   imports = [
-    ./user.nix
-    ./nix.nix
-
+    ./fonts.nix
     ./console.nix
     ./i18n.nix
-
+    ./keyring.nix
+    ./man.nix
     ./networking.nix
+    ./nix.nix
+    ./theme.nix
+    ./user.nix
     ./xdg.nix
   ];
 

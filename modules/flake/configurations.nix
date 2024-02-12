@@ -11,15 +11,17 @@ in {
         common-hidpi
       ];
       systemConfig = {
-        core.hostname = "slimbook";
+        core = {
+          hostname = "slimbook";
+          server = false;
+        };
         hardware = {
           laptop.enable = true;
           zfs.enable = true;
           bluetooth.enable = true;
         };
         features = {
-          autoupgrade.enable = false;
-          docker.enable = false;
+          adb.enable = true;
           kubernetes.enable = true;
           libvirt.enable = true;
         };
@@ -42,9 +44,7 @@ in {
           bitwig.enable = true;
         };
         editors = {
-          doom.enable = false;
           helix.enable = true;
-          nvim.enable = false;
         };
       };
     };
@@ -57,15 +57,16 @@ in {
         common-hidpi
       ];
       systemConfig = {
-        core.hostname = "desktop";
+        core = {
+          hostname = "desktop";
+          server = false;
+        };
         features = {
-          autoupgrade.enable = false;
-          docker.enable = false;
+          adb.enable = true;
           kubernetes.enable = true;
           libvirt.enable = true;
         };
         services = {
-          borg.enable = false;
           dnscrypt.enable = true;
           monero.persist = true;
           mullvad.enable = true;
@@ -77,15 +78,53 @@ in {
           steam.enable = true;
         };
       };
-
       userConfig = {
         programs = {
           bitwig.enable = true;
         };
         editors = {
-          doom.enable = false;
           helix.enable = true;
-          nvim.enable = false;
+        };
+      };
+    };
+
+    memory-alpha = mkHost {
+      extraModules = with inputs.nixos-hardware.nixosModules; [
+        common-pc
+        common-pc-ssd
+        common-cpu-amd
+      ];
+      systemConfig = {
+        core = {
+          hostname = "memory-alpha";
+          server = true;
+        };
+        hardware.zfs.enable = true;
+        services = {
+          ssh.enable = true;
+          sonarr.enable = true;
+        };
+      };
+    };
+
+    nixos-iso = mkHost {
+      extraModules = with inputs.nixos-hardware.nixosModules;
+        [
+          common-pc
+        ]
+        ++ [
+          "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+        ];
+      systemConfig = {
+        core = {
+          hostname = "nixos-iso";
+          server = false;
+        };
+      };
+
+      userConfig = {
+        editors = {
+          helix.enable = true;
         };
       };
     };
