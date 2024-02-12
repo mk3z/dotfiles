@@ -171,14 +171,10 @@ in {
             auto-format = true;
           }
           {
-            name = "lean";
-            auto-format = true;
-          }
-          {
-            name = "markdown";
-            file-types = ["md" "txt"];
+            name = "text";
+            file-types = ["txt"];
             language-servers = ["ltex-ls"];
-            scope = "text.markdown";
+            scope = "text.raw";
             roots = [];
           }
           {
@@ -239,9 +235,8 @@ in {
         # LaTeX
         texlab
 
-        # Lean
-        # FIXME
-        # lean
+        # Markdown
+        marksman
 
         # Nix
         nil
