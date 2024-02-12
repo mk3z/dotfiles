@@ -1,12 +1,5 @@
-{
-  lib,
-  config,
-  ...
-}: let
-  inherit (lib) mkIf;
-in {
-  networking = mkIf (config.mkez.core.hostname
-    != "nixos-iso") {
+{username, ...}: {
+  networking = {
     firewall.enable = true;
     networkmanager = {
       enable = true;
@@ -14,4 +7,6 @@ in {
       ethernet.macAddress = "random";
     };
   };
+
+  users.users.${username}.extraGroups = ["networkmanager"];
 }

@@ -19,7 +19,7 @@ in {
         uid = 1000;
         isNormalUser = true;
         createHome = true;
-        extraGroups = ["wheel" "networkmanager" "audio" "video"];
+        extraGroups = ["wheel" "audio" "video"];
         initialPassword = "";
         hashedPasswordFile =
           if !cfg.noPassword
