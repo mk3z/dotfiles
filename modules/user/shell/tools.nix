@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     file
     gh
+    libqalculate
     sshuttle
     tldr
     unzip
