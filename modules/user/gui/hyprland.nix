@@ -154,6 +154,11 @@ in {
         ''$mod_shift, p, exec, hyprctl keyword monitor "eDP-1, disable"''
       ];
 
+      bindm = [
+        "$alt, mouse:272, movewindow"
+        "$alt, mouse:273, resizewindow"
+      ];
+
       # New window will be on the right
       dwindle.force_split = 2;
 
