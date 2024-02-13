@@ -1,16 +1,15 @@
 {...}: {
   imports = [
-    # TODO organize this mess better
     ./core.nix
     ./common
+    ./gui
     ./hardware
     ./programs
     ./services
 
-    # features
+    # TODO organize these better
     ./adb.nix
     ./docker.nix
-    ./greetd.nix
     ./kubernetes.nix
     ./libvirt.nix
     ./mullvad.nix
