@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  username,
   sysPersistDir,
   ...
 }: let
@@ -14,6 +15,10 @@ in {
       openFirewall = true;
       settings.PasswordAuthentication = false;
     };
+
+    users.users.${username}.openssh.authorizedKeys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVXV+51+7Evucq9Qi9QCs2LugQii6AjvDfIg3u7oiOe"
+    ];
 
     environment.etc = {
       "ssh/ssh_host_ed25519_key".source = "${sysPersistDir}/etc/ssh/ssh_host_ed25519_key";
