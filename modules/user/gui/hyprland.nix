@@ -56,10 +56,6 @@ in {
         "col.active_border" = lib.mkForce "0xff5e81ac";
       };
 
-      # Don't waste more space
-      dwindle.no_gaps_when_only = 1;
-      master.no_gaps_when_only = 1;
-
       # set keyboard layout
       input = {
         kb_model = "pc105";
