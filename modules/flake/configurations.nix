@@ -122,6 +122,7 @@ in {
           hostname = "nixos-iso";
           server = false;
         };
+        user.noPassword = true;
       };
 
       userConfig = {
