@@ -47,6 +47,9 @@ in {
         # Don't waste space
         gaps_in = 0;
         gaps_out = 0;
+
+        cursor_inactive_timeout = 30;
+
         # The only color that can be seen
         # Sadly stylix does not support Hyprland (yet)
         "col.inactive_border" = lib.mkForce "0xff3b4252";
