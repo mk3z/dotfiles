@@ -10,7 +10,7 @@
 
   networking = {
     hostName = config.mkez.core.hostname;
-    hostId = "f51d068a";
+    hostId = "4a49e359";
     useDHCP = lib.mkDefault true;
   };
 }
