@@ -79,6 +79,7 @@ in {
           steam.enable = true;
         };
       };
+
       userConfig = {
         programs = {
           bitwig.enable = true;

@@ -11,7 +11,7 @@ in {
   mkHost = {
     extraModules,
     systemConfig,
-    userConfig,
+    userConfig ? {},
   }:
     nixosSystem {
       specialArgs = {
