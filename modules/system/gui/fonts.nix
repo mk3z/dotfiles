@@ -1,39 +1,48 @@
-{pkgs, ...}: {
-  fonts = {
-    packages = with pkgs; [
-      libertinus
-      roboto
-      (nerdfonts.override {fonts = ["Iosevka" "NerdFontsSymbolsOnly"];})
-      symbola
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-    ];
-  };
-
-  stylix = {
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  inherit (lib) mkIf;
+in {
+  config = mkIf (!config.mkez.core.server) {
     fonts = {
-      serif = {
-        package = pkgs.libertinus;
-        name = "Libertinus Serif";
-      };
+      packages = with pkgs; [
+        libertinus
+        roboto
+        (nerdfonts.override {fonts = ["Iosevka" "NerdFontsSymbolsOnly"];})
+        symbola
+        noto-fonts
+        noto-fonts-cjk
+        noto-fonts-emoji
+      ];
+    };
 
-      sansSerif = {
-        package = pkgs.maple-mono-NF;
-        name = "Maple Mono NF";
-      };
+    stylix = {
+      fonts = {
+        serif = {
+          package = pkgs.libertinus;
+          name = "Libertinus Serif";
+        };
 
-      monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
-        name = "Iosevka Nerd Font Mono";
-      };
+        sansSerif = {
+          package = pkgs.maple-mono-NF;
+          name = "Maple Mono NF";
+        };
 
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
+        monospace = {
+          package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+          name = "Iosevka Nerd Font Mono";
+        };
 
-      sizes.terminal = 10;
+        emoji = {
+          package = pkgs.noto-fonts-emoji;
+          name = "Noto Color Emoji";
+        };
+
+        sizes.terminal = 10;
+      };
     };
   };
 }
