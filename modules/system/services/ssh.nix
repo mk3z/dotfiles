@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  sysPersistDir,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
@@ -12,6 +13,11 @@ in {
       enable = true;
       openFirewall = true;
       settings.PasswordAuthentication = false;
+    };
+
+    environment.etc = {
+      "ssh/ssh_host_ed25519_key".source = "${sysPersistDir}/etc/ssh/ssh_host_ed25519_key";
+      "ssh/ssh_host_ed25519_key.pub".source = "${sysPersistDir}/etc/ssh/ssh_host_ed25519_key.pub";
     };
   };
 }
