@@ -64,7 +64,7 @@ in {
             mode = "1680x1050@59.88300";
             position = "0,0";
             scale = 1.0;
-            transform = "270";
+            transform = "90";
           }
           {
             # Center
