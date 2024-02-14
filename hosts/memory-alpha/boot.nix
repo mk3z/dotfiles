@@ -12,6 +12,6 @@
       efi.canTouchEfiVariables = true;
     };
 
-    zfs.forceImportAll = true;
+    zfs.extraPools = ["rpool"];
   };
 }
