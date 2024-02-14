@@ -48,6 +48,7 @@ in {
         };
       };
     };
+
     desktop = mkHost {
       extraModules = with inputs.nixos-hardware.nixosModules; [
         common-pc
@@ -101,8 +102,9 @@ in {
         };
         hardware.zfs.enable = true;
         services = {
+          arr.enable = true;
+          jellyfin.enable = true;
           ssh.enable = true;
-          sonarr.enable = true;
         };
       };
     };

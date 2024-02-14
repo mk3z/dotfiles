@@ -8,7 +8,7 @@
   imports = [
     ./abbreviations
     ./tools.nix
-    (import ./ssh.nix {inherit homePersistDir homeDirectory;})
+    (import ./ssh.nix {inherit pkgs homePersistDir homeDirectory;})
     ./starship.nix
   ];
 
