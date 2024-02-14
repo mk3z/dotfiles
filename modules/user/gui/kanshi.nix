@@ -71,7 +71,7 @@ in {
             criteria = "Lenovo Group Limited LEN T34w-20 V3077RCP";
             status = "enable";
             mode = "3440x1440@59.97300";
-            position = "1050,164";
+            position = "1050,0";
             scale = 1.4;
           }
           {
@@ -79,7 +79,7 @@ in {
             criteria = "AOC 27G2G4 GYGLCHA284922";
             status = "enable";
             mode = "1920x1080@74.97300";
-            position = "3509,50";
+            position = "3509,0";
             scale = 1.0;
           }
         ];
