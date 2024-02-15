@@ -13,6 +13,4 @@
     hostId = "4a49e359";
     useDHCP = lib.mkDefault true;
   };
-
-  systemd.services.zfs-mount.enable = false;
 }
