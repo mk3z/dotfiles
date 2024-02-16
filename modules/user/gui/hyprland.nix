@@ -37,7 +37,7 @@ in {
       exec-once = [
         # set wallpaper
         "${pkgs.swaybg}/bin/swaybg -m fill -i ${
-          builtins.toString ../../../images/wallpaper.jpg
+          builtins.toString osConfig.stylix.image
         }"
         # Start polkit agent
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1"
