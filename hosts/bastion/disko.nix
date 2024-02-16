@@ -8,7 +8,7 @@
       content = {
         type = "gpt";
         partitions = {
-          ESP = {
+          boot = {
             size = "512M";
             type = "EF00";
             content = {
@@ -19,7 +19,7 @@
             };
           };
 
-          luks = {
+          crypt = {
             size = "100%";
             content = {
               type = "luks";
@@ -39,42 +39,40 @@
       };
     };
 
-    nodev."/" = {
-      fsType = "tmpfs";
-      mountOptions = ["defaults" "size=4G" "nr_inodes=0" "mode=755"];
-    };
-
-    lvm_vg = {
-      pool = {
-        type = "lvm_vg";
-        lvs = {
-          nix = {
-            size = "20G";
-            content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/nix";
-              mountOptions = [
-                "defaults"
-              ];
-            };
+    lvm_vg.pool = {
+      type = "lvm_vg";
+      lvs = {
+        nix = {
+          size = "20G";
+          content = {
+            type = "filesystem";
+            format = "ext4";
+            mountpoint = "/nix";
+            mountOptions = [
+              "defaults"
+            ];
           };
+        };
 
-          swap = {
-            size = "8G";
-            content.type = "swap";
-          };
+        swap = {
+          size = "8G";
+          content.type = "swap";
+        };
 
-          persist = {
-            size = "100%";
-            content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/persist";
-            };
+        persist = {
+          size = "100%FREE";
+          content = {
+            type = "filesystem";
+            format = "ext4";
+            mountpoint = "/persist";
           };
         };
       };
+    };
+
+    nodev."/" = {
+      fsType = "tmpfs";
+      mountOptions = ["defaults" "size=4G" "nr_inodes=0" "mode=755"];
     };
   };
 }
