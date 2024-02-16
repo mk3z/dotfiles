@@ -19,9 +19,6 @@
       ssh = {
         enable = true;
 
-        # Defaults to 22.
-        port = 222;
-
         # Stored in plain text on boot partition, so don't reuse your host
         # keys. Also, make sure to use a boot loader with support for initrd
         # secrets (e.g. systemd-boot), or this will be exposed in the nix store
@@ -35,9 +32,9 @@
       # prompt that writes to /tmp/keyfile if successful.
       postCommands = let
         # I use a LUKS 2 label. Replace this with your disk device's path.
-        disk = "/dev/disk/by-label/crypt";
+        disk = "/dev/disk/by-label/crypted";
       in ''
-        echo 'cryptsetup open ${disk} crypt --type luks && echo > /tmp/keyfile' >> /root/.profile
+        echo 'cryptsetup open ${disk} crypted --type luks && echo > /tmp/keyfile' >> /root/.profile
         echo 'starting sshd...'
       '';
     };
