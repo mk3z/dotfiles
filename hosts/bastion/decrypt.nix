@@ -5,7 +5,7 @@
 
     # It may be necessary to wait a bit for devices to be initialized.
     # See https://github.com/NixOS/nixpkgs/issues/98741
-    preLVMCommands = lib.mkBefore 400 "sleep 1";
+    preLVMCommands = lib.mkOrder 400 "sleep 1";
 
     luks.forceLuksSupportInInitrd = true;
 
