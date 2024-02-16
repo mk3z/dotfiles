@@ -19,13 +19,6 @@
                 ];
               };
             };
-
-            "/" = {
-              type = "nodev";
-              fsType = "tmpfs";
-              mountOptions = ["defaults" "size=4G" "nr_inodes=0" "mode=755"];
-            };
-
             luks = {
               size = "100%";
               content = {
@@ -42,36 +35,43 @@
                 };
               };
             };
+          };
+        };
+      };
+    };
 
-            pool = {
-              type = "lvm_vg";
-              lvs = {
-                nix = {
-                  size = "20G";
-                  content = {
-                    type = "filesystem";
-                    format = "ext4";
-                    mountpoint = "/nix";
-                    mountOptions = [
-                      "defaults"
-                    ];
-                  };
-                };
-                swap = {
-                  size = "8G";
-                  content = {
-                    type = "swap";
-                  };
-                };
-                persist = {
-                  size = "100%";
-                  content = {
-                    type = "filesystem";
-                    format = "ext4";
-                    mountpoint = "/persist";
-                  };
-                };
-              };
+    nodev."/" = {
+      fsType = "tmpfs";
+      mountOptions = ["defaults" "size=4G" "nr_inodes=0" "mode=755"];
+    };
+
+    lvm_vg = {
+      pool = {
+        type = "lvm_vg";
+        lvs = {
+          nix = {
+            size = "20G";
+            content = {
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/nix";
+              mountOptions = [
+                "defaults"
+              ];
+            };
+          };
+          swap = {
+            size = "8G";
+            content = {
+              type = "swap";
+            };
+          };
+          persist = {
+            size = "100%";
+            content = {
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/persist";
             };
           };
         };
