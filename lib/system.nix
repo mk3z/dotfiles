@@ -44,6 +44,7 @@ in {
 
           inputs.home-manager.nixosModule
           inputs.impermanence.nixosModule
+          inputs.disko.nixosModules.disko
           inputs.agenix.nixosModules.default
           inputs.stylix.nixosModules.stylix
         ]
