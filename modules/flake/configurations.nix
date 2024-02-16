@@ -110,6 +110,22 @@ in {
       };
     };
 
+    bastion = mkHost {
+      extraModules = with inputs.nixos-hardware.nixosModules; [
+        common-pc
+        common-pc-ssd
+      ];
+      systemConfig = {
+        core = {
+          hostname = "bastion";
+          server = true;
+        };
+        services = {
+          ssh.enable = true;
+        };
+      };
+    };
+
     nixos-iso = mkHost {
       extraModules = with inputs.nixos-hardware.nixosModules;
         [

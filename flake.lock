@@ -249,6 +249,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1708029101,
+        "narHash": "sha256-FPlAle/nl4sJRfd8eILe5M20aRJh/z2KY8ji2yBBwaI=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "810eccbad22cc50323b27161033399eb87658932",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "doom-emacs": {
       "inputs": {
         "doom-emacs": "doom-emacs_2",
@@ -1308,6 +1328,7 @@
         "ammonite-term-repl": "ammonite-term-repl",
         "copilot": "copilot",
         "devenv": "devenv",
+        "disko": "disko",
         "doom-emacs": "doom-emacs",
         "fenix": "fenix",
         "fish-git": "fish-git",
