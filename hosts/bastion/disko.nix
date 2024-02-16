@@ -67,7 +67,7 @@
             };
           };
           persist = {
-            size = "100%";
+            size = "100%FREE";
             content = {
               type = "filesystem";
               format = "ext4";
