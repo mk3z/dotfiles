@@ -37,7 +37,7 @@ in {
     };
 
     programs.fish.enable = true;
-    environment.shells = with pkgs; [fish];
+    environment.shells = [pkgs.fish];
 
     # Disable systemd emergency mode because root user is disabled
     systemd.enableEmergencyMode = false;
