@@ -42,7 +42,7 @@
 
     nodev."/" = {
       fsType = "tmpfs";
-      mountOptions = ["defaults" "size=4G" "nr_inodes=0" "mode=755"];
+      mountOptions = ["defaults" "size=2G" "nr_inodes=0" "mode=755"];
     };
 
     lvm_vg = {
