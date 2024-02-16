@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   sysPersistDir,
   ...
 }: {
@@ -39,7 +40,7 @@
   programs.fuse.userAllowOther = true;
 
   # Install age cli tool
-  environment.systemPackages = [inputs.agenix.packages.x86_64-linux.default];
+  environment.systemPackages = [inputs.agenix.packages.${pkgs.system}.default];
   # Tell age where the keys are
   age.identityPaths = ["${sysPersistDir}/etc/ssh/ssh_host_ed25519_key"];
 
