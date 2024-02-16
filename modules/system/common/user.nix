@@ -22,7 +22,7 @@ in {
         extraGroups = ["wheel" "audio" "video"];
         initialPassword = "";
         hashedPasswordFile =
-          if config.core.hostname == "bastion"
+          if config.mkez.core.hostname == "bastion"
           then config.age.secrets.bastion-password.path
           else if !cfg.noPassword
           then config.age.secrets.password.path
