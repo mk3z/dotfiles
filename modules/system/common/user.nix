@@ -11,8 +11,10 @@ in {
   options.mkez.user.noPassword = mkEnableOption "Don't set user password";
   config = {
     # Get agenix password secret
-    age.secrets.password.file = ../../../secrets/password.age;
-    age.secrets.bastion-password.file = ../../../secrets/bastion-password.age;
+    age.secrets =
+      if config.mkez.core.hostname == "bastion"
+      then {bastion-password.file = ../../../secrets/bastion-password.age;}
+      else {password.file = ../../../secrets/password.age;};
 
     # Make the default user
     users = {
