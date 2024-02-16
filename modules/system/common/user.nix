@@ -22,7 +22,9 @@ in {
         extraGroups = ["wheel" "audio" "video"];
         initialPassword = "";
         hashedPasswordFile =
-          if !cfg.noPassword
+          if config.core.hostname == "bastion"
+          then config.age.secrets.bastion-password.path
+          else if !cfg.noPassword
           then config.age.secrets.password.path
           else {};
       };
