@@ -24,6 +24,7 @@
               content = {
                 type = "luks";
                 name = "crypted";
+                initrdUnlock = false;
                 extraOpenArgs = [];
                 settings = {
                   keyFile = "/tmp/keyfile";
