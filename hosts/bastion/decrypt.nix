@@ -35,7 +35,7 @@
       # prompt that writes to /tmp/keyfile if successful.
       postCommands = let
         # I use a LUKS 2 label. Replace this with your disk device's path.
-        disk = "/dev/disk/by-label/crypted";
+        disk = "/dev/disk/by-partlabel/disk-sda-luks";
       in ''
         echo 'cryptsetup open ${disk} crypted --type luks && echo > /tmp/keyfile' >> /root/.profile
         echo 'starting sshd...'
