@@ -84,4 +84,6 @@
     "/nix".neededForBoot = true;
     "/persist".neededForBoot = true;
   };
+
+  boot.initrd.luks.devices.crypted.preLVM = false;
 }
