@@ -21,6 +21,7 @@
             };
 
             "/" = {
+              type = "nodev";
               fsType = "tmpfs";
               mountOptions = ["defaults" "size=4G" "nr_inodes=0" "mode=755"];
             };
