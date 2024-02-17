@@ -1,16 +1,11 @@
-{
-  lib,
-  config,
-  ...
-}: {
-  imports = [./hardware-configuration.nix ./boot.nix ./decrypt.nix];
+{lib, ...}: {
+  imports = [
+    ./boot.nix
+    ./decrypt.nix
+    ./hardware-configuration.nix
+    ./network.nix
+  ];
 
   system.stateVersion = "23.11";
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
-
-  networking = {
-    hostName = config.mkez.core.hostname;
-    hostId = "c34261c9";
-    useDHCP = lib.mkDefault true;
-  };
 }
