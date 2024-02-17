@@ -106,6 +106,7 @@ in {
           arr.enable = true;
           jellyfin.enable = true;
           ssh.enable = true;
+          tailscale.enable = true;
         };
       };
     };
@@ -121,6 +122,7 @@ in {
           server = true;
         };
         services = {
+          headscale.enable = true;
           ssh.enable = true;
         };
       };
