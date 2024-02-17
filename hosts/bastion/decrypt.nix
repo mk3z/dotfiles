@@ -1,6 +1,6 @@
 {
   boot.initrd = {
-    boot.initrd.kernelModules = ["virtio-pci"];
+    kernelModules = ["virtio-pci"];
 
     luks.forceLuksSupportInInitrd = true;
 
