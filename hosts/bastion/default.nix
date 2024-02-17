@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  imports = [./hardware-config.nix ./boot.nix ./decrypt.nix];
+  imports = [./hardware-configuration.nix ./boot.nix ./decrypt.nix];
 
   system.stateVersion = "23.11";
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
