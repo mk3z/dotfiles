@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   imports = [./hardware-configuration.nix ./boot.nix];
@@ -15,4 +16,9 @@
   };
 
   systemd.services.zfs-mount.enable = false;
+
+  powerManagement.powerUpCommands = ''
+    "${pkgs.hdparm}/sbin/hdparm -B 64 /dev/sd{a,b,c}"
+    "${pkgs.hdparm}/sbin/hdparm -S 120 /dev/sd{a,b,c}"
+  '';
 }
