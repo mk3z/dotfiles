@@ -11,6 +11,6 @@
   networking = {
     hostName = config.mkez.core.hostname;
     hostId = "c34261c9";
-    useDHCP = true;
+    useDHCP = lib.mkDefault true;
   };
 }
