@@ -18,6 +18,7 @@
     "/persist" = {
       device = "/dev/disk/by-uuid/e6eaf238-88ea-4275-b378-bfaa61459eec";
       fsType = "ext4";
+      neededForBoot = true;
     };
 
     "/boot" = {
