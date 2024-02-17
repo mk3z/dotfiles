@@ -27,6 +27,11 @@
 
           authorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVXV+51+7Evucq9Qi9QCs2LugQii6AjvDfIg3u7oiOe"];
         };
+
+        postCommands = ''
+          # Automatically ask for the password on SSH login
+          echo 'cryptsetup-askpass || echo "Unlock was successful; exiting SSH session" && exit 1' >> /root/.profile
+        '';
       };
     };
   };
