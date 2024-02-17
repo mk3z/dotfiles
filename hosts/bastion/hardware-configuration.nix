@@ -3,7 +3,10 @@
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
-  boot.initrd.luks.devices."crypted".device = "/dev/sda2";
+  boot.initrd.luks.devices."crypted" = {
+    device = "/dev/sda2";
+    preLVM = true;
+  };
 
   fileSystems = {
     "/" = {

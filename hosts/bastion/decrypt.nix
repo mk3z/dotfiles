@@ -1,8 +1,6 @@
-{lib, ...}: {
+{
   boot.initrd = {
-    # It may be necessary to wait a bit for devices to be initialized.
-    # See https://github.com/NixOS/nixpkgs/issues/98741
-    preLVMCommands = lib.mkOrder 400 "sleep 1";
+    boot.initrd.kernelModules = ["virtio-pci"];
 
     luks.forceLuksSupportInInitrd = true;
 
