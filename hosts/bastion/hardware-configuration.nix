@@ -3,6 +3,8 @@
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
+  boot.initrd.luks.devices."crypted".device = "/dev/sda2";
+
   fileSystems = {
     "/" = {
       device = "none";
@@ -11,18 +13,18 @@
     };
 
     "/nix" = {
-      device = "/dev/disk/by-uuid/39be7cfb-a682-4ea5-a174-d236982b66c2";
+      device = "/dev/disk/by-label/nix";
       fsType = "ext4";
     };
 
     "/persist" = {
-      device = "/dev/disk/by-uuid/e6eaf238-88ea-4275-b378-bfaa61459eec";
+      device = "/dev/disk/by-label/persist";
       fsType = "ext4";
       neededForBoot = true;
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/83E2-493B";
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
   };
