@@ -1,8 +1,5 @@
-{config, ...}: {
+{
   boot = {
-    #                       host    :: gateway  :    netmask    :          hostname          :  if  :autoconf
-    kernelParams = ["ip=95.217.11.68::172.31.1.1:255.255.255.255:${config.mkez.core.hostname}:enp1s0:none"];
-
     initrd = {
       kernelModules = ["virtio-pci"];
 
@@ -10,6 +7,12 @@
 
       network = {
         enable = true;
+
+        udhcpc = {
+          enable = true;
+          extraArgs = ["-t" "20"];
+        };
+
         ssh = {
           enable = true;
 
