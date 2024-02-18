@@ -69,11 +69,11 @@ in {
           libvirt.enable = true;
         };
         services = {
-          dnscrypt.enable = true;
           monero.persist = true;
           mullvad.enable = true;
           podman.enable = true;
           ratbag.enable = true;
+          resolved.enable = true;
           syncthing.enable = true;
         };
         programs = {
