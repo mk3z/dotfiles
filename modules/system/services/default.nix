@@ -10,6 +10,7 @@
     ./mosh.nix
     ./ssh.nix
     ./syncthing.nix
+    ./resolved.nix
     ./tailscale.nix
   ];
 }
