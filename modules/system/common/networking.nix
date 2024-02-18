@@ -6,6 +6,8 @@
 }: {
   networking = {
     firewall.enable = true;
+    # Use nftables instead of iptables
+    nftables.enable = true;
     networkmanager = {
       enable = true;
       wifi.macAddress = "random";
