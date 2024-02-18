@@ -106,6 +106,7 @@ in {
         services = {
           arr.enable = true;
           jellyfin.enable = true;
+          mpd.enable = true;
           ssh.enable = true;
           tailscale.enable = true;
         };
