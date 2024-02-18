@@ -17,18 +17,30 @@ in {
         settings = {
           server_url = "https://${domain}";
           ip_prefixes = ["100.99.0.0/16"];
+          dns_config = {
+            base_domain = "intra";
+            nameservers = ["9.9.9.9" "1.1.1.1"];
+          };
           logtail.enabled = false;
         };
       };
 
-      nginx.virtualHosts.${domain} = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
-          proxyPass = "http://localhost:${toString config.services.headscale.port}";
-          proxyWebsockets = true;
+      nginx = {
+        enable = true;
+        virtualHosts.${domain} = {
+          forceSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://localhost:${toString config.services.headscale.port}";
+            proxyWebsockets = true;
+          };
         };
       };
+    };
+
+    security.acme = {
+      acceptTerms = true;
+      defaults.email = "matias.zwinger@protonmail.com";
     };
 
     networking.firewall.allowedTCPPorts = [80 443];
