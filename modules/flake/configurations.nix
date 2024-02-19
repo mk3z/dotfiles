@@ -91,7 +91,7 @@ in {
       };
     };
 
-    memory-alpha = mkHost {
+    nas = mkHost {
       extraModules = with inputs.nixos-hardware.nixosModules; [
         common-pc
         common-pc-ssd
@@ -99,7 +99,7 @@ in {
       ];
       systemConfig = {
         core = {
-          hostname = "memory-alpha";
+          hostname = "nas";
           server = true;
         };
         hardware.zfs.enable = true;
