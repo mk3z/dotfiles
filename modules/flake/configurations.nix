@@ -106,8 +106,10 @@ in {
         services = {
           arr.enable = true;
           jellyfin.enable = true;
+          mullvad.enable = true;
           mpd.enable = true;
           ssh.enable = true;
+          resolved.enable = true;
           syncthing.enable = true;
           tailscale.enable = true;
         };
