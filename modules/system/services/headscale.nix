@@ -18,7 +18,7 @@ in {
           server_url = "https://${domain}";
           ip_prefixes = ["100.99.0.0/16"];
           dns_config = {
-            base_domain = "intra";
+            base_domain = "mkez.fi";
             nameservers = ["9.9.9.9" "1.1.1.1"];
           };
           logtail.enabled = false;
