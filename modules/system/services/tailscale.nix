@@ -21,17 +21,18 @@ in {
     # Sources for chains:
     # excludeOutgoing: https://mullvad.net/en/help/split-tunneling-with-linux-advanced#excluding
     # excludeIncoming: https://github.com/mullvad/mullvadvpn-app/issues/2097#issuecomment-799485645
-    networking.nftables.ruleset = mkIf config.services.mullvad-vpn.enable ''
-      table inet excludeTailscale {
+    networking.nftables.tables.excludeTailscale = mkIf config.services.mullvad-vpn.enable {
+      family = "inet";
+      content = ''
         chain excludeOutgoing {
-          type route hook output priority -100; policy accept;
+          type route hook output priority -100; policy accept
           ip daddr 100.64.0.0/10 ct mark set 0x00000f41 meta mark set 0x6d6f6c65;
         }
         chain excludeIncoming {
           type filter hook input priority -100; policy accept;
-          ip daddr 100.64.0.0/10 ct mark set 0x00000f41 accept;
+          ip daddr 100.64.0.0/10 ct mark set 0x00000f41 accept
         }
-      }
-    '';
+      '';
+    };
   };
 }
