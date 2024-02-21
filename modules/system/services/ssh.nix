@@ -7,21 +7,32 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.ssh;
+  inherit (config.services.tailscale) interfaceName;
+  inherit (config.services.openssh) ports;
 in {
   options.mkez.services.ssh.enable = mkEnableOption "Enable the OpenSSH server";
   config = mkIf cfg.enable {
     services.openssh = {
       enable = true;
-      openFirewall = true;
+      openFirewall = false;
       settings = {
         PasswordAuthentication = false;
-        PermitRootLogin = "no";
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "without-password";
       };
     };
 
-    users.users.${username}.openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVXV+51+7Evucq9Qi9QCs2LugQii6AjvDfIg3u7oiOe"
-    ];
+    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = ports;
+
+    # FIXME make this more DRY
+    users.users = {
+      root.openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVXV+51+7Evucq9Qi9QCs2LugQii6AjvDfIg3u7oiOe"
+      ];
+      ${username}.openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVXV+51+7Evucq9Qi9QCs2LugQii6AjvDfIg3u7oiOe"
+      ];
+    };
 
     environment.etc = {
       "ssh/ssh_host_ed25519_key".source = "${sysPersistDir}/etc/ssh/ssh_host_ed25519_key";
