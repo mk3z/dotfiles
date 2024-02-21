@@ -1,4 +1,6 @@
-{osConfig, ...}: {
+{osConfig, ...}: let
+  inherit (osConfig.services.tailscale) interfaceName;
+in {
   stylix.targets.waybar.enable = false;
 
   programs.waybar = {
@@ -17,7 +19,8 @@
             "memory"
             "bluetooth"
             "network"
-            "custom/vpn"
+            "custom/mullvad"
+            "custom/tailscale"
             "wireplumber"
             "battery"
             "clock"
@@ -26,7 +29,8 @@
             "cpu"
             "memory"
             "network"
-            "custom/vpn"
+            "custom/mullvad"
+            "custom/tailscale"
             "wireplumber"
             "battery"
             "clock"
@@ -62,10 +66,18 @@
           tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
         };
 
-        "custom/vpn" = {
-          format = "VPN 󰌾";
+        "custom/mullvad" = {
+          format = "mullvad 󰌾";
           exec = "echo '{\"class\": \"connected\"}'";
           exec-if = "test -d /proc/sys/net/ipv4/conf/wg-mullvad";
+          return-type = "json";
+          interval = 5;
+        };
+
+        "custom/tailscale" = {
+          format = "tailscale 󰛳";
+          exec = "echo '{\"class\": \"connected\"}'";
+          exec-if = "test -d /proc/sys/net/ipv4/conf/${interfaceName}";
           return-type = "json";
           interval = 5;
         };
@@ -138,7 +150,7 @@
         color: @theme_text_color;
       }
 
-      #clock, #battery, #wireplumber, #network, #custom-vpn, #bluetooth, #cpu, #memory {
+      #clock, #battery, #wireplumber, #network, #custom-mullvad, #custom-tailscale, #bluetooth, #cpu, #memory {
         margin: 0 4px;
         padding: 0 4px;
         border-bottom: 1px solid;
