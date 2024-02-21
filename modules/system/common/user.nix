@@ -29,7 +29,7 @@ in {
           then config.age.secrets.bastion-password.path
           else if !cfg.noPassword
           then config.age.secrets.password.path
-          else {};
+          else null;
       };
 
       # Don't allow mutation of users outside of the config.
