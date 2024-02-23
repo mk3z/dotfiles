@@ -165,6 +165,10 @@ in {
           {
             name = "c";
             auto-format = true;
+            indent = {
+              tab-width = 2;
+              unit = "  ";
+            };
           }
           {
             name = "elixir";
