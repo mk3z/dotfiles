@@ -7,6 +7,7 @@
 
     ./gtk.nix
 
+    ./gammastep.nix
     ./kanshi.nix
     ./terminal.nix
     ./swaylock.nix
