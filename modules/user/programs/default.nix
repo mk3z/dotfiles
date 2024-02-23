@@ -31,6 +31,7 @@
 
     # other
     quickemu
+    transmission
     ungoogled-chromium
     (octave.withPackages (opkgs: with opkgs; [symbolic statistics]))
   ];
