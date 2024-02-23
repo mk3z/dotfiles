@@ -13,7 +13,6 @@ in {
     services = {
       jellyfin = {
         enable = true;
-        openFirewall = true;
       };
 
       nginx = {
@@ -28,6 +27,9 @@ in {
       };
     };
 
-    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [80 443];
+    networking.firewall.interfaces = {
+      "enp37s0".allowedTCPPorts = [8096];
+      ${interfaceName}.allowedTCPPorts = [80 443];
+    };
   };
 }

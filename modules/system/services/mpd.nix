@@ -6,6 +6,7 @@
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.mpd;
   streamPort = 8000;
+  inherit (config.services.tailscale) interfaceName;
 in {
   options.mkez.services.mpd.enable = mkEnableOption "Whether to enable the MPD server";
   config = mkIf cfg.enable {
@@ -25,6 +26,6 @@ in {
       '';
     };
 
-    networking.firewall.allowedTCPPorts = [config.services.mpd.network.port streamPort];
+    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [config.services.mpd.network.port streamPort];
   };
 }

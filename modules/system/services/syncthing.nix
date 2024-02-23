@@ -6,6 +6,7 @@
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.syncthing;
   guiPort = 8384;
+  inherit (config.services.tailscale) interfaceName;
 in {
   options.mkez.services.syncthing.enable = mkEnableOption "Enable Syncthing";
   config =
@@ -20,6 +21,6 @@ in {
         enable = true;
         guiAddress = "0.0.0.0:${toString guiPort}";
       };
-      networking.firewall.allowedTCPPorts = [guiPort];
+      networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [guiPort];
     };
 }
