@@ -10,12 +10,13 @@
       systems = ["x86_64-linux"];
 
       imports = [
-        ./modules/flake/configurations.nix
+        ./modules/flake
         inputs.devenv.flakeModule
       ];
 
       perSystem = {pkgs, ...}: {
         devenv.shells.default = {
+          packages = [pkgs.deploy-rs];
           pre-commit = {
             hooks = {
               alejandra.enable = true;
@@ -44,6 +45,8 @@
     nur.url = "github:nix-community/NUR";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    deploy-rs.url = "github:serokell/deploy-rs";
 
     disko = {
       url = "github:nix-community/disko";
