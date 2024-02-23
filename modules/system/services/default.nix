@@ -13,5 +13,7 @@
     ./syncthing.nix
     ./resolved.nix
     ./tailscale.nix
+    ./transmission.nix
+    ./website.nix
   ];
 }
