@@ -15,6 +15,7 @@ in {
         modules-right =
           if osConfig.mkez.hardware.bluetooth.enable
           then [
+            "tray"
             "cpu"
             "memory"
             "bluetooth"
@@ -26,6 +27,7 @@ in {
             "clock"
           ]
           else [
+            "tray"
             "cpu"
             "memory"
             "network"
@@ -99,6 +101,11 @@ in {
           format = " {usage}%";
         };
 
+        "tray" = {
+          icon-size = 12;
+          spacing = 4;
+        };
+
         "hyprland/workspaces" = {
           "format" = "{icon}";
           "format-icons" = {
@@ -150,7 +157,7 @@ in {
         color: @theme_text_color;
       }
 
-      #clock, #battery, #wireplumber, #network, #custom-mullvad, #custom-tailscale, #bluetooth, #cpu, #memory {
+      #clock, #battery, #wireplumber, #network, #custom-mullvad, #custom-tailscale, #bluetooth, #memory, #cpu, #tray {
         margin: 0 4px;
         padding: 0 4px;
         border-bottom: 1px solid;
