@@ -15,10 +15,10 @@ in {
       enable = true;
       autoPrune.enable = true;
       defaultNetwork.settings.dns_enabled = true;
-      extraPackages = [pkgs.zfs];
+      extraPackages = mkIf config.mkez.hardware.zfs.enable [pkgs.zfs];
     };
 
-    environment = {
+    environment = mkIf (!config.mkez.core.server) {
       systemPackages = with pkgs; [podman-compose];
       persistence.${homePersistDir}.users.${username}.directories = [".local/share/containers"];
     };
