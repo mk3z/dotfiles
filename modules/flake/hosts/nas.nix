@@ -24,7 +24,7 @@
           arr.enable = true;
           jellyfin.enable = true;
           mullvad.enable = true;
-          mpd.enable = true;
+          navidrome.enable = true;
           ssh.enable = true;
           resolved.enable = true;
           syncthing.enable = true;

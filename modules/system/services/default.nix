@@ -8,7 +8,7 @@
     ./jellyfin.nix
     ./monero.nix
     ./mosh.nix
-    ./mpd.nix
+    ./navidrome.nix
     ./ssh.nix
     ./syncthing.nix
     ./resolved.nix
