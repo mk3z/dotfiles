@@ -69,6 +69,7 @@ in {
             rpc-whitelist = hostAddress;
             rpc-host-whitelist = "${hostname}.intra.mkez.fi,transmission-rpc";
 
+            port-forwarding-enabled = false;
             utp-enabled = false;
             lpd-enabled = false;
           };
