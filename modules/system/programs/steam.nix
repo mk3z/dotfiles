@@ -2,13 +2,12 @@
   lib,
   config,
   pkgs,
-  username,
-  homePersistDir,
-  homeDirectory,
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.mkez.programs.steam;
+  inherit (config.mkez.core) homePersistDir;
+  inherit (config.mkez.user) username homeDirectory;
 in {
   options.mkez.programs.steam.enable = mkEnableOption "Enable Steam";
   config = mkIf cfg.enable {

@@ -1,14 +1,16 @@
 {
+  osConfig,
   inputs,
   pkgs,
-  homePersistDir,
-  homeDirectory,
   ...
-}: {
+}: let
+  inherit (osConfig.mkez.core) homePersistDir;
+  inherit (osConfig.mkez.user) homeDirectory;
+in {
   imports = [
     ./abbreviations
     ./tools.nix
-    (import ./ssh.nix {inherit pkgs homePersistDir homeDirectory;})
+    ./ssh.nix
     ./starship.nix
   ];
 

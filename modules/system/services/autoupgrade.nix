@@ -1,11 +1,11 @@
 {
   lib,
   config,
-  homeDirectory,
   ...
 }: let
   inherit (lib) mkEnableOption;
   cfg = config.mkez.features.autoupgrade;
+  inherit (config.mkez.user) homeDirectory;
 in {
   options.mkez.features.autoupgrade.enable = mkEnableOption "Enable nixpkgs auto updating";
   config = {

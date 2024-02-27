@@ -1,11 +1,11 @@
 {
   lib,
   config,
-  username,
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.mkez.services.borg;
+  inherit (config.mkez.user) username;
 in {
   options.mkez.services.borg.enable = mkEnableOption "Enable Borg backup";
   config = mkIf cfg.enable {

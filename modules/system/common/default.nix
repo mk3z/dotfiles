@@ -1,9 +1,11 @@
 {
+  config,
   inputs,
   pkgs,
-  sysPersistDir,
   ...
-}: {
+}: let
+  inherit (config.mkez.core) sysPersistDir;
+in {
   imports = [
     ./console.nix
     ./i18n.nix

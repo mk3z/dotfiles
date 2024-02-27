@@ -1,10 +1,11 @@
 {
+  osConfig,
   inputs,
   pkgs,
-  homePersistDir,
-  homeDirectory,
   ...
 }: let
+  inherit (osConfig.mkez.core) homePersistDir;
+  inherit (osConfig.mkez.user) homeDirectory;
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in {
   imports = [inputs.spicetify-nix.homeManagerModule];

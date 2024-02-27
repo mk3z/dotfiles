@@ -1,13 +1,13 @@
 {
-  config,
   lib,
+  config,
   pkgs,
-  username,
-  homePersistDir,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.podman;
+  inherit (config.mkez.core) homePersistDir;
+  inherit (config.mkez.user) username;
 in {
   options.mkez.services.podman.enable = mkEnableOption "Enables Podman";
   config = mkIf cfg.enable {

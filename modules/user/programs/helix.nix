@@ -1,13 +1,14 @@
 {
+  osConfig,
   lib,
   config,
   pkgs,
-  homePersistDir,
-  homeDirectory,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.editors.helix;
+  inherit (osConfig.mkez.core) homePersistDir;
+  inherit (osConfig.mkez.user) homeDirectory;
 in {
   options.mkez.editors.helix.enable = mkEnableOption "Enable Helix";
   config = mkIf cfg.enable {

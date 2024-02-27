@@ -2,11 +2,11 @@
   lib,
   osConfig,
   pkgs,
-  homePersistDir,
-  homeDirectory,
   ...
 }: let
   inherit (lib) mkIf;
+  inherit (osConfig.mkez.core) homePersistDir;
+  inherit (osConfig.mkez.user) homeDirectory;
 in {
   config = mkIf osConfig.mkez.features.kubernetes.enable {
     programs.k9s = {

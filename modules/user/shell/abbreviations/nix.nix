@@ -1,8 +1,6 @@
-{
-  username,
-  osConfig,
-  ...
-}: {
+{osConfig, ...}: let
+  inherit (osConfig.mkez.user) username;
+in {
   programs.fish.shellAbbrs = {
     n = "nix";
 

@@ -2,12 +2,12 @@
   lib,
   config,
   pkgs,
-  username,
-  homePersistDir,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.monero;
+  inherit (config.mkez.core) homePersistDir;
+  inherit (config.mkez.user) username;
 in {
   options.mkez.services.monero = {
     enable = mkEnableOption "Enable Monero daemon";

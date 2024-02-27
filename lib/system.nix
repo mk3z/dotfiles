@@ -3,44 +3,46 @@
   inputs,
   ...
 }: let
-  username = "mkez";
-  homeDirectory = "/home/${username}";
-  homePersistDir = "/persist";
   inherit (inputs.nixpkgs.lib) nixosSystem;
 in {
   mkHost = {
     extraModules,
     systemConfig,
     userConfig ? {},
-  }:
+  }: let
+    inherit (systemConfig.core) hostname;
+  in
     nixosSystem {
       specialArgs = {
-        inherit inputs username homeDirectory homePersistDir;
+        inherit inputs;
         sysPersistDir = "/persist";
       };
 
       modules =
         [
-          {
+          ({config, ...}: let
+            inherit (config.mkez.core) server;
+            inherit (config.mkez.user) username;
+          in {
             imports = [
-              ../hosts/${systemConfig.core.hostname}
+              ../hosts/${hostname}
               ../modules/system
             ];
 
             mkez = systemConfig;
 
             home-manager =
-              if !systemConfig.core.server
+              if !server
               then {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = {
-                  inherit inputs username homeDirectory homePersistDir;
+                  inherit inputs;
                 };
                 users.${username} = user.mkConfig {inherit userConfig;};
               }
               else {};
-          }
+          })
 
           inputs.home-manager.nixosModule
           inputs.impermanence.nixosModule

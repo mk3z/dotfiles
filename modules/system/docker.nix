@@ -2,11 +2,11 @@
   lib,
   config,
   pkgs,
-  username,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.features.docker;
+  inherit (config.mkez.user) username;
 in {
   options.mkez.features.docker.enable = mkEnableOption "Enable Docker";
   config = mkIf cfg.enable {

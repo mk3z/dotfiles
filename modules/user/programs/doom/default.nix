@@ -1,14 +1,15 @@
 {
   lib,
   config,
+  osConfig,
   inputs,
   pkgs,
-  homePersistDir,
-  homeDirectory,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.editors.doom;
+  inherit (osConfig.mkez.core) homePersistDir;
+  inherit (osConfig.mkez.user) homeDirectory;
 in {
   options.mkez.editors.doom.enable = mkEnableOption "Enable Doom Emacs";
   config = mkIf cfg.enable {

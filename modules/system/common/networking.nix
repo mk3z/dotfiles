@@ -1,9 +1,10 @@
 {
   lib,
   config,
-  username,
   ...
-}: {
+}: let
+  inherit (config.mkez.user) username;
+in {
   networking = {
     firewall.enable = true;
     # Use nftables instead of iptables

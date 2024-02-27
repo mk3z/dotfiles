@@ -1,11 +1,12 @@
 {
+  osConfig,
   pkgs,
   inputs,
-  username,
-  homeDirectory,
-  homePersistDir,
   ...
-}: {
+}: let
+  inherit (osConfig.mkez.core) homePersistDir;
+  inherit (osConfig.mkez.user) username homeDirectory;
+in {
   imports = [
     inputs.nur.hmModules.nur
     inputs.impermanence.nixosModules.home-manager.impermanence

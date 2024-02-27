@@ -1,14 +1,14 @@
 {
   lib,
   config,
-  username,
-  sysPersistDir,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.ssh;
   inherit (config.services.tailscale) interfaceName;
   inherit (config.services.openssh) ports;
+  inherit (config.mkez.core) sysPersistDir;
+  inherit (config.mkez.user) username;
 in {
   options.mkez.services.ssh.enable = mkEnableOption "Enable the OpenSSH server";
   config = mkIf cfg.enable {

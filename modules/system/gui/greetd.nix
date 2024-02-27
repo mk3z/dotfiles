@@ -2,12 +2,12 @@
   lib,
   config,
   pkgs,
-  username,
   inputs,
   ...
 }: let
   wm = "${inputs.hyprland.packages.${pkgs.system}.default}/bin/Hyprland";
   inherit (lib) mkIf;
+  inherit (config.mkez.user) username;
 in {
   config = mkIf (!config.mkez.core.server) {
     services.greetd = {

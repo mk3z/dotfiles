@@ -2,13 +2,24 @@
   lib,
   config,
   pkgs,
-  username,
   ...
 }: let
-  inherit (lib) mkEnableOption;
+  inherit (lib) types mkOption mkEnableOption;
   cfg = config.mkez.user;
 in {
-  options.mkez.user.noPassword = mkEnableOption "Don't set user password";
+  options.mkez.user = {
+    username = mkOption {
+      description = "Username";
+      type = types.str;
+      default = "mkez";
+    };
+    homeDirectory = mkOption {
+      description = "Home directory";
+      type = types.str;
+      default = "/home/${cfg.username}";
+    };
+    noPassword = mkEnableOption "Don't set user password";
+  };
   config = {
     # Get agenix password secret
     age.secrets =
@@ -18,7 +29,7 @@ in {
 
     # Make the default user
     users = {
-      users.${username} = {
+      users.${cfg.username} = {
         uid = 1000;
         isNormalUser = true;
         createHome = true;
