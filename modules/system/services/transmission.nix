@@ -71,7 +71,12 @@ in {
 
             port-forwarding-enabled = false;
             utp-enabled = false;
+
+            dht-enabled = false;
             lpd-enabled = false;
+            pex-enabled = false;
+
+            download-queue-enabled = false;
           };
         };
 
