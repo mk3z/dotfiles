@@ -23,7 +23,6 @@
           libvirt.enable = true;
         };
         services = {
-          monero.persist = true;
           mullvad.enable = true;
           podman.enable = true;
           ratbag.enable = true;
@@ -38,6 +37,7 @@
       userConfig = {
         programs = {
           bitwig.enable = true;
+          monero.enable = true;
         };
         editors = {
           helix.enable = true;

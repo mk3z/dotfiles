@@ -1,27 +1,24 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.monero;
-  inherit (config.mkez.core) homePersistDir;
-  inherit (config.mkez.user) username;
+  inherit (config.services.tailscale) interfaceName;
+  inherit (config.services.monero.rpc) port;
 in {
-  options.mkez.services.monero = {
-    enable = mkEnableOption "Enable Monero daemon";
-    persist = mkEnableOption "Persist the ~/.xmr directory";
-  };
-  config = {
+  options.mkez.services.monero.enable = mkEnableOption "Enable Monero daemon";
+
+  config = mkIf cfg.enable {
     services.monero = {
-      inherit (cfg) enable;
+      enable = true;
       mining.enable = false;
+      rpc.address = "0.0.0.0";
+      dataDir = "/state/monero";
+      extraConfig = "confirm-external-bind=1";
     };
 
-    environment = {
-      systemPackages = [pkgs.monero-cli];
-      persistence.${homePersistDir}.users.${username}.directories = mkIf cfg.persist [".xmr"];
-    };
+    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [port];
   };
 }

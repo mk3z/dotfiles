@@ -23,6 +23,7 @@
         services = {
           arr.enable = true;
           jellyfin.enable = true;
+          monero.enable = true;
           mullvad.enable = true;
           navidrome.enable = true;
           ssh.enable = true;

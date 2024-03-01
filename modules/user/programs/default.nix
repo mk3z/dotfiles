@@ -8,6 +8,7 @@
     ./helix.nix
     ./inkscape.nix
     ./kubernetes.nix
+    ./monero.nix
     ./mpv.nix
     ./neovim
     ./qbittorrent.nix
