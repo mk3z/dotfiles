@@ -12,10 +12,7 @@ in {
       enable = true;
       openFirewall = mkIf config.mkez.core.server true;
     };
-    networking.firewall = {
-      checkReversePath = "loose";
-      trustedInterfaces = [config.services.tailscale.interfaceName];
-    };
+    networking.firewall.checkReversePath = "loose";
 
     # Stop mullvad from routing tailscale traffic
     # Sources for chains:
