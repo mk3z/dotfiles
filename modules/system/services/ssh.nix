@@ -31,6 +31,7 @@ in {
       ];
       ${username}.openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKVXV+51+7Evucq9Qi9QCs2LugQii6AjvDfIg3u7oiOe"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPnipVM0FRYNEMxGrBGM0zl8FD8jNitjuyksfCFiZaGZ" # buildkey
       ];
     };
 
