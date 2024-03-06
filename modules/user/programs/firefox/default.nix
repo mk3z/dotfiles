@@ -46,27 +46,33 @@ in {
 
       containers = {
         personal = {
-          id = 0;
+          id = 1;
           color = "blue";
           icon = "fingerprint";
         };
 
         school = {
-          id = 1;
+          id = 2;
           color = "yellow";
           icon = "fruit"; # Because teachers eat apples
         };
 
         shopping = {
-          id = 2;
+          id = 3;
           color = "pink";
           icon = "cart";
         };
 
-        banking = {
-          id = 3;
+        espoo = {
+          id = 4;
+          color = "turquoise";
+          icon = "briefcase";
+        };
+
+        other = {
+          id = 5;
           color = "green";
-          icon = "dollar";
+          icon = "circle";
         };
       };
 
