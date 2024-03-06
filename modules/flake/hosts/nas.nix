@@ -32,8 +32,7 @@
           tailscale.enable = true;
           transmission = {
             enable = true;
-            download-dir = "/media/downloads/complete";
-            incomplete-dir = "/media/downloads/incomplete";
+            downloadDir = "/media/downloads";
           };
         };
       };

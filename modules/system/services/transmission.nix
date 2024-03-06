@@ -13,12 +13,8 @@
 in {
   options.mkez.services.transmission = {
     enable = mkEnableOption "Whether to enable transmission";
-    download-dir = mkOption {
-      description = "Completed downloads directory";
-      type = types.path;
-    };
-    incomplete-dir = mkOption {
-      description = "Incomplete downloads directory";
+    downloadDir = mkOption {
+      description = "Downloads directory";
       type = types.path;
     };
   };
@@ -40,17 +36,10 @@ in {
         localAddress6 = "fc00::200:2";
       };
 
-      bindMounts = {
-        download-dir = {
-          mountPoint = cfg.download-dir;
-          hostPath = cfg.download-dir;
-          isReadOnly = false;
-        };
-        incomplete-dir = {
-          mountPoint = cfg.incomplete-dir;
-          hostPath = cfg.incomplete-dir;
-          isReadOnly = false;
-        };
+      bindMounts.downloadDir = {
+        mountPoint = cfg.downloadDir;
+        hostPath = cfg.downloadDir;
+        isReadOnly = false;
       };
 
       config = {
@@ -62,7 +51,8 @@ in {
           downloadDirPermissions = "777";
 
           settings = {
-            inherit (cfg) download-dir incomplete-dir;
+            download-dir = "${cfg.downloadDir}/complete";
+            incomplete-dir = "${cfg.downloadDir}/incomplete";
             umask = 0;
 
             rpc-bind-address = localAddress;
