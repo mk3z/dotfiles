@@ -83,7 +83,8 @@
     };
 
     split-monitor-workspaces = {
-      url = "github:Duckonaut/split-monitor-workspaces";
+      # TODO: Change back to upstream when https://github.com/Duckonaut/split-monitor-workspaces/issues/53 is merged
+      url = "github:bivsk/split-monitor-workspaces/bivsk";
       inputs.hyprland.follows = "hyprland";
     };
 

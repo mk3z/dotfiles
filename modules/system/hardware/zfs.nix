@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   inherit (lib) types mkOption mkEnableOption mkIf;
@@ -25,7 +26,7 @@ in {
       zfs = {
         forceImportRoot = false;
         removeLinuxDRM = true;
-        enableUnstable = cfg.unstable;
+        package = mkIf cfg.unstable pkgs.zfs_unstable;
       };
     };
   };
