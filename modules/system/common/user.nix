@@ -34,7 +34,6 @@ in {
         isNormalUser = true;
         createHome = true;
         extraGroups = ["wheel" "audio" "video"];
-        initialPassword = "";
         hashedPasswordFile =
           if config.mkez.core.hostname == "bastion"
           then config.age.secrets.bastion-password.path
