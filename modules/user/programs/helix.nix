@@ -206,6 +206,10 @@ in {
             name = "scala";
             auto-format = true;
           }
+          {
+            name = "typescript";
+            auto-format = true;
+          }
         ];
         language-server = {
           elixir-ls = {
