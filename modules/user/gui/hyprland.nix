@@ -5,7 +5,6 @@
   inputs,
   ...
 }: let
-  inherit (lib) mkIf;
   terminal = "kitty";
 in {
   imports = [inputs.hyprland.homeManagerModules.default];
@@ -147,12 +146,6 @@ in {
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
       ];
 
-      bindl = mkIf osConfig.mkez.hardware.laptop.enable [
-        # Enable and disable laptop screen
-        ''$mod, p, exec, hyprctl keyword monitor "eDP-1, 2560x1440@165, 0x0, 1.6"''
-        ''$mod_shift, p, exec, hyprctl keyword monitor "eDP-1, disable"''
-      ];
-
       bindm = [
         "$alt, mouse:272, movewindow"
         "$alt, mouse:273, resizewindow"
@@ -182,7 +175,7 @@ in {
       # Disable Xwayland scaling
       xwayland.force_zero_scaling = true;
 
-      monitor = mkIf osConfig.mkez.hardware.laptop.enable ["DP-1, 3440x1440@59.97300, 0x0, 1.3" ",preferred,auto,auto"];
+      debug.disable_scale_checks = true;
     };
   };
 }

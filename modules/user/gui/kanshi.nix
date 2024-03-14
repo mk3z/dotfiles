@@ -23,7 +23,7 @@ in {
             status = "enable";
             mode = "3440x1440@59.97300";
             position = "1050,164";
-            scale = 1.4;
+            scale = 1.33;
           }
           # TODO fix displayport cable
           # {
@@ -31,7 +31,7 @@ in {
           #   criteria = "AOC 27G2G4 GYGLCHA284922";
           #   status = "enable";
           #   mode = "1920x1080@74.97300";
-          #   position = "3509,50";
+          #   position = "3640,0";
           #   scale = 1.0;
           # }
           {
@@ -72,14 +72,14 @@ in {
             status = "enable";
             mode = "3440x1440@59.97300";
             position = "1050,0";
-            scale = 1.333333;
+            scale = 1.33;
           }
           {
             # Right
             criteria = "AOC 27G2G4 GYGLCHA284922";
             status = "enable";
             mode = "1920x1080@74.97300";
-            position = "3632,0";
+            position = "3640,0";
             scale = 1.0;
           }
         ];
