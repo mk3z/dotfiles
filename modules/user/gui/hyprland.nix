@@ -164,9 +164,12 @@ in {
         # Disable splash
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
+
         # Enable window swallowing
         enable_swallow = true;
         swallow_regex = "^(${terminal})$";
+
+        vrr = 1;
       };
 
       # Animations
