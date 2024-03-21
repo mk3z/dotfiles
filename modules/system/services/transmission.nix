@@ -47,7 +47,6 @@ in {
           enable = true;
           # Enables tweaking of kernel parameters to open many more connections at
           # the same time.
-          performanceNetParameters = true;
           downloadDirPermissions = "777";
 
           settings = {
