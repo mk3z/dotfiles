@@ -12,6 +12,7 @@
     ./mpv.nix
     ./neovim
     ./qbittorrent.nix
+    ./rpcs3.nix
     ./signal.nix
     ./sioyek.nix
     ./spotify.nix
