@@ -16,7 +16,10 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    services.zfs.autoScrub.enable = true;
+    services.zfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+    };
 
     boot = {
       supportedFilesystems = ["zfs"];
