@@ -28,7 +28,6 @@ in {
 
       zfs = {
         forceImportRoot = false;
-        removeLinuxDRM = true;
         package = mkIf cfg.unstable pkgs.zfs_unstable;
       };
     };
