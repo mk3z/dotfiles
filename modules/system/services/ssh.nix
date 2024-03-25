@@ -22,7 +22,14 @@ in {
       };
     };
 
-    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = ports;
+    networking.firewall =
+      if (config.mkez.core.hostname == "bastion")
+      then {
+        interfaces.${interfaceName}.allowedTCPPorts = ports;
+      }
+      else {
+        allowedTCPPorts = ports;
+      };
 
     # FIXME make this more DRY
     users.users = {
