@@ -14,6 +14,7 @@
         core = {
           hostname = "bastion";
           server = true;
+          lanInterface = "enp1s0";
         };
         services = {
           headscale.enable = true;

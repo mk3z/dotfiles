@@ -5,8 +5,8 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.jellyfin;
-  inherit (config.mkez.core) hostname;
-  inherit (config.services.tailscale) interfaceName;
+  inherit (config.mkez.core) hostname lanInterface;
+  tailscaleInterface = config.services.tailscale.interfaceName;
 in {
   options.mkez.services.jellyfin.enable = mkEnableOption "Whether to enable Jellyfin";
   config = mkIf cfg.enable {
@@ -28,8 +28,8 @@ in {
     };
 
     networking.firewall.interfaces = {
-      "enp37s0".allowedTCPPorts = [8096];
-      ${interfaceName}.allowedTCPPorts = [80 443];
+      ${lanInterface}.allowedTCPPorts = [8096];
+      ${tailscaleInterface}.allowedTCPPorts = [80 443];
     };
   };
 }

@@ -21,6 +21,11 @@ in {
       type = types.str;
       default = cfg.sysPersistDir;
     };
+    lanInterface = mkOption {
+      description = "Primary LAN network interface name";
+      type = types.nullOr types.str;
+      default = null;
+    };
     server = mkEnableOption "Whether this host is a server";
   };
 }

@@ -1,4 +1,6 @@
-{
+{config, ...}: let
+  inherit (config.mkez.core) lanInterface;
+in {
   services.nginx.virtualHosts."gameserver" = {
     listen = [
       {
@@ -12,5 +14,5 @@
     };
   };
 
-  networking.firewall.interfaces."enp37s0".allowedTCPPorts = [1337];
+  networking.firewall.interfaces.${lanInterface}.allowedTCPPorts = [1337];
 }

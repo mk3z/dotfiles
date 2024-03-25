@@ -14,6 +14,7 @@
       systemConfig = {
         core = {
           hostname = "nas";
+          lanInterface = "enp37s0";
           server = true;
         };
         hardware.zfs = {
