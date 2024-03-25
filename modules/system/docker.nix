@@ -5,10 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.mkez.features.docker;
+  cfg = config.mkez.services.docker;
   inherit (config.mkez.user) username;
 in {
-  options.mkez.features.docker.enable = mkEnableOption "Enable Docker";
+  options.mkez.services.docker.enable = mkEnableOption "Enable Docker";
   config = mkIf cfg.enable {
     virtualisation.docker.enable = true;
     environment.systemPackages = with pkgs; [docker-compose];

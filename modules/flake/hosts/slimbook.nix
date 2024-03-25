@@ -29,6 +29,7 @@
         };
         services = {
           borg.enable = true;
+          docker.enable = true;
           mullvad.enable = true;
           podman.enable = true;
           ratbag.enable = true;
