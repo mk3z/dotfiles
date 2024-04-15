@@ -11,6 +11,7 @@
     ./monero.nix
     ./mpv.nix
     ./neovim
+    ./prism.nix
     ./qbittorrent.nix
     ./rpcs3.nix
     ./signal.nix

@@ -46,6 +46,7 @@
         programs = {
           bitwig.enable = true;
           monero.enable = true;
+          prism.enable = true;
         };
         editors = {
           helix.enable = true;
