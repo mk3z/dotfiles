@@ -13,7 +13,7 @@
     ./swaylock.nix
     ./swayidle.nix
     ./waybar.nix
-    ./wofi.nix
+    ./rofi.nix
   ];
 
   # Notification daemon

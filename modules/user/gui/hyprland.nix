@@ -73,7 +73,7 @@ in {
       "$alt" = "ALT";
       "$terminal" = "${pkgs."${terminal}"}/bin/${terminal}";
       "$editor" = "emacsclient -c -a 'emacs'";
-      "$menu" = "${pkgs.wofi}/bin/wofi --show drun -I -G --normal-window";
+      "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$lock" = "${pkgs.swaylock}/bin/swaylock -f";
       bind = [
         # Utility
