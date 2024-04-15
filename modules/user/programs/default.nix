@@ -22,6 +22,7 @@
     ./telegram.nix
     ./vscode.nix
     ./webcord.nix
+    ./wine.nix
   ];
 
   home.packages = with pkgs; [
