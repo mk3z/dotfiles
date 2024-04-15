@@ -10,7 +10,7 @@ in {
   config = mkIf cfg.enable {
     services.tailscale = {
       enable = true;
-      openFirewall = mkIf config.mkez.core.server true;
+      openFirewall = config.mkez.core.server;
     };
     networking.firewall.checkReversePath = "loose";
 
