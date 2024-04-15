@@ -172,6 +172,10 @@ in {
             };
           }
           {
+            name = "cpp";
+            auto-format = true;
+          }
+          {
             name = "elixir";
             auto-format = true;
           }
