@@ -1,7 +1,10 @@
 {
-  programs.kitty = {
+  programs.alacritty = {
     enable = true;
-    shellIntegration.enableFishIntegration = true;
-    settings.window_padding_width = 2;
+    settings.window = {
+      decorations = "None";
+      dynamic_padding = true;
+      title = "alacritty";
+    };
   };
 }

@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  terminal = "kitty";
+  terminal = "alacritty";
 in {
   imports = [inputs.hyprland.homeManagerModules.default];
 
@@ -83,7 +83,7 @@ in {
         ", PRINT, exec, ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.swappy}/bin/swappy -f -"
 
         # Programs
-        "$mod, RETURN, exec, $terminal"
+        "$mod, RETURN, exec, $terminal msg create-window || $terminal"
         "$mod, h, exec, $editor"
         "$mod, d, exec, $menu"
         "$mod, w, exec, ${pkgs.firefox}/bin/firefox"
