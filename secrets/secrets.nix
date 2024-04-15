@@ -10,4 +10,5 @@ in {
   "password.age".publicKeys = workstations ++ servers;
   "borg.age".publicKeys = workstations;
   "bastion-password.age".publicKeys = [bastion];
+  "vpn-wg-conf.age".publicKeys = [nas];
 }

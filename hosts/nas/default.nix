@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix ./boot.nix ./gameserver.nix];
+  imports = [./hardware-configuration.nix ./boot.nix ./gameserver.nix ./vpn.nix];
 
   system.stateVersion = "23.11";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

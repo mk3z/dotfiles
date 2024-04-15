@@ -9,7 +9,8 @@
   inherit (config.containers.transmission.config.services.transmission.settings) rpc-port;
   inherit (config.containers.transmission.extraVeths.ve-rpc) localAddress hostAddress;
   inherit (config.mkez.core) hostname;
-  nameservers = ["10.64.0.1"];
+  nameservers = ["9.9.9.9"];
+  port = 51413;
 in {
   options.mkez.services.transmission = {
     enable = mkEnableOption "Whether to enable transmission";
@@ -19,7 +20,46 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    mkez.services.mullvad.enable = true;
+    networking = {
+      nat = {
+        enable = true;
+        internalInterfaces = ["ve-transmission"];
+        externalInterface = "vpn";
+        enableIPv6 = true;
+        forwardPorts = [
+          {
+            sourcePort = port;
+            destination = "${config.containers.transmission.localAddress}:${port}";
+          }
+          {
+            sourcePort = port;
+            destination = "[${config.containers.transmission.localAddress6}]:${port}";
+          }
+        ];
+      };
+      extraHosts = "${localAddress} transmission-rpc";
+    };
+
+    networking.nftables.tables.natTransmission = {
+      family = "inet";
+      content = ''
+        chain POSTROUTING {
+          type nat hook postrouting priority srcnat; policy accept;
+          ip daddr ${config.containers.transmission.localAddress} tcp dport ${port} counter masquerade
+          ip6 daddr ${config.containers.transmission.localAddress6} tcp dport ${port} counter masquerade
+        }
+      '';
+    };
+
+    services.nginx.virtualHosts."${hostname}.intra.mkez.fi".locations."/transmission" = {
+      proxyPass = "http://${localAddress}:${toString rpc-port}/transmission";
+      proxyWebsockets = true;
+    };
+
+    networking.firewall.interfaces = {
+      ${interfaceName}.allowedTCPPorts = [80 443];
+      "vpn".allowedTCPPorts = [port];
+    };
 
     containers.transmission = {
       autoStart = true;
@@ -45,11 +85,11 @@ in {
       config = {
         services.transmission = {
           enable = true;
-          # Enables tweaking of kernel parameters to open many more connections at
-          # the same time.
           downloadDirPermissions = "777";
 
           settings = {
+            peer-port = port;
+
             download-dir = "${cfg.downloadDir}/complete";
             incomplete-dir = "${cfg.downloadDir}/incomplete";
             umask = 0;
@@ -58,7 +98,6 @@ in {
             rpc-whitelist = hostAddress;
             rpc-host-whitelist = "${hostname}.intra.mkez.fi,transmission-rpc";
 
-            port-forwarding-enabled = false;
             utp-enabled = false;
 
             dht-enabled = false;
@@ -76,7 +115,10 @@ in {
         };
 
         networking = {
-          firewall.trustedInterfaces = ["ve-rpc"];
+          firewall = {
+            trustedInterfaces = ["ve-rpc"];
+            interfaces."eth0".allowedTCPPorts = [port];
+          };
           useHostResolvConf = false;
           # Mullvad DNS server
           inherit nameservers;
@@ -84,23 +126,6 @@ in {
 
         system.stateVersion = "24.05";
       };
-    };
-
-    services.nginx.virtualHosts."${hostname}.intra.mkez.fi".locations."/transmission" = {
-      proxyPass = "http://${localAddress}:${toString rpc-port}/transmission";
-      proxyWebsockets = true;
-    };
-
-    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [80 443];
-
-    networking = {
-      nat = {
-        enable = true;
-        internalInterfaces = ["ve-transmission"];
-        externalInterface = "wg-mullvad";
-        enableIPv6 = true;
-      };
-      extraHosts = "${localAddress} transmission-rpc";
     };
   };
 }
