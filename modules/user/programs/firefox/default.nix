@@ -102,7 +102,7 @@ in {
           "Home Manager" = {
             urls = [
               {
-                template = "https://mipmip.github.io/home-manager-option-search/?query={searchTerms}";
+                template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
               }
             ];
             definedAliases = [":hm"];
