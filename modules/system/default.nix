@@ -15,5 +15,6 @@
     ./mullvad.nix
     ./podman.nix
     ./ratbag.nix
+    ./waydroid.nix
   ];
 }

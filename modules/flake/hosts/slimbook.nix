@@ -36,6 +36,7 @@
           syncthing.enable = true;
           resolved.enable = true;
           tailscale.enable = true;
+          waydroid.enable = true;
         };
         programs = {
           steam.enable = true;
