@@ -68,6 +68,10 @@
       userName = "Matias Zwinger";
       userEmail = "matias.zwinger@protonmail.com";
       extraConfig.commit.verbose = true;
+      signing = {
+        signByDefault = true;
+        key = null;
+      };
       delta.enable = true;
     };
 

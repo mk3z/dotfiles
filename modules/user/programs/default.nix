@@ -4,6 +4,7 @@
     ./doom
     ./firefox
     ./gimp.nix
+    ./gpg.nix
     ./haskell.nix
     ./helix.nix
     ./inkscape.nix
