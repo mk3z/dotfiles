@@ -4,7 +4,7 @@
     settings.window = {
       decorations = "None";
       dynamic_padding = true;
-      title = "alacritty";
+      class.general = "alacritty";
     };
   };
 }
