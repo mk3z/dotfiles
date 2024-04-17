@@ -154,9 +154,6 @@ in {
       # New window will be on the right
       dwindle.force_split = 2;
 
-      # Enable transparency for terminal and emacs
-      windowrule = "opacity 0.85 override 0.85 override,(${terminal}|(E|e)macs)";
-
       # Spares the battery
       decoration.drop_shadow = false;
 
