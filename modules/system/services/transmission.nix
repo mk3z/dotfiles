@@ -29,11 +29,11 @@ in {
         forwardPorts = [
           {
             sourcePort = port;
-            destination = "${config.containers.transmission.localAddress}:${port}";
+            destination = "${config.containers.transmission.localAddress}:${toString port}";
           }
           {
             sourcePort = port;
-            destination = "[${config.containers.transmission.localAddress6}]:${port}";
+            destination = "[${config.containers.transmission.localAddress6}]:${toString port}";
           }
         ];
       };
@@ -45,8 +45,8 @@ in {
       content = ''
         chain POSTROUTING {
           type nat hook postrouting priority srcnat; policy accept;
-          ip daddr ${config.containers.transmission.localAddress} tcp dport ${port} counter masquerade
-          ip6 daddr ${config.containers.transmission.localAddress6} tcp dport ${port} counter masquerade
+          ip daddr ${config.containers.transmission.localAddress} tcp dport ${toString port} counter masquerade
+          ip6 daddr ${config.containers.transmission.localAddress6} tcp dport ${toString port} counter masquerade
         }
       '';
     };
