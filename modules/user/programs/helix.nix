@@ -218,6 +218,12 @@ in {
             name = "typescript";
             auto-format = true;
           }
+          {
+            name = "typst";
+            language-servers = ["typst-lsp" "typos-lsp"];
+            auto-format = true;
+            formatter.command = "${pkgs.typstyle}/bin/typstyle";
+          }
         ];
         language-server = {
           elixir-ls = {
@@ -230,6 +236,9 @@ in {
           };
           ltex-ls = {
             command = "${pkgs.ltex-ls}/bin/ltex-ls";
+          };
+          typos-lsp = {
+            command = "${pkgs.typos-lsp}/bin/typos-lsp";
           };
         };
       };
@@ -276,6 +285,9 @@ in {
 
         # Svelte
         nodePackages.svelte-language-server
+
+        # Typst
+        typst-lsp
       ];
     };
 
