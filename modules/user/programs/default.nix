@@ -9,6 +9,7 @@
     ./helix.nix
     ./inkscape.nix
     ./kubernetes.nix
+    ./lutris.nix
     ./monero.nix
     ./mpv.nix
     ./neovim
