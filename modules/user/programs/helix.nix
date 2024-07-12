@@ -180,6 +180,10 @@ in {
             auto-format = true;
           }
           {
+            name = "haskell";
+            auto-format = true;
+          }
+          {
             name = "text";
             file-types = ["txt"];
             language-servers = ["ltex-ls"];
@@ -220,6 +224,9 @@ in {
             command = "elixir-ls";
             environment = {"SHELL" = "${pkgs.bash}/bin/bash";};
             config.elixirLS.dialyzerEnabled = false;
+          };
+          haskell-language-server = {
+            config.haskell.formattingProvider = "ormolu";
           };
           ltex-ls = {
             command = "${pkgs.ltex-ls}/bin/ltex-ls";
