@@ -24,7 +24,6 @@
         services = {
           arr.enable = true;
           jellyfin.enable = true;
-          monero.enable = true;
           navidrome.enable = true;
           ssh.enable = true;
           resolved.enable = true;
