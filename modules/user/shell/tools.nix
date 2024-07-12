@@ -67,7 +67,16 @@
       package = pkgs.gitAndTools.gitFull;
       userName = "Matias Zwinger";
       userEmail = "matias.zwinger@protonmail.com";
-      extraConfig.commit.verbose = true;
+      extraConfig = {
+        commit.verbose = true;
+        core = {
+          untrackedcache = true;
+        };
+        fetch = {
+          commitgraph = true;
+          writeCommitGraph = true;
+        };
+      };
       signing = {
         signByDefault = true;
         key = null;
