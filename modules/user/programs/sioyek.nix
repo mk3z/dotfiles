@@ -2,6 +2,8 @@
   programs.sioyek = {
     enable = true;
     config = {
+      page_separator_width = "4";
+
       # base16-sioyek (https://github.com/loiccoyle/base16-sioyek)
       # by Loic Coyle
       # Nord scheme byarcticicestudio
@@ -30,6 +32,8 @@
       "move_left" = "i";
       "next_item" = "k";
       "previous_item" = "K";
+
+      "toggle_presentation_mode" = "P";
 
       "toggle_custom_color" = "u";
     };
