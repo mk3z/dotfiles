@@ -71,7 +71,7 @@ in {
         "custom/mullvad" = {
           format = "mullvad 󰌾";
           exec = "echo '{\"class\": \"connected\"}'";
-          exec-if = "test -d /proc/sys/net/ipv4/conf/wg-mullvad";
+          exec-if = "test -d /proc/sys/net/ipv4/conf/wg0-mullvad";
           return-type = "json";
           interval = 5;
         };
