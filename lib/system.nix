@@ -6,9 +6,9 @@
   inherit (inputs.nixpkgs.lib) nixosSystem;
 in {
   mkHost = {
-    extraModules,
     systemConfig,
     userConfig ? {},
+    extraModules ? [],
   }: let
     inherit (systemConfig.core) hostname;
   in
