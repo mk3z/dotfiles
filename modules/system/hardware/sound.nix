@@ -14,8 +14,6 @@ in {
       jack.enable = true;
     };
 
-    sound.mediaKeys.enable = true;
-
     # Enable realtime scheduling for user processes
     security.rtkit.enable = true;
   };

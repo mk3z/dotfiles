@@ -78,13 +78,12 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     split-monitor-workspaces = {
-      # TODO: Change back to upstream when https://github.com/Duckonaut/split-monitor-workspaces/issues/53 is merged
-      url = "github:bivsk/split-monitor-workspaces/bivsk";
+      url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -148,7 +147,7 @@
     };
 
     spicetify-nix = {
-      url = "github:the-argus/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
