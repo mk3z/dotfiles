@@ -55,7 +55,10 @@ in {
         docked.outputs = [
           {
             criteria = "eDP-1";
-            status = "disable";
+            status = "enable";
+            mode = "2560x1440@165";
+            position = "1580,1080";
+            scale = 1.6;
           }
           {
             # Left
