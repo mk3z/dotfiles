@@ -38,7 +38,7 @@ in {
           system = "x86_64-linux";
           protocol = "ssh-ng";
           maxJobs = 16; # Number of threads
-          speedFactor = 2;
+          speedFactor = 1;
           supportedFeatures = ["nixos-test" "benchmark" "big-parallel"];
         }
       ]
