@@ -20,15 +20,15 @@
           pre-commit = {
             hooks = {
               alejandra.enable = true;
-              deadnix.enable = true;
+              deadnix = {
+                enable = true;
+                settings = {
+                  edit = true;
+                  hidden = true;
+                };
+              };
               nil.enable = true;
               statix.enable = true;
-            };
-            settings = {
-              deadnix = {
-                edit = true;
-                hidden = true;
-              };
             };
           };
           # TODO: Remove when https://github.com/cachix/devenv/issues/760 is fixed
