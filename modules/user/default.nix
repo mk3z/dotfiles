@@ -74,10 +74,12 @@ in {
       ];
       extra-substituters = [
         "https://devenv.cachix.org"
+        "https://helix.cachix.org"
         "https://crane.cachix.org"
       ];
       extra-trusted-public-keys = [
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
         "crane.cachix.org-1:8Scfpmn9w+hGdXH/Q9tTLiYAE/2dnJYRJP7kl80GuRk="
       ];
     };

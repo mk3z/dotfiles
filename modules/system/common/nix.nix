@@ -20,9 +20,23 @@ in {
       trusted-users = ["@wheel"];
       experimental-features = ["nix-command" "flakes" "auto-allocate-uids"];
       auto-optimise-store = true;
-      substituters = ["https://nix-community.cachix.org"];
+
+      substituters = [
+        "https://nix-community.cachix.org"
+      ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+
+      extra-substituters = [
+        "https://devenv.cachix.org"
+        "https://helix.cachix.org"
+        "https://crane.cachix.org"
+      ];
+      extra-trusted-public-keys = [
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+        "crane.cachix.org-1:8Scfpmn9w+hGdXH/Q9tTLiYAE/2dnJYRJP7kl80GuRk="
       ];
     };
 

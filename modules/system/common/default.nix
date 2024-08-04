@@ -34,7 +34,11 @@ in {
   };
 
   nixpkgs = {
-    overlays = [inputs.nur.overlay inputs.fenix.overlays.default];
+    overlays = [
+      inputs.nur.overlay
+      inputs.helix.overlays.default
+      inputs.fenix.overlays.default
+    ];
     config.allowUnfree = true;
   };
 
