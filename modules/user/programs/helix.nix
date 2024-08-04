@@ -110,6 +110,8 @@ in {
               G = "goto_last_line";
               esc = "collapse_selection";
 
+              X = "extend_line_up";
+
               # Emacs
               A-x = "command_palette";
 
