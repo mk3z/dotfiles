@@ -57,8 +57,8 @@ in {
 
     security.sudo = {
       execWheelOnly = true;
+      # rollback results in sudo lectures after each reboot
       extraConfig = ''
-        # rollback results in sudo lectures after each reboot
         Defaults lecture = never
       '';
     };
