@@ -39,6 +39,7 @@
           waydroid.enable = true;
         };
         programs = {
+          flipperzero.enable = true;
           steam.enable = true;
         };
       };
