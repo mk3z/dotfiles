@@ -12,7 +12,11 @@ in {
   options.mkez.programs.steam.enable = mkEnableOption "Enable Steam";
   config = mkIf cfg.enable {
     programs = {
-      steam.enable = true;
+      steam = {
+        enable = true;
+        gamescopeSession.enable = true;
+      };
+
       gamemode = {
         enable = true;
         enableRenice = true;
