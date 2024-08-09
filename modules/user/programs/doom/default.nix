@@ -12,6 +12,9 @@
   inherit (osConfig.mkez.user) homeDirectory;
 in {
   options.mkez.editors.doom.enable = mkEnableOption "Enable Doom Emacs";
+
+  imports = [inputs.doom-emacs.hmModule];
+
   config = mkIf cfg.enable {
     programs.doom-emacs = {
       enable = true;

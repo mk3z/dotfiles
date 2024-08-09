@@ -1,13 +1,19 @@
 {
   lib,
   config,
+  inputs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.editors.nvim;
 in {
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./plugins.nix
+  ];
+
   options.mkez.editors.nvim.enable = mkEnableOption "Enable neovim";
-  imports = [./plugins.nix];
+
   config = mkIf cfg.enable {
     programs.nixvim = {
       enable = true;
