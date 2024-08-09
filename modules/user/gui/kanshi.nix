@@ -15,7 +15,7 @@ in {
             mode = "1680x1050@59.88300";
             position = "0,0";
             scale = 1.0;
-            transform = "270";
+            transform = "90";
           }
           {
             # Center
@@ -25,20 +25,19 @@ in {
             position = "1050,164";
             scale = 1.33;
           }
-          # TODO fix displayport cable
-          # {
-          #   # Right
-          #   criteria = "AOC 27G2G4 GYGLCHA284922";
-          #   status = "enable";
-          #   mode = "1920x1080@74.97300";
-          #   position = "3640,0";
-          #   scale = 1.0;
-          # }
           {
-            # TV
-            criteria = "LG Electronics LG TV SSCR2 0x01010101";
-            status = "disable";
+            # Right
+            criteria = "AOC 27G2G4 GYGLCHA284922";
+            status = "enable";
+            mode = "1920x1080@74.97300";
+            position = "3640,0";
+            scale = 1.0;
           }
+          # {
+          #   # TV
+          #   criteria = "LG Electronics LG TV SSCR2 0x01010101";
+          #   status = "disable";
+          # }
         ];
       }
       else if hostname == "slimbook"
