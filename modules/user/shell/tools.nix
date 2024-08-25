@@ -79,7 +79,7 @@
       };
       signing = {
         signByDefault = true;
-        key = null;
+        key = "08CC36C547AEE889";
       };
       delta.enable = true;
     };

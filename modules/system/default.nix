@@ -17,5 +17,6 @@
     ./podman.nix
     ./ratbag.nix
     ./waydroid.nix
+    ./yubikey.nix
   ];
 }
