@@ -26,6 +26,7 @@
           jellyfin.enable = true;
           navidrome.enable = true;
           ssh.enable = true;
+          radicale.enable = true;
           resolved.enable = true;
           syncthing.enable = true;
           tailscale.enable = true;
@@ -33,6 +34,7 @@
             enable = true;
             downloadDir = "/media/downloads";
           };
+          webdav.enable = true;
         };
       };
     };

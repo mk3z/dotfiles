@@ -11,9 +11,11 @@
     ./navidrome.nix
     ./ssh.nix
     ./syncthing.nix
+    ./radicale.nix
     ./resolved.nix
     ./tailscale.nix
     ./transmission.nix
+    ./webdav.nix
     ./website.nix
   ];
 }
