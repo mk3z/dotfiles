@@ -14,6 +14,11 @@ in {
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
+    matchBlocks = {
+      nas = {
+        forwardAgent = true;
+      };
+    };
   };
 
   services.ssh-agent.enable = true;
