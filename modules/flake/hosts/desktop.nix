@@ -23,6 +23,7 @@
           libvirt.enable = true;
         };
         services = {
+          flatpak.enable = true;
           mullvad.enable = true;
           podman.enable = true;
           ratbag.enable = true;

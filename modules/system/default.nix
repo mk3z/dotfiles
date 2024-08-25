@@ -10,6 +10,7 @@
     # TODO organize these better
     ./adb.nix
     ./docker.nix
+    ./flatpak.nix
     ./flipperzero.nix
     ./kubernetes.nix
     ./libvirt.nix
