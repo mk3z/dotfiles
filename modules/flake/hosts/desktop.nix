@@ -21,6 +21,7 @@
           adb.enable = true;
           kubernetes.enable = true;
           libvirt.enable = true;
+          yubikey.enable = true;
         };
         services = {
           flatpak.enable = true;
