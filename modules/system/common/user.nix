@@ -18,6 +18,16 @@ in {
       type = types.str;
       default = "/home/${cfg.username}";
     };
+    email = mkOption {
+      description = "User email";
+      type = types.str;
+      default = "matias@zwinger.fi";
+    };
+    key = mkOption {
+      description = "User GPG key";
+      type = types.str;
+      default = "08CC36C547AEE889";
+    };
     noPassword = mkEnableOption "Don't set user password";
   };
   config = {
