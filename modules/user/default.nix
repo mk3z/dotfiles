@@ -23,23 +23,7 @@ in {
   home = {
     inherit username homeDirectory;
 
-    persistence."${homePersistDir}${homeDirectory}" = {
-      directories = [
-        "Audio"
-        "Documents"
-        "Downloads/persistent"
-        "Music"
-        "Pictures"
-        "Projects"
-        "School"
-        "Videos"
-
-        ".cache"
-        ".local/share/keyrings"
-        ".local/state"
-      ];
-      allowOther = true;
-    };
+    persistence."${homePersistDir}${homeDirectory}".allowOther = true;
 
     sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
 

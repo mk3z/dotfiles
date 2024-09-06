@@ -6,6 +6,7 @@
 }: let
   inherit (lib) types mkOption mkEnableOption;
   cfg = config.mkez.user;
+  inherit (config.mkez.core) homePersistDir;
 in {
   options.mkez.user = {
     username = mkOption {
@@ -58,6 +59,28 @@ in {
       # Set fish as the default shell for all users
       defaultUserShell = pkgs.fish;
     };
+
+    environment.persistence."${homePersistDir}".directories =
+      map (
+        dir: {
+          directory = "${cfg.homeDirectory}/${dir}";
+          user = cfg.username;
+          inherit (config.users.users.${cfg.username}) group;
+        }
+      ) [
+        "Audio"
+        "Documents"
+        "Downloads/persistent"
+        "Music"
+        "Pictures"
+        "Projects"
+        "School"
+        "Videos"
+
+        ".cache"
+        ".local/share/keyrings"
+        ".local/state"
+      ];
 
     programs.fish.enable = true;
     environment.shells = [pkgs.fish];
