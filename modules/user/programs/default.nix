@@ -41,7 +41,7 @@
     quickemu
     transmission_4
     ungoogled-chromium
-    (octave.withPackages (opkgs: with opkgs; [symbolic statistics]))
+    (octaveFull.withPackages (opkgs: with opkgs; [communications signal statistics symbolic]))
   ];
 
   programs = {
