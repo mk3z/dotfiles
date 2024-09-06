@@ -5,7 +5,10 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.headscale;
-  domain = "mkez.fi";
+  domains = {
+    "mkez.fi" = {};
+    "zwinger.fi" = {};
+  };
 in {
   options.mkez.services.website.enable = mkEnableOption "Whether to enable personal website hosting";
   config = mkIf cfg.enable {
@@ -17,11 +20,15 @@ in {
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
 
-      virtualHosts.${domain} = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/".return = "301 https://matias.zwinger.xyz";
-      };
+      virtualHosts =
+        lib.mapAttrs (
+          _: _: {
+            forceSSL = true;
+            enableACME = true;
+            locations."/".return = "301 https://matias.zwinger.xyz";
+          }
+        )
+        domains;
     };
 
     security.acme = {
