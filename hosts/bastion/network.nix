@@ -17,9 +17,7 @@ in {
       matchConfig.Name = lanInterface;
       networkConfig.DHCP = "ipv4";
       address = ["2a01:4f9:c011:a051::1/64"];
-      routes = [
-        {routeConfig.Gateway = "fe80::1";}
-      ];
+      routes = [{Gateway = "fe80::1";}];
     };
   };
 }
