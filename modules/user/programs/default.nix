@@ -13,6 +13,7 @@
     ./lutris.nix
     ./monero.nix
     ./mpv.nix
+    ./neomutt
     ./neovim
     ./prism.nix
     ./qbittorrent.nix
