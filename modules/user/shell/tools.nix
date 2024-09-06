@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  osConfig,
+  ...
+}: {
   home.packages = with pkgs; [
     file
     gh
@@ -79,7 +83,7 @@
       };
       signing = {
         signByDefault = true;
-        key = "08CC36C547AEE889";
+        inherit (osConfig.mkez.user) key;
       };
       delta.enable = true;
     };
