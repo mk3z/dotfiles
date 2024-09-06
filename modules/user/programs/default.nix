@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./bitwarden.nix
     ./bitwig.nix
     ./doom
     ./firefox
