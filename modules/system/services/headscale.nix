@@ -6,6 +6,7 @@
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.headscale;
   domain = "vpn.mkez.fi";
+  inherit (config.mkez.user) email;
 in {
   options.mkez.services.headscale.enable = mkEnableOption "Whether to enable the headscale server";
   config = mkIf cfg.enable {
@@ -46,7 +47,7 @@ in {
 
     security.acme = {
       acceptTerms = true;
-      defaults.email = "matias.zwinger@protonmail.com";
+      defaults.email = email;
     };
 
     networking.firewall.allowedTCPPorts = [80 443];

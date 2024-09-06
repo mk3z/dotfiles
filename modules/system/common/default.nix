@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (config.mkez.core) sysPersistDir;
+  inherit (config.mkez.user) realName email;
 in {
   imports = [
     ./console.nix
@@ -53,8 +54,8 @@ in {
   programs.git = {
     enable = true;
     config.user = {
-      name = "Matias Zwinger";
-      email = "matias.zwinger@protonmail.com";
+      name = realName;
+      inherit email;
     };
   };
 

@@ -1,8 +1,11 @@
 {
   config,
+  osConfig,
   pkgs,
   ...
-}: {
+}: let
+  inherit (osConfig.mkez.user) realName;
+in {
   accounts.email = {
     maildirBasePath = config.xdg.dataHome + "/mail";
 
@@ -48,7 +51,7 @@
 
         passwordCommand = "${pkgs.rbw}/bin/rbw get ${address}";
 
-        realName = "Matias Zwinger";
+        inherit realName;
         userName = address;
         primary = true;
 

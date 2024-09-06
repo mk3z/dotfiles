@@ -2,7 +2,9 @@
   pkgs,
   osConfig,
   ...
-}: {
+}: let
+  inherit (osConfig.mkez.user) realName email key;
+in {
   home.packages = with pkgs; [
     file
     gh
@@ -69,8 +71,8 @@
     git = {
       enable = true;
       package = pkgs.gitAndTools.gitFull;
-      userName = "Matias Zwinger";
-      userEmail = "matias.zwinger@protonmail.com";
+      userName = realName;
+      userEmail = email;
       extraConfig = {
         commit.verbose = true;
         core = {
@@ -83,7 +85,7 @@
       };
       signing = {
         signByDefault = true;
-        inherit (osConfig.mkez.user) key;
+        inherit key;
       };
       delta.enable = true;
     };

@@ -14,6 +14,11 @@ in {
       type = types.str;
       default = "mkez";
     };
+    realName = mkOption {
+      description = "Real name";
+      type = types.str;
+      default = "Matias Zwinger";
+    };
     homeDirectory = mkOption {
       description = "Home directory";
       type = types.str;
