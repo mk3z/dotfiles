@@ -6,6 +6,7 @@
     ./dns.nix
     ./headscale.nix
     ./jellyfin.nix
+    ./mailserver.nix
     ./monero.nix
     ./mosh.nix
     ./navidrome.nix

@@ -18,6 +18,7 @@
         };
         services = {
           headscale.enable = true;
+          mailserver.enable = true;
           resolved.enable = true;
           ssh.enable = true;
           tailscale.enable = true;
