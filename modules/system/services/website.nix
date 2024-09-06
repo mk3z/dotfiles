@@ -33,7 +33,7 @@ in {
 
     security.acme = {
       acceptTerms = true;
-      defaults.email = "matias.zwinger@protonmail.com";
+      defaults.email = config.mkez.user.email;
     };
   };
 }
