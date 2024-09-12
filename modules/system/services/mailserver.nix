@@ -53,6 +53,14 @@ in {
       };
 
       certificateScheme = "acme-nginx";
+
+      borgbackup = {
+        enable = true;
+        repoLocation = "bastion@nas.intra.mkez.fi:/backup/mail";
+        cmdPreexec = ''
+          export BORG_RSH="ssh -i ${config.mailserver.mailDirectory}/.ssh/id_ed25519"
+        '';
+      };
     };
 
     security.acme.acceptTerms = true;

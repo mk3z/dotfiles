@@ -24,4 +24,14 @@
     ${pkgs.hdparm}/sbin/hdparm -B 64 /dev/sd{a,b,d}
     ${pkgs.hdparm}/sbin/hdparm -S 120 /dev/sd{a,b,d}
   '';
+
+  # For bastion borg backups
+  users.users.bastion = {
+    group = "bastion";
+    isSystemUser = true;
+    shell = pkgs.bashInteractive;
+    openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDwGyydra5JU3FSR8IqLUi/HDJJWGGdZCzcQPdqEdh4c"];
+  };
+  users.groups.bastion = {};
+  environment.systemPackages = [pkgs.borgbackup];
 }
