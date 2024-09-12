@@ -5,6 +5,7 @@
     ./doom
     ./firefox
     ./gimp.nix
+    ./gnuradio.nix
     ./gpg.nix
     ./haskell.nix
     ./helix.nix
