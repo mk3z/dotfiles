@@ -213,6 +213,10 @@ in {
             };
           }
           {
+            name = "python";
+            auto-format = true;
+          }
+          {
             name = "scala";
             auto-format = true;
           }
@@ -274,6 +278,10 @@ in {
 
         # OCaml
         ocamlPackages.ocaml-lsp
+
+        # Python
+        python311Packages.python-lsp-server
+        python311Packages.autopep8
 
         # Rust
         rust-analyzer
