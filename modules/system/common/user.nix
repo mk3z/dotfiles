@@ -32,7 +32,7 @@ in {
     key = mkOption {
       description = "User GPG key";
       type = types.str;
-      default = "08CC36C547AEE889";
+      default = "0A715A2A51F159FC895C510208CC36C547AEE889";
     };
     noPassword = mkEnableOption "Don't set user password";
   };
