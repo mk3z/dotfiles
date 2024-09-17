@@ -57,10 +57,6 @@ in {
       no-symkey-cache = true;
       # Output ASCII instead of binary
       armor = true;
-      # Enable smartcard
-      use-agent = true;
-      # Disable recipient key ID in messages (breaks Mailvelope)
-      throw-keyids = true;
     };
   };
 
