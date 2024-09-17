@@ -10,7 +10,7 @@ in {
   imports = [./colors.nix];
 
   xdg.configFile."neomutt/mailcap".text = ''
-    text/html; ${pkgs.xdg-utils}/bin/xdg-open %s
+    text/html; ${pkgs.firefox}/bin/firefox %s
     text/html; ${pkgs.w3m}/bin/w3m -I %{charset} -T text/html; copiousoutput;
     application/pdf; ${pkgs.xdg-utils}/bin/xdg-open %s &
     image/*; ${pkgs.xdg-utils}/bin/xdg-open %s &
