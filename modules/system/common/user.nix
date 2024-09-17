@@ -65,27 +65,42 @@ in {
       defaultUserShell = pkgs.fish;
     };
 
-    environment.persistence."${homePersistDir}".directories =
-      map (
-        dir: {
-          directory = "${cfg.homeDirectory}/${dir}";
-          user = cfg.username;
-          inherit (config.users.users.${cfg.username}) group;
-        }
-      ) [
-        "Audio"
-        "Documents"
-        "Downloads/persistent"
-        "Music"
-        "Pictures"
-        "Projects"
-        "School"
-        "Videos"
+    environment.persistence."${homePersistDir}" =
+      if config.mkez.core.server
+      then {
+        files = [
+          {
+            file = "${cfg.homeDirectory}/.local/share/fish/fish_history";
+            parentDirectory = {
+              user = cfg.username;
+              inherit (config.users.users.${cfg.username}) group;
+            };
+          }
+        ];
+      }
+      else {
+        directories =
+          map (
+            dir: {
+              directory = "${cfg.homeDirectory}/${dir}";
+              user = cfg.username;
+              inherit (config.users.users.${cfg.username}) group;
+            }
+          ) [
+            "Audio"
+            "Documents"
+            "Downloads/persistent"
+            "Music"
+            "Pictures"
+            "Projects"
+            "School"
+            "Videos"
 
-        ".cache"
-        ".local/share/keyrings"
-        ".local/state"
-      ];
+            ".cache"
+            ".local/share/keyrings"
+            ".local/state"
+          ];
+      };
 
     programs.fish.enable = true;
     environment.shells = [pkgs.fish];
