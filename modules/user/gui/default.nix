@@ -14,11 +14,6 @@
     ./swayidle.nix
     ./waybar.nix
     ./rofi.nix
+    ./swaync.nix
   ];
-
-  # Notification daemon
-  services.mako = {
-    enable = true;
-    defaultTimeout = 5000;
-  };
 }

@@ -25,6 +25,7 @@ in {
             "wireplumber"
             "battery"
             "clock"
+            "custom/notification"
           ]
           else [
             "tray"
@@ -36,7 +37,29 @@ in {
             "wireplumber"
             "battery"
             "clock"
+            "custom/notification"
           ];
+
+        "custom/notification" = {
+          tooltip = false;
+          format = "{icon}";
+          format-icons = {
+            notification = "󱅫";
+            none = "󰂜";
+            dnd-notification = "󰂛";
+            dnd-none = "󰪑";
+            inhibited-notification = "󱅫";
+            inhibited-none = "";
+            dnd-inhibited-notification = "󰂛";
+            dnd-inhibited-none = "󰪑";
+          };
+          return-type = "json";
+          exec-if = "which swaync-client";
+          exec = "swaync-client -swb";
+          on-click = "swaync-client -t -sw";
+          on-click-right = "swaync-client -d -sw";
+          escape = true;
+        };
 
         "clock" = {
           interval = 1;
@@ -157,7 +180,7 @@ in {
         color: @theme_text_color;
       }
 
-      #clock, #battery, #wireplumber, #network, #custom-mullvad, #custom-tailscale, #bluetooth, #memory, #cpu, #tray {
+      #custom-notification, #clock, #battery, #wireplumber, #network, #custom-mullvad, #custom-tailscale, #bluetooth, #memory, #cpu, #tray {
         margin: 0 4px;
         padding: 0 4px;
         border-bottom: 1px solid;
