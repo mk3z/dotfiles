@@ -5,6 +5,8 @@
   ...
 }: let
   inherit (osConfig.mkez.user) realName;
+  inherit (osConfig.mkez.core) homePersistDir;
+  inherit (osConfig.mkez.user) homeDirectory;
   mkSchool = {
     address,
     userName ? address,
@@ -119,4 +121,6 @@ in {
       };
     };
   };
+
+  home.persistence."${homePersistDir}${homeDirectory}".directories = [".local/share/oauth"];
 }
