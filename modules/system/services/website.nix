@@ -6,7 +6,6 @@
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.headscale;
   domains = {
-    "mkez.fi" = {};
     "zwinger.fi" = {};
   };
 in {
@@ -25,7 +24,7 @@ in {
           _: _: {
             forceSSL = true;
             enableACME = true;
-            locations."/".return = "301 https://matias.zwinger.xyz";
+            locations."/".return = "301 https://mkez.fi";
           }
         )
         domains;
