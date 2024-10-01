@@ -51,7 +51,7 @@ in {
     cowsay
     fortune
     lolcat
-    neofetch
+    fastfetch
     onefetch
     sl
     toilet
