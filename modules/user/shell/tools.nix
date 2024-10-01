@@ -87,6 +87,12 @@ in {
         signByDefault = true;
         inherit key;
       };
+      includes = [
+        {
+          contents.user.email = "matias.zwinger@aalto.fi";
+          condition = "gitdir:~/Projects/aalto/**";
+        }
+      ];
       delta.enable = true;
     };
 
