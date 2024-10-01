@@ -214,6 +214,7 @@ in {
           }
           {
             name = "python";
+            language-servers = ["ruff"];
             auto-format = true;
           }
           {
@@ -242,6 +243,10 @@ in {
           };
           ltex-ls = {
             command = "${pkgs.ltex-ls}/bin/ltex-ls";
+          };
+          ruff = {
+            command = "${pkgs.ruff}/bin/ruff";
+            args = ["server" "--preview"];
           };
           typos-lsp = {
             command = "${pkgs.typos-lsp}/bin/typos-lsp";
@@ -278,10 +283,6 @@ in {
 
         # OCaml
         ocamlPackages.ocaml-lsp
-
-        # Python
-        python311Packages.python-lsp-server
-        python311Packages.autopep8
 
         # Rust
         rust-analyzer
