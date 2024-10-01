@@ -11,6 +11,7 @@
     ./helix.nix
     ./inkscape.nix
     ./kubernetes.nix
+    ./libreoffice.nix
     ./lutris.nix
     ./monero.nix
     ./mpv.nix
