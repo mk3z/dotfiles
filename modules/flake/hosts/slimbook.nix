@@ -19,6 +19,7 @@
         };
         hardware = {
           laptop.enable = true;
+          rtl-sdr.enable = true;
           zfs.enable = true;
           bluetooth.enable = true;
         };
