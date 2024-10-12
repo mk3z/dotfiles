@@ -23,7 +23,6 @@ in {
 
     boot = {
       supportedFilesystems = ["zfs"];
-      kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
       kernelParams = ["nohibernate"];
 
       zfs = {

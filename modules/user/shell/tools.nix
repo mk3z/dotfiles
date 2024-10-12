@@ -42,7 +42,6 @@ in {
     nix-melt
     nix-output-monitor
     nix-tree
-    nixfmt
     nvd
     statix
 

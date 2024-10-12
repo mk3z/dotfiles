@@ -14,8 +14,6 @@ in {
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.nord;
-    colorScheme = "Nord";
     enabledExtensions = with spicePkgs.extensions; [
       fullAlbumDate
       hidePodcasts

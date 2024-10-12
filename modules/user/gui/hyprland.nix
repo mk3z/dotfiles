@@ -174,6 +174,8 @@ in {
       xwayland.force_zero_scaling = true;
 
       debug.disable_scale_checks = true;
+
+      plugin.split-monitor-workspaces.enable_persistent_workspaces = 0;
     };
   };
 }
