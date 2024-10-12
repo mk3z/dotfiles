@@ -25,6 +25,7 @@
           arr.enable = true;
           jellyfin.enable = true;
           navidrome.enable = true;
+          podman.enable = true;
           ssh.enable = true;
           radicale.enable = true;
           resolved.enable = true;
@@ -34,6 +35,7 @@
             enable = true;
             downloadDir = "/media/downloads";
           };
+          tubearchivist.enable = true;
           webdav.enable = true;
         };
       };

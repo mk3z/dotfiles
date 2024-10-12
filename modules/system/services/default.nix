@@ -16,6 +16,7 @@
     ./resolved.nix
     ./tailscale.nix
     ./transmission.nix
+    ./tubearchivist.nix
     ./webdav.nix
     ./website.nix
   ];
