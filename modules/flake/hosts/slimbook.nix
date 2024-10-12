@@ -35,7 +35,6 @@
           mullvad.enable = true;
           podman.enable = true;
           ratbag.enable = true;
-          syncthing.enable = true;
           resolved.enable = true;
           tailscale.enable = true;
           waydroid.enable = true;
