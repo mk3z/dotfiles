@@ -262,6 +262,9 @@ in {
         clang-tools
         lldb
 
+        # Dockerfile
+        dockerfile-language-server-nodejs
+
         # Elixir
         elixir-ls
         rtx
@@ -299,6 +302,9 @@ in {
 
         # Typst
         typst-lsp
+
+        # YAML
+        yaml-language-server
       ];
     };
 
