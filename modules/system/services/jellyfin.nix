@@ -17,12 +17,6 @@ in {
 
       nginx = {
         enable = true;
-
-        recommendedGzipSettings = true;
-        recommendedOptimisation = true;
-        recommendedProxySettings = true;
-        recommendedTlsSettings = true;
-
         virtualHosts."${hostname}.intra.mkez.fi".locations."/jellyfin".proxyPass = "http://localhost:8096";
       };
     };

@@ -6,7 +6,6 @@
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.headscale;
   domain = "vpn.mkez.fi";
-  inherit (config.mkez.user) email;
 in {
   options.mkez.services.headscale.enable = mkEnableOption "Whether to enable the headscale server";
   config = mkIf cfg.enable {
@@ -28,12 +27,6 @@ in {
 
       nginx = {
         enable = true;
-
-        recommendedGzipSettings = true;
-        recommendedOptimisation = true;
-        recommendedProxySettings = true;
-        recommendedTlsSettings = true;
-
         virtualHosts.${domain} = {
           forceSSL = true;
           enableACME = true;
@@ -43,11 +36,6 @@ in {
           };
         };
       };
-    };
-
-    security.acme = {
-      acceptTerms = true;
-      defaults.email = email;
     };
 
     networking.firewall.allowedTCPPorts = [80 443];

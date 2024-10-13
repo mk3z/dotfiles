@@ -50,12 +50,6 @@ in {
 
       nginx = {
         enable = true;
-
-        recommendedGzipSettings = true;
-        recommendedOptimisation = true;
-        recommendedProxySettings = true;
-        recommendedTlsSettings = true;
-
         virtualHosts."${hostname}.intra.mkez.fi".locations."/caldav/" = {
           proxyPass = "http://localhost:${toString port}/";
           extraConfig = ''

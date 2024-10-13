@@ -34,11 +34,6 @@ in {
 
       nginx = {
         enable = true;
-
-        recommendedGzipSettings = true;
-        recommendedOptimisation = true;
-        recommendedTlsSettings = true;
-
         virtualHosts."${hostname}.intra.mkez.fi".locations."/webdav" = {
           proxyPass = "http://localhost:${toString port}/";
           basicAuthFile = config.age.secrets.webdav_passwd.path;
