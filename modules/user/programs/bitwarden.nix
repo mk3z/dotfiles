@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.rbw = {
     enable = true;
     settings = {
-      email = "matias@zwinger.xyz";
-      base_url = "https://zwinger.xyz/vaultwarden/";
+      inherit (config.mkez.user) email;
+      base_url = "https://nas.intra.mkez.fi/vaultwarden/";
       pinentry = pkgs.pinentry-curses;
     };
   };
