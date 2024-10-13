@@ -3,7 +3,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  inherit (config.mkez.core) hostname;
+in {
   imports = [./hardware-configuration.nix ./boot.nix ./gameserver.nix ./vpn.nix];
 
   system.stateVersion = "23.11";
@@ -34,4 +36,35 @@
   };
   users.groups.bastion = {};
   environment.systemPackages = [pkgs.borgbackup];
+
+  age.secrets.cloudflare_env = {
+    file = ../../secrets/cloudflare.env.age;
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = config.mkez.user.email;
+
+    certs."intra.mkez.fi" = {
+      inherit (config.services.nginx) group;
+
+      domain = "intra.mkez.fi";
+      extraDomainNames = ["*.intra.mkez.fi"];
+      dnsProvider = "cloudflare";
+      dnsResolver = "konnor.ns.cloudflare.com";
+      webroot = null;
+      environmentFile = config.age.secrets.cloudflare_env.path;
+    };
+  };
+
+  services.nginx = {
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+    virtualHosts."${hostname}.intra.mkez.fi" = {
+      forceSSL = true;
+      useACMEHost = "intra.mkez.fi";
+    };
+  };
 }

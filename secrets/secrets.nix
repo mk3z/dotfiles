@@ -9,12 +9,13 @@ let
 in {
   "password.age".publicKeys = workstations ++ servers;
 
+  "borg.age".publicKeys = workstations;
+
   "bastion-password.age".publicKeys = [bastion];
   "email-password.age".publicKeys = [bastion];
 
-  "borg.age".publicKeys = workstations;
-
   "htpasswd.age".publicKeys = [nas];
+  "cloudflare.env.age".publicKeys = [nas];
 
   "vpn-wg-conf.age".publicKeys = [nas];
 }
