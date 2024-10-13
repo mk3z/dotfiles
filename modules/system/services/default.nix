@@ -5,6 +5,7 @@
     ./borg.nix
     ./dns.nix
     ./headscale.nix
+    ./homeassistant.nix
     ./jellyfin.nix
     ./mailserver.nix
     ./monero.nix

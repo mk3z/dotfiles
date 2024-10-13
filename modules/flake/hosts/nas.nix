@@ -23,6 +23,7 @@
         };
         services = {
           arr.enable = true;
+          homeassistant.enable = true;
           jellyfin.enable = true;
           navidrome.enable = true;
           podman.enable = true;
