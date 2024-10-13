@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (config.mkez.core) hostname;
+  inherit (config.mkez.user) email;
 in {
   imports = [./hardware-configuration.nix ./boot.nix ./gameserver.nix ./vpn.nix];
 
@@ -43,7 +44,7 @@ in {
 
   security.acme = {
     acceptTerms = true;
-    defaults.email = config.mkez.user.email;
+    defaults.email = email;
 
     certs."intra.mkez.fi" = {
       inherit (config.services.nginx) group;
