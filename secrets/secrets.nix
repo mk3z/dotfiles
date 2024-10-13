@@ -16,6 +16,7 @@ in {
 
   "htpasswd.age".publicKeys = [nas];
   "cloudflare.env.age".publicKeys = [nas];
+  "vaultwarden.env.age".publicKeys = [nas];
 
   "vpn-wg-conf.age".publicKeys = [nas];
 }

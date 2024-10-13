@@ -36,6 +36,7 @@
             downloadDir = "/media/downloads";
           };
           tubearchivist.enable = true;
+          vaultwarden.enable = true;
           webdav.enable = true;
         };
       };

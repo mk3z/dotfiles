@@ -17,6 +17,7 @@
     ./tailscale.nix
     ./transmission.nix
     ./tubearchivist.nix
+    ./vaultwarden.nix
     ./webdav.nix
     ./website.nix
   ];
