@@ -32,7 +32,7 @@ in {
           TA_USERNAME = "tubearchivist";
           TA_PASSWORD = "hunter2";
           ELASTIC_PASSWORD = "hunter2";
-          TZ = "Europe/Helsinki";
+          TZ = config.time.timeZone;
         };
       };
 
@@ -42,11 +42,11 @@ in {
         environment = {
           ELASTIC_PASSWORD = "hunter2";
           UMASK = "002";
-          TZ = "Europe/Helsinki";
           ES_JAVA_OPTS = "-Xms1g -Xmx1g";
           "xpack.security.enabled" = "true";
           "discovery.type" = "single-node";
           "path.repo" = "/usr/share/elasticsearch/data/snapshot";
+          TZ = config.time.timeZone;
         };
         volumes = ["/var/lib/tubearchivist/es:/usr/share/elasticsearch/data"];
         ports = ["9200:9200"];
@@ -56,7 +56,7 @@ in {
         image = "docker.io/redis/redis-stack-server:latest";
         environment = {
           UMASK = "002";
-          TZ = "Europe/Helsinki";
+          TZ = config.time.timeZone;
         };
         volumes = ["/state/tubearchivist/redis:/data"];
         ports = ["6379:6379"];
