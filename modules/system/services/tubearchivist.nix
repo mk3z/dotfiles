@@ -65,24 +65,6 @@ in {
       };
     };
 
-    services.nginx = {
-      enable = true;
-
-      recommendedGzipSettings = true;
-      recommendedOptimisation = true;
-      recommendedProxySettings = true;
-      recommendedTlsSettings = true;
-
-      virtualHosts."${hostname}.intra.mkez.fi".locations."/tubearchivist" = {
-        proxyPass = "http://localhost:${toString port}/";
-        extraConfig = ''
-          proxy_redirect / /tubearchivist/;
-        '';
-      };
-    };
-
-    networking.firewall.interfaces = {
-      ${tailscaleInterface}.allowedTCPPorts = [port];
-    };
+    networking.firewall.interfaces.${tailscaleInterface}.allowedTCPPorts = [port];
   };
 }
