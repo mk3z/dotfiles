@@ -3,6 +3,7 @@
     ./arr.nix
     ./autoupgrade.nix
     ./borg.nix
+    ./cross-seed.nix
     ./dns.nix
     ./headscale.nix
     ./homeassistant.nix

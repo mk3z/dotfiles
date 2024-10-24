@@ -7,6 +7,8 @@
   cfg = config.mkez.services.arr;
   inherit (config.mkez.core) hostname;
   inherit (config.services.tailscale) interfaceName;
+  inherit (config.mkez.services) cross-seed;
+  prowlarrPort = 9696;
 in {
   options.mkez.services.arr.enable = mkEnableOption "Whether to enable arr stack";
   config = mkIf cfg.enable {
@@ -23,13 +25,16 @@ in {
             "/lidarr".proxyPass = "http://localhost:8686";
             "/radarr".proxyPass = "http://localhost:7878";
             "/sonarr".proxyPass = "http://localhost:8989";
-            "/prowlarr".proxyPass = "http://localhost:9696";
+            "/prowlarr".proxyPass = "http://localhost:${toString prowlarrPort}";
           };
         };
       };
     };
 
-    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [80 443];
+    networking.firewall.interfaces = {
+      ${interfaceName}.allowedTCPPorts = [80 443];
+      "podman0".allowedTCPPorts = mkIf cross-seed.enable [prowlarrPort];
+    };
 
     mkez.services.podman.enable = true;
     virtualisation.oci-containers = {
