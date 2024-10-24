@@ -255,6 +255,9 @@ in {
       };
 
       extraPackages = with pkgs; [
+        # Ansible
+        ansible-language-server
+
         # Bash
         nodePackages_latest.bash-language-server
 
