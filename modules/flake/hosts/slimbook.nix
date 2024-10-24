@@ -42,6 +42,7 @@
         programs = {
           flipperzero.enable = true;
           steam.enable = true;
+          ydotool.enable = true;
         };
       };
 
