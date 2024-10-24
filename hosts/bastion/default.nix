@@ -10,6 +10,7 @@ in {
     ./decrypt.nix
     ./hardware-configuration.nix
     ./network.nix
+    ./nginx.nix
   ];
 
   services.nginx = {

@@ -21,6 +21,5 @@
     ./tubearchivist.nix
     ./vaultwarden.nix
     ./webdav.nix
-    ./website.nix
   ];
 }
