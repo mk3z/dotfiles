@@ -49,7 +49,7 @@ in {
           TZ = config.time.timeZone;
         };
         volumes = ["/var/lib/tubearchivist/es:/usr/share/elasticsearch/data"];
-        ports = ["9200:9200"];
+        ports = ["127.0.0.1:9200:9200"];
       };
 
       tubearchivist-redis = {
@@ -59,7 +59,7 @@ in {
           TZ = config.time.timeZone;
         };
         volumes = ["/state/tubearchivist/redis:/data"];
-        ports = ["6379:6379"];
+        ports = ["127.0.0.1:6379:6379"];
         dependsOn = ["tubearchivist-es"];
         autoStart = true;
       };
