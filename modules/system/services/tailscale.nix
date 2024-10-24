@@ -31,5 +31,7 @@ in {
         }
       '';
     };
+
+    systemd.services.tailscaled.after = ["NetworkManager-wait-online.service"];
   };
 }
