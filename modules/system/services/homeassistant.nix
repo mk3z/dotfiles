@@ -16,7 +16,11 @@ in {
       home-assistant = {
         enable = true;
         lovelaceConfigWritable = true;
-        extraComponents = ["zha"];
+        extraComponents = [
+          "zha"
+          "mobile_app"
+          "sun"
+        ];
         customComponents = with pkgs.home-assistant-custom-components; [
           adaptive_lighting
         ];
@@ -39,6 +43,8 @@ in {
             unit_system = "metric";
             temperature_unit = "C";
           };
+          mobile_app = {};
+          automation = "!include automations.yaml";
         };
       };
     };
