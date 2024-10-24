@@ -12,7 +12,7 @@ in {
     ./network.nix
   ];
 
-  nginx = {
+  services.nginx = {
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
