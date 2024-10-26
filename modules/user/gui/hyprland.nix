@@ -173,6 +173,10 @@ in {
       # Disable Xwayland scaling
       xwayland.force_zero_scaling = true;
 
+      windowrulev2 = [
+        "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
+      ];
+
       debug.disable_scale_checks = true;
 
       plugin.split-monitor-workspaces.enable_persistent_workspaces = 0;
