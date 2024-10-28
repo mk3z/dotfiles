@@ -29,6 +29,7 @@
               };
               nil.enable = true;
               statix.enable = true;
+              typos.enable = true;
             };
           };
           # TODO: Remove when https://github.com/cachix/devenv/issues/760 is fixed
