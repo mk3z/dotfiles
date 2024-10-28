@@ -23,6 +23,7 @@ in {
 
   programs.firefox = {
     enable = true;
+    nativeMessagingHosts = with pkgs; [ff2mpv-rust];
     profiles.default = {
       name = "default";
       id = 0;
@@ -31,6 +32,7 @@ in {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         darkreader
+        ff2mpv
         kristofferhagen-nord-theme
         privacy-badger
         privacy-redirect
