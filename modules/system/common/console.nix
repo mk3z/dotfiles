@@ -1,6 +1,13 @@
 {pkgs, ...}: {
   # Some basic system maintenance packages
-  environment.systemPackages = with pkgs; [htop ncdu killall parted wget];
+  environment.systemPackages = with pkgs; [
+    htop
+    iotop
+    ncdu
+    killall
+    parted
+    wget
+  ];
   programs.vim = {
     enable = true;
     defaultEditor = true;
