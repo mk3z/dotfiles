@@ -5,11 +5,11 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.mkez.services.podman;
+  cfg = config.mkez.virtualisation.podman;
   inherit (config.mkez.core) homePersistDir;
   inherit (config.mkez.user) username;
 in {
-  options.mkez.services.podman.enable = mkEnableOption "Enables Podman";
+  options.mkez.virtualisation.podman.enable = mkEnableOption "Enables Podman";
   config = mkIf cfg.enable {
     virtualisation.podman = {
       enable = true;

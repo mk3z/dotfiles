@@ -8,7 +8,7 @@
   inherit (osConfig.mkez.core) homePersistDir;
   inherit (osConfig.mkez.user) homeDirectory;
 in {
-  config = mkIf osConfig.mkez.features.kubernetes.enable {
+  config = mkIf osConfig.mkez.programs.kubernetes.enable {
     programs.k9s = {
       enable = true;
     };

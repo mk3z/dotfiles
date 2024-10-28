@@ -5,13 +5,16 @@
     ./borg.nix
     ./cross-seed.nix
     ./dns.nix
+    ./flatpak.nix
     ./headscale.nix
     ./homeassistant.nix
     ./jellyfin.nix
     ./mailserver.nix
     ./monero.nix
     ./mosh.nix
+    ./mullvad.nix
     ./navidrome.nix
+    ./ratbag.nix
     ./ssh.nix
     ./syncthing.nix
     ./radicale.nix

@@ -15,26 +15,27 @@
       systemConfig = {
         core = {
           hostname = "desktop";
-          server = false;
         };
-        features = {
-          adb.enable = true;
-          kubernetes.enable = true;
-          libvirt.enable = true;
+        hardware = {
           yubikey.enable = true;
         };
-        services = {
-          flatpak.enable = true;
-          mullvad.enable = true;
-          podman.enable = true;
-          ratbag.enable = true;
-          resolved.enable = true;
-          tailscale.enable = true;
-          waydroid.enable = true;
-        };
-        programs = {
-          steam.enable = true;
-        };
+      };
+      services = {
+        flatpak.enable = true;
+        mullvad.enable = true;
+        ratbag.enable = true;
+        resolved.enable = true;
+        tailscale.enable = true;
+      };
+      programs = {
+        adb.enable = true;
+        kubernetes.enable = true;
+        steam.enable = true;
+      };
+      virtualisation = {
+        libvirt.enable = true;
+        podman.enable = true;
+        waydroid.enable = true;
       };
 
       userConfig = {

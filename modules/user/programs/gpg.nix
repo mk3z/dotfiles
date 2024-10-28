@@ -62,7 +62,7 @@ in {
 
   services.gpg-agent = {
     enable = true;
-    enableSshSupport = osConfig.mkez.features.yubikey.enable;
+    enableSshSupport = osConfig.mkez.hardware.yubikey.enable;
     pinentryPackage = pkgs.pinentry-curses;
   };
 

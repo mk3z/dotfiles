@@ -15,34 +15,33 @@
       systemConfig = {
         core = {
           hostname = "slimbook";
-          server = false;
         };
         hardware = {
+          bluetooth.enable = true;
           laptop.enable = true;
           rtl-sdr.enable = true;
-          zfs.enable = true;
-          bluetooth.enable = true;
-        };
-        features = {
-          adb.enable = true;
-          kubernetes.enable = true;
-          libvirt.enable = true;
           yubikey.enable = true;
+          zfs.enable = true;
         };
         services = {
           borg.enable = true;
-          docker.enable = true;
           mullvad.enable = true;
-          podman.enable = true;
           ratbag.enable = true;
           resolved.enable = true;
           tailscale.enable = true;
-          waydroid.enable = true;
         };
         programs = {
+          adb.enable = true;
           flipperzero.enable = true;
+          kubernetes.enable = true;
           steam.enable = true;
           ydotool.enable = true;
+        };
+        virtualisation = {
+          docker.enable = true;
+          libvirt.enable = true;
+          podman.enable = true;
+          waydroid.enable = true;
         };
       };
 

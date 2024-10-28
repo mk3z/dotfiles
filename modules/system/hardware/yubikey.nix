@@ -5,11 +5,11 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.mkez.features.yubikey;
+  cfg = config.mkez.hardware.yubikey;
   inherit (config.mkez.core) homePersistDir;
   inherit (config.mkez.user) username homeDirectory;
 in {
-  options.mkez.features.yubikey.enable = mkEnableOption "Whether to enable Yubikey support";
+  options.mkez.hardware.yubikey.enable = mkEnableOption "Whether to enable Yubikey support";
 
   config = mkIf cfg.enable {
     services = {

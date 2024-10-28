@@ -36,7 +36,7 @@ in {
       "podman0".allowedTCPPorts = mkIf cross-seed.enable [prowlarrPort];
     };
 
-    mkez.services.podman.enable = true;
+    mkez.virtualisation.podman.enable = true;
     virtualisation.oci-containers = {
       backend = "podman";
       containers.flaresolverr = {
