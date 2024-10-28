@@ -36,6 +36,7 @@
     pavucontrol
 
     # media
+    friture
     obs-studio
     ytfzf
 
