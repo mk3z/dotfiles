@@ -34,6 +34,8 @@ in {
     # media
     ffmpeg
     graphviz
+    imagemagick
+    yt-dlp
 
     # nix
     deadnix
