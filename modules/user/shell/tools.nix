@@ -6,6 +6,7 @@
   inherit (osConfig.mkez.user) realName email key;
 in {
   home.packages = with pkgs; [
+    p7zip
     file
     gh
     libqalculate
