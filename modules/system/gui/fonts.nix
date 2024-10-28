@@ -41,7 +41,7 @@ in {
           name = "Noto Color Emoji";
         };
 
-        sizes.terminal = 10;
+        sizes.terminal = 12;
       };
     };
   };
