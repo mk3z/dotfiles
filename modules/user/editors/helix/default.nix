@@ -1,13 +1,10 @@
 {
-  osConfig,
   lib,
   config,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.editors.helix;
-  inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
 in {
   imports = [
     ./languages.nix
@@ -16,10 +13,6 @@ in {
   options.mkez.editors.helix.enable = mkEnableOption "Enable Helix";
 
   config = mkIf cfg.enable {
-    home.persistence."${homePersistDir}${homeDirectory}".directories = [
-      ".cargo"
-    ];
-
     programs.helix = {
       enable = true;
       defaultEditor = true;

@@ -6,7 +6,6 @@
     ./gimp.nix
     ./gnuradio.nix
     ./gpg.nix
-    ./haskell.nix
     ./inkscape.nix
     ./kubernetes.nix
     ./libreoffice.nix
