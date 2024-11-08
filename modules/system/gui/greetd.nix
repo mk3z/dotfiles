@@ -2,12 +2,14 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }: let
-  wm = "${inputs.hyprland.packages.${pkgs.system}.default}/bin/Hyprland";
   inherit (lib) mkIf;
+
   inherit (config.mkez.user) username;
+  inherit (config.home-manager.users.${username}.mkez.gui) wm;
+
+  startCommand = wm.${wm.primary}.command;
 in {
   config = mkIf (!config.mkez.core.server) {
     services.greetd = {
@@ -18,7 +20,7 @@ in {
           user = username;
         };
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${wm} --time --time-format %Y-%m-%d %H:%M:%S% --remember";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${startCommand} --time --time-format %Y-%m-%d %H:%M:%S% --remember";
           user = username;
         };
       };

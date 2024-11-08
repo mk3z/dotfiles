@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./hyprland.nix
+    ./wm
 
     ./keyboard.nix
     ./cursor.nix

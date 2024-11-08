@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  inherit (config.mkez.gui.wm) primary;
+  inherit (config.mkez.gui.wm.${primary}) screenOn screenOff;
+in {
   services.swayidle = {
     enable = true;
     systemdTarget = "graphical-session.target";
@@ -9,8 +16,8 @@
       }
       {
         timeout = 660;
-        command = "${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
-        resumeCommand = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
+        command = screenOff;
+        resumeCommand = screenOn;
       }
     ];
     events = [

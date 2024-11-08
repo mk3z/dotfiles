@@ -22,6 +22,9 @@
       };
 
       userConfig = {
+        gui = {
+          wm.primary = "hyprland";
+        };
         editors = {
           helix.enable = true;
         };

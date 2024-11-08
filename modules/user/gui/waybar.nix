@@ -1,5 +1,10 @@
-{osConfig, ...}: let
+{
+  config,
+  osConfig,
+  ...
+}: let
   inherit (osConfig.services.tailscale) interfaceName;
+  inherit (config.mkez.gui.wm) primary;
 in {
   stylix.targets.waybar.enable = false;
 
@@ -11,7 +16,10 @@ in {
       mainBar = {
         position = "bottom";
         height = 20;
-        modules-left = ["hyprland/workspaces" "hyprland/window"];
+        modules-left =
+          if primary == "hyprland"
+          then ["hyprland/workspaces" "hyprland/window"]
+          else throw "Configuration error";
         modules-right =
           if osConfig.mkez.hardware.bluetooth.enable
           then [

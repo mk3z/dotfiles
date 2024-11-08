@@ -46,6 +46,9 @@
       };
 
       userConfig = {
+        gui = {
+          wm.primary = "hyprland";
+        };
         programs = {
           bitwig.enable = true;
           lutris.enable = true;
