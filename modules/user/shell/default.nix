@@ -6,6 +6,7 @@
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
   inherit (osConfig.mkez.user) homeDirectory;
+  inherit (osConfig.mkez.programs) kubernetes;
 in {
   imports = [
     ./abbreviations
@@ -24,20 +25,27 @@ in {
   programs.fish = {
     enable = true;
 
-    plugins = [
-      {
-        name = "fish-ssh-agent";
-        src = inputs.fish-ssh-agent;
-      }
-      {
-        name = "fish-git-abbr";
-        src = inputs.fish-git;
-      }
-      {
-        name = "kubectl-fish-abbr";
-        src = inputs.fish-kubectl;
-      }
-    ];
+    plugins =
+      [
+        {
+          name = "fish-ssh-agent";
+          src = inputs.fish-ssh-agent;
+        }
+        {
+          name = "fish-git-abbr";
+          src = inputs.fish-git;
+        }
+      ]
+      ++ (
+        if kubernetes.enable
+        then [
+          {
+            name = "kubectl-fish-abbr";
+            src = inputs.fish-kubectl;
+          }
+        ]
+        else []
+      );
 
     shellInit = ''
       # Disable greeting
