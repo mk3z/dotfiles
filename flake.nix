@@ -29,7 +29,10 @@
               };
               nil.enable = true;
               statix.enable = true;
-              typos.enable = true;
+              typos = {
+                enable = true;
+                settings.exclude = "*.el";
+              };
             };
           };
           # TODO: Remove when https://github.com/cachix/devenv/issues/760 is fixed
