@@ -19,23 +19,23 @@
         hardware = {
           yubikey.enable = true;
         };
-      };
-      services = {
-        flatpak.enable = true;
-        mullvad.enable = true;
-        ratbag.enable = true;
-        resolved.enable = true;
-        tailscale.enable = true;
-      };
-      programs = {
-        adb.enable = true;
-        kubernetes.enable = true;
-        steam.enable = true;
-      };
-      virtualisation = {
-        libvirt.enable = true;
-        podman.enable = true;
-        waydroid.enable = true;
+        services = {
+          flatpak.enable = true;
+          mullvad.enable = true;
+          ratbag.enable = true;
+          resolved.enable = true;
+          tailscale.enable = true;
+        };
+        programs = {
+          adb.enable = true;
+          kubernetes.enable = true;
+          steam.enable = true;
+        };
+        virtualisation = {
+          libvirt.enable = true;
+          podman.enable = true;
+          waydroid.enable = true;
+        };
       };
 
       userConfig = {
