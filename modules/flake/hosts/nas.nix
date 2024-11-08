@@ -27,7 +27,6 @@
           homeassistant.enable = true;
           jellyfin.enable = true;
           navidrome.enable = true;
-          podman.enable = true;
           ssh.enable = true;
           radicale.enable = true;
           resolved.enable = true;
@@ -40,6 +39,9 @@
           tubearchivist.enable = true;
           vaultwarden.enable = true;
           webdav.enable = true;
+        };
+        virtualisation = {
+          podman.enable = true;
         };
       };
     };
