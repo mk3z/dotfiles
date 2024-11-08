@@ -18,10 +18,7 @@ in {
     useDHCP = lib.mkDefault true;
   };
 
-  systemd.services = {
-    fs-mount.enable = false;
-    NetworkManager-wait-online.enable = false;
-  };
+  systemd.services.fs-mount.enable = false;
 
   powerManagement.powerUpCommands = ''
     ${pkgs.hdparm}/sbin/hdparm -B 64 /dev/sd{a,b,d}

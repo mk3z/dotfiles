@@ -20,6 +20,4 @@ in {
       routes = [{Gateway = "fe80::1";}];
     };
   };
-
-  systemd.services.NetworkManager-wait-online.enable = false;
 }
