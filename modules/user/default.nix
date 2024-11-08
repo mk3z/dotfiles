@@ -28,7 +28,7 @@ in {
 
     sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
 
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 
   home.packages = [pkgs.xdg-utils];
