@@ -2,13 +2,11 @@
   imports = [
     ./bitwarden.nix
     ./bitwig.nix
-    ./doom
     ./firefox
     ./gimp.nix
     ./gnuradio.nix
     ./gpg.nix
     ./haskell.nix
-    ./helix.nix
     ./inkscape.nix
     ./kubernetes.nix
     ./libreoffice.nix
@@ -16,7 +14,6 @@
     ./monero.nix
     ./mpv.nix
     ./neomutt
-    ./neovim
     ./prism.nix
     ./qbittorrent.nix
     ./rpcs3.nix

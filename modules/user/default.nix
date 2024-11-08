@@ -13,9 +13,10 @@ in {
     inputs.nix-index-database.hmModules.nix-index
 
     ./accounts.nix
+    ./editors
     ./gui
-    ./shell
     ./programs
+    ./shell
   ];
 
   programs.home-manager.enable = true;
