@@ -9,7 +9,10 @@ in {
     type = types.enum ["hyprland" "niri"];
   };
 
-  imports = [./hyprland.nix];
+  imports = [
+    ./hyprland.nix
+    ./niri.nix
+  ];
 
   config.home.packages = with pkgs; [hyprpicker wdisplays wev wl-clipboard];
 }
