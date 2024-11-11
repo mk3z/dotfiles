@@ -15,10 +15,13 @@ in {
     settings = {
       mainBar = {
         position = "bottom";
+        layer = "top";
         height = 20;
         modules-left =
           if primary == "hyprland"
           then ["hyprland/workspaces" "hyprland/window"]
+          else if primary == "niri"
+          then ["niri/workspaces" "niri/window"]
           else throw "Configuration error";
         modules-right =
           if osConfig.mkez.hardware.bluetooth.enable
