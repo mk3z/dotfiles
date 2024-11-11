@@ -10,6 +10,7 @@
   terminal = "alacritty";
 
   inherit (config.programs) niri;
+  inherit (config.mkez) gui;
 in {
   options.mkez.gui.wm.niri = {
     enable = mkOption {
@@ -19,7 +20,7 @@ in {
     };
     command = mkOption {
       type = types.str;
-      default = "${niri.package}/bin/niri";
+      default = "${niri.package}/bin/niri-session";
     };
     screenOff = mkOption {
       type = types.str;
@@ -32,7 +33,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [niri.overlays.niri];
+    home = {
+      sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+        XDG_CURRENT_DESKTOP = "niri";
+      };
+    };
 
     programs.niri.settings = {
       prefer-no-csd = true;
@@ -40,7 +46,7 @@ in {
       input = {
         keyboard = {
           repeat-delay = 250;
-          repeat-rate = 20;
+          repeat-rate = 50;
 
           xkb = {
             layout = "colemat";
@@ -54,24 +60,22 @@ in {
         };
 
         focus-follows-mouse.enable = true;
+        warp-mouse-to-focus = true;
       };
 
       screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
 
       layout = {
-        focus-ring = {
+        border = {
           enable = true;
           width = 1;
         };
 
-        center-focused-column = "never";
+        default-column-width.proportion = 0.5;
+        center-focused-column = "on-overflow";
+        always-center-single-column = true;
 
-        border = {
-          enable = false;
-          width = 1;
-        };
-
-        gaps = 2;
+        gaps = 0;
       };
 
       animations.slowdown = 0.5;
@@ -79,8 +83,7 @@ in {
       spawn-at-startup = [
         # See https://github.com/YaLTeR/niri/wiki/Xwayland
         {command = ["${lib.getExe pkgs.xwayland-satellite-unstable}" ":25"];}
-        {command = "${pkgs.swaybg}/bin/swaybg -m fill -i ${builtins.toString osConfig.stylix.image}";}
-        {command = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";}
+        {command = ["${pkgs.swaybg}/bin/swaybg" "-m" "fill" "-i" "${builtins.toString osConfig.stylix.image}"];}
       ];
 
       environment = {
@@ -90,12 +93,12 @@ in {
       binds = let
         playerctl = "${pkgs.playerctl}/bin/playerctl";
         wpctl = "${pkgs.wireplumber}/bin/wpctl";
-        menu = ["${pkgs.rofi-wayland}/bin/rofi" "-show" "drun"];
+        launcher = lib.strings.splitString " " gui.launcher.command;
       in
         {
           "Mod+Return".action.spawn = [terminal];
           "Mod+W".action.spawn = ["${pkgs.firefox}/bin/firefox"];
-          "Mod+D".action.spawn = menu;
+          "Mod+D".action.spawn = launcher;
           "Mod+L".action.spawn = ["${pkgs.swaylock}/bin/swaylock"];
 
           "Mod+Q".action.close-window = [];
@@ -108,22 +111,21 @@ in {
           # Window management
 
           "Mod+M".action.focus-column-left = [];
-          "Mod+N".action.focus-column-right = [];
-          "Mod+E".action.focus-window-or-workspace-down = [];
-          "Mod+I".action.focus-window-or-workspace-up = [];
+          "Mod+N".action.focus-window-or-workspace-down = [];
+          "Mod+E".action.focus-window-or-workspace-up = [];
+          "Mod+I".action.focus-column-right = [];
           "Mod+Tab".action.focus-workspace-previous = [];
 
           "Mod+Shift+M".action.move-column-left = [];
-          "Mod+Shift+N".action.move-column-right = [];
-          "Mod+Shift+E".action.move-window-down-or-to-workspace-down = [];
-          "Mod+Shift+I".action.move-window-up-or-to-workspace-up = [];
+          "Mod+Shift+N".action.move-window-down-or-to-workspace-down = [];
+          "Mod+Shift+E".action.move-window-up-or-to-workspace-up = [];
+          "Mod+Shift+I".action.move-column-right = [];
 
           "Alt+M".action.set-column-width = "-10%";
           "Alt+I".action.set-column-width = "+10%";
           "Alt+N".action.set-window-height = "-10%";
           "Alt+E".action.set-window-height = "+10%";
 
-          "Mod+C".action.switch-preset-column-width = [];
           "Mod+F".action.maximize-column = [];
           "Mod+Shift+F".action.fullscreen-window = [];
 
@@ -143,7 +145,7 @@ in {
           "Mod+Shift+T".action.move-column-to-monitor-down = [];
           "Mod+Shift+G".action.move-column-to-monitor-right = [];
 
-          "Mod+Shift+odiaeresis".action.show-hotkey-overlay = [];
+          "Mod+Shift+O".action.show-hotkey-overlay = [];
 
           # Volume
 
@@ -154,8 +156,8 @@ in {
 
           # Brightness
 
-          "XF86MonBrightnessUp".action.spawn = ["brillo" "-q" "-A" "1" "-u 100000"];
-          "XF86MonBrightnessDown".action.spawn = ["brillo" "-q" "-U" "1" "-u 100000"];
+          "XF86MonBrightnessUp".action.spawn = ["brillo" "-q" "-A" "1" "-u 1000"];
+          "XF86MonBrightnessDown".action.spawn = ["brillo" "-q" "-U" "1" "-u 1000"];
 
           # Music player
 
