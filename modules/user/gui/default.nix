@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./wm
+    ./launcher
 
     ./keyboard.nix
     ./cursor.nix
@@ -13,7 +14,6 @@
     ./swaylock.nix
     ./swayidle.nix
     ./waybar.nix
-    ./rofi.nix
     ./swaync.nix
   ];
 }
