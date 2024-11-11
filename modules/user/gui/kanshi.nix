@@ -16,6 +16,7 @@ in {
             position = "0,0";
             scale = 1.0;
             transform = "90";
+            adaptiveSync = true;
           }
           {
             # Center
@@ -24,6 +25,7 @@ in {
             mode = "3440x1440@59.97300";
             position = "1050,164";
             scale = 1.33;
+            adaptiveSync = true;
           }
           {
             # Right
@@ -32,6 +34,7 @@ in {
             mode = "1920x1080@74.97300";
             position = "3640,0";
             scale = 1.0;
+            adaptiveSync = true;
           }
           # {
           #   # TV
@@ -49,6 +52,7 @@ in {
             mode = "2560x1440@165";
             position = "0,0";
             scale = 1.6;
+            adaptiveSync = true;
           }
         ];
         docked.outputs = [
@@ -56,8 +60,9 @@ in {
             criteria = "eDP-1";
             status = "enable";
             mode = "2560x1440@165";
-            position = "1580,1080";
+            position = "1580,1110";
             scale = 1.6;
+            adaptiveSync = true;
           }
           {
             # Left
@@ -67,6 +72,7 @@ in {
             position = "0,0";
             scale = 1.0;
             transform = "90";
+            adaptiveSync = true;
           }
           {
             # Center
@@ -74,15 +80,17 @@ in {
             status = "enable";
             mode = "3440x1440@59.97300";
             position = "1050,0";
-            scale = 1.33;
+            scale = 1.32;
+            adaptiveSync = true;
           }
           {
             # Right
-            criteria = "AOC 27G2G4 GYGLCHA284922";
+            criteria = "PNP(AOC) 27G2G4 GYGLCHA284922";
             status = "enable";
             mode = "1920x1080@74.97300";
-            position = "3640,0";
+            position = "3697,0";
             scale = 1.0;
+            adaptiveSync = true;
           }
         ];
       }
