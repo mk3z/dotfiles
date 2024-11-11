@@ -11,6 +11,7 @@
   terminal = "alacritty";
 
   inherit (config.wayland.windowManager) hyprland;
+  inherit (config.mkez.gui) launcher;
 in {
   options.mkez.gui.wm.hyprland = {
     enable = mkOption {
@@ -96,7 +97,7 @@ in {
         "$alt" = "ALT";
         "$terminal" = "${pkgs."${terminal}"}/bin/${terminal}";
         "$editor" = "emacsclient -c -a 'emacs'";
-        "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
+        "$menu" = launcher.command;
         "$lock" = "${pkgs.swaylock}/bin/swaylock -f";
         bind = [
           # Utility
