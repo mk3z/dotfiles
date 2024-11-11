@@ -207,4 +207,6 @@ in {
       }
     '';
   };
+
+  systemd.user.services.waybar.Unit.After = ["graphical-session.target"];
 }

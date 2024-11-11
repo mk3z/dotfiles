@@ -27,4 +27,6 @@ in {
       }
     ];
   };
+
+  systemd.user.services.swayidle.Unit.After = ["graphical-session.target"];
 }
