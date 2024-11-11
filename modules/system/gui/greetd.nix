@@ -16,7 +16,7 @@ in {
       enable = true;
       settings = {
         initial_session = {
-          command = wm;
+          command = startCommand;
           user = username;
         };
         default_session = {
