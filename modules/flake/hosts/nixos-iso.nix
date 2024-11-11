@@ -23,7 +23,8 @@
 
       userConfig = {
         gui = {
-          wm.primary = "hyprland";
+          wm.primary = "niri";
+          launcher.primary = "fuzzel";
         };
         editors = {
           helix.enable = true;

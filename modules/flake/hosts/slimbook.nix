@@ -47,7 +47,8 @@
 
       userConfig = {
         gui = {
-          wm.primary = "hyprland";
+          wm.primary = "niri";
+          launcher.primary = "fuzzel";
         };
         programs = {
           bitwig.enable = true;
