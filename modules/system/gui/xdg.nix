@@ -18,7 +18,7 @@ in {
           [xdg-desktop-portal-gtk]
           ++ (
             if wm.primary == "hyprland"
-            then [xdg-desktop-portal-hyprland]
+            then [pkgs.xdg-desktop-portal-hyprland]
             else []
           );
         config.common.default = "*";
