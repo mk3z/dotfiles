@@ -46,12 +46,22 @@ in {
   config = mkIf cfg.enable {
     home = {
       sessionVariables = {
-        NIXOS_OZONE_WL = "1";
-        XDG_CURRENT_DESKTOP = "niri";
       };
     };
 
     programs.niri.settings = {
+      environment = {
+        NIXOS_OZONE_WL = "1";
+        XDG_CURRENT_DESKTOP = "niri";
+        WLR_BACKEND = "vulkan";
+
+        MOZ_ENABLE_WAYLAND = "1";
+        QT_QPA_PLATFORM = "wayland";
+        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+        CLUTTER_BACKEND = "wayland";
+        GDK_BACKEND = "wayland";
+      };
+
       prefer-no-csd = true;
 
       input = {
