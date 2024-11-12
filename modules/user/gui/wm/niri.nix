@@ -81,7 +81,7 @@ in {
         warp-mouse-to-focus = true;
       };
 
-      screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
+      screenshot-path = "~/Downloads/Screenshots/%Y-%m-%dT%H:%M:%S.png";
 
       layout = {
         border = {
