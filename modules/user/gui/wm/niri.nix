@@ -48,10 +48,7 @@ in {
           repeat-delay = 250;
           repeat-rate = 50;
 
-          xkb = {
-            layout = "colemat";
-            options = "caps:escape";
-          };
+          xkb.layout = "colemat";
         };
 
         touchpad = {
