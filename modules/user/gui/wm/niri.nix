@@ -11,6 +11,17 @@
 
   inherit (config.programs) niri;
   inherit (config.mkez) gui;
+
+  monitorControl =
+    pkgs.writeShellScript "monitor-control"
+    ''
+      MONITORS=$(${niri.package}/bin/niri msg outputs | ${pkgs.gnugrep}/bin/grep Output | ${pkgs.gnused}/bin/sed 's/\(^[^"]*"\)\|\(".*$\)//g')
+
+      IFS=$'\n'
+      for m in $MONITORS; do
+        ${niri.package}/bin/niri msg output "$m" "$1"
+      done;
+    '';
 in {
   options.mkez.gui.wm.niri = {
     enable = mkOption {
@@ -24,11 +35,11 @@ in {
     };
     screenOff = mkOption {
       type = types.str;
-      default = "${niri.package}/bin/niri msg output * off";
+      default = "${monitorControl} off";
     };
     screenOn = mkOption {
       type = types.str;
-      default = "${niri.package}/bin/niri msg output * on";
+      default = "${monitorControl} on";
     };
   };
 
