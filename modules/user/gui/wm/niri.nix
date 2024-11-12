@@ -67,7 +67,7 @@ in {
       input = {
         keyboard = {
           repeat-delay = 250;
-          repeat-rate = 50;
+          repeat-rate = 60;
 
           xkb.layout = "colemat";
         };
