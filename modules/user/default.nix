@@ -8,7 +8,6 @@
   inherit (osConfig.mkez.user) username homeDirectory;
 in {
   imports = [
-    inputs.nur.hmModules.nur
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.nix-index-database.hmModules.nix-index
 

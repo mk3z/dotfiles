@@ -1,6 +1,11 @@
 {
   # Mostly from https://github.com/arkenfox/user.js/blob/master/user.js
 
+  # textfox
+  "shyfox.enable.ext.mono.toolbar.icons" = true;
+  "shyfox.enable.ext.mono.context.icons" = true;
+  "shyfox.enable.context.menu.icons" = true;
+
   # Startup
   "browser.aboutConfig.showWarning" = false;
   "browser.startup.page" = 0;
