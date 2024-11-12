@@ -90,7 +90,6 @@ in {
         };
 
         default-column-width.proportion = 0.5;
-        center-focused-column = "on-overflow";
         always-center-single-column = true;
 
         gaps = 0;
@@ -128,40 +127,41 @@ in {
 
           # Window management
 
-          "Mod+M".action.focus-column-left = [];
+          "Mod+M".action.focus-column-left-or-last = [];
           "Mod+N".action.focus-window-or-workspace-down = [];
           "Mod+E".action.focus-window-or-workspace-up = [];
-          "Mod+I".action.focus-column-right = [];
+          "Mod+I".action.focus-column-right-or-first = [];
+
+          "Mod+Control+M".action.move-column-left = [];
+          "Mod+Control+N".action.move-window-down-or-to-workspace-down = [];
+          "Mod+Control+E".action.move-window-up-or-to-workspace-up = [];
+          "Mod+Control+I".action.move-column-right = [];
+
+          "Mod+G".action.focus-column-first = [];
+          "Mod+Shift+G".action.focus-column-last = [];
           "Mod+Tab".action.focus-workspace-previous = [];
 
-          "Mod+Shift+M".action.move-column-left = [];
-          "Mod+Shift+N".action.move-window-down-or-to-workspace-down = [];
-          "Mod+Shift+E".action.move-window-up-or-to-workspace-up = [];
-          "Mod+Shift+I".action.move-column-right = [];
+          "Mod+Shift+M".action.focus-monitor-left = [];
+          "Mod+Shift+N".action.focus-monitor-down = [];
+          "Mod+Shift+E".action.focus-monitor-up = [];
+          "Mod+Shift+I".action.focus-monitor-right = [];
+
+          "Mod+Shift+Control+M".action.move-window-to-monitor-left = [];
+          "Mod+Shift+Control+N".action.move-window-to-monitor-down = [];
+          "Mod+Shift+Control+E".action.move-window-to-monitor-up = [];
+          "Mod+Shift+Control+I".action.move-window-to-monitor-right = [];
 
           "Alt+M".action.set-column-width = "-10%";
           "Alt+I".action.set-column-width = "+10%";
-          "Alt+N".action.set-window-height = "-10%";
-          "Alt+E".action.set-window-height = "+10%";
+          "Alt+E".action.set-window-height = "-10%";
+          "Alt+N".action.set-window-height = "+10%";
 
           "Mod+F".action.maximize-column = [];
           "Mod+Shift+F".action.fullscreen-window = [];
 
           "Mod+Comma".action.consume-window-into-column = [];
           "Mod+Period".action.expel-window-from-column = [];
-          "Mod+C".action.center-column = [];
-
-          # Monitor management
-
-          "Mod+R".action.focus-monitor-left = [];
-          "Mod+S".action.focus-monitor-up = [];
-          "Mod+T".action.focus-monitor-down = [];
-          "Mod+G".action.focus-monitor-right = [];
-
-          "Mod+Shift+R".action.move-column-to-monitor-left = [];
-          "Mod+Shift+S".action.move-column-to-monitor-up = [];
-          "Mod+Shift+T".action.move-column-to-monitor-down = [];
-          "Mod+Shift+G".action.move-column-to-monitor-right = [];
+          "Mod+Space".action.center-column = [];
 
           "Mod+Shift+O".action.show-hotkey-overlay = [];
 
