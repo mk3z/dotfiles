@@ -128,10 +128,10 @@ in {
 
           # Window management
 
-          "Mod+M".action.focus-column-left-or-last = [];
+          "Mod+M".action.focus-column-left = [];
           "Mod+N".action.focus-window-or-workspace-down = [];
           "Mod+E".action.focus-window-or-workspace-up = [];
-          "Mod+I".action.focus-column-right-or-first = [];
+          "Mod+I".action.focus-column-right = [];
 
           "Mod+Control+M".action.move-column-left = [];
           "Mod+Control+N".action.move-window-down-or-to-workspace-down = [];
