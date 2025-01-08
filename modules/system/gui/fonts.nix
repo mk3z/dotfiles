@@ -14,7 +14,7 @@ in {
         (nerdfonts.override {fonts = ["Iosevka" "NerdFontsSymbolsOnly"];})
         symbola
         noto-fonts
-        noto-fonts-cjk
+        noto-fonts-cjk-sans
         noto-fonts-emoji
       ];
     };
