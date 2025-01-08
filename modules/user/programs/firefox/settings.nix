@@ -1,10 +1,7 @@
 {
-  # Mostly from https://github.com/arkenfox/user.js/blob/master/user.js
+  "identity.sync.tokenserver.uri" = "https://nas.intra.mkez.fi/ff-sync/token/1.0/sync/1.5";
 
-  # textfox
-  "shyfox.enable.ext.mono.toolbar.icons" = true;
-  "shyfox.enable.ext.mono.context.icons" = true;
-  "shyfox.enable.context.menu.icons" = true;
+  # Mostly from https://github.com/arkenfox/user.js/blob/master/user.js
 
   # Startup
   "browser.aboutConfig.showWarning" = false;

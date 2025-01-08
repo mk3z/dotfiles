@@ -1,5 +1,4 @@
 {
-  inputs,
   osConfig,
   pkgs,
   ...
@@ -8,8 +7,6 @@
   inherit (osConfig.mkez.user) homeDirectory;
 in {
   imports = [
-    inputs.textfox.homeManagerModules.default
-
     # Cool plugin but scroll is bad
     #./tridactyl.nix
   ];
@@ -22,11 +19,6 @@ in {
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
     };
-  };
-
-  textfox = {
-    enable = true;
-    profile = "default";
   };
 
   programs.firefox = {
