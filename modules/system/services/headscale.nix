@@ -19,7 +19,7 @@ in {
           prefixes.v4 = "100.99.0.0/16";
           dns = {
             base_domain = "intra.mkez.fi";
-            nameservers.global = ["9.9.9.9" "1.1.1.1"];
+            nameservers.global = ["100.99.0.2"];
             username_in_magic_dns = false;
           };
           logtail.enabled = false;
