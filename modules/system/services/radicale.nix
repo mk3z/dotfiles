@@ -61,6 +61,6 @@ in {
       };
     };
 
-    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [80 433];
+    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [80 443];
   };
 }

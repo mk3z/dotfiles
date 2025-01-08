@@ -29,6 +29,6 @@ in {
         virtualHosts."${hostname}.intra.mkez.fi".locations.${BaseURL}.proxyPass = "http://localhost:${toString Port}";
       };
     };
-    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [Port 80 433];
+    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [Port 80 443];
   };
 }

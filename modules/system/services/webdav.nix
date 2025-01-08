@@ -35,6 +35,6 @@ in {
 
     systemd.services.nginx.serviceConfig.ReadWritePaths = ["/state/webdav"];
 
-    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [80 433];
+    networking.firewall.interfaces.${interfaceName}.allowedTCPPorts = [80 443];
   };
 }
