@@ -2,6 +2,7 @@
   imports = [
     ./arr.nix
     ./autoupgrade.nix
+    ./blocky.nix
     ./borg.nix
     ./cross-seed.nix
     ./dns.nix
