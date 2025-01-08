@@ -55,12 +55,12 @@ in {
             adaptiveSync = true;
           }
         ];
-        docked.outputs = [
+        home.outputs = [
           {
             criteria = "eDP-1";
             status = "enable";
             mode = "2560x1440@165";
-            position = "1580,1110";
+            position = "1626,1152";
             scale = 1.6;
             adaptiveSync = true;
           }
@@ -80,7 +80,7 @@ in {
             status = "enable";
             mode = "3440x1440@59.97300";
             position = "1050,0";
-            scale = 1.32;
+            scale = 1.25;
             adaptiveSync = true;
           }
           {
@@ -88,8 +88,26 @@ in {
             criteria = "PNP(AOC) 27G2G4 GYGLCHA284922";
             status = "enable";
             mode = "1920x1080@74.97300";
-            position = "3697,0";
+            position = "3802,72";
             scale = 1.0;
+            adaptiveSync = true;
+          }
+        ];
+        office.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            mode = "2560x1440@165";
+            position = "277,1200";
+            scale = 1.6;
+            adaptiveSync = true;
+          }
+          {
+            criteria = "HP Inc. HP E27u G5 CN43440FY6";
+            status = "enable";
+            mode = "2560x1440@75.001";
+            position = "0,0";
+            scale = 1.2;
             adaptiveSync = true;
           }
         ];
