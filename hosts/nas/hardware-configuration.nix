@@ -28,6 +28,26 @@
       fsType = "ext4";
       neededForBoot = true;
     };
+
+    "/backup" = {
+      device = "dpool/data/backup";
+      fsType = "zfs";
+    };
+
+    "/media" = {
+      device = "dpool/data/media";
+      fsType = "zfs";
+    };
+
+    "/state" = {
+      device = "dpool/data/state";
+      fsType = "zfs";
+    };
+
+    "/sync" = {
+      device = "dpool/data/sync";
+      fsType = "zfs";
+    };
   };
 
   swapDevices = [
