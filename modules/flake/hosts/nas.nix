@@ -26,6 +26,7 @@
           blocky.enable = true;
           cross-seed.enable = true;
           earthwalker.enable = true;
+          firefox-sync.enable = true;
           homeassistant.enable = true;
           jellyfin.enable = true;
           navidrome.enable = true;

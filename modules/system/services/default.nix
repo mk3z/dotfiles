@@ -7,6 +7,7 @@
     ./cross-seed.nix
     ./dns.nix
     ./earthwalker.nix
+    ./firefox-sync.nix
     ./flatpak.nix
     ./headscale.nix
     ./homeassistant.nix
