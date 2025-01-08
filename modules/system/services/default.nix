@@ -6,6 +6,7 @@
     ./borg.nix
     ./cross-seed.nix
     ./dns.nix
+    ./earthwalker.nix
     ./flatpak.nix
     ./headscale.nix
     ./homeassistant.nix
