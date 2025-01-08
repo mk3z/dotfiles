@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   stylix.cursor = {
-    package = pkgs.phinger-cursors;
-    name = "phinger-cursors-dark";
+    package = pkgs.posy-cursors;
+    name = "Posy_Cursor_Black";
   };
 }
