@@ -16,6 +16,7 @@ in {
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-emoji
+        fira-code
       ];
     };
 
