@@ -76,6 +76,18 @@ in {
           color = "green";
           icon = "circle";
         };
+
+        chat = {
+          id = 6;
+          color = "green";
+          icon = "tree";
+        };
+
+        fr8 = {
+          id = 7;
+          color = "blue";
+          icon = "briefcase";
+        };
       };
 
       search = {
