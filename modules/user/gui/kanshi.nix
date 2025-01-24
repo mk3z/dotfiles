@@ -58,38 +58,14 @@ in {
         home.outputs = [
           {
             criteria = "eDP-1";
-            status = "enable";
-            mode = "2560x1440@165";
-            position = "1626,1152";
-            scale = 1.6;
-            adaptiveSync = true;
+            status = "disable";
           }
           {
-            # Left
-            criteria = "Dell Inc. DELL P2210 7PGVR242AGTL";
+            criteria = "LG Electronics LG TV SSCR2 0x01010101";
             status = "enable";
-            mode = "1680x1050@59.88300";
+            mode = "3840x2160@60.000";
             position = "0,0";
-            scale = 1.0;
-            transform = "90";
-            adaptiveSync = true;
-          }
-          {
-            # Center
-            criteria = "Lenovo Group Limited LEN T34w-20 V3077RCP";
-            status = "enable";
-            mode = "3440x1440@59.97300";
-            position = "1050,0";
-            scale = 1.25;
-            adaptiveSync = true;
-          }
-          {
-            # Right
-            criteria = "PNP(AOC) 27G2G4 GYGLCHA284922";
-            status = "enable";
-            mode = "1920x1080@74.97300";
-            position = "3802,72";
-            scale = 1.0;
+            scale = 2.0;
             adaptiveSync = true;
           }
         ];
