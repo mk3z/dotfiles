@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   stylix.targets.swaylock.useImage = false;
 
   programs.swaylock = {
@@ -6,6 +6,7 @@
     settings = {
       font = "monospace";
       font-size = 18;
+      color = lib.mkForce "000000";
     };
   };
 }
