@@ -25,7 +25,10 @@ in {
 
       nginx = {
         enable = true;
-        virtualHosts."${hostname}.intra.mkez.fi".locations."/jellyfin".proxyPass = "http://localhost:${toString port}";
+        virtualHosts."${hostname}.intra.mkez.fi".locations."/jellyfin" = {
+          proxyPass = "http://localhost:${toString port}";
+          proxyWebsockets = true;
+        };
       };
     };
 
