@@ -87,6 +87,24 @@ in {
             adaptiveSync = true;
           }
         ];
+        fr8.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            mode = "2560x1440@165";
+            position = "650,1200";
+            scale = 1.6;
+            adaptiveSync = true;
+          }
+          {
+            criteria = "PNP(AOC) CU34G2XP 1Q1QAHA000303";
+            status = "enable";
+            mode = "3440x1440@100.000";
+            position = "0,0";
+            scale = 1.2;
+            adaptiveSync = true;
+          }
+        ];
       }
       else {};
   };
