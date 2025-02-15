@@ -36,7 +36,7 @@ in {
 
   nixpkgs = {
     overlays = [
-      inputs.nur.overlay
+      inputs.nur.overlays.default
       inputs.helix.overlays.default
       inputs.fenix.overlays.default
     ];
