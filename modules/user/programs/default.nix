@@ -36,6 +36,10 @@
     obs-studio
     ytfzf
 
+    #networking
+    nmap
+    wireshark
+
     # other
     quickemu
     transmission_4
