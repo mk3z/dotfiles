@@ -1,5 +1,5 @@
 {lib, ...}: {
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.11";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   networking.wireless.enable = false;
 }

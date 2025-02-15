@@ -25,6 +25,6 @@ in {
     defaults.email = email;
   };
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.11";
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }
