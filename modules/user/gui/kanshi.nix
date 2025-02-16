@@ -106,6 +106,69 @@ in {
           }
         ];
       }
+      else if hostname == "framework"
+      then {
+        undocked.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            mode = "2880x1920@120";
+            position = "0,0";
+            scale = 2.0;
+            adaptiveSync = true;
+          }
+        ];
+        home.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "disable";
+          }
+          {
+            criteria = "LG Electronics LG TV SSCR2 0x01010101";
+            status = "enable";
+            mode = "3840x2160@60.000";
+            position = "0,0";
+            scale = 2.0;
+            adaptiveSync = true;
+          }
+        ];
+        office.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            mode = "2880x1920@120";
+            position = "0,0";
+            scale = 2.0;
+            adaptiveSync = true;
+          }
+          {
+            criteria = "HP Inc. HP E27u G5 CN43440FY6";
+            status = "enable";
+            mode = "2560x1440@75.001";
+            position = "0,0";
+            scale = 1.2;
+            adaptiveSync = true;
+          }
+        ];
+        fr8.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            mode = "2880x1920@120";
+            position = "0,0";
+            scale = 2.0;
+            adaptiveSync = true;
+          }
+          {
+            criteria = "PNP(AOC) CU34G2XP 1Q1QAHA000303";
+            status = "enable";
+            mode = "3440x1440@100.000";
+            position = "0,0";
+            scale = 1.2;
+            adaptiveSync = true;
+          }
+        ];
+      }
       else {};
   };
 }
