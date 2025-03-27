@@ -155,7 +155,7 @@ in {
             criteria = "eDP-1";
             status = "enable";
             mode = "2880x1920@120";
-            position = "0,0";
+            position = "724,1200";
             scale = 2.0;
             adaptiveSync = true;
           }
