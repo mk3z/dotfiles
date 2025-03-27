@@ -22,6 +22,7 @@
     ./speedcrunch.nix
     ./syncthing.nix
     ./telegram.nix
+    ./thunderbird.nix
     ./vscode.nix
     ./webcord.nix
     ./wine.nix

@@ -55,6 +55,7 @@
           lutris.enable = true;
           monero.enable = true;
           prism.enable = true;
+          thunderbird.enable = true;
         };
         editors = {
           helix.enable = true;
