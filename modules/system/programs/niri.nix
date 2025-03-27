@@ -13,4 +13,5 @@ in {
 
   nixpkgs.overlays = [inputs.niri.overlays.niri];
   programs.niri.enable = wm.niri.enable;
+  niri-flake.cache.enable = true;
 }
