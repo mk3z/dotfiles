@@ -69,7 +69,10 @@ in {
           repeat-delay = 250;
           repeat-rate = 60;
 
-          xkb.layout = "colemat";
+          xkb = {
+            layout = "colemat,us,us";
+            variant = ",intl,colemak,";
+          };
         };
 
         touchpad = {
