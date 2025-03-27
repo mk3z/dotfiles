@@ -78,7 +78,6 @@ in {
         touchpad = {
           dwt = true;
           dwtp = true;
-          disabled-on-external-mouse = true;
         };
 
         focus-follows-mouse.enable = true;
