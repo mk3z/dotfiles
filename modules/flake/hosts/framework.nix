@@ -26,6 +26,7 @@
           borg.enable = true;
           mullvad.enable = true;
           ratbag.enable = true;
+          printing.enable = true;
           resolved.enable = true;
           tailscale.enable = true;
         };

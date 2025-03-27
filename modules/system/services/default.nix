@@ -17,6 +17,7 @@
     ./mosh.nix
     ./mullvad.nix
     ./navidrome.nix
+    ./printing.nix
     ./ratbag.nix
     ./ssh.nix
     ./syncthing.nix
