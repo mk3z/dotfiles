@@ -20,6 +20,7 @@
           rtl-sdr.enable = true;
           yubikey.enable = true;
           zfs.enable = true;
+          zsa.enable = true;
         };
         services = {
           borg.enable = true;

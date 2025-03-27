@@ -7,5 +7,6 @@
     ./sound.nix
     ./yubikey.nix
     ./zfs.nix
+    ./zsa.nix
   ];
 }
