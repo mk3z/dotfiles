@@ -41,6 +41,8 @@ in {
     age.secrets =
       if config.mkez.core.hostname == "bastion"
       then {bastion-password.file = ../../../secrets/bastion-password.age;}
+      else if config.mkez.core.hostname == "slimbook"
+      then {slimbook-password.file = ../../../secrets/slimbook-password.age;}
       else {password.file = ../../../secrets/password.age;};
 
     # Make the default user
@@ -53,6 +55,8 @@ in {
         hashedPasswordFile =
           if config.mkez.core.hostname == "bastion"
           then config.age.secrets.bastion-password.path
+          else if config.mkez.core.hostname == "slimbook"
+          then config.age.secrets.slimbook-password.path
           else if !cfg.noPassword
           then config.age.secrets.password.path
           else null;
