@@ -14,12 +14,12 @@
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/BB3C-0CD8";
+      device = "/dev/disk/by-uuid/C161-94D7";
       fsType = "vfat";
     };
 
     "/boot-fallback" = {
-      device = "/dev/disk/by-uuid/BB94-AEE7";
+      device = "/dev/disk/by-uuid/C0DA-0A30";
       fsType = "vfat";
     };
 
