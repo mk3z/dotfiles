@@ -64,7 +64,7 @@
         }
         {
           name = "typst";
-          language-servers = ["typst-lsp" "typos-lsp"];
+          language-servers = ["tinymist" "typos"];
           auto-format = true;
           formatter.command = "${pkgs.typstyle}/bin/typstyle";
         }
@@ -85,7 +85,7 @@
           command = "${pkgs.ruff}/bin/ruff";
           args = ["server" "--preview"];
         };
-        typos-lsp = {
+        typos = {
           command = "${pkgs.typos-lsp}/bin/typos-lsp";
         };
       };
@@ -131,7 +131,7 @@
       nodePackages.svelte-language-server
 
       # Typst
-      typst-lsp
+      tinymist
 
       # YAML
       yaml-language-server
