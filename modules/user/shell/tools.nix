@@ -40,6 +40,7 @@ in {
 
     # nix
     deadnix
+    devenv
     nix-diff
     nix-du
     nix-melt
