@@ -60,6 +60,8 @@ in {
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
         CLUTTER_BACKEND = "wayland";
         GDK_BACKEND = "wayland";
+
+        DISPLAY = ":25";
       };
 
       prefer-no-csd = true;
@@ -106,9 +108,7 @@ in {
         {command = ["${pkgs.swaybg}/bin/swaybg" "-m" "fill" "-i" "${builtins.toString osConfig.stylix.image}"];}
       ];
 
-      environment = {
-        DISPLAY = ":25";
-      };
+      hotkey-overlay.skip-at-startup = false;
 
       binds = let
         playerctl = "${pkgs.playerctl}/bin/playerctl";
