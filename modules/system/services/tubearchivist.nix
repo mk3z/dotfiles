@@ -25,7 +25,7 @@ in {
         environment = {
           UMASK = "002";
           ES_URL = "http://tubearchivist-es:9200";
-          REDIS_HOST = "tubearchivist-redis";
+          REDIS_CON = "redis://tubearchivist-redis:6379";
           HOST_UID = "1000";
           HOST_GID = "1000";
           TA_HOST = "podman-tubearchivist-app.service localhost ${hostname}.intra.mkez.fi";
