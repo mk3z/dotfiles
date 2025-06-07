@@ -13,6 +13,7 @@ in {
     sshuttle
     tldr
     unzip
+    yq-go
 
     # disk
     duf
@@ -21,6 +22,7 @@ in {
     ripgrep
 
     # network
+    httpie
     ldns
     mtr
     nethogs
@@ -104,8 +106,6 @@ in {
     };
 
     fzf.enable = true;
-
-    jq.enable = true;
 
     less = {
       enable = true;
