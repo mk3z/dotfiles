@@ -21,6 +21,7 @@ in {
     services = {
       jellyfin = {
         enable = true;
+        dataDir = "/state/jellyfin";
       };
 
       nginx = {
