@@ -48,7 +48,7 @@ in {
           "path.repo" = "/usr/share/elasticsearch/data/snapshot";
           TZ = config.time.timeZone;
         };
-        volumes = ["/var/lib/tubearchivist/es:/usr/share/elasticsearch/data"];
+        volumes = ["/state/tubearchivist/es:/usr/share/elasticsearch/data"];
         ports = ["127.0.0.1:9200:9200"];
       };
 
