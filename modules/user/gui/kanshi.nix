@@ -137,16 +137,16 @@ in {
             criteria = "eDP-1";
             status = "enable";
             mode = "2880x1920@120";
-            position = "0,0";
+            position = "482,1351";
             scale = 2.0;
             adaptiveSync = true;
           }
           {
-            criteria = "HP Inc. HP E27u G5 CN43440FY6";
+            criteria = "Lenovo Group Limited LEN T32p-20 VNA735CZ";
             status = "enable";
-            mode = "2560x1440@75.001";
+            mode = "3840x2160@59.997";
             position = "0,0";
-            scale = 1.2;
+            scale = 1.6;
             adaptiveSync = true;
           }
         ];
