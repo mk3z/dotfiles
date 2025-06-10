@@ -5,7 +5,6 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.mkez.services.ssh;
-  inherit (config.services.tailscale) interfaceName;
   inherit (config.services.openssh) ports;
   inherit (config.mkez.core) sysPersistDir;
   inherit (config.mkez.user) username;
@@ -22,14 +21,7 @@ in {
       };
     };
 
-    networking.firewall =
-      if (config.mkez.core.hostname == "bastion")
-      then {
-        interfaces.${interfaceName}.allowedTCPPorts = ports;
-      }
-      else {
-        allowedTCPPorts = ports;
-      };
+    networking.firewall.allowedTCPPorts = ports;
 
     # FIXME make this more DRY
     users.users = {
