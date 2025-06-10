@@ -11,7 +11,7 @@ in {
     nftables.enable = true;
     networkmanager = {
       enable = true;
-      wifi.macAddress = "random";
+      wifi.macAddress = "stable-ssid";
       ethernet.macAddress = lib.mkIf (!config.mkez.core.server) "random";
     };
   };
