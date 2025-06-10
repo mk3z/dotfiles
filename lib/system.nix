@@ -40,6 +40,7 @@ in {
                   inherit inputs;
                 };
                 users.${username} = user.mkConfig {inherit userConfig;};
+                backupFileExtension = "hmbak";
               }
               else {};
           })

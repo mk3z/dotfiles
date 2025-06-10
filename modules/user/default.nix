@@ -18,10 +18,7 @@ in {
     ./shell
   ];
 
-  programs.home-manager = {
-    enable = true;
-    backupFileExtension = "hmbak";
-  };
+  programs.home-manager.enable = true;
 
   home = {
     inherit username homeDirectory;
