@@ -95,11 +95,15 @@ in {
       includes = [
         {
           contents.user.email = "matias.zwinger@aalto.fi";
-          condition = "gitdir:~/Projects/aalto/**";
+          condition = "gitdir:~/Projects/Aalto/**";
         }
         {
           contents.user.email = "matias.zwinger@csc.fi";
-          condition = "gitdir:~/Projects/csc/**";
+          condition = "gitdir:~/Projects/CSC/**";
+        }
+        {
+          contents.user.email = "matias.zwinger@cern.ch";
+          condition = "gitdir:~/Projects/CERN/**";
         }
       ];
       delta.enable = true;
