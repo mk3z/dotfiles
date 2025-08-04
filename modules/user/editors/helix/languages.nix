@@ -15,6 +15,10 @@
           };
         }
         {
+          name = "ini";
+          file-types = ["conf"];
+        }
+        {
           name = "cpp";
           auto-format = true;
         }
