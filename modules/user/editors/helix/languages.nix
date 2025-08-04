@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   programs.helix = {
     languages = {
       language = [
@@ -28,6 +32,11 @@
           language-servers = ["ltex-ls"];
           scope = "text.raw";
           roots = [];
+        }
+        {
+          name = "markdown";
+          auto-format = true;
+          language-servers = ["marksman" "mpls"];
         }
         {
           name = "nix";
@@ -80,6 +89,22 @@
         };
         ltex-ls = {
           command = "${pkgs.ltex-ls}/bin/ltex-ls";
+        };
+        mpls = {
+          command = "${lib.getExe pkgs.mpls}";
+          args = [
+            "--dark-mode"
+            "--enable-emoji"
+            "--code-style"
+            "nordic"
+            "--enable-wikilinks"
+            "--port"
+            "20125"
+            "--browser"
+            (pkgs.writeShellScript
+              "chromium-app"
+              "${lib.getExe pkgs.chromium} --app=http://localhost:20125")
+          ];
         };
         ruff = {
           command = "${pkgs.ruff}/bin/ruff";

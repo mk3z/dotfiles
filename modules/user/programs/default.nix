@@ -2,6 +2,7 @@
   imports = [
     ./bitwarden.nix
     ./bitwig.nix
+    ./chromium.nix
     ./firefox
     ./gimp.nix
     ./gnuradio.nix
@@ -44,7 +45,6 @@
     # other
     quickemu
     transmission_4
-    ungoogled-chromium
     (octaveFull.withPackages (opkgs: with opkgs; [communications signal statistics symbolic]))
   ];
 
