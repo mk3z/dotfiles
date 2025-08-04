@@ -45,7 +45,7 @@ in {
               else {};
           })
 
-          inputs.home-manager.nixosModule
+          inputs.home-manager.nixosModules.home-manager
           inputs.impermanence.nixosModule
           inputs.disko.nixosModules.disko
           inputs.agenix.nixosModules.default

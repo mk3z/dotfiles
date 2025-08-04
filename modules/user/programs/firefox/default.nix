@@ -21,6 +21,8 @@ in {
     };
   };
 
+  stylix.targets.firefox.profileNames = ["default"];
+
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = with pkgs; [ff2mpv-rust];
@@ -29,7 +31,7 @@ in {
       id = 0;
       settings = import ./settings.nix;
 
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         darkreader
         ff2mpv
@@ -92,7 +94,7 @@ in {
 
       search = {
         force = true;
-        default = "DuckDuckGo";
+        default = "ddg";
         engines = {
           "Amazon.de" = {
             urls = [{template = "https://www.amazon.de/s?k={searchTerms}";}];
@@ -108,7 +110,7 @@ in {
             definedAliases = [":aw"];
           };
 
-          "DuckDuckGo" = {
+          "ddg" = {
             urls = [{template = "https://duckduckgo.com/?q={searchTerms}";}];
             definedAliases = [":d"];
           };
@@ -187,7 +189,7 @@ in {
             definedAliases = [":hg"];
           };
 
-          "Wikipedia" = {
+          "wikipedia" = {
             urls = [
               {
                 template = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";
@@ -196,7 +198,7 @@ in {
             definedAliases = [":w"];
           };
 
-          "Wikipedia (de)" = {
+          "wikipedia-de" = {
             urls = [
               {
                 template = "https://de.wikipedia.org/wiki/Special:Search?search={searchTerms}";
@@ -205,7 +207,7 @@ in {
             definedAliases = [":wd"];
           };
 
-          "Wikipedia (fi)" = {
+          "wikipedia-fi" = {
             urls = [
               {
                 template = "https://fi.wikipedia.org/wiki/Special:Search?search={searchTerms}";
@@ -214,7 +216,7 @@ in {
             definedAliases = [":wf"];
           };
 
-          "YouTube" = {
+          "youtube" = {
             urls = [
               {
                 template = "https://www.youtube.com/results?search_query={searchTerms}";

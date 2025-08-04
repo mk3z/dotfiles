@@ -123,7 +123,7 @@ in {
 
     lsd = {
       enable = true;
-      enableAliases = true;
+      enableFishIntegration = true;
     };
 
     nix-index = {

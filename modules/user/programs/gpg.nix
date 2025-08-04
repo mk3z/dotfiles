@@ -63,7 +63,7 @@ in {
   services.gpg-agent = {
     enable = true;
     enableSshSupport = osConfig.mkez.hardware.yubikey.enable;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentry.package = pkgs.pinentry-curses;
   };
 
   home.persistence."${homePersistDir}${homeDirectory}".directories = [".gnupg"];

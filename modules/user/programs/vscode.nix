@@ -11,36 +11,38 @@ in {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      arcticicestudio.nord-visual-studio-code
-      bbenoist.nix
-      github.copilot
-      kamadorueda.alejandra
-      ms-vscode-remote.remote-ssh
-      scalameta.metals
-      vscodevim.vim
-    ];
-    userSettings = {
-      "editor.inlineSuggest.enabled" = true;
-      "editor.fontLigatures" = true;
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        arcticicestudio.nord-visual-studio-code
+        bbenoist.nix
+        github.copilot
+        kamadorueda.alejandra
+        ms-vscode-remote.remote-ssh
+        scalameta.metals
+        vscodevim.vim
+      ];
+      userSettings = {
+        "editor.inlineSuggest.enabled" = true;
+        "editor.fontLigatures" = true;
 
-      "security.workspace.trust.untrustedFiles" = "open";
+        "security.workspace.trust.untrustedFiles" = "open";
 
-      "window.menuBarVisibility" = "hidden";
-      "window.zoomLevel" = 2;
-      "workbench.startupEditor" = "none";
-      "workbench.colorTheme" = "Nord";
+        "window.menuBarVisibility" = "hidden";
+        "window.zoomLevel" = 2;
+        "workbench.startupEditor" = "none";
+        "workbench.colorTheme" = "Nord";
 
-      "keyboard.dispatch" = "keyCode";
+        "keyboard.dispatch" = "keyCode";
 
-      "vim.leader" = " ";
-      "vim.vimrc.enable" = true;
-      "vim.useSystemClipboard" = true;
+        "vim.leader" = " ";
+        "vim.vimrc.enable" = true;
+        "vim.useSystemClipboard" = true;
 
-      "files.watcherExclude" = {
-        "**/.bloop" = true;
-        "**/.metals" = true;
-        "**/.ammonite" = true;
+        "files.watcherExclude" = {
+          "**/.bloop" = true;
+          "**/.metals" = true;
+          "**/.ammonite" = true;
+        };
       };
     };
   };

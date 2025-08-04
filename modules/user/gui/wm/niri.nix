@@ -83,7 +83,12 @@ in {
         };
 
         focus-follows-mouse.enable = true;
-        warp-mouse-to-focus = true;
+        warp-mouse-to-focus.enable = true;
+      };
+
+      cursor = {
+        hide-after-inactive-ms = 3000;
+        hide-when-typing = true;
       };
 
       screenshot-path = "~/Downloads/Screenshots/%Y-%m-%dT%H:%M:%S.png";

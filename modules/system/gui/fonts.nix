@@ -11,7 +11,8 @@ in {
       packages = with pkgs; [
         libertinus
         roboto
-        (nerdfonts.override {fonts = ["Iosevka" "NerdFontsSymbolsOnly"];})
+        nerd-fonts.iosevka
+        nerd-fonts.symbols-only
         symbola
         noto-fonts
         noto-fonts-cjk-sans
@@ -28,12 +29,12 @@ in {
         };
 
         sansSerif = {
-          package = pkgs.maple-mono-NF;
+          package = pkgs.maple-mono.NF;
           name = "Maple Mono NF";
         };
 
         monospace = {
-          package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+          package = pkgs.nerd-fonts.iosevka;
           name = "Iosevka Nerd Font Mono";
         };
 
