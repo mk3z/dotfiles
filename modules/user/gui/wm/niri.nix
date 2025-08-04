@@ -103,7 +103,18 @@ in {
         always-center-single-column = true;
 
         gaps = 0;
+
+        background-color = "transparent";
       };
+
+      layer-rules = [
+        {
+          matches = [{namespace = "^wallpaper$";}];
+          place-within-backdrop = true;
+        }
+      ];
+
+      overview. workspace-shadow.enable = false;
 
       animations.slowdown = 0.5;
 
@@ -170,6 +181,11 @@ in {
           "Mod+Comma".action.consume-window-into-column = [];
           "Mod+Period".action.expel-window-from-column = [];
           "Mod+Space".action.center-column = [];
+
+          "Mod+O" = {
+            repeat = false;
+            action.toggle-overview = [];
+          };
 
           "Mod+Shift+O".action.show-hotkey-overlay = [];
 
