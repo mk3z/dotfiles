@@ -12,7 +12,7 @@ in {
     networkmanager = {
       enable = true;
       wifi.macAddress = "stable-ssid";
-      ethernet.macAddress = lib.mkIf (!config.mkez.core.server) "random";
+      ethernet.macAddress = lib.mkIf (!config.mkez.core.server) "stable";
     };
   };
 
