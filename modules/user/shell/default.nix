@@ -13,6 +13,7 @@ in {
     ./tools.nix
     ./ssh.nix
     ./starship.nix
+    ./zoxide.nix
   ];
 
   home.persistence."${homePersistDir}${homeDirectory}" = {
