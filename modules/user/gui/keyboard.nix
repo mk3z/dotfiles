@@ -8,7 +8,6 @@
       text = ''
         xkb_symbols {
           include "us(colemak_dh_iso)"
-          key <ESC>  { [ Caps_Lock ] };
 
           key <AD03> { [ f, F, exclam ] };
           key <AD04> { [ p, P, at ] };
