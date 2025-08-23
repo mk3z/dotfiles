@@ -22,6 +22,7 @@ in {
   "vaultwarden.env.age".publicKeys = [nas];
   "firefox-sync-secrets.age".publicKeys = [nas];
   "vpn-wg-conf.age".publicKeys = [nas];
+  "qt-password.age".publicKeys = [nas];
 
   # Bastion
   "email-password.age".publicKeys = [bastion];

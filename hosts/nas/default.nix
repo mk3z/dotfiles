@@ -7,7 +7,13 @@
   inherit (config.mkez.core) hostname;
   inherit (config.mkez.user) email;
 in {
-  imports = [./hardware-configuration.nix ./boot.nix ./gameserver.nix ./vpn.nix];
+  imports = [
+    ./hardware-configuration.nix
+    ./boot.nix
+    ./gameserver.nix
+    ./qtnfs3.nix
+    ./vpn.nix
+  ];
 
   system.stateVersion = "24.11";
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
