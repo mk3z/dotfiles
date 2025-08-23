@@ -41,9 +41,7 @@ in {
   users.groups.bastion = {};
   environment.systemPackages = [pkgs.borgbackup];
 
-  age.secrets.cloudflare_env = {
-    file = ../../secrets/cloudflare.env.age;
-  };
+  age.secrets.cloudflare_env.file = ../../secrets/cloudflare.env.age;
 
   security.acme = {
     acceptTerms = true;
@@ -55,7 +53,7 @@ in {
       domain = "intra.mkez.fi";
       extraDomainNames = ["*.intra.mkez.fi"];
       dnsProvider = "cloudflare";
-      dnsResolver = "konnor.ns.cloudflare.com";
+      dnsResolver = "1.1.1.1:53";
       webroot = null;
       environmentFile = config.age.secrets.cloudflare_env.path;
     };
