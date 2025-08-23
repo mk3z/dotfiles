@@ -8,7 +8,7 @@
   inherit (osConfig.mkez.user) homeDirectory;
   package =
     if osConfig.mkez.services.krb.enable
-    then pkgs.openssh_gssapi.override {withKerberos = osConfig.mkez.services.krb.enable;}
+    then pkgs.openssh_gssapi.override {withKerberos = true;}
     else pkgs.openssh;
 in {
   home = {
