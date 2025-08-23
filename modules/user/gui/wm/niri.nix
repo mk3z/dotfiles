@@ -72,8 +72,8 @@ in {
           repeat-rate = 60;
 
           xkb = {
-            layout = "colemat,us,us";
-            variant = ",intl,colemak,";
+            layout = "colemat,us";
+            variant = ",altgr-intl";
           };
         };
 
