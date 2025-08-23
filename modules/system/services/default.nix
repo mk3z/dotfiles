@@ -12,6 +12,7 @@
     ./headscale.nix
     ./homeassistant.nix
     ./jellyfin.nix
+    ./krb
     ./mailserver.nix
     ./monero.nix
     ./mosh.nix
