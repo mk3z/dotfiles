@@ -9,7 +9,7 @@
 in {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
 
     ./accounts.nix
     ./editors
