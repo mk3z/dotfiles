@@ -6,8 +6,10 @@
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
   inherit (osConfig.mkez.user) homeDirectory;
+  inherit (lib) mkIf;
+  krbEnabled = osConfig.mkez.services.krb.enable;
   package =
-    if osConfig.mkez.services.krb.enable
+    if krbEnabled
     then pkgs.openssh_gssapi.override {withKerberos = true;}
     else pkgs.openssh;
 in {
@@ -27,7 +29,7 @@ in {
       nas = {
         forwardAgent = true;
       };
-      "lxplus*" = {
+      "lxplus*" = mkIf krbEnabled {
         user = "mzwinger";
         extraOptions = {
           GSSAPIAuthentication = "yes";
