@@ -11,7 +11,7 @@ in {
   config = mkIf cfg.enable {
     security.krb5 = {
       enable = true;
-      settings.include = ["cern.conf"];
+      settings.include = [./cern.conf];
     };
   };
 }
