@@ -33,12 +33,14 @@
         torrentDir: "/torrents",
         outputDir: "/cross-seed",
 
-        transmissionRpcUrl: "http://10.88.0.1:${toString rpc-port}/transmission/rpc",
+        torrentClients: ["transmission:http://10.88.0.1:${toString rpc-port}/transmission/rpc"],
         action: "inject",
 
         delay: 30,
         rssCadence: "10 minutes",
-        searchCadence: "1 weeks",
+        searchCadence: "1 day",
+        excludeOlder: "2 weeks",
+        excludeRecentSearch: "3 days",
       }
     '';
 in {
