@@ -16,8 +16,8 @@ in {
   xdg.mimeApps = {
     defaultApplications = {
       "text/html" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox-esr.desktop";
+      "x-scheme-handler/https" = "firefox-esr.desktop";
     };
   };
 
@@ -25,6 +25,7 @@ in {
 
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox-esr;
     nativeMessagingHosts = with pkgs; [ff2mpv-rust];
     profiles.default = {
       name = "default";

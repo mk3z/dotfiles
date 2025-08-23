@@ -133,7 +133,7 @@ in {
       in
         {
           "Mod+Return".action.spawn = [terminal];
-          "Mod+W".action.spawn = ["${pkgs.firefox}/bin/firefox"];
+          "Mod+W".action.spawn = ["${pkgs.firefox-esr}/bin/firefox-esr"];
           "Mod+D".action.spawn = launcher;
           "Mod+L".action.spawn = ["${pkgs.swaylock}/bin/swaylock"];
 
