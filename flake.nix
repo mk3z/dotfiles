@@ -84,7 +84,7 @@
     };
 
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:sodiboo/niri-flake/97876f35dcd5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
