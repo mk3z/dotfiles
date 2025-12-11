@@ -11,9 +11,8 @@ in {
   config = mkIf osConfig.mkez.programs.kubernetes.enable {
     programs.k9s = {
       enable = true;
+      settings.ui.skin = "skin";
     };
-
-    stylix.targets.k9s.enable = false;
 
     home = {
       packages = with pkgs; [
