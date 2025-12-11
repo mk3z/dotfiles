@@ -75,7 +75,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.05";
 
     stylix = {
       url = "github:danth/stylix/release-25.05";
