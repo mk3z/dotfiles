@@ -5,7 +5,7 @@
 
   # Startup
   "browser.aboutConfig.showWarning" = false;
-  "browser.startup.page" = 0;
+  "browser.startup.page" = 3;
   "browser.startup.homepage" = "about:blank";
   "browser.newtabpage.enabled" = false;
   "browser.newtabpage.activity-stream.showSponsored" = false;
