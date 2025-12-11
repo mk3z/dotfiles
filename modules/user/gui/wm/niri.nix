@@ -129,11 +129,12 @@ in {
       binds = let
         playerctl = "${pkgs.playerctl}/bin/playerctl";
         wpctl = "${pkgs.wireplumber}/bin/wpctl";
+        browser = "${pkgs.firefox-esr}/bin/firefox-esr";
         launcher = lib.strings.splitString " " gui.launcher.command;
       in
         {
           "Mod+Return".action.spawn = [terminal];
-          "Mod+W".action.spawn = ["${pkgs.firefox-esr}/bin/firefox-esr"];
+          "Mod+W".action.spawn = [browser];
           "Mod+D".action.spawn = launcher;
           "Mod+L".action.spawn = ["${pkgs.swaylock}/bin/swaylock"];
 
