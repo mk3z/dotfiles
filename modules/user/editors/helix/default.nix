@@ -44,12 +44,12 @@ in {
               "file-name"
               "read-only-indicator"
               "file-modification-indicator"
-              "position"
-              "position-percentage"
-              "primary-selection-length"
             ];
             right = [
               "diagnostics"
+              "position"
+              "position-percentage"
+              "primary-selection-length"
               "selections"
               "register"
               "file-encoding"
