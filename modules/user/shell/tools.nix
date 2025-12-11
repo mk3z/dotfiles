@@ -11,7 +11,7 @@ in {
     gh
     libqalculate
     sshuttle
-    tldr
+    tlrc
     unzip
     yq-go
 
