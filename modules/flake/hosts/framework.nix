@@ -15,6 +15,7 @@
         };
         hardware = {
           bluetooth.enable = true;
+          bolt.enable = true;
           fprint.enable = true;
           laptop.enable = true;
           rtl-sdr.enable = true;
