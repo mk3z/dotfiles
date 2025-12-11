@@ -3,6 +3,7 @@
     enable = true;
     config = {
       page_separator_width = "4";
+      should_launch_new_window = "1";
 
       # base16-sioyek (https://github.com/loiccoyle/base16-sioyek)
       # by Loic Coyle
