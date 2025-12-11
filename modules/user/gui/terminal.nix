@@ -1,10 +1,13 @@
 {
-  programs.alacritty = {
+  programs.foot = {
     enable = true;
-    settings.window = {
-      decorations = "None";
-      dynamic_padding = true;
-      class.general = "alacritty";
+    settings = {
+      main = {
+        resize-by-cells = false;
+        pad = "0x0 center";
+      };
+      csd.preferred = "none";
+      cursor.beam-thickness = 1;
     };
   };
 }

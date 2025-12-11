@@ -7,7 +7,7 @@
 }: let
   inherit (lib) mkOption mkIf types;
   cfg = config.mkez.gui.wm.niri;
-  terminal = "alacritty";
+  terminal = "foot";
 
   inherit (config.programs) niri;
   inherit (config.mkez) gui;
