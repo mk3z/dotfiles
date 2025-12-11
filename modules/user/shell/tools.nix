@@ -48,6 +48,7 @@ in {
     nix-melt
     nix-output-monitor
     nix-tree
+    npins
     nvd
     statix
 
