@@ -121,9 +121,6 @@
     };
 
     extraPackages = with pkgs; [
-      # Ansible
-      ansible-language-server
-
       # Bash
       nodePackages_latest.bash-language-server
 
@@ -133,10 +130,6 @@
 
       # Dockerfile
       dockerfile-language-server-nodejs
-
-      # Elixir
-      elixir-ls
-      rtx
 
       # HTML, CSS, JSON
       vscode-langservers-extracted
@@ -152,12 +145,6 @@
 
       # Nix
       nil
-
-      # OCaml
-      ocamlPackages.ocaml-lsp
-
-      # Svelte
-      nodePackages.svelte-language-server
 
       # Typst
       tinymist
