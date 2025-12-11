@@ -1,7 +1,5 @@
 {
   imports = [
-    ./doom
     ./helix
-    ./neovim
   ];
 }

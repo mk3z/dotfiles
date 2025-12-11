@@ -38,7 +38,6 @@ in {
     overlays = [
       inputs.nur.overlays.default
       inputs.helix.overlays.default
-      inputs.fenix.overlays.default
     ];
     config.allowUnfree = true;
   };

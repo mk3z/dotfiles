@@ -103,45 +103,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    doom-emacs = {
-      url = "github:ckiee/nix-doom-emacs/move-nix-straight-in";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        # NOTE: Remove this when upstream nix-straight.el implements pgtk support.
-        nix-straight.follows = "nix-straight";
-      };
-    };
-
-    nix-straight = {
-      url = "github:mk3z/nix-straight.el";
-      flake = false;
-    };
-
-    copilot = {
-      url = "github:zerolfx/copilot.el";
-      flake = false;
-    };
-
-    ob-ammonite = {
-      url = "github:zwild/ob-ammonite";
-      flake = false;
-    };
-
-    ammonite-term-repl = {
-      url = "github:zwild/ammonite-term-repl";
-      flake = false;
-    };
-
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     fish-ssh-agent = {
       url = "github:danhper/fish-ssh-agent";
       flake = false;
