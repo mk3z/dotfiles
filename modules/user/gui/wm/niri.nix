@@ -207,6 +207,8 @@ in {
           "Mod+P".action.spawn = [playerctl "play-pause"];
           "Mod+Left".action.spawn = [playerctl "previous"];
           "Mod+Right".action.spawn = [playerctl "next"];
+
+          "Ctrl+Shift+Alt+Mod+L".action.spawn = [browser "https://linkedin.com/"];
         }
         // (lib.attrsets.mergeAttrsList (
           map (x: {
