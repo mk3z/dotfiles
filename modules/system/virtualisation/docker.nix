@@ -16,10 +16,18 @@ in {
       rootless = {
         enable = true;
         setSocketVariable = true;
+        daemon.settings = {
+          dns = [
+            "9.9.9.9"
+            "1.1.1.1"
+          ];
+        };
       };
       storageDriver = "overlay2";
     };
     environment.systemPackages = with pkgs; [docker-compose];
     users.users.${username}.extraGroups = ["docker"];
+
+    systemd.services."user@".serviceConfig.Delegate = "cpu cpuset io memory pids";
   };
 }
