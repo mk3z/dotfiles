@@ -3,6 +3,7 @@
     ./bitwarden.nix
     ./bitwig.nix
     ./chromium.nix
+    ./discord.nix
     ./firefox
     ./gimp.nix
     ./gnuradio.nix
@@ -25,7 +26,6 @@
     ./telegram.nix
     ./thunderbird.nix
     ./vscode.nix
-    ./webcord.nix
     ./wine.nix
   ];
 

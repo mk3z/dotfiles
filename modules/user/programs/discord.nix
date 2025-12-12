@@ -7,7 +7,7 @@
   inherit (osConfig.mkez.user) homeDirectory;
 in {
   home = {
-    packages = with pkgs; [webcord];
-    persistence."${homePersistDir}${homeDirectory}".directories = [".config/WebCord"];
+    packages = with pkgs; [vesktop];
+    persistence."${homePersistDir}${homeDirectory}".directories = [".config/vesktop"];
   };
 }
