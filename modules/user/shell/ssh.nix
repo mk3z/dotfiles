@@ -24,7 +24,6 @@ in {
   programs.ssh = {
     enable = true;
     inherit package;
-    addKeysToAgent = "yes";
     matchBlocks = {
       nas = {
         forwardAgent = true;
