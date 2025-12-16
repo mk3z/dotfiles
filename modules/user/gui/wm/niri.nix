@@ -45,6 +45,8 @@ in {
 
   config = mkIf cfg.enable {
     home = {
+      packages = [pkgs.xwayland-satellite];
+
       sessionVariables = {
       };
     };
@@ -61,7 +63,7 @@ in {
         CLUTTER_BACKEND = "wayland";
         GDK_BACKEND = "wayland";
 
-        DISPLAY = ":25";
+        DISPLAY = ":0";
       };
 
       prefer-no-csd = true;
@@ -119,8 +121,6 @@ in {
       animations.slowdown = 0.5;
 
       spawn-at-startup = [
-        # See https://github.com/YaLTeR/niri/wiki/Xwayland
-        {command = ["${lib.getExe pkgs.xwayland-satellite-unstable}" ":25"];}
         {command = ["${pkgs.swaybg}/bin/swaybg" "-m" "fill" "-i" "${builtins.toString osConfig.stylix.image}"];}
       ];
 
