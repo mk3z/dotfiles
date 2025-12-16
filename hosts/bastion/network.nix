@@ -11,6 +11,8 @@ in {
     useDHCP = lib.mkDefault true;
   };
 
+  networking.firewall.interfaces.${lanInterface}.allowedTCPPorts = [22];
+
   systemd.network = {
     enable = true;
     networks."10-wan" = {
