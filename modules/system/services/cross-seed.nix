@@ -5,7 +5,6 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkOption mkIf;
-  inherit (lib.lists) range;
   inherit (lib.strings) concatStrings;
 
   cfg = config.mkez.services.cross-seed;
@@ -26,7 +25,7 @@
         concatStrings (
           map
           (num: "\"http://10.88.0.1:9696/prowlarr/" + toString num + "/api?apikey=${apikey}&extended=1&t=search\",\n")
-          (range 1 30)
+          [1 8 12 16 17 18 19 21 22 23 24 25 26 27]
         )
       }
         ],
