@@ -17,7 +17,7 @@ in {
 
     # disk
     duf
-    du-dust
+    dust
     fd
     ripgrep
 
@@ -76,10 +76,11 @@ in {
 
     git = {
       enable = true;
-      package = pkgs.gitAndTools.gitFull;
-      userName = realName;
-      userEmail = email;
-      extraConfig = {
+      settings = {
+        user = {
+          name = realName;
+          inherit email;
+        };
         commit.verbose = true;
         core = {
           untrackedcache = true;
@@ -107,8 +108,9 @@ in {
           condition = "gitdir:~/Projects/CERN/**";
         }
       ];
-      delta.enable = true;
     };
+
+    delta.enable = true;
 
     fzf.enable = true;
 

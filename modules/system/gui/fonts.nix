@@ -16,7 +16,7 @@ in {
         symbola
         noto-fonts
         noto-fonts-cjk-sans
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         fira-code
       ];
     };
@@ -39,7 +39,7 @@ in {
         };
 
         emoji = {
-          package = pkgs.noto-fonts-emoji;
+          package = pkgs.noto-fonts-color-emoji;
           name = "Noto Color Emoji";
         };
 

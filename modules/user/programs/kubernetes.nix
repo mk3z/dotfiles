@@ -9,10 +9,7 @@
   inherit (osConfig.mkez.user) homeDirectory;
 in {
   config = mkIf osConfig.mkez.programs.kubernetes.enable {
-    programs.k9s = {
-      enable = true;
-      settings.ui.skin = "skin";
-    };
+    programs.k9s.enable = true;
 
     home = {
       packages = with pkgs; [

@@ -129,7 +129,7 @@
       lldb
 
       # Dockerfile
-      dockerfile-language-server-nodejs
+      dockerfile-language-server
 
       # HTML, CSS, JSON
       vscode-langservers-extracted

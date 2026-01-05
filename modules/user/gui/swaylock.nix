@@ -1,5 +1,5 @@
 {lib, ...}: {
-  stylix.targets.swaylock.useImage = false;
+  stylix.targets.swaylock.useWallpaper = false;
 
   programs.swaylock = {
     enable = true;

@@ -20,7 +20,7 @@ in {
           user = username;
         };
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${startCommand} --time --time-format %Y-%m-%d %H:%M:%S% --remember";
+          command = "${pkgs.tuigreet}/bin/tuigreet --cmd ${startCommand} --time --time-format %Y-%m-%d %H:%M:%S% --remember";
           user = username;
         };
       };
