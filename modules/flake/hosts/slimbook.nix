@@ -16,6 +16,7 @@
         core = {
           hostname = "slimbook";
         };
+        user.passwordFile = ../../../secrets/slimbook-password.age;
         hardware = {
           bluetooth.enable = true;
           laptop.enable = true;

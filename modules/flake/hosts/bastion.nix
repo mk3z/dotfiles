@@ -16,6 +16,7 @@
           server = true;
           lanInterface = "enp1s0";
         };
+        user.passwordFile = ../../../secrets/bastion-password.age;
         services = {
           headscale.enable = true;
           mailserver.enable = true;

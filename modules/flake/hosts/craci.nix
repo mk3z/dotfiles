@@ -14,6 +14,7 @@
           hostname = "craci";
         };
         user = {
+          passwordFile = ../../../secrets/craci-password.age;
           email = "matias.zwinger@craci.com";
           key = "DC815132F8A2A2D1CF4C7A4E9C7594038C66DA99";
           keyFile = "craci";

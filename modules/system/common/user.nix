@@ -24,6 +24,12 @@ in {
       type = types.str;
       default = "/home/${cfg.username}";
     };
+    passwordFile = mkOption {
+      description = "Agenix hashed password file";
+      type = types.path;
+      default = ../../../secrets/password.age;
+    };
+    noPassword = mkEnableOption "Don't set user password";
     email = mkOption {
       description = "User email";
       type = types.str;
@@ -39,18 +45,14 @@ in {
       type = types.str;
       default = "default";
     };
-    noPassword = mkEnableOption "Don't set user password";
+    extraPersistDirs = mkOption {
+      description = "Extra directories to persist";
+      type = types.listOf types.str;
+      default = [];
+    };
   };
   config = {
-    # Get agenix password secret
-    age.secrets =
-      if config.mkez.core.hostname == "bastion"
-      then {bastion-password.file = ../../../secrets/bastion-password.age;}
-      else if config.mkez.core.hostname == "slimbook"
-      then {slimbook-password.file = ../../../secrets/slimbook-password.age;}
-      else if config.mkez.core.hostname == "craci"
-      then {craci-password.file = ../../../secrets/craci-password.age;}
-      else {password.file = ../../../secrets/password.age;};
+    age.secrets.password.file = cfg.passwordFile;
 
     # Make the default user
     users = {
@@ -59,16 +61,7 @@ in {
         isNormalUser = true;
         createHome = true;
         extraGroups = ["wheel" "audio" "video" "dialout"];
-        hashedPasswordFile =
-          if config.mkez.core.hostname == "bastion"
-          then config.age.secrets.bastion-password.path
-          else if config.mkez.core.hostname == "slimbook"
-          then config.age.secrets.slimbook-password.path
-          else if config.mkez.core.hostname == "craci"
-          then config.age.secrets.craci-password.path
-          else if !cfg.noPassword
-          then config.age.secrets.password.path
-          else null;
+        hashedPasswordFile = config.age.secrets.password.path;
       };
 
       # Don't allow mutation of users outside of the config.
