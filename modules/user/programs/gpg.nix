@@ -5,11 +5,7 @@
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
   inherit (osConfig.mkez.user) homeDirectory;
-  gpgKey = pkgs.fetchurl {
-    url = "https://keys.openpgp.org/vks/v1/by-fingerprint/${osConfig.mkez.user.key}";
-    # NOTE: This is sub-optimal since it has to be changed each time the pubkey changes
-    sha256 = "WkEqgFUoMp3MpWI1oKBMyTXhilZlPPKrqesQsUZq8EY=";
-  };
+  gpgKey = ../../../files/${osConfig.mkez.user.keyFile}.asc;
 in {
   programs.gpg = {
     enable = true;

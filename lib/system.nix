@@ -8,15 +8,13 @@ in {
   mkHost = {
     systemConfig,
     userConfig ? {},
+    sysPersistDir ? "/persist",
     extraModules ? [],
   }: let
     inherit (systemConfig.core) hostname;
   in
     nixosSystem {
-      specialArgs = {
-        inherit inputs;
-        sysPersistDir = "/persist";
-      };
+      specialArgs = {inherit inputs sysPersistDir;};
 
       modules =
         [
@@ -45,10 +43,11 @@ in {
               else {};
           })
 
+          inputs.agenix.nixosModules.default
+          inputs.disko.nixosModules.disko
           inputs.home-manager.nixosModules.home-manager
           inputs.impermanence.nixosModule
-          inputs.disko.nixosModules.disko
-          inputs.agenix.nixosModules.default
+          inputs.lanzaboote.nixosModules.lanzaboote
           inputs.stylix.nixosModules.stylix
         ]
         ++ extraModules;

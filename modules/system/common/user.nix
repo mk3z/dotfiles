@@ -34,6 +34,11 @@ in {
       type = types.str;
       default = "0A715A2A51F159FC895C510208CC36C547AEE889";
     };
+    keyFile = mkOption {
+      description = "User GPG key file";
+      type = types.str;
+      default = "default";
+    };
     noPassword = mkEnableOption "Don't set user password";
   };
   config = {
@@ -43,6 +48,8 @@ in {
       then {bastion-password.file = ../../../secrets/bastion-password.age;}
       else if config.mkez.core.hostname == "slimbook"
       then {slimbook-password.file = ../../../secrets/slimbook-password.age;}
+      else if config.mkez.core.hostname == "craci"
+      then {craci-password.file = ../../../secrets/craci-password.age;}
       else {password.file = ../../../secrets/password.age;};
 
     # Make the default user
@@ -57,6 +64,8 @@ in {
           then config.age.secrets.bastion-password.path
           else if config.mkez.core.hostname == "slimbook"
           then config.age.secrets.slimbook-password.path
+          else if config.mkez.core.hostname == "craci"
+          then config.age.secrets.craci-password.path
           else if !cfg.noPassword
           then config.age.secrets.password.path
           else null;

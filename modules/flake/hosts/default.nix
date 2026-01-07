@@ -4,6 +4,7 @@
 in {
   imports = [
     (import ./bastion.nix {inherit inputs mkHost;})
+    (import ./craci.nix {inherit inputs mkHost;})
     (import ./desktop.nix {inherit inputs mkHost;})
     (import ./framework.nix {inherit inputs mkHost;})
     (import ./nas.nix {inherit inputs mkHost;})

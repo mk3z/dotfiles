@@ -1,11 +1,7 @@
 {
   description = "mkez NixOS configuration";
 
-  outputs = {
-    flake-parts,
-    devenv,
-    ...
-  } @ inputs:
+  outputs = {flake-parts, ...} @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
 
@@ -31,7 +27,10 @@
               statix.enable = true;
               typos = {
                 enable = true;
-                settings.exclude = "*.el";
+                settings = {
+                  exclude = "*.asc";
+                  ignored-words = ["crypted"];
+                };
               };
             };
           };
@@ -54,6 +53,11 @@
 
     disko = {
       url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
