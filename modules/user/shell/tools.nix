@@ -99,14 +99,6 @@ in {
           contents.user.email = "matias.zwinger@aalto.fi";
           condition = "gitdir:~/Projects/Aalto/**";
         }
-        {
-          contents.user.email = "matias.zwinger@csc.fi";
-          condition = "gitdir:~/Projects/CSC/**";
-        }
-        {
-          contents.user.email = "matias.zwinger@cern.ch";
-          condition = "gitdir:~/Projects/CERN/**";
-        }
       ];
     };
 
