@@ -13,6 +13,7 @@
         core = {
           hostname = "framework";
         };
+        user.extraPersistDirs = ["School"];
         hardware = {
           bluetooth.enable = true;
           bolt.enable = true;

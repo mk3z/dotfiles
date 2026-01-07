@@ -92,20 +92,20 @@ in {
               user = cfg.username;
               inherit (config.users.users.${cfg.username}) group;
             }
-          ) [
-            "Audio"
-            "Documents"
-            "Downloads/persistent"
-            "Music"
-            "Pictures"
-            "Projects"
-            "School"
-            "Videos"
+          ) ([
+              "Audio"
+              "Documents"
+              "Downloads/persistent"
+              "Music"
+              "Pictures"
+              "Projects"
+              "Videos"
 
-            ".cache"
-            ".local/share/keyrings"
-            ".local/state"
-          ];
+              ".cache"
+              ".local/share/keyrings"
+              ".local/state"
+            ]
+            ++ cfg.extraPersistDirs);
       };
 
     programs.fish.enable = true;
