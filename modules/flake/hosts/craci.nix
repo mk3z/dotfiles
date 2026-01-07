@@ -52,6 +52,25 @@
           chromium.enable = true;
           thunderbird.enable = true;
         };
+        services = {
+          kanshi.settings = [
+            {
+              profile = {
+                name = "undocked";
+                outputs = [
+                  {
+                    criteria = "eDP-1";
+                    status = "enable";
+                    mode = "2880x1920@120";
+                    position = "0,0";
+                    scale = 2.0;
+                    adaptiveSync = true;
+                  }
+                ];
+              };
+            }
+          ];
+        };
         editors = {
           helix.enable = true;
         };
