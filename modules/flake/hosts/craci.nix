@@ -34,6 +34,7 @@
         programs = {
           kubernetes.enable = true;
           ydotool.enable = true;
+          firefox.containers = {};
         };
         virtualisation = {
           docker.enable = true;

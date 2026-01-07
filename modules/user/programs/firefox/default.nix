@@ -1,242 +1,252 @@
 {
+  lib,
+  config,
   osConfig,
   pkgs,
   ...
 }: let
+  inherit (lib) mkOption;
   inherit (osConfig.mkez.core) homePersistDir;
   inherit (osConfig.mkez.user) homeDirectory;
+  cfg = config.mkez.firefox;
 in {
   imports = [
     # Cool plugin but scroll is bad
     #./tridactyl.nix
   ];
 
-  home.persistence."${homePersistDir}${homeDirectory}".directories = [".mozilla/firefox"];
+  options.mkez.firefox.containers = mkOption {
+    default = {
+      personal = {
+        id = 1;
+        color = "blue";
+        icon = "fingerprint";
+      };
 
-  xdg.mimeApps = {
-    defaultApplications = {
-      "text/html" = "firefox.desktop";
-      "x-scheme-handler/http" = "firefox-esr.desktop";
-      "x-scheme-handler/https" = "firefox-esr.desktop";
+      school = {
+        id = 2;
+        color = "yellow";
+        icon = "fruit"; # Because teachers eat apples
+      };
+
+      shopping = {
+        id = 3;
+        color = "pink";
+        icon = "cart";
+      };
+
+      espoo = {
+        id = 4;
+        color = "turquoise";
+        icon = "briefcase";
+      };
+
+      other = {
+        id = 5;
+        color = "green";
+        icon = "circle";
+      };
+
+      chat = {
+        id = 6;
+        color = "green";
+        icon = "tree";
+      };
+
+      fr8 = {
+        id = 7;
+        color = "blue";
+        icon = "briefcase";
+      };
     };
   };
 
-  stylix.targets.firefox.profileNames = ["default"];
+  config = {
+    home.persistence."${homePersistDir}${homeDirectory}".directories = [".mozilla/firefox"];
 
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox-esr;
-    nativeMessagingHosts = with pkgs; [ff2mpv-rust];
-    profiles.default = {
-      name = "default";
-      id = 0;
-      settings = import ./settings.nix;
-
-      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        bitwarden
-        darkreader
-        ff2mpv
-        kristofferhagen-nord-theme
-        privacy-badger
-        privacy-redirect
-        rust-search-extension
-        sidebery
-        skip-redirect
-        sponsorblock
-        ublock-origin
-        user-agent-string-switcher
-        vimium
-        web-archives
-      ];
-
-      containers = {
-        personal = {
-          id = 1;
-          color = "blue";
-          icon = "fingerprint";
-        };
-
-        school = {
-          id = 2;
-          color = "yellow";
-          icon = "fruit"; # Because teachers eat apples
-        };
-
-        shopping = {
-          id = 3;
-          color = "pink";
-          icon = "cart";
-        };
-
-        espoo = {
-          id = 4;
-          color = "turquoise";
-          icon = "briefcase";
-        };
-
-        other = {
-          id = 5;
-          color = "green";
-          icon = "circle";
-        };
-
-        chat = {
-          id = 6;
-          color = "green";
-          icon = "tree";
-        };
-
-        fr8 = {
-          id = 7;
-          color = "blue";
-          icon = "briefcase";
-        };
+    xdg.mimeApps = {
+      defaultApplications = {
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox-esr.desktop";
+        "x-scheme-handler/https" = "firefox-esr.desktop";
       };
+    };
 
-      search = {
-        force = true;
-        default = "ddg";
-        engines = {
-          "Amazon.de" = {
-            urls = [{template = "https://www.amazon.de/s?k={searchTerms}";}];
-            definedAliases = [":az"];
-          };
+    stylix.targets.firefox.profileNames = ["default"];
 
-          "Arch Wiki" = {
-            urls = [
-              {
-                template = "https://wiki.archlinux.org/index.php?search={searchTerms}";
-              }
-            ];
-            definedAliases = [":aw"];
-          };
+    programs.firefox = {
+      enable = true;
+      package = pkgs.firefox-esr;
+      nativeMessagingHosts = with pkgs; [ff2mpv-rust];
+      profiles.default = {
+        name = "default";
+        id = 0;
+        settings = import ./settings.nix;
 
-          "ddg" = {
-            urls = [{template = "https://duckduckgo.com/?q={searchTerms}";}];
-            definedAliases = [":d"];
-          };
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          bitwarden
+          darkreader
+          ff2mpv
+          kristofferhagen-nord-theme
+          privacy-badger
+          privacy-redirect
+          rust-search-extension
+          sidebery
+          skip-redirect
+          sponsorblock
+          ublock-origin
+          user-agent-string-switcher
+          vimium
+          web-archives
+        ];
 
-          "Home Manager" = {
-            urls = [
-              {
-                template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
-              }
-            ];
-            definedAliases = [":hm"];
-          };
+        inherit (cfg) containers;
 
-          "Nix Options" = {
-            urls = [
-              {
-                template = "https://search.nixos.org/options";
-                params = [
-                  {
-                    name = "channel";
-                    value = "unstable";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            definedAliases = [":no"];
-          };
+        search = {
+          force = true;
+          default = "ddg";
+          engines = {
+            "Amazon.de" = {
+              urls = [{template = "https://www.amazon.de/s?k={searchTerms}";}];
+              definedAliases = [":az"];
+            };
 
-          "Nix Packages" = {
-            urls = [
-              {
-                template = "https://search.nixos.org/packages";
-                params = [
-                  {
-                    name = "channel";
-                    value = "unstable";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            definedAliases = [":np"];
-          };
+            "Arch Wiki" = {
+              urls = [
+                {
+                  template = "https://wiki.archlinux.org/index.php?search={searchTerms}";
+                }
+              ];
+              definedAliases = [":aw"];
+            };
 
-          "NixOS Wiki" = {
-            urls = [
-              {
-                template = "https://nixos.wiki/index.php?search={searchTerms}";
-              }
-            ];
-            definedAliases = [":nw"];
-          };
+            "ddg" = {
+              urls = [{template = "https://duckduckgo.com/?q={searchTerms}";}];
+              definedAliases = [":d"];
+            };
 
-          "Noogle" = {
-            urls = [
-              {
-                template = "https://noogle.dev/q?term={searchTerms}";
-              }
-            ];
-            definedAliases = [":ng"];
-          };
+            "Home Manager" = {
+              urls = [
+                {
+                  template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
+                }
+              ];
+              definedAliases = [":hm"];
+            };
 
-          "Hoogle" = {
-            urls = [
-              {
-                template = "https://hoogle.haskell.org/?hoogle={searchTerms}&scope=set%3Astackage";
-              }
-            ];
-            definedAliases = [":hg"];
-          };
+            "Nix Options" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = [":no"];
+            };
 
-          "wikipedia" = {
-            urls = [
-              {
-                template = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";
-              }
-            ];
-            definedAliases = [":w"];
-          };
+            "Nix Packages" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = [":np"];
+            };
 
-          "wikipedia-de" = {
-            urls = [
-              {
-                template = "https://de.wikipedia.org/wiki/Special:Search?search={searchTerms}";
-              }
-            ];
-            definedAliases = [":wd"];
-          };
+            "NixOS Wiki" = {
+              urls = [
+                {
+                  template = "https://nixos.wiki/index.php?search={searchTerms}";
+                }
+              ];
+              definedAliases = [":nw"];
+            };
 
-          "wikipedia-fi" = {
-            urls = [
-              {
-                template = "https://fi.wikipedia.org/wiki/Special:Search?search={searchTerms}";
-              }
-            ];
-            definedAliases = [":wf"];
-          };
+            "Noogle" = {
+              urls = [
+                {
+                  template = "https://noogle.dev/q?term={searchTerms}";
+                }
+              ];
+              definedAliases = [":ng"];
+            };
 
-          "youtube" = {
-            urls = [
-              {
-                template = "https://www.youtube.com/results?search_query={searchTerms}";
-              }
-            ];
-            definedAliases = [":yt"];
+            "Hoogle" = {
+              urls = [
+                {
+                  template = "https://hoogle.haskell.org/?hoogle={searchTerms}&scope=set%3Astackage";
+                }
+              ];
+              definedAliases = [":hg"];
+            };
+
+            "wikipedia" = {
+              urls = [
+                {
+                  template = "https://en.wikipedia.org/wiki/Special:Search?search={searchTerms}";
+                }
+              ];
+              definedAliases = [":w"];
+            };
+
+            "wikipedia-de" = {
+              urls = [
+                {
+                  template = "https://de.wikipedia.org/wiki/Special:Search?search={searchTerms}";
+                }
+              ];
+              definedAliases = [":wd"];
+            };
+
+            "wikipedia-fi" = {
+              urls = [
+                {
+                  template = "https://fi.wikipedia.org/wiki/Special:Search?search={searchTerms}";
+                }
+              ];
+              definedAliases = [":wf"];
+            };
+
+            "youtube" = {
+              urls = [
+                {
+                  template = "https://www.youtube.com/results?search_query={searchTerms}";
+                }
+              ];
+              definedAliases = [":yt"];
+            };
           };
         };
-      };
 
-      userChrome = ''
-        @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-        #TabsToolbar { visibility: collapse !important; }
-        #sidebar-header { display: none; }
-        #navigator-toolbox {
-          font-family: monospace !important;
-          font-size: 12px !important;
-        }
-      '';
+        userChrome = ''
+          @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+          #TabsToolbar { visibility: collapse !important; }
+          #sidebar-header { display: none; }
+          #navigator-toolbox {
+            font-family: monospace !important;
+            font-size: 12px !important;
+          }
+        '';
+      };
     };
   };
 }
