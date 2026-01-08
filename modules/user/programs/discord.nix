@@ -4,10 +4,9 @@
   ...
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
 in {
   home = {
-    packages = with pkgs; [vesktop];
-    persistence."${homePersistDir}${homeDirectory}".directories = [".config/vesktop"];
+    packages = [pkgs.vesktop];
+    persistence."${homePersistDir}".directories = [".config/vesktop"];
   };
 }

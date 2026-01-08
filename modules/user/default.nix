@@ -4,11 +4,9 @@
   inputs,
   ...
 }: let
-  inherit (osConfig.mkez.core) homePersistDir;
   inherit (osConfig.mkez.user) username homeDirectory;
 in {
   imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.nix-index-database.homeModules.nix-index
 
     ./accounts.nix
@@ -22,8 +20,6 @@ in {
 
   home = {
     inherit username homeDirectory;
-
-    persistence."${homePersistDir}${homeDirectory}".allowOther = true;
 
     sessionVariables.NIXPKGS_ALLOW_UNFREE = 1;
 

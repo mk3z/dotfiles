@@ -5,7 +5,6 @@
   ...
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
 in {
   imports = [./colors.nix];
 
@@ -16,7 +15,7 @@ in {
     image/*; ${pkgs.xdg-utils}/bin/xdg-open %s &
   '';
 
-  home.persistence."${homePersistDir}${homeDirectory}".directories = [".local/share/mail"];
+  home.persistence."${homePersistDir}".directories = [".local/share/mail"];
 
   programs = {
     mbsync = {

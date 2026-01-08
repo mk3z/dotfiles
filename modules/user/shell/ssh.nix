@@ -5,7 +5,6 @@
   ...
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
   inherit (lib) mkIf;
   krbEnabled = osConfig.mkez.services.krb.enable;
   package =
@@ -14,7 +13,7 @@
     else pkgs.openssh;
 in {
   home = {
-    persistence."${homePersistDir}${homeDirectory}".directories = [".ssh"];
+    persistence."${homePersistDir}".directories = [".ssh"];
     packages = [
       (pkgs.mosh.override {openssh = package;})
       pkgs.sshfs

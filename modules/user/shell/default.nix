@@ -5,7 +5,6 @@
   ...
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
   inherit (osConfig.mkez.programs) kubernetes;
 in {
   imports = [
@@ -16,7 +15,7 @@ in {
     ./zoxide.nix
   ];
 
-  home.persistence."${homePersistDir}${homeDirectory}" = {
+  home.persistence."${homePersistDir}" = {
     files = [".bash_history" ".local/share/fish/fish_history"];
     directories = [".local/share/direnv"];
   };

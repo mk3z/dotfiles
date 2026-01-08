@@ -6,7 +6,6 @@
 }: let
   inherit (osConfig.mkez.user) realName;
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
   mkSchool = {
     address,
     userName ? address,
@@ -92,7 +91,7 @@ in {
           extraMailboxes = ["Drafts" "Junk" "Trash" "Sent" "Archive"];
           extraConfig = ''
             # This together with `set reverse_name` allows automatically
-            # determening the address from which to reply based on the
+            # determining the address from which to reply based on the
             # recipient of the original mail
             alternates mkez@zwinger.fi abuse@zwinger.fi postmaster@zwinger.fi security@zwinger.fi
           '';
@@ -122,5 +121,5 @@ in {
     };
   };
 
-  home.persistence."${homePersistDir}${homeDirectory}".directories = [".local/share/oauth"];
+  home.persistence."${homePersistDir}".directories = [".local/share/oauth"];
 }

@@ -1,8 +1,7 @@
 {osConfig, ...}: let
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
 in {
-  home.persistence."${homePersistDir}${homeDirectory}" = {
+  home.persistence."${homePersistDir}" = {
     directories = [".local/share/zoxide"];
   };
 

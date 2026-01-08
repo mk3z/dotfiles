@@ -8,7 +8,6 @@
   inherit (lib) mkIf mkEnableOption;
   cfg = config.mkez.programs.lutris;
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
 in {
   options.mkez.programs.lutris.enable = mkEnableOption "Enable Lutris";
   config = mkIf cfg.enable {
@@ -22,7 +21,7 @@ in {
             ];
         })
       ];
-      persistence."${homePersistDir}${homeDirectory}".directories = [
+      persistence."${homePersistDir}".directories = [
         ".local/share/lutris"
         ".local/share/games"
       ];

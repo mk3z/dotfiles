@@ -6,7 +6,6 @@
 }: let
   inherit (lib) mkIf;
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
 in {
   config = mkIf osConfig.mkez.programs.kubernetes.enable {
     programs.k9s.enable = true;
@@ -21,7 +20,7 @@ in {
         kube-hunter
       ];
       file.".minikube/bin/docker-machine-driver-kvm2".source = "${pkgs.docker-machine-kvm2}/bin/docker-machine-driver-kvm2";
-      persistence."${homePersistDir}${homeDirectory}".directories = [
+      persistence."${homePersistDir}".directories = [
         ".kube"
       ];
     };

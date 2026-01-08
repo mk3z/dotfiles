@@ -4,7 +4,6 @@
   ...
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
   gpgKey = ../../../files/${osConfig.mkez.user.keyFile}.asc;
 in {
   programs.gpg = {
@@ -62,5 +61,5 @@ in {
     pinentry.package = pkgs.pinentry-curses;
   };
 
-  home.persistence."${homePersistDir}${homeDirectory}".directories = [".gnupg"];
+  home.persistence."${homePersistDir}".directories = [".gnupg"];
 }

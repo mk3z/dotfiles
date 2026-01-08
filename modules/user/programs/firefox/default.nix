@@ -7,7 +7,6 @@
 }: let
   inherit (lib) mkOption;
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
   cfg = config.mkez.firefox;
 in {
   imports = [
@@ -62,7 +61,7 @@ in {
   };
 
   config = {
-    home.persistence."${homePersistDir}${homeDirectory}".directories = [".mozilla/firefox"];
+    home.persistence."${homePersistDir}".directories = [".mozilla/firefox"];
 
     xdg.mimeApps = {
       defaultApplications = {

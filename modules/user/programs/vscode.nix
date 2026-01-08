@@ -4,9 +4,8 @@
   ...
 }: let
   inherit (osConfig.mkez.core) homePersistDir;
-  inherit (osConfig.mkez.user) homeDirectory;
 in {
-  home.persistence."${homePersistDir}${homeDirectory}".directories = [".config/VSCodium/Preferences"];
+  home.persistence."${homePersistDir}".directories = [".config/VSCodium/Preferences"];
 
   programs.vscode = {
     enable = true;
