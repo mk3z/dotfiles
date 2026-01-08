@@ -15,6 +15,7 @@
     ./monero.nix
     ./mpv.nix
     ./neomutt
+    ./octave.nix
     ./prism.nix
     ./qbittorrent.nix
     ./rpcs3.nix
@@ -45,7 +46,6 @@
     # other
     quickemu
     transmission_4
-    (octaveFull.withPackages (opkgs: with opkgs; [communications signal statistics symbolic]))
   ];
 
   programs = {
