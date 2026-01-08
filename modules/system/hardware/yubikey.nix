@@ -9,7 +9,10 @@
   inherit (config.mkez.core) homePersistDir;
   inherit (config.mkez.user) username homeDirectory;
 in {
-  options.mkez.hardware.yubikey.enable = mkEnableOption "Whether to enable Yubikey support";
+  options.mkez.hardware.yubikey = {
+    enable = mkEnableOption "Yubikey support";
+    ssh = mkEnableOption "Yubikey GPG SSH authentication";
+  };
 
   config = mkIf cfg.enable {
     services = {
@@ -22,7 +25,7 @@ in {
       sudo.u2fAuth = true;
     };
 
-    environment.systemPackages = with pkgs; [yubikey-manager];
+    environment.systemPackages = with pkgs; [yubikey-manager yubikey-personalization];
 
     environment.persistence."${homePersistDir}".directories = [
       {

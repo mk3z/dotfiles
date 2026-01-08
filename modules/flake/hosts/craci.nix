@@ -24,7 +24,10 @@
           bolt.enable = true;
           fprint.enable = true;
           laptop.enable = true;
-          yubikey.enable = true;
+          yubikey = {
+            enable = true;
+            ssh = true;
+          };
           zsa.enable = true;
         };
         services = {
