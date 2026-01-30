@@ -58,6 +58,7 @@
           lutris.enable = true;
           monero.enable = true;
           prism.enable = true;
+          spotify.enable = true;
           thunderbird.enable = true;
         };
         services = {
