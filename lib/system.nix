@@ -39,6 +39,7 @@ in {
                 };
                 users.${username} = user.mkConfig {inherit userConfig;};
                 backupFileExtension = "hmbak";
+                overwriteBackup = true;
               }
               else {};
           })
