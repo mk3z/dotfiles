@@ -3,6 +3,7 @@
     ./bitwarden.nix
     ./bitwig.nix
     ./chromium.nix
+    ./claude.nix
     ./discord.nix
     ./firefox
     ./gimp.nix

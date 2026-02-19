@@ -55,6 +55,7 @@
         programs = {
           bitwig.enable = true;
           chromium.enable = true;
+          claude.enable = true;
           lutris.enable = true;
           monero.enable = true;
           prism.enable = true;
