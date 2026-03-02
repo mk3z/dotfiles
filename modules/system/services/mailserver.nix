@@ -61,6 +61,8 @@ in {
           export BORG_RSH="ssh -i ${config.mailserver.mailDirectory}/.ssh/id_ed25519"
         '';
       };
+
+      stateVersion = 3;
     };
 
     security.acme.acceptTerms = true;
