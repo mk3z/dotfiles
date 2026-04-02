@@ -131,9 +131,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    claude-code-nix = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     llm-jail = {
       url = "github:braiins/llm-jail";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.claude-code-nix.follows = "claude-code-nix";
     };
   };
 }

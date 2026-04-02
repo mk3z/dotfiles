@@ -38,6 +38,7 @@ in {
     overlays = [
       inputs.nur.overlays.default
       inputs.helix.overlays.default
+      inputs.claude-code-nix.overlays.default
     ];
     config.allowUnfree = true;
   };
