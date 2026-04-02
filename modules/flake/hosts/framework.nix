@@ -99,6 +99,29 @@
                 ];
               };
             }
+            {
+              profile = {
+                name = "fr8";
+                outputs = [
+                  {
+                    criteria = "eDP-1";
+                    status = "enable";
+                    mode = "2880x1920@120";
+                    position = "1000,1440";
+                    scale = 2.0;
+                    adaptiveSync = true;
+                  }
+                  {
+                    criteria = "PNP(AOC) CU34G2XP 1Q1R4HA003593";
+                    status = "enable";
+                    mode = "3440x1440@100";
+                    position = "0,0";
+                    scale = 1.0;
+                    adaptiveSync = true;
+                  }
+                ];
+              };
+            }
           ];
         };
         editors = {
