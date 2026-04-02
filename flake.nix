@@ -130,5 +130,10 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    llm-jail = {
+      url = "github:braiins/llm-jail";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

@@ -13,6 +13,7 @@
     ./inkscape.nix
     ./kubernetes.nix
     ./libreoffice.nix
+    ./llm-jail.nix
     ./lutris.nix
     ./monero.nix
     ./mpv.nix

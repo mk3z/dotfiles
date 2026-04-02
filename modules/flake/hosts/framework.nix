@@ -57,6 +57,7 @@
           chromium.enable = true;
           claude.enable = true;
           gcloud.enable = true;
+          llm-jail.enable = true;
           lutris.enable = true;
           monero.enable = true;
           prism.enable = true;
