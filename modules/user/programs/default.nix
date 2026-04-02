@@ -6,6 +6,7 @@
     ./claude.nix
     ./discord.nix
     ./firefox
+    ./gcloud.nix
     ./gimp.nix
     ./gnuradio.nix
     ./gpg.nix
